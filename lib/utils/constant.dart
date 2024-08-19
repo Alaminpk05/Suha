@@ -47,3 +47,13 @@ List<Map<String,String>> sliderdetails=[
 
   },
 ];
+
+/// cyclone offer widget's List
+List<Map<String, dynamic>> cycloneOfferItems = [
+  {'value': 0.33, 'asset': 'assets/1.png', 'title': 'Black Table Lamp'},
+  {'value': 0.7, 'asset': 'assets/2.png', 'title': 'White Table Lamp'},
+  {'value': 0.8, 'asset': 'assets/3.png', 'title': 'Modern Table Lamp'},
+  {'value': 0.33, 'asset': 'assets/1.png', 'title': 'Black Table Lamp'},
+  {'value': 0.7, 'asset': 'assets/2.png', 'title': 'White Table Lamp'},
+  {'value': 0.8, 'asset': 'assets/3.png', 'title': 'Modern Table Lamp'},
+];

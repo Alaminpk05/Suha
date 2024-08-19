@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/widgets/textwidget.dart';
-
-import '../pages/Home.dart';
+import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
 import 'categorybuttonwidget.dart';
 
 Widget topProductwithtime(

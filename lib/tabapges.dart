@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/pages/Home.dart';
+import 'package:shuhaui/pages/Home/home_view.dart';
 import 'package:shuhaui/pages/cart.dart';
 import 'package:shuhaui/pages/chat.dart';
 import 'package:shuhaui/pages/pages.dart';
