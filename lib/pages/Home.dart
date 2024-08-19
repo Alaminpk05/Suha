@@ -3,18 +3,19 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/pages/cart.dart';
-import 'package:shuhaui/pages/chat.dart';
-import 'package:shuhaui/pages/pages.dart';
-import 'package:shuhaui/pages/settins.dart';
 import 'package:shuhaui/widgets/categorybuttonwidget.dart';
-import 'package:shuhaui/widgets/cycloneoffer.dart';
+import 'package:shuhaui/widgets/cycloneofferCard.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../utils/constant.dart';
+import '../widgets/textwidget.dart';
+import '../widgets/topProductwithouttime.dart';
+import '../widgets/topproductswithcountdownCard.dart';
+import '../widgets/viewallButton.dart';
+import '../widgets/weeklybestsellerscard.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,50 +26,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>  {
   final PageController pageController=PageController();
-final List _image=[
-  "assets/1.jpg",
-  "assets/2.jpg",
-  "assets/3.jpg",
-
-];
-final List images=[
-  "assets/18.png",
-  "assets/7.png",
-  "assets/12.png",
-  "assets/17.png",
-
-];
-final List tilteList=[
-  "Nescafr Coffe Jar",
-  "Modern Office Chair",
-  'Beach Sunglasses',
-  'Meow Mix Cat Food',
-
-];
-List<Color>coluors=[
-  const Color.fromRGBO(0,147, 118,0.5),
-  Colors.transparent,
-  const Color.fromRGBO(162,0,80,0.5),
-  ];
-final List text=[
-  'Amazon'
-  'Amazon2'
-  'Amazon3'
-];
-  List<Map<String,String>> sliderdetails=[
-    {'image':"assets/1.jpg",
-      'text':'Amazon Echo\n3rd Generation, Charcoal'
-
-    },{
-      'image':"assets/2.jpg",
-      'text':'Amazon2 Echo\n3rd Generation, Charcoal'
-
-    },{'image':"assets/3.jpg",
-
-      'text':'Amazon3 Echo\n3rd Generation, Charcoal'
-
-    },
-  ];
 
 
   int index=0;
@@ -81,10 +38,13 @@ final List text=[
   bool started=true;
   List laps=[];
   void stop(){
-    timer!.cancel();
-    setState(() {
-      started=false;
-    });
+    if(day==0&& hour==0&& minutes==0&& seconds==0){
+      timer!.cancel();
+      setState(() {
+        started=false;
+      });
+    }
+
   }
   void reset(){
     timer!.cancel();
@@ -93,12 +53,7 @@ final List text=[
       digitSeconds='00';digitMinutes='00';digitHours='00';digitDays='00';
     });
   }
-  // void addLaps(){
-  //   String lap='$digitSeconds:$digitMinutes:$digitHours:$digitDays';
-  //   setState(() {
-  //     laps.add(lap);
-  //   });
-  // }
+
 
   ///Creating the started timer function
   void start(){
@@ -303,7 +258,7 @@ final List text=[
 
                             itemBuilder: (context,index){
                               final realIndex = index % sliderdetails.length;
-                          return Image.asset(_image[realIndex],fit: BoxFit.cover,width: double.infinity,);
+                          return Image.asset(pageViewImage[realIndex],fit: BoxFit.cover,width: double.infinity,);
 
                         }),
                       ),
@@ -426,7 +381,7 @@ final List text=[
                   ],
                 ),
               ),
-              /// switch Image
+              /// Theme Changing switch & Image
               ColorFiltered(
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.5) , BlendMode.dstATop),
@@ -476,18 +431,21 @@ final List text=[
                 padding: EdgeInsets.only(left: 3.w,),
                 child: Column(
                   children: [
-                    const ViewProductlist( productListviewTitle: 'Top Products',),
+                     ViewProductlist( productListviewTitle: 'Top Products',
+                      ontab: () {  },),
                     Row(
                       children: [
                         topProductwithtime(name: "Beach Cap", image:"assets/11.png", miniButtonword:"Sale",
-                            miniButtoncolor: const Color.fromRGBO(255, 175, 0,1), color: Colors.black),
+                            miniButtoncolor: const Color.fromRGBO(255, 175, 0,1), color: Colors.black, digitDays: digitDays, digitHours: digitHours,
+                            digitMinutes: digitMinutes, digitSeconds: digitSeconds),
                         topProductwithouttime(name: 'Wooden Sofa', photo:"assets/5.png", color: Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
                       ],
                     ),Row(
                       children: [
 
                         topProductwithouttime(name: "Roof Lamp", photo:"assets/6.png", color: Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
-                        topProductwithtime(name:"Sneaker Shoes", image: "assets/9.png", miniButtonword:"-18%", miniButtoncolor: Colors.redAccent, color:Colors.white ),
+                        topProductwithtime(name:"Sneaker Shoes", image: "assets/9.png", miniButtonword:"-18%", miniButtoncolor: Colors.redAccent, color:Colors.white,
+                            digitDays: digitDays, digitHours: digitHours, digitMinutes: digitMinutes, digitSeconds: digitSeconds ),
                       ],
                     ),
                   ],
@@ -562,7 +520,7 @@ final List text=[
               /// WEEKLY BEST SELLERS
           Padding(
             padding: EdgeInsets.only(left: 3.w),
-            child: const ViewProductlist(productListviewTitle: 'Weekly Best Sellers',),
+            child:  ViewProductlist(productListviewTitle: 'Weekly Best Sellers', ontab: () {  },),
           ),
           ListView.builder(
             scrollDirection: Axis.vertical,
@@ -591,509 +549,7 @@ final List text=[
     );
   }
 
-   Widget topProductwithtime({required name, required image,required miniButtonword, required Color miniButtoncolor,required color}) {
-    return Stack(
-      children: [
-        Container(
-          height: 30.h,
-          width: 45.w,
-          margin: EdgeInsets.only(top: 0.5.h, left: 0.5.w, right: 1.h, bottom: 0.5.h),
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(36, 38, 68, 1),
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        Positioned(
-          top: 3.h,
-          left: 4.w,
-          right: 3.5.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                height: 2.h,
-                width: 9.5.w,
-                decoration: BoxDecoration(
-                  color:miniButtoncolor,
-                  borderRadius: BorderRadius.circular(20.sp),
-                ),
-                child: Center(
-                  child: Text(
-                    miniButtonword,
-                    style: TextStyle(
-                      color:color,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "PlusJakartaSans-Regular.ttf",
-                      fontSize: 13.5.sp,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.h,
-                width: 10.w,
-                child: Image.asset('assets/heart (3).png', fit: BoxFit.contain),
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          top: 3.5.h,
-          left: 10.w,
-          child: Center(child: Image.asset(image, width: 25.w)),
-        ),
-        Positioned(
-          top: (30.h - 3.h) / 2, // Center vertically within the parent height
-          left: (45.w - 30.w) / 2, // Center horizontally within the parent width
-          child: Container(
-            height: 2.5.h,
-            width: 27.w,
-            decoration: BoxDecoration(
-              color: const Color.fromRGBO(255, 175, 0, 1),
-              borderRadius: BorderRadius.circular(20.sp),
-            ),
-            child: Center(
-              child: textwidget(
-                text: "${digitDays}d ${digitHours}h ${digitMinutes}m ${digitSeconds}s",
-                fontszie: 13.5.sp,
-                fonweight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-
-        Positioned(
-          top: 17.h,
-          left: 4.w,
-          child: regularfont(
-            text: name,
-            fontsize: 16.sp,
-            color: Colors.white,
-          ),
-        ),
-        Positioned(
-          top: 19.5.h,
-          left: 3.w,
-          right: 2.w,
-          child: Row(
-            children: [
-              Text(
-                "\$7.99",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(width: 1.w),
-              Text(
-                "\$15",
-                style: TextStyle(
-                  color: const Color.fromRGBO(116, 119, 148, 1),
-                  fontSize: 15.5.sp,
-                  fontWeight: FontWeight.w500,
-                  decoration: TextDecoration.lineThrough,
-                  decorationColor: const Color.fromRGBO(116, 119, 148, 1),
-                  decorationThickness: 0.3.h,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: 2.h,
-          left: 3.3.w,
-          right: 5.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: List.generate(5, (index) {
-                  return Padding(
-                    padding: EdgeInsets.only(right: 0.7.w),
-                    child: Image.asset(
-                      'assets/star.png',
-                      height: 2.5.h,
-                      width: 2.5.w,
-                    ),
-                  );
-                }),
-              ),
-              Container(
-                height: 4.h,
-                width: 4.h, // Use 4.h for both dimensions to maintain the circle
-                decoration: const BoxDecoration(
-                  color: Colors.indigo,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(child: Image.asset('assets/plus.png',height: 2.h,width: 2.h,)),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-
-  }
-  Widget topProductwithouttime({required String name,required String photo,required Color color,required String minibuttonword2}) {
-
-    return Stack(
-      children: [
-        Container(
-          height: 30.h,
-          width: 45.w,
-          margin: EdgeInsets.only(top: 0.5.h, left: 0.5.w, right: 1.h, bottom: 0.5.h),
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(36, 38, 68, 1),
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        Positioned(
-          top: 3.h,
-          left: 6.w,
-          child: Center(child: Image.asset(photo, width: 28.w)),
-        ),
-        Positioned(
-          top: 3.h,
-          left: 4.w,
-          right: 3.5.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                height: 2.h,
-                width: 9.5.w,
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(20.sp),
-                ),
-                child: Center(
-                  child: Text(
-                  minibuttonword2,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "PlusJakartaSans-Regular.ttf",
-                      fontSize: 13.5.sp,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.h,
-                width: 10.w,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 0.7.w
-                  ),
-                  child: Image.asset('assets/heart (3).png', height: 2.5.h,width: 2.5.w
-                    ,),
-                ),
-              ),
-            ],
-          ),
-        ),
 
 
-
-        Positioned(
-          top: 17.h,
-          left: 3.w,
-          child: regularfont(
-            text: name,
-            fontsize: 16.sp,
-            color: Colors.white,
-          ),
-        ),
-        Positioned(
-          top: 19.5.h,
-          left: 3.w,
-          right: 2.w,
-          child: Row(
-            children: [
-              Text(
-                "\$74",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(width: 1.w),
-              Text(
-                "\$99",
-                style: TextStyle(
-                  color: const Color.fromRGBO(116, 119, 148, 1),
-                  fontSize: 15.5.sp,
-                  fontWeight: FontWeight.w500,
-                  decoration: TextDecoration.lineThrough,
-                  decorationColor: const Color.fromRGBO(116, 119, 148, 1),
-                  decorationThickness: 0.3.h,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: 2.h,
-          left: 3.3.w,
-          right: 5.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: List.generate(5, (index) {
-                  return Image.asset(
-                    'assets/star.png',
-                    height: 2.5.h,
-                    width: 2.5.w,
-                  );
-                }),
-              ),
-              Container(
-                height: 4.h,
-                width: 4.h, // Use 4.h for both dimensions to maintain the circle
-                decoration: const BoxDecoration(
-                  color: Colors.indigo,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(child: Image.asset('assets/plus.png',height: 2.h,width: 2.h,)),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-
-
-  }
-}
-
-class WeeklyProductsCard extends StatelessWidget {
-  final String image;
-  final String title;
-  const WeeklyProductsCard({
-    super.key, required this.image, required this.title,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 3.5.w,vertical: 0.5.h),
-      height: 12.h,
-
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(36, 38, 68,1), // Use the passed container color
-        borderRadius: BorderRadius.circular(10.sp),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-              top: 1.h,bottom: 1.h
-            ),
-            height: double.infinity,
-            width: 25.w,
-
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.sp),
-              color: const Color.fromRGBO(51,40,88, 1)
-
-            ),
-            child: Stack(
-              children:[
-                Positioned(
-
-
-
-
-                child: Container(
-                  height: 22.h,
-                  width: 19.w,
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.contain,
-
-
-
-                  ),
-                ),
-              ),
-
-                Positioned(
-                  left: 1.w,
-                  bottom: 6.1.h,
-
-
-                  child: Container(
-                    height: 5.h,
-                    width: 5.w,
-                    decoration: const BoxDecoration(
-                        color: Color.fromRGBO(36, 38, 68,1),
-                        shape: BoxShape.circle
-                    ),
-                    child: Padding(
-                      padding:  EdgeInsets.all(8.5.sp),
-                      child: Image.asset(
-                        'assets/heart (3).png',
-                        height: 3.h,
-                        width: 3.w,
-
-
-                      ),
-                    ),
-                  ),
-                ),
-                ]
-            ),
-
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Padding(
-              padding:  EdgeInsets.only(left: 1.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-                  Padding(
-                    padding:  EdgeInsets.only(top: 1.8.h,
-                    ),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Text(
-                        '\$',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 3.w,),
-                      const Text(
-                        '\$54',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const Text(
-                        '\$64',
-                        style: TextStyle(
-                          color: Color(0xFFDC3545),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  const Row(
-                    children: [
-                      Icon(Icons.star, color: Colors.amber, size: 16),
-                      SizedBox(width: 4),
-                      Text(
-                        "4.88",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),Text(
-                        " (125 Reviews",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-        ],
-      ),
-    );
-  }
-}
-
-class ViewProductlist extends StatelessWidget {
-  final String productListviewTitle;
-  const ViewProductlist({
-    super.key, required this.productListviewTitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding:EdgeInsets.only(top: 1.h,bottom: 1.h,right: 4.w,left: 1.w
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-        regularfont(text:productListviewTitle, fontsize:  17.5.sp, color: Colors.white,)
-        ,
-          ElevatedButton(onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromRGBO(36, 38, 68, 1),
-                minimumSize: Size(0.w,4.1.h),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.sp))
-              ),
-
-              child: Row(
-
-                children: [
-                  regularfont(text: "View all", fontsize: 15.sp,
-                      color: Colors.white),
-                  SizedBox(width: 2.w,),
-                  Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: 3.w,)
-                ],
-              ))
-        ],
-      ),
-    );
-  }
-}
-
-class textwidget extends StatelessWidget {
-  final String text;
-  final double fontszie;
-  final FontWeight fonweight;
-  final Color color;
-  const textwidget({
-    super.key, required this.text,
-    required this.fontszie,
-    required this.fonweight,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text,style: TextStyle(
-      fontWeight:fonweight,
-      color: color,
-      fontSize: fontszie,
-    ));
-  }
 }
 

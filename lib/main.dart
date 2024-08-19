@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home.dart';
 import 'package:shuhaui/tabapges.dart';
-import 'package:shuhaui/widgets/constant.dart';
+import 'package:shuhaui/utils/constant.dart';
 
 void main() {
   runApp(const MyApp());
