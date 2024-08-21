@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
         title: 'Demo Ui',
         theme: ThemeData(
 
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
 
 
             backgroundColor: Color.fromRGBO(51, 40, 88, 1),),
-          scaffoldBackgroundColor:  Color.fromRGBO(12, 21, 59, 1),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          scaffoldBackgroundColor:  const Color.fromRGBO(12, 21, 59, 1),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             backgroundColor: Color.fromRGBO(51, 40, 88, 1)
           ),
 
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        home:  Tabapges(),
+        home:  const Tabapges(),
       );},
     );
   }

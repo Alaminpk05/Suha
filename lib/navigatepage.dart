@@ -8,7 +8,7 @@ class NavigatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title:Text("Navigation Page"),
+        title:const Text("Navigation Page"),
       ),
     );
   }

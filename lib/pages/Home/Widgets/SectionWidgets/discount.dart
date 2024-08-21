@@ -12,7 +12,7 @@ class DiscountSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:21.h,
+      height:20.h,
       width: double.infinity,
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -32,13 +32,14 @@ class DiscountSection extends StatelessWidget {
           // Positioned for the brush image on the right
           Positioned(
             top: 5.h,
-            right: 0.w,
+            right: -1.5.w,
             bottom:0.h,
             child: Image.asset(
               'assets/make-up.png', // Your image path here
               height: 18.h,
-              width: 20.w
-              ,
+              width: 20.w,
+              fit: BoxFit.contain,
+
             ),
           ),
           Padding(
