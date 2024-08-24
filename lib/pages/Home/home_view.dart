@@ -1,12 +1,16 @@
 import 'dart:async';
-
+import 'package:badges/badges.dart' as badges;
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/featuredproductsSection.dart';
+import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/pages/Home/Widgets/singlewidgets/viewallButton.dart';
 
 import 'Widgets/SectionWidgets/category.dart';
+import 'Widgets/SectionWidgets/collectionSection.dart';
 import 'Widgets/SectionWidgets/cycloneoffer.dart';
 import 'Widgets/SectionWidgets/discount.dart';
 import 'Widgets/SectionWidgets/homeappbar.dart';
@@ -132,6 +136,9 @@ class _HomeScreenState extends State<HomeScreen> {
               WeeklyBestSellerSection(),
               DiscountSection2(),
               Featuredproductssection(),
+
+
+              CollectionsSection(),
             ],
           ),
         ),
@@ -139,4 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
 
