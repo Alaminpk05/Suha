@@ -1,14 +1,49 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/pages/categoryView.dart';
+import 'package:shuhaui/utils/constant.dart';
 import '../singlewidgets/categorybuttonwidget.dart';
 
 
 
 
+class CategorySection1 extends StatelessWidget {
+  CategorySection1({super.key});
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 1.2.w, right: 1.2.w, top: 0.5.h, bottom: 0.5.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(categoryDataList1.length, (index) {
+          final item = categoryDataList1[index];
+          return CategoryWidget(
+            image: item['image'],
+            text: item['text'],
+            ontap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                  Categoryview(title: item['title'])));
+            },
+          );
+        }),
+      ),
+    );
+  }
+}
+
+
+
+
 class CategorySection2 extends StatelessWidget {
-  const CategorySection2({
+   CategorySection2({
     super.key,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,44 +53,15 @@ class CategorySection2 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
 
-        children: [
-          CategoryWidget(image: 'assets/tv-table.png', text: 'Home\n Application', ontap: () {  },),
-
-          CategoryWidget(image: 'assets/beach.png', text: 'Tour & \n Travels', ontap: () {  },),
-          CategoryWidget(image: 'assets/baby-products.png', text: 'Mother & \n Baby', ontap: () {  },),
-          CategoryWidget(image: 'assets/price-tag.png', text: 'Clearance\n Sale', ontap: () {  },),
-
-
-        ],
+        children: List.generate(categoryDataList2.length, (index){
+          final item = categoryDataList2[index];
+          return CategoryWidget(image: item['image'], text: item['text'], ontap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                Categoryview(title: item['title'])));
+          });
+        })
       ),
     );
   }
 }
 
-class CategorySection1 extends StatelessWidget {
-  const CategorySection1({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.only(left: 1.2.w,right:1.2.w,top: 0.5.h,bottom: 0.5.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-        children: [
-          CategoryWidget(image: 'assets/woman-clothes.png', text: 'Womens \n Fashion', ontap: () {  },),
-          CategoryWidget(image: 'assets/grocery.png', text: 'Groceries &\n Pets', ontap: () {  },),
-          CategoryWidget(image: 'assets/shampoo.png', text: 'Health &\n Beauty', ontap: () {  },),
-          CategoryWidget(image: 'assets/rowboat.png', text: 'Sports &\n Outdoors', ontap: () {  },),
-
-
-
-
-        ],
-      ),
-    );
-  }
-}

@@ -117,10 +117,10 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(bottom: 2.h),
           child: Column(
             children: [
-              Search_Filter(),
+              const Search_Filter(),
               ImageSlider(),
-              CategorySection1(),
-              CategorySection2(),
+               CategorySection1(),
+               CategorySection2(),
               CycloneOfferSection(
                   digitDays: digitDays,
                   digitHours: digitHours,
@@ -132,10 +132,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   digitHours: digitHours,
                   digitMinutes: digitMinutes,
                   digitSeconds: digitSeconds),
-              DiscountSection(),
-              WeeklyBestSellerSection(),
-              DiscountSection2(),
-              Featuredproductssection(),
+              const DiscountSection(),
+              const WeeklyBestSellerSection(),
+              const DiscountSection2(),
+              const Featuredproductssection(),
 
 
               CollectionsSection(),
