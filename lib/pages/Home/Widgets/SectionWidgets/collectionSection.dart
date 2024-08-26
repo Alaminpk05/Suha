@@ -15,6 +15,8 @@ class CollectionsSection extends StatelessWidget {
 
   ];
 
+  CollectionsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +31,7 @@ class CollectionsSection extends StatelessWidget {
                 ontab: (){}),
           ),
           SizedBox(
-            height: 16.h,
+            height: 19.h,
             width: double.infinity,
             child: Container(
               margin: EdgeInsets.only(left: 3.5.w),

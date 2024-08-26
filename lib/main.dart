@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/pages/Home/home_view.dart';
-import 'package:shuhaui/pages/chat.dart';
-import 'package:shuhaui/pages/test.dart';
 import 'package:shuhaui/tabapges.dart';
-import 'package:shuhaui/utils/constant.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Demo Ui',
         theme: ThemeData(
 
-          appBarTheme: const AppBarTheme(
-
-
+          appBarTheme:  const AppBarTheme(
             backgroundColor: Color.fromRGBO(51, 40, 88, 1),),
           scaffoldBackgroundColor:  const Color.fromRGBO(12, 21, 59, 1),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -36,7 +29,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        home:  Tabapges(),
+        home:  const Tabapges(),
       );},
     );
   }

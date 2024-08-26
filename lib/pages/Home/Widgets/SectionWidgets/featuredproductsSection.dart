@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/singlewidgets/viewallButton.dart';
 
-import '../../../productproductlist.dart';
 import '../singlewidgets/featuredproducts.dart';
 
 class Featuredproductssection extends StatefulWidget {

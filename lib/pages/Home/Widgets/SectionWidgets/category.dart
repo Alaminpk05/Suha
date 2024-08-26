@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/categoryView.dart';
@@ -9,7 +8,7 @@ import '../singlewidgets/categorybuttonwidget.dart';
 
 
 class CategorySection1 extends StatelessWidget {
-  CategorySection1({super.key});
+  const CategorySection1({super.key});
 
 
 
@@ -40,7 +39,7 @@ class CategorySection1 extends StatelessWidget {
 
 
 class CategorySection2 extends StatelessWidget {
-   CategorySection2({
+   const CategorySection2({
     super.key,
   });
 

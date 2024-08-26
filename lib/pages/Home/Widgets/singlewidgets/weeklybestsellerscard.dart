@@ -41,7 +41,7 @@ class WeeklyProductsCard extends StatelessWidget {
 
 
 
-                    child: Container(
+                    child: SizedBox(
                       height: 22.h,
                       width: 19.w,
                       child: Image.asset(

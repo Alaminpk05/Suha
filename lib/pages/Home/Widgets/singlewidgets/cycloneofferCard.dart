@@ -19,14 +19,14 @@ class CycloneOfferWidget extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>
-        ProductList()));
+        const ProductList()));
       },
       child: Container(
 
           height: 22.h,width: 30.w,
           margin: EdgeInsets.only(top: 0.5.h,left: 0.5.w,right:0.65.h,bottom: 0.5.h),
           decoration: BoxDecoration(
-              color: Color.fromRGBO(36,38,68, 1),
+              color: const Color.fromRGBO(36,38,68, 1),
 
               borderRadius: BorderRadius.circular(10)
           ),
@@ -55,9 +55,9 @@ class CycloneOfferWidget extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,),
                           SizedBox(width: 1.w),
                           Center(
-                            child: Text("\$15",style: TextStyle(color: Color.fromRGBO(116,119,148,1),
+                            child: Text("\$15",style: TextStyle(color: const Color.fromRGBO(116,119,148,1),
                               fontSize: 15.5.sp,fontWeight: FontWeight.w600,decoration: TextDecoration.lineThrough,
-                              decorationColor: Color.fromRGBO(116,119,148,1),
+                              decorationColor: const Color.fromRGBO(116,119,148,1),
                               decorationThickness: 0.3.h,),
 
                               overflow: TextOverflow.ellipsis ,),
@@ -71,7 +71,7 @@ class CycloneOfferWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(" ${(value*100
-                      ).toStringAsFixed(0)}% Sold",style: TextStyle(color:Color.fromRGBO(116,119,148, 1),
+                      ).toStringAsFixed(0)}% Sold",style: TextStyle(color:const Color.fromRGBO(116,119,148, 1),
                         fontSize: 14.sp,fontWeight: FontWeight.w400,),
                       ),
                       LinearPercentIndicator(
@@ -81,7 +81,7 @@ class CycloneOfferWidget extends StatelessWidget {
                         lineHeight: 0.5.h,
 
                         percent: value,
-                        progressColor: Color.fromRGBO(13, 110, 253,1),
+                        progressColor: const Color.fromRGBO(13, 110, 253,1),
 
 
 

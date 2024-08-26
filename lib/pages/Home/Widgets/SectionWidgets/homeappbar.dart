@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -6,7 +5,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final double appBarHeight;
 
-  HomeAppBar({this.appBarHeight = kToolbarHeight});
+  const HomeAppBar({super.key, this.appBarHeight = kToolbarHeight});
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -53,7 +52,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         GestureDetector(
           onTap: () {},
-          child: Container(
+          child: SizedBox(
             height: 3.h,
             width: 8.50.w,
             child: Image.asset(

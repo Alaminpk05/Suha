@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../singlewidgets/textwidget.dart';
 
 
 class DiscountSection2 extends StatelessWidget {
@@ -36,7 +34,7 @@ class DiscountSection2 extends StatelessWidget {
             alignment: Alignment.center,
             child: Row(
               children: [
-                Container(
+                SizedBox(
                   height: 8.5.h,
                   width: 30.w
                   ,

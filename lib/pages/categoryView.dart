@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/weeklybestsellers.dart';
 import 'package:shuhaui/pages/Home/Widgets/singlewidgets/weeklybestsellerscard.dart';
 
 class Categoryview extends StatelessWidget {

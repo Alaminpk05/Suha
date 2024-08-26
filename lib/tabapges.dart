@@ -14,7 +14,7 @@ class Tabapges extends StatefulWidget {
 }
 
 class _TabapgesState extends State<Tabapges> {
-  int index=3;
+  int index=0;
   List<Map<String, dynamic>> pagedetails = [
     {
 

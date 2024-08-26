@@ -21,7 +21,7 @@ class CategoryWidget extends StatelessWidget {
             height: 14.h,
             width: 22.w,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(36,38, 68, 1),
+                color: const Color.fromRGBO(36,38, 68, 1),
                 borderRadius: BorderRadius.circular(12.sp)
             ),
 
@@ -29,7 +29,7 @@ class CategoryWidget extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(image,height:8.h,width: 10.5.w,),
-                regularfont(text: text, fontsize: 15.sp, color: Color.fromRGBO(116, 119, 148,0.8),)
+                regularfont(text: text, fontsize: 15.sp, color: const Color.fromRGBO(116, 119, 148,0.8),)
 
               ],
             ),

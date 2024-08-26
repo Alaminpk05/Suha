@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../../productproductlist.dart';
 
 class FeaturedProducts extends StatelessWidget {
   final String image;
@@ -39,7 +37,7 @@ class FeaturedProducts extends StatelessWidget {
 
                     Center(
 
-                        child: Container(
+                        child: SizedBox(
                           height: 9.h,
                           width: 30.w
                           ,
@@ -81,12 +79,12 @@ class FeaturedProducts extends StatelessWidget {
                               child: Text(
                                 "\$$oldprice",
                                 style: TextStyle(
-                                  color: Color.fromRGBO(116, 119, 148, 1),
+                                  color: const Color.fromRGBO(116, 119, 148, 1),
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w600,
                                   decoration: TextDecoration.lineThrough,
                                   decorationColor:
-                                  Color.fromRGBO(116, 119, 148, 1),
+                                  const Color.fromRGBO(116, 119, 148, 1),
                                   decorationThickness: 0.3.h,
                                 ),
                                 overflow: TextOverflow.ellipsis,
