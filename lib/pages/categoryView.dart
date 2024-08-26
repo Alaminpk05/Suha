@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/weeklybestsellers.dart';
+import 'package:shuhaui/pages/Home/Widgets/singlewidgets/weeklybestsellerscard.dart';
 
 class Categoryview extends StatelessWidget {
   final String title;
-  const Categoryview({super.key, required this.title});
+  final String image;
+  const Categoryview({super.key, required this.title, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +14,10 @@ class Categoryview extends StatelessWidget {
         title: Text(title),
       ),
       body: Container(
-        child: Column(
-          children: [
-
-          ],
+        child:ListView.builder(
+            itemCount:20,itemBuilder: (context,index){
+          return WeeklyProductsCard(image: image, title: title);
+        }
         ),
       ),
 

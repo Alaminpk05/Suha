@@ -27,7 +27,7 @@ class CategorySection1 extends StatelessWidget {
             text: item['text'],
             ontap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                  Categoryview(title: item['title'])));
+                  Categoryview(title: item['title'], image: item['image'],)));
             },
           );
         }),
@@ -57,7 +57,7 @@ class CategorySection2 extends StatelessWidget {
           final item = categoryDataList2[index];
           return CategoryWidget(image: item['image'], text: item['text'], ontap: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                Categoryview(title: item['title'])));
+                Categoryview(title: item['title'], image: item['image'],)));
           });
         })
       ),

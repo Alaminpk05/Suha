@@ -1,13 +1,9 @@
 import 'dart:async';
-import 'package:badges/badges.dart' as badges;
-import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/featuredproductsSection.dart';
-import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
-import 'package:shuhaui/pages/Home/Widgets/singlewidgets/viewallButton.dart';
 
 import 'Widgets/SectionWidgets/category.dart';
 import 'Widgets/SectionWidgets/collectionSection.dart';
@@ -114,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
 
         child: Container(
-          padding: EdgeInsets.only(bottom: 2.h),
+          padding: EdgeInsets.only(bottom: 4.h),
           child: Column(
             children: [
               const Search_Filter(),
@@ -143,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+
     );
   }
 }

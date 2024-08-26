@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/home_view.dart';
+import 'package:shuhaui/pages/chat.dart';
+import 'package:shuhaui/pages/test.dart';
 import 'package:shuhaui/tabapges.dart';
 import 'package:shuhaui/utils/constant.dart';
 
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        home:  const Tabapges(),
+        home:  Tabapges(),
       );},
     );
   }
