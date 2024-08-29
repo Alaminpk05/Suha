@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../utils/constant.dart';
@@ -47,7 +46,7 @@ class CycloneOfferSection extends StatelessWidget {
           ),
 
 
-          Container(
+          SizedBox(
               height: 46.5.w,width:100.w,
               child: ListView.builder(
                   itemCount: null,

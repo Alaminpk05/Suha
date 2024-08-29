@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/tabapges.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }

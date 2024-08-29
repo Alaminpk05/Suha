@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -16,7 +15,7 @@ class ViewProductlist extends StatelessWidget {
     return GestureDetector(
       onTap: ontab,
       child: Padding(
-        padding:EdgeInsets.only(top: 1.h,bottom: 1.h,right: 4.w,left: 1.w
+        padding:EdgeInsets.only(top: 1.h,bottom: 0.5.h,right: 4.w,left: 1.w
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

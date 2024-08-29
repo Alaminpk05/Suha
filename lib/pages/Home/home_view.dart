@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/discount2.dart';
@@ -106,36 +105,45 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(),
-      body: SingleChildScrollView(
+      appBar: const HomeAppBar(),
+      body: Scrollbar(
 
-        child: Container(
-          padding: EdgeInsets.only(bottom: 4.h),
-          child: Column(
-            children: [
-              const Search_Filter(),
-              ImageSlider(),
-               CategorySection1(),
-               CategorySection2(),
-              CycloneOfferSection(
-                  digitDays: digitDays,
-                  digitHours: digitHours,
-                  digitMinutes: digitMinutes,
-                  digitSeconds: digitSeconds),
-              ThemeSwitch(switchValue: switchValue),
-              TopProductsSection(
-                  digitDays: digitDays,
-                  digitHours: digitHours,
-                  digitMinutes: digitMinutes,
-                  digitSeconds: digitSeconds),
-              const DiscountSection(),
-              const WeeklyBestSellerSection(),
-              const DiscountSection2(),
-              const Featuredproductssection(),
+        child: GlowingOverscrollIndicator(
 
+          axisDirection: AxisDirection.down,
 
-              CollectionsSection(),
-            ],
+           color: const Color.fromRGBO(51, 40, 88, 1),
+          child: SingleChildScrollView(
+          
+            child: Container(
+              padding: EdgeInsets.only(bottom: 4.h),
+              child: Column(
+                children: [
+                  const Search_Filter(),
+                  const ImageSlider(),
+                   const CategorySection1(),
+                   const CategorySection2(),
+                  CycloneOfferSection(
+                      digitDays: digitDays,
+                      digitHours: digitHours,
+                      digitMinutes: digitMinutes,
+                      digitSeconds: digitSeconds),
+                  ThemeSwitch(switchValue: switchValue),
+                  TopProductsSection(
+                      digitDays: digitDays,
+                      digitHours: digitHours,
+                      digitMinutes: digitMinutes,
+                      digitSeconds: digitSeconds),
+                  const DiscountSection(),
+                  const WeeklyBestSellerSection(),
+                  const DiscountSection2(),
+                  const Featuredproductssection(),
+          
+          
+                  CollectionsSection(),
+                ],
+              ),
+            ),
           ),
         ),
       ),

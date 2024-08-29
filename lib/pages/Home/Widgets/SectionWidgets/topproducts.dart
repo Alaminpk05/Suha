@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -35,12 +34,12 @@ class TopProductsSection extends StatelessWidget {
               topProductwithtime(name: "Beach Cap", image:"assets/11.png", miniButtonword:"Sale",
                   miniButtoncolor: const Color.fromRGBO(255, 175, 0,1), color: Colors.black, digitDays: digitDays, digitHours: digitHours,
                   digitMinutes: digitMinutes, digitSeconds: digitSeconds),
-              topProductwithouttime(name: 'Wooden Sofa', photo:"assets/5.png", color: Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
+              topProductwithouttime(name: 'Wooden Sofa', photo:"assets/5.png", color: const Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
             ],
           ),Row(
             children: [
 
-              topProductwithouttime(name: "Roof Lamp", photo:"assets/6.png", color: Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
+              topProductwithouttime(name: "Roof Lamp", photo:"assets/6.png", color: const Color.fromRGBO(0,184,148, 1), minibuttonword2: 'New' ),
               topProductwithtime(name:"Sneaker Shoes", image: "assets/9.png", miniButtonword:"-18%", miniButtoncolor: Colors.redAccent, color:Colors.white,
                   digitDays: digitDays, digitHours: digitHours, digitMinutes: digitMinutes, digitSeconds: digitSeconds ),
             ],

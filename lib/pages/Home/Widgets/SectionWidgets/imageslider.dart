@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
@@ -8,6 +6,8 @@ import '../../../../utils/constant.dart';
 
 
 class ImageSlider extends StatefulWidget {
+  const ImageSlider({super.key});
+
   @override
   _ImageSliderState createState() => _ImageSliderState();
 }
@@ -43,7 +43,7 @@ class _ImageSliderState extends State<ImageSlider> {
           Padding(
             padding: EdgeInsets.only(
                 left: 3.5.w, right: 3.5.w, top: 2.h, bottom: 1.h),
-            child: Container(
+            child: SizedBox(
               height: 21.h,
               width: double.infinity,
               child: ClipRRect(
@@ -73,12 +73,12 @@ class _ImageSliderState extends State<ImageSlider> {
                             children: [
                               textwidget(text: "${item['title']}",
                                   fontszie: 20.5.sp, fonweight: FontWeight.w600,
-                                  color: Color.fromRGBO(255, 255,
+                                  color: const Color.fromRGBO(255, 255,
                                       255, 0.95)),
                               SizedBox(height: 0.3.h),
                               textwidget(text: "${item['subtitle']}",
                                   fontszie: 16.45.sp, fonweight: FontWeight.w400,
-                                  color: Color.fromRGBO(255, 255,
+                                  color: const Color.fromRGBO(255, 255,
                                       255, 0.9)),
                               SizedBox(height: 1.h),
                               ElevatedButton(
@@ -86,7 +86,7 @@ class _ImageSliderState extends State<ImageSlider> {
                                   // Handle button press
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color.fromRGBO(98,
+                                  backgroundColor: const Color.fromRGBO(98,
                                       90, 250, 1),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -94,7 +94,7 @@ class _ImageSliderState extends State<ImageSlider> {
                                 ),
                                 child: textwidget(text: "Buy Now",
                                     fontszie: 16.5.sp, fonweight: FontWeight.w600,
-                                    color: Color.fromRGBO(255, 255,
+                                    color: const Color.fromRGBO(255, 255,
                                         255, 0.98)),
                               ),
                             ],
@@ -137,7 +137,7 @@ class _ImageSliderState extends State<ImageSlider> {
                 dotWidth: 1.7.w,
                 dotHeight: .8.h,
                 dotColor: Colors.grey.shade400,
-                activeDotColor: Color.fromRGBO(0, 122, 255, 1),
+                activeDotColor: const Color.fromRGBO(0, 122, 255, 1),
                 radius: 30.sp, // Makes the dots circular
               ),
             ),

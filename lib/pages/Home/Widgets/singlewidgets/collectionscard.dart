@@ -1,13 +1,12 @@
 
 import 'package:badges/badges.dart'as badges;
 import 'package:badges/badges.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
 
 class CollectionCard extends StatelessWidget {
-  const CollectionCard({
+  const CollectionCard({super.key, 
 
     required this.assets, required this.title, required this.value
   });
@@ -25,11 +24,11 @@ class CollectionCard extends StatelessWidget {
         children: [
           Container(
             width: 29.w,
-            height: 16.h,
+            height:19.h,
 
             decoration: BoxDecoration(
 
-              borderRadius: BorderRadius.circular(13.5.sp),
+              borderRadius: BorderRadius.circular(12.sp),
               image: DecorationImage(
                 image: AssetImage(assets),
                 fit: BoxFit.cover,
@@ -41,7 +40,7 @@ class CollectionCard extends StatelessWidget {
 
             child: Container(
               width: 29.w,
-              height: 16.h * (1 / 4.6), // 1/3 of the image height
+              height: 18.h * (1 / 4), // 1/3 of the image height
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.vertical(
                       bottom: Radius.circular(15.5.sp)),
@@ -54,23 +53,23 @@ class CollectionCard extends StatelessWidget {
               bottom: 1.h,
               left: 2.5.w,
               child: textwidget(text: title,
-                  fontszie: 14.sp,
+                  fontszie: 16.sp,
                   fonweight: FontWeight.w400,
                   color: Colors.white)
           ),
           Positioned(
-            bottom: 0.7.h,
+            bottom: 0.8.h,
             right: 2.5.w,
-            child: Container(
-              height:2.h,
-              width: 5.w,
+            child: SizedBox(
+              height:3.h,
+              width: 7.w,
               child: badges.Badge(
                 stackFit: StackFit.expand,
 
                 badgeContent: Text(
-                  value,
+                '69',
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12.5.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
