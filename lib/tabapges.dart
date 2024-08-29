@@ -14,7 +14,7 @@ class Tabapges extends StatefulWidget {
 }
 
 class _TabapgesState extends State<Tabapges> {
-  int index=3;
+  int index=0;
   List<Map<String, dynamic>> pagedetails = [
     {
 
@@ -66,7 +66,7 @@ class _TabapgesState extends State<Tabapges> {
 
           BottomNavigationBarItem(icon: Image.asset('assets/home (1).png',color: Colors.white,height: 3.h,),label: "Home"),
           BottomNavigationBarItem(icon: Image.asset('assets/message (1).png',color: Colors.white,height: 3.h,),label: "Chat",),
-          BottomNavigationBarItem(icon: Image.asset('assets/message (1).png', color: Colors.white,height: 3.h,),label: "Cart",),
+          BottomNavigationBarItem(icon: Image.asset('assets/basket (2).png', color: Colors.white,height: 3.h,),label: "Cart",),
 
           BottomNavigationBarItem(icon: Image.asset('assets/settings (1).png',color: Colors.white,height: 3.h, ),label: "Settings"),
           BottomNavigationBarItem(icon: Image.asset('assets/heart (1).png',fit: BoxFit.contain,color: Colors.white,height: 3.h, ),label: "Pages"),
