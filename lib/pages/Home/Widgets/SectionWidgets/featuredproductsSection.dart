@@ -30,6 +30,8 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
         children: [
           ViewProductlist(productListviewTitle: "Featured Products", ontab: () {}),
           Row(
+            
+            
             children: [
               FeaturedProducts(image: 'assets/14.png',
                 title: 'Blue Skateboard',
@@ -43,6 +45,7 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
             ],
           ),
           Row(
+
             children: [
               FeaturedProducts(image: 'assets/21.png',
                 title: 'ECG Rice Maker',

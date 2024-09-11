@@ -33,16 +33,13 @@ class CollectionsSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding:  EdgeInsets.only(left:3.w),
-              child: ViewProductlist(productListviewTitle: 'Collections',
-                  ontab: (){}),
-            ),
+            ViewProductlist(productListviewTitle: 'Collections',
+                ontab: (){}),
             SizedBox(
               height: 19.h,
               width: double.infinity,
               child: Container(
-                margin: EdgeInsets.only(left: 3.5.w),
+                
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
       

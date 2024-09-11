@@ -15,33 +15,34 @@ class WeeklyBestSellerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: ResponsiveHelper.isMobile(context)
+    return Padding(
+      padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
               top: widgetTopPad, left: homeMobLP, right: homeMobRP)
           : EdgeInsets.only(
               top: widgetTopPad, left: homeTabLP, right: homeTabRP),
-          child:  ViewProductlist(productListviewTitle: 'Weekly Best Sellers', ontab: () {  },),
-        ),
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          physics: const NeverScrollableScrollPhysics(),
-
-          shrinkWrap: true,
-          itemCount: 4,
-          itemBuilder: (context,index){
-            return  Column(
-              children: [
-
-                WeeklyProductsCard(image: images[index], title:tilteList[index] ,),
-
-
-              ],
-            );},
-        )
-      ],
+      child: Column(
+        children: [
+          ViewProductlist(productListviewTitle: 'Weekly Best Sellers', ontab: () {  },),
+          SizedBox(height: sectionTopPad-.5.w,),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
+      
+            shrinkWrap: true,
+            itemCount: 4,
+            itemBuilder: (context,index){
+              return  Column(
+                children: [
+      
+                  WeeklyProductsCard(image: images[index], title:tilteList[index] ,),
+      
+      
+                ],
+              );},
+          )
+        ],
+      ),
     );
   }
 }

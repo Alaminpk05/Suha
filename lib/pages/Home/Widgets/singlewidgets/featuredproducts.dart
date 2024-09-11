@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 
 class FeaturedProducts extends StatelessWidget {
@@ -14,6 +15,8 @@ class FeaturedProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var Mobile=ResponsiveHelper.isMobile(context);
+    var Tablet=ResponsiveHelper.isTablet(context);
     return Expanded(
       child: GestureDetector(
         onTap: ontap,
@@ -40,8 +43,7 @@ class FeaturedProducts extends StatelessWidget {
       
                           child: SizedBox(
                             height: 9.h,
-                            width: 30.w
-                            ,
+                            width: Mobile?30.w:30.w,
                             child: Image.asset(
                               image,
                               fit: BoxFit.contain,
@@ -81,7 +83,7 @@ class FeaturedProducts extends StatelessWidget {
                                   "\$$oldprice",
                                   style: TextStyle(
                                     color: const Color.fromRGBO(116, 119, 148, 1),
-                                    fontSize: 16.sp,
+                                    fontSize: Mobile?16.sp:15.sp,
                                     fontWeight: FontWeight.w600,
                                     decoration: TextDecoration.lineThrough,
                                     decorationColor:

@@ -1,103 +1,87 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class WeeklyProductsCard extends StatelessWidget {
   final String image;
   final String title;
   const WeeklyProductsCard({
-    super.key, required this.image, required this.title,
+    super.key,
+    required this.image,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
+    var Mobile = ResponsiveHelper.isMobile(context);
+    var Tablet = ResponsiveHelper.isTablet(context);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 3.5.w,vertical: 0.5.h),
+      margin: EdgeInsets.symmetric(horizontal: Mobile?0.w:0, vertical: 0.5.h),
       height: 12.h,
-
+      width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(36, 38, 68,1), // Use the passed container color
+        color: const Color.fromRGBO(
+            36, 38, 68, 1), // Use the passed container color
         borderRadius: BorderRadius.circular(10.sp),
       ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.only(
-                top: 1.h,bottom: 1.h
-            ),
+            padding: EdgeInsets.only(top: 1.h,
+             bottom: 1.h),
             height: double.infinity,
-            width: 25.w,
-
+            width: Mobile?25.w:18.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
-                color: const Color.fromRGBO(51,40,88, 1)
-
-            ),
-            child: Stack(
-                children:[
-                  Positioned(
-
-
-
-
-                    child: SizedBox(
-                      height: 22.h,
-                      width: 19.w,
-                      child: Image.asset(
-                        image,
-                        fit: BoxFit.contain,
-
-
-
-                      ),
+                color: const Color.fromRGBO(51, 40, 88, 1)),
+            child: Stack(children: [
+              Positioned(
+                child: SizedBox(
+                  height: 22.h,
+                  width: 19.w,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 1.w,
+                bottom: 6.1.h,
+                child: Container(
+                  height: 5.h,
+                  width:5.w ,
+                  decoration: const BoxDecoration(
+                      color: Color.fromRGBO(36, 38, 68, 1),
+                      shape: BoxShape.circle),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.5.sp),
+                    child: Image.asset(
+                      'assets/heart (3).png',
+                      height: 3.h,
+                      width: 3.w,
                     ),
                   ),
-
-                  Positioned(
-                    left: 1.w,
-                    bottom: 6.1.h,
-
-
-                    child: Container(
-                      height: 5.h,
-                      width: 5.w,
-                      decoration: const BoxDecoration(
-                          color: Color.fromRGBO(36, 38, 68,1),
-                          shape: BoxShape.circle
-                      ),
-                      child: Padding(
-                        padding:  EdgeInsets.all(8.5.sp),
-                        child: Image.asset(
-                          'assets/heart (3).png',
-                          height: 3.h,
-                          width: 3.w,
-
-
-                        ),
-                      ),
-                    ),
-                  ),
-                ]
-            ),
-
+                ),
+              ),
+            ]),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 2.5.w),
           Expanded(
             child: Padding(
-              padding:  EdgeInsets.only(left: 1.w),
+              padding: EdgeInsets.only(left: 1.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Padding(
-                    padding:  EdgeInsets.only(top: 1.8.h,
+                    padding: EdgeInsets.only(
+                      top: 1.8.h,
                     ),
                     child: Text(
                       title,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 17.sp,
+                        fontSize: 16.5.sp,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,
@@ -115,16 +99,18 @@ class WeeklyProductsCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: 3.w,),
-                      const Text(
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                       Text(
                         '\$54',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                       SizedBox(width: 1.8.w),
                       const Text(
                         '\$64',
                         style: TextStyle(
@@ -147,7 +133,8 @@ class WeeklyProductsCard extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 14,
                         ),
-                      ),Text(
+                      ),
+                      Text(
                         " (125 Reviews",
                         style: TextStyle(
                           color: Colors.white,
@@ -160,7 +147,6 @@ class WeeklyProductsCard extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );
