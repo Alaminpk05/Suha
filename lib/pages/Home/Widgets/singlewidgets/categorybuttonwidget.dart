@@ -1,37 +1,57 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CategoryWidget extends StatelessWidget {
   final String image;
   final String text;
   final void Function()? ontap;
   const CategoryWidget({
-    super.key, required this.image, required this.text, required this.ontap,
+    super.key,
+    required this.image,
+    required this.text,
+    required this.ontap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: ontap,
+    var Tablet = ResponsiveHelper.isTablet(context);
+    var Mobile = ResponsiveHelper.isMobile(context);
+    return Expanded(
       child: Padding(
-        padding:  EdgeInsets.only(bottom: 1.5.h),
-        child: Center(
-          child: Container(
-            height: 14.h,
-            width: 22.w,
-            decoration: BoxDecoration(
-                color: const Color.fromRGBO(36,38, 68, 1),
-                borderRadius: BorderRadius.circular(12.sp)
-            ),
-
-
-            child: Column(
-              children: [
-                Image.asset(image,height:8.h,width: 10.5.w,),
-                regularfont(text: text, fontsize: 15.sp, color: const Color.fromRGBO(116, 119, 148,0.8),)
-
-              ],
+        padding: EdgeInsets.only(right: Tablet ? 1.w : 0),
+        child: GestureDetector(
+          onTap: ontap,
+          child: Center(
+            child: Container(
+              height: Mobile ? 14.h : 12.h,
+              width: Mobile ? 22.w : 30.w,
+              decoration: BoxDecoration(
+                  color: const Color.fromRGBO(36, 38, 68, 1),
+                  borderRadius: BorderRadius.circular(12.sp)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Tablet ? 2.h : 0,
+                    ),
+                    child: Image.asset(
+                      image,
+                      height: Mobile ? 8.h : 4.5.h,
+                      width: Mobile ? 10.5.w : 10.5.w,
+                    ),
+                  ),
+                  SizedBox(
+                    height: Mobile ? 0 : 0.7.h,
+                  ),
+                  regularfont(
+                    text: text,
+                    fontsize: Mobile ? 15.sp : 12.5.sp,
+                    color: const Color.fromRGBO(116, 119, 148, 0.8),
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -47,14 +67,21 @@ class regularfont extends StatelessWidget {
 
   const regularfont({
     super.key,
-    required this.text, required this.fontsize, required this.color,
+    required this.text,
+    required this.fontsize,
+    required this.color,
   });
-
-
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,style: TextStyle(color: color,fontWeight: FontWeight.w700,
-        fontFamily:"PlusJakartaSans-Regular.ttf",fontSize: fontsize ),textAlign: TextAlign.center,);
+    return Text(
+      text,
+      style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.w700,
+          fontFamily: "PlusJakartaSans-Regular.ttf",
+          fontSize: fontsize),
+      textAlign: TextAlign.center,
+    );
   }
 }

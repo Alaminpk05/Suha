@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/categoryView.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 import '../singlewidgets/categorybuttonwidget.dart';
-
-
-
 
 class CategorySection1 extends StatelessWidget {
   const CategorySection1({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 1.2.w, right: 1.2.w, top: 0.5.h, bottom: 0.5.h),
+      padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(
+              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(
+              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,8 +25,13 @@ class CategorySection1 extends StatelessWidget {
             image: item['image'],
             text: item['text'],
             ontap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                  Categoryview(title: item['title'], image: item['image'],)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Categoryview(
+                            title: item['title'],
+                            image: item['image'],
+                          )));
             },
           );
         }),
@@ -35,32 +40,35 @@ class CategorySection1 extends StatelessWidget {
   }
 }
 
-
-
-
 class CategorySection2 extends StatelessWidget {
-   const CategorySection2({
+  const CategorySection2({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(left: 1.w,right: 1.w),
+      padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(top: oneHeightPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(top: oneHeightPad, left: homeTabLP, right: homeTabRP),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-        children: List.generate(categoryDataList2.length, (index){
-          final item = categoryDataList2[index];
-          return CategoryWidget(image: item['image'], text: item['text'], ontap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                Categoryview(title: item['title'], image: item['image'],)));
-          });
-        })
-      ),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: List.generate(categoryDataList2.length, (index) {
+            final item = categoryDataList2[index];
+            return CategoryWidget(
+                image: item['image'],
+                text: item['text'],
+                ontap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Categoryview(
+                                title: item['title'],
+                                image: item['image'],
+                              )));
+                });
+          })),
     );
   }
 }
-
