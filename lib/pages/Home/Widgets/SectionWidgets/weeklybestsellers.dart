@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../../../../utils/constant.dart';
 import '../singlewidgets/viewallButton.dart';
@@ -17,7 +18,11 @@ class WeeklyBestSellerSection extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 3.w),
+          padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(
+              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(
+              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
           child:  ViewProductlist(productListviewTitle: 'Weekly Best Sellers', ontab: () {  },),
         ),
         ListView.builder(

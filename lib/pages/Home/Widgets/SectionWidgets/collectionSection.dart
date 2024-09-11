@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/collectionscard.dart';
 import '../singlewidgets/viewallButton.dart';
@@ -19,36 +21,43 @@ class CollectionsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding:  EdgeInsets.only(left:3.w),
-            child: ViewProductlist(productListviewTitle: 'Collections',
-                ontab: (){}),
-          ),
-          SizedBox(
-            height: 19.h,
-            width: double.infinity,
-            child: Container(
-              margin: EdgeInsets.only(left: 3.5.w),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-
-
-                itemBuilder:(context,index){
-                  final realIndex = index % CollectionDataList.length;
-                  final item = CollectionDataList[realIndex];
-                  return CollectionCard(assets: item['asset'],
-                    title:item['title'], value: item['value'],
-                   );},
+    return Padding(
+      padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(
+              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(
+              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
+      child: Container(
+      
+      
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(left:3.w),
+              child: ViewProductlist(productListviewTitle: 'Collections',
+                  ontab: (){}),
+            ),
+            SizedBox(
+              height: 19.h,
+              width: double.infinity,
+              child: Container(
+                margin: EdgeInsets.only(left: 3.5.w),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+      
+      
+                  itemBuilder:(context,index){
+                    final realIndex = index % CollectionDataList.length;
+                    final item = CollectionDataList[realIndex];
+                    return CollectionCard(assets: item['asset'],
+                      title:item['title'], value: item['value'],
+                     );},
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

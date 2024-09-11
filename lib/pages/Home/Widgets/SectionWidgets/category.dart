@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/categoryView.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';

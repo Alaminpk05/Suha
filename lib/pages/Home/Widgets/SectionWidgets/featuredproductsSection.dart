@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/Home/Widgets/singlewidgets/viewallButton.dart';
+import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/featuredproducts.dart';
 
@@ -17,7 +19,11 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 3.w),
+     padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(
+              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(
+              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Column(
 
         crossAxisAlignment: CrossAxisAlignment.start,

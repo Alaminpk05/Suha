@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/pages/productproductlist.dart';
+import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CycloneOfferWidget extends StatelessWidget {
   const CycloneOfferWidget({
@@ -16,21 +18,25 @@ class CycloneOfferWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var Tablet = ResponsiveHelper.isTablet(context);
+    var Mobile = ResponsiveHelper.isMobile(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const ProductList()));
       },
       child: Container(
-          height: 22.h,
+        
+          height: Mobile?22.h:18.h,
           width: 30.w,
           margin: EdgeInsets.only(
-              top: 0.5.h, left: 0.5.w, right: 0.65.h, bottom: 0.5.h),
+              top: 0.5.h, left: 0.5.w, 
+              right: 0.65.h, bottom: 0.5.h),
           decoration: BoxDecoration(
               color: const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.only(
-              left: 1.9.w, right: 1.9.w, bottom: 2.h, top: 1.5.h),
+              left: 1.9.w, right: 1.9.w, bottom: 2.h, top: Mobile?2.3.h:0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

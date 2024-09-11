@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 import '../../../../utils/constant.dart';
 import '../singlewidgets/cycloneofferCard.dart';
 
@@ -40,8 +41,11 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-          EdgeInsets.only(top: 1.5.h, left: 2.8.w, right: 1.w, bottom: 1.h),
+      padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(
+              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(
+              top: sectionTopPad, left: homeTabLP, right: homeTabRP),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,6 +74,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
               ],
             ),
           ),
+          SizedBox(height:sectionTopPad,),
           SizedBox(
               height: 46.5.w,
               width: 100.w,

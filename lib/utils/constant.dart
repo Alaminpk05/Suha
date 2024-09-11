@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-final homeTabRP = 20.w;
-final homeTabLP = 20.w;
+final homeTabRP = 15.w;
+final homeTabLP = 15.w;
 final homeMobRP = 3.w;
 final homeMobLP = 3.w;
 final homeTopPad = 2.h;
 final widgetTopPad = 2.h;
 final oneHeightPad = 1.h;
 final sectionTopPad = 2.5.h;
+
 final widgetRPad = 1.w;
 
 final PageController pageController = PageController();
