@@ -43,7 +43,7 @@ class _TabapgesState extends State<Tabapges> {
         height: 6.h,
         color: const Color(0xFF4B2E83), // Dark purple background
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0), // Padding for spacing
+          padding:  EdgeInsets.symmetric(horizontal: 11.w), // Padding for spacing
           child: Row(
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -66,7 +66,7 @@ class _TabapgesState extends State<Tabapges> {
       selectedColor: const Color(0xFF4B2E83),
       shape: RoundedRectangleBorder(
         side: const BorderSide(
-          color: Color.fromRGBO(51,40,88,1), // No border when unselected
+          color: Color.fromRGBO(51,40,88,0.5), // No border when unselected
           width: .0,
         ),
         borderRadius: BorderRadius.circular(25.sp), // Rounded border
@@ -82,12 +82,12 @@ class _TabapgesState extends State<Tabapges> {
         children: [
           Image.asset(
             assetPath,
-            height: 3.h, // Adjust the image size
+            height: 2.8.h, // Adjust the image size
             color: builchipindex == builchipindex
                 ? Colors.white
                 : Colors.white, // Change color based on selection
           ),
-           SizedBox(height: 0.0),
+           const SizedBox(height: 0.0),
           Text(
             label,
             style: TextStyle(

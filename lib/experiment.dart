@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomBottomNavBarWithChips extends StatefulWidget {
+  const CustomBottomNavBarWithChips({super.key});
+
   @override
   _CustomBottomNavBarWithChipsState createState() =>
       _CustomBottomNavBarWithChipsState();
@@ -17,7 +19,7 @@ class _CustomBottomNavBarWithChipsState
       body: Center(
           child: Text(
         'Page: ${_getLabelForIndex(_selectedIndex)}',
-        style: TextStyle(fontSize: 24),
+        style: const TextStyle(fontSize: 24),
       )),
       bottomNavigationBar: Container(
         height: 7.h,
@@ -67,7 +69,7 @@ class _CustomBottomNavBarWithChipsState
                 ? Colors.white
                 : Colors.white, // Change color based on selection
           ),
-           SizedBox(height: 5),
+           const SizedBox(height: 5),
           Text(
             label,
             style: TextStyle(
