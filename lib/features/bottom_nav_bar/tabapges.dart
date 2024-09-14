@@ -15,7 +15,7 @@ class Tabapges extends StatefulWidget {
 }
 
 class _TabapgesState extends State<Tabapges> {
-  int index = 0;
+  int selectedIndex = 0;
   List<Map<String, dynamic>> pagedetails = [
     {
       'page': const HomeScreen(),
@@ -38,20 +38,82 @@ class _TabapgesState extends State<Tabapges> {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
-      body: pagedetails[index]['page'],
-      bottomNavigationBar: BottomNavBar(mobile,tablet),
+      body: pagedetails[selectedIndex]['page'],
+      bottomNavigationBar: mobile?bottomNavBar(mobile,tablet):Container(
+        height: 6.h,
+        color: const Color(0xFF4B2E83), // Dark purple background
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0), // Padding for spacing
+          child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildChoiceChip(0, 'assets/home (1).png', "Home"),
+              _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
+              _buildChoiceChip(2,  'assets/basket (2).png', "Cart"),
+              _buildChoiceChip(3,  'assets/settings (1).png' ,"Settings"),
+              _buildChoiceChip(4, 'assets/heart (1).png', "Pages"),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildChoiceChip(int builchipindex, String assetPath, String label) {
+    return ChoiceChip(
+      labelPadding: const EdgeInsets.symmetric(horizontal: 0),
+      backgroundColor: const Color(0xFF4B2E83),
+      selectedColor: const Color(0xFF4B2E83),
+      shape: RoundedRectangleBorder(
+        side: const BorderSide(
+          color: Color.fromRGBO(51,40,88,1), // No border when unselected
+          width: .0,
+        ),
+        borderRadius: BorderRadius.circular(25.sp), // Rounded border
+      ),
+      selected: selectedIndex == builchipindex,
+      onSelected: (bool  selected) {
+        setState(() {
+        selectedIndex = builchipindex ;
+        });
+      },
+      label: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            assetPath,
+            height: 3.h, // Adjust the image size
+            color: builchipindex == builchipindex
+                ? Colors.white
+                : Colors.white, // Change color based on selection
+          ),
+           SizedBox(height: 0.0),
+          Text(
+            label,
+            style: TextStyle(
+              color: builchipindex == builchipindex
+                  ? Colors.white
+                  : Colors.white, // Change color based on selection
+              fontSize: 13.sp,
+            ),
+          )
+        ],
+      ),
     );
   }
 
-  BottomNavigationBar BottomNavBar(var mobile,var tablet) {
+
+
+
+  BottomNavigationBar bottomNavBar(var mobile,var tablet) {
     Device.screenType == ScreenType.tablet;
     return BottomNavigationBar(
-        currentIndex: index,
+        currentIndex: selectedIndex,
         unselectedFontSize: 13.sp,
         selectedFontSize: 13.sp,
         onTap: (value) {
           setState(() {
-            index = value;
+            selectedIndex = value;
           });
         },
         type: BottomNavigationBarType.fixed,
