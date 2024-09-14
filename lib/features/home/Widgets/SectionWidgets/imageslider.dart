@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/pages/Home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../utils/constant.dart';
@@ -36,8 +36,7 @@ class _ImageSliderState extends State<ImageSlider> {
   ];
   @override
   Widget build(BuildContext context) {
-     var Tablet = ResponsiveHelper.isTablet(context);
-    var Mobile = ResponsiveHelper.isMobile(context);
+    var mobile = ResponsiveHelper.isMobile(context);
     return Padding(
       padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(top: homeTopPad, left: homeMobLP, right:homeMobRP)
@@ -46,11 +45,11 @@ class _ImageSliderState extends State<ImageSlider> {
         fit: StackFit.passthrough,
         children: [
           SizedBox(
-            height: 21.h,
+            height: 20.h,
             width: double.infinity,
             child: ClipRRect(
               clipBehavior: Clip.hardEdge,
-              borderRadius: BorderRadius.all(Radius.circular(Mobile?15.sp:12)),
+              borderRadius: BorderRadius.all(Radius.circular(mobile?15.sp:12)),
               child:PageView.builder(
                 controller: pageController,
           
@@ -68,21 +67,21 @@ class _ImageSliderState extends State<ImageSlider> {
                       ),
                       // Overlay with text and button
                       Positioned(
-                        left: Mobile?7.w:4.w,
-                        bottom: Mobile?4.3.h:6.h,
+                        left: mobile?7.w:4.w,
+                        bottom: mobile?4.3.h:6.h,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             textwidget(text: "${item['title']}",
-                                fontszie: Mobile?20.5.sp:20.sp, fonweight: FontWeight.w600,
+                                fontszie: mobile?20.5.sp:20.sp, fonweight: FontWeight.w600,
                                 color: const Color.fromRGBO(255, 255,
                                     255, 0.95)),
-                            SizedBox(height: Mobile?0.3.h:0.5.h),
+                            SizedBox(height: mobile?0.3.h:0.5.h),
                             textwidget(text: "${item['subtitle']}",
-                                fontszie: Mobile?16.45.sp:15.30.sp, fonweight: FontWeight.w400,
+                                fontszie: mobile?16.45.sp:15.30.sp, fonweight: FontWeight.w400,
                                 color: const Color.fromRGBO(255, 255,
                                     255, 0.9)),
-                            SizedBox(height: Mobile?1.h:1.30.h),
+                            SizedBox(height: mobile?1.h:1.30.h),
                             ElevatedButton(
                               
                               onPressed: () {
@@ -98,7 +97,7 @@ class _ImageSliderState extends State<ImageSlider> {
                                 ),
                               ),
                               child: textwidget(text: "Buy Now",
-                                  fontszie: Mobile?16.5.sp:14.5.sp, fonweight: FontWeight.w600,
+                                  fontszie: mobile?16.5.sp:14.5.sp, fonweight: FontWeight.w600,
                                   color: const Color.fromRGBO(255, 255,
                                       255, 0.98)),
                             ),
@@ -132,14 +131,14 @@ class _ImageSliderState extends State<ImageSlider> {
             ),
           ),
           Positioned(
-            top: Mobile?18.5.h:18.5.h,
-            left: Mobile?43.w:25.w,
+            top: mobile?18.h:18.5.h,
+            left: mobile?43.w:30.w,
             child: SmoothPageIndicator(
               controller: pageController,
               count: sliderdetails.length, // Use the length of the slider details
               effect: ScrollingDotsEffect(
-                dotWidth: Mobile?1.7.w:0.9.w,
-                dotHeight: Mobile?0.8.h:0.8.h,
+                dotWidth: mobile?1.7.w:0.9.w,
+                dotHeight: mobile?0.8.h:0.6.h,
                 dotColor: Colors.grey.shade400,
                 activeDotColor: const Color.fromRGBO(0, 122, 255, 1),
                 radius: 30.sp, // Makes the dots circular

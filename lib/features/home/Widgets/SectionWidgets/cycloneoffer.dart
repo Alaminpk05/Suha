@@ -40,6 +40,8 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
 
   @override
   Widget build(BuildContext context) {
+    var Mobile = ResponsiveHelper.isMobile(context);
+    var Tablet = ResponsiveHelper.isTablet(context);
     return Container(
       padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
@@ -51,7 +53,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: .6.w, right: 3.2.w),
+            padding: EdgeInsets.only(left: .0.w, right:1.5.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -67,14 +69,16 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                   "${widget.digitDays}d ${widget.digitHours}h ${widget.digitMinutes}m ${widget.digitSeconds}s",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 17.sp,
-                      fontWeight: FontWeight.w700),
+                      fontSize: Mobile?17.sp:15.5.sp,
+                      fontWeight: FontWeight.w500),
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
           ),
-          SizedBox(height:sectionTopPad,),
+          SizedBox(
+            height: Mobile?1.h:0,
+          ),
           SizedBox(
               height: 46.5.w,
               width: 100.w,
@@ -82,14 +86,12 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                 thumbVisibility: true,
                 controller: scrollController,
                 child: ListView.builder(
-                  controller: scrollController,
+                    controller: scrollController,
                     itemCount: null,
-                    
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: false,
                     itemBuilder: (context, index) {
                       final realIndex = index % cycloneOfferItems.length;
-                      print(realIndex);
                       final item = cycloneOfferItems[realIndex];
 
                       return CycloneOfferWidget(

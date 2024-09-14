@@ -11,6 +11,8 @@ class DiscountSection2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      var Mobile = ResponsiveHelper.isMobile(context);
+
     return Padding(
      padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
@@ -18,7 +20,7 @@ class DiscountSection2 extends StatelessWidget {
           : EdgeInsets.only(
               top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Container(
-        height:20.h,
+        height:Mobile?18.h:18.h,
         width: double.infinity,
       
         decoration: BoxDecoration(
@@ -35,54 +37,59 @@ class DiscountSection2 extends StatelessWidget {
           // Background color matching the image
           borderRadius: BorderRadius.circular(12), // Rounded corners
         ),
-        child: Stack(
-          children: [
-            // Positioned for the brush image on the right
-            Align(
-              alignment: Alignment.center,
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: 8.5.h,
-                    width: 30.w
-                    ,
-                    child: Image.asset(
-                      'assets/discount.png', // Your image path here
-                      fit: BoxFit.contain,
-      
-                    ),
+        child: Padding(
+          padding:EdgeInsets.only(right:Mobile?4.w:5,left: Mobile?0:4.w),
+          child: Align(
+            alignment:Alignment.center,
+            child: Row(
+            
+              children: [
+                SizedBox(
+                  height: Mobile?8.5.h:7.5.h,
+                  width: Mobile?30.w:11.8.w
+                  ,
+                  child: Image.asset(
+                    'assets/discount.png', // Your image path here
+                    fit: BoxFit.contain,
+                  
                   ),
-                  Flexible(
+                ),
+                SizedBox(width: Mobile?0.5.w:1.w,),
+                Flexible(
+                  
+                  child: Padding(
+                    padding:EdgeInsets.only(right: Mobile?0.w:3.w),
                     child: RichText(
-      
+                    
                       softWrap: true,
                         overflow: TextOverflow.visible,
                         text: TextSpan(
                       children:[
                         textspan(text:"Get20% dicount!\n",
-                            fontsize: 21.sp,
+                            fontsize: Mobile?20.5.sp:18.sp,
                             color: Colors.white,
                             fontweight: FontWeight.w700),
+                           
                         WidgetSpan(child: SizedBox(height: 3.h,)),
-      
-                        textspan(text: 'To get discount,enter\nthe',
-                            fontsize: 16.5.sp, color: Colors.white,
+                    
+                        textspan(text: Mobile?'To get discount,enter\nthe':'To get discount,enter the',
+                            fontsize: Mobile?16.sp:14.5.sp, color: Colors.white,
                             fontweight: FontWeight.w400),
-                        textspan(text:" Get20 ", fontsize: 17.sp,
+                        textspan(text:" GET20 ",
+                            fontsize: Mobile?16.5.sp:15.sp,
                             color: Colors.white,
                             fontweight: FontWeight.w700),
                         textspan(text: 'code on the checkout page.',
-                            fontsize: 16.sp, color: Colors.white,
+                            fontsize: Mobile?16.sp:14.5.sp, color: Colors.white,
                             fontweight: FontWeight.w400),
                       ]
                     )),
-                  )
-      
-                ],
-              ),
+                  ),
+                )
+                  
+              ],
             ),
-      
-          ],
+          ),
         ),
       ),
     );

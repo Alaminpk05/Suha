@@ -8,19 +8,18 @@ import '../singlewidgets/collectionscard.dart';
 import '../singlewidgets/viewallButton.dart';
 
 class CollectionsSection extends StatelessWidget {
-
-
   List<Map<String, dynamic>> CollectionDataList = [
     {'value': '9', 'asset': 'assets/17.jpg', 'title': 'Women'},
     {'value': '29', 'asset': 'assets/19.jpg', 'title': 'Men'},
     {'value': '4', 'asset': 'assets/21.jpg', 'title': 'Kids'},
-
   ];
 
   CollectionsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var Mobile=ResponsiveHelper.isMobile(context);
+    var Tablet=ResponsiveHelper.isTablet(context);
     return Padding(
       padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
@@ -28,29 +27,33 @@ class CollectionsSection extends StatelessWidget {
           : EdgeInsets.only(
               top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Container(
-      
-      
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ViewProductlist(productListviewTitle: 'Collections',
-                ontab: (){}),
+            ViewProductlist(productListviewTitle: 'Collections', ontab: () {}),
+            SizedBox(
+              height: Mobile?1.h:1.5.h,
+            ),
             SizedBox(
               height: 19.h,
               width: double.infinity,
-              child: Container(
-                
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-      
-      
-                  itemBuilder:(context,index){
-                    final realIndex = index % CollectionDataList.length;
-                    final item = CollectionDataList[realIndex];
-                    return CollectionCard(assets: item['asset'],
-                      title:item['title'], value: item['value'],
-                     );},
-                ),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final realIndex = index % CollectionDataList.length;
+                  final item = CollectionDataList[realIndex];
+                  return Row(
+                   
+                    children: [
+                      CollectionCard(
+                        assets: item['asset'],
+                        title: item['title'],
+                        value: item['value'],
+                      ),
+                      SizedBox(width: Mobile?2.5.w:1.7.w,)
+                    ],
+                  );
+                },
               ),
             ),
           ],

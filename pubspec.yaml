@@ -41,6 +41,8 @@ dependencies:
   animation_wrappers: ^3.0.0
   smooth_page_indicator: ^1.2.0+3
   badges: ^3.1.0
+  convex_bottom_bar: 
+  
 
 
 dev_dependencies:

@@ -13,19 +13,21 @@ class ThemeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      var Mobile=ResponsiveHelper.isMobile(context);
+    var Tablet=ResponsiveHelper.isTablet(context);
     return Padding(
      padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
               top: widgetTopPad, left: homeMobLP, right: homeMobRP)
           : EdgeInsets.only(
-              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
+              top: 0.1.h, left: homeTabLP, right: homeTabRP),
       child: ColorFiltered(
         colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.5) , BlendMode.dstATop),
         child: Container(
          
       
-          height: 21.h,
+          height: Mobile?18.h:18.h,
           width: double.infinity,
           decoration: BoxDecoration(
             image: const DecorationImage(image: AssetImage('assets/dark.jpg'),

@@ -15,6 +15,8 @@ class WeeklyBestSellerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     var Mobile = ResponsiveHelper.isMobile(context);
+    var Tablet = ResponsiveHelper.isTablet(context);
     return Padding(
       padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
@@ -24,7 +26,7 @@ class WeeklyBestSellerSection extends StatelessWidget {
       child: Column(
         children: [
           ViewProductlist(productListviewTitle: 'Weekly Best Sellers', ontab: () {  },),
-          SizedBox(height: sectionTopPad-.5.w,),
+          SizedBox(height: Mobile?1.h:1.5.h,),
           ListView.builder(
             scrollDirection: Axis.vertical,
             physics: const NeverScrollableScrollPhysics(),

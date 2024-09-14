@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/discount2.dart';
-import 'package:shuhaui/pages/Home/Widgets/SectionWidgets/featuredproductsSection.dart';
+import 'package:shuhaui/features/home/Widgets/SectionWidgets/discount2.dart';
+import 'package:shuhaui/features/home/Widgets/SectionWidgets/featuredproductsSection.dart';
 
 import 'Widgets/SectionWidgets/category.dart';
 import 'Widgets/SectionWidgets/collectionSection.dart';
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
           
             child: Container(
-              padding: EdgeInsets.only(bottom: 4.h),
+              padding: EdgeInsets.only(bottom: 2.h),
               child: Column(
                 children: [
                   const Search_Filter(),

@@ -46,7 +46,7 @@ class CategoryWidget extends StatelessWidget {
                   ),
                   regularfont(
                     text: text,
-                    fontsize: Mobile ? 15.sp : 12.5.sp,
+                    fontsize: Mobile ? 15.sp : 13.3.sp,
                     color: const Color.fromRGBO(116, 119, 148, 0.8),
                   )
                 ],

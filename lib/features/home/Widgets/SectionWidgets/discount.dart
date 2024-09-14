@@ -12,14 +12,17 @@ class DiscountSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     var mobile = ResponsiveHelper.isMobile(context);
+
     return Padding(
       padding: ResponsiveHelper.isMobile(context)
           ? EdgeInsets.only(
-              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
+              top: widgetTopPad, left: homeMobLP,
+          right: homeMobRP)
           : EdgeInsets.only(
               top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Container(
-        height:20.h,
+        height:mobile?18.h:18.h,
         width: double.infinity,
        
         decoration: BoxDecoration(
@@ -38,24 +41,24 @@ class DiscountSection extends StatelessWidget {
           children: [
             // Positioned for the brush image on the right
             Positioned(
-              top: 5.h,
-              right: -1.5.w,
-              bottom:0.h,
+              top: mobile?3.h:5.h,
+              right: mobile?-0.5.w:-4.8.w,
+              bottom:0.3.h,
               child: Image.asset(
                 'assets/make-up.png', // Your image path here
-                height: 18.h,
-                width: 20.w,
+                height: mobile?18.h:0.h,
+                width: mobile?20.w:20.w,
                 fit: BoxFit.contain,
       
               ),
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 16, vertical: 2.h),
+              padding:  EdgeInsets.only(left: 5.w,right: 16.w,top:2.h,bottom: 2.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  textwidget(text: "20% discount on\nwomen care items.",
-                      fontszie: 19.5.sp,
+                  textwidget(text: mobile?"20% discount on\nwomen care items.":"20% discount on women care items.",
+                      fontszie: mobile?19.5.sp:18.sp,
                       fonweight: FontWeight.w600,
                       color: Colors.white),
                   SizedBox(height: 0.4.h),
@@ -67,7 +70,7 @@ class DiscountSection extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.sp), // Button corners
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                     
                     ),
                     child: const Text(
                       'Grab this offer',

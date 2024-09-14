@@ -1,44 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-
   final double appBarHeight;
 
   const HomeAppBar({super.key, this.appBarHeight = kToolbarHeight});
   @override
   Widget build(BuildContext context) {
+    var mobile = ResponsiveHelper.isMobile(context);
+    var tablet = ResponsiveHelper.isTablet(context);
     return AppBar(
-      leading: Padding(
-        padding: EdgeInsets.only(left: 4.w, bottom: 0.5.h),
+    leading: mobile?Padding(
+        padding: EdgeInsets.only(left:4.w, bottom: 0.5.h),
         child: Image.asset(
           "assets/logo-small.png",
+
           fit: BoxFit.contain,
         ),
-      ),
+      ):null,
+      title: tablet? Padding(
+        padding: EdgeInsets.only(left: 11.w),
+        child: Image.asset('assets/logo-small.png',height: 3.5.h,
+        alignment: Alignment.center
+        ,width: 5.5.w,
+        fit: BoxFit.contain,),
+      ):null,
+      
+      
       actions: [
         Padding(
-          padding: EdgeInsets.all(3.sp),
+          padding: mobile?EdgeInsets.symmetric(vertical:0.sp):EdgeInsets.only(right:11.2.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
+                height: mobile?4.h:4.h,
+                width: mobile?8.w:4.8.w,
                 child: Image.asset(
-                  height: 4.20.h,
+                  // height: mobile?4.20.h:0.h,
                   "assets/basket (1).png",
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
-            ],
-          ),
-        ),
-        SizedBox(
+               SizedBox(
           width: 2.5.w,
         ),
         Container(
-          height: 9.h,
-          width: 7.w,
+          height: mobile?4.h:4.h,
+          width: mobile?7.w:4.4.w,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -53,10 +63,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         GestureDetector(
           onTap: () {},
           child: SizedBox(
-            height: 3.h,
-            width: 8.50.w,
+            height: mobile?3.h:4.h,
+            width: mobile?7.w:4.4.w,
             child: Image.asset(
-              height: 3.h,
+             
               "assets/menu-2.png",
               fit: BoxFit.contain,
             ),
@@ -65,6 +75,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         SizedBox(
           width: 4.w,
         )
+            ],
+          ),
+        ),
+       
       ],
     );
   }
@@ -72,7 +86,4 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(appBarHeight);
-
-
-
 }
