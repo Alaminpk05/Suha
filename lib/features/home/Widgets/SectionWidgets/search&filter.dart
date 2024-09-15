@@ -4,12 +4,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
+import '../singlewidgets/textwidget.dart';
+
 class Search_Filter extends StatefulWidget {
   
-  Search_Filter({
-    Key? key,
+  const Search_Filter({
+    super.key,
    
-  }) : super(key: key);
+  });
 
   @override
   State<Search_Filter> createState() => _Search_FilterState();
@@ -68,9 +70,76 @@ class _Search_FilterState extends State<Search_Filter> {
             width: ResponsiveHelper.isTablet(context) ? 2.w : 3.w,
           ),
           Expanded(
-            child: Column(
-              children: [
-                Container(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50.sp)),
+              child: PopupMenuButton(
+                onSelected: (value) {
+
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(9.sp)),
+                color: const Color.fromRGBO(51, 40, 88, 1),
+                offset: mobile?const Offset(0, 49):const Offset(0, 67),
+                itemBuilder: (BuildContext context) {
+                  return [
+                    PopupMenuItem<String>(
+
+                      height: 3.h,
+                      value: 'voice',
+                      child: SizedBox(
+                        height: 2.2.h,
+                        width: 15.w,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              alignment: Alignment.topLeft,
+                              'assets/microphone.png',
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            textwidget(
+                                text: 'Voice',
+                                fontszie: 15.sp,
+                                fonweight: FontWeight.normal,
+                                color: Color.fromRGBO(153, 172, 148, 0.7))
+                          ],
+                        ),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      height: 3.h,
+                      value: 'gallary',
+                      child: SizedBox(
+                        height: 2.2.h,
+                        width: 15.w,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              alignment: Alignment.topLeft,
+                              'assets/layout-collage.png',
+                              height: 2.h,
+                              width: 4.w,
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            textwidget(
+                                text: 'Image',
+                                fontszie: 15.sp,
+                                fonweight: FontWeight.normal,
+                                color: Color.fromRGBO(153, 172, 148, 0.7))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ];
+                },
+                child: Container(
                   width: 27.sp,
                   height: 5.h,
                   decoration: BoxDecoration(
@@ -84,9 +153,10 @@ class _Search_FilterState extends State<Search_Filter> {
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           )
+
         ],
       ),
     );

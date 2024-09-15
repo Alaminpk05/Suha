@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -34,21 +35,49 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: mobile?4.h:4.h,
-                width: mobile?8.w:4.8.w,
-                child: Image.asset(
-                  // height: mobile?4.20.h:0.h,
-                  "assets/basket (1).png",
-                  fit: BoxFit.contain,
+              Stack(
+                children:[
+
+                  Container(
+                    padding: EdgeInsets.only(right:1.w),
+                  height: mobile?4.h:4.h,
+                  width: mobile?8.w:6.2.w,
+                  child: Image.asset(
+                    // height: mobile?4.20.h:0.h,
+                    "assets/basket (1).png",
+                    fit: BoxFit.contain,
+                  ),
                 ),
+                Positioned(
+                  top: 1.75.h,
+                  left: mobile?3.8.w:2.w,
+                    child:Container(
+                      constraints: BoxConstraints(maxHeight:1.6.h,
+                      minWidth: 5.w),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(98, 90, 250, 1),
+                        shape: BoxShape.circle
+
+                      ),
+                      child:Align(
+                        alignment: Alignment.center,
+                        child: textwidget(text: '13',
+                            fontszie: 11.5.sp,
+                            fonweight: FontWeight.w700,
+                            color: Colors.white),
+                      ),
+                    )
+                ),
+
+
+                ],
               ),
                SizedBox(
           width: 2.5.w,
         ),
         Container(
           height: mobile?4.h:4.h,
-          width: mobile?7.w:4.4.w,
+          width: mobile?6.w:4.4.w,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -64,7 +93,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           onTap: () {},
           child: SizedBox(
             height: mobile?3.h:4.h,
-            width: mobile?7.w:4.4.w,
+            width: mobile?6.w:4.4.w,
             child: Image.asset(
              
               "assets/menu-2.png",

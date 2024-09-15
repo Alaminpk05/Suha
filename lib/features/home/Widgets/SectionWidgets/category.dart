@@ -17,7 +17,7 @@ class CategorySection1 extends StatelessWidget {
               top: widgetTopPad, left: homeTabLP, right: homeTabRP),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+
         children: List.generate(categoryDataList1.length, (index) {
           final item = categoryDataList1[index];
           return CategoryWidget(
@@ -51,8 +51,8 @@ class CategorySection2 extends StatelessWidget {
           ? EdgeInsets.only(top: oneHeightPad, left: homeMobLP, right: homeMobRP)
           : EdgeInsets.only(top: oneHeightPad, left: homeTabLP, right: homeTabRP),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
           children: List.generate(categoryDataList2.length, (index) {
             final item = categoryDataList2[index];
             return CategoryWidget(

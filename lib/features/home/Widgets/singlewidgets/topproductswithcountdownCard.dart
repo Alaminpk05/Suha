@@ -20,7 +20,7 @@ Widget topProductwithtime({
     child: Stack(
       children: [
         Container(
-          height: mobile ? 30.h : 22.h,
+          height: mobile ? 28.5.h : 22.h,
           width: mobile ? 45.w : 30.w,
           // margin: EdgeInsets.only(
           //     top: 0.5.h, left:mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
@@ -95,8 +95,8 @@ Widget topProductwithtime({
           ),
         ),
         Positioned(
-          top: mobile ? 17.h : 13.5.h,
-          left: mobile ? 4.w : 3.w,
+          top: mobile ? 17.5.h : 13.5.h,
+          left: mobile ? 3.3.w : 3.w,
           child: regularfont(
             text: name,
             fontsize: mobile?16.sp:15.5.sp,
@@ -104,8 +104,8 @@ Widget topProductwithtime({
           ),
         ),
         Positioned(
-          top: mobile ? 19.5.h : 16.h,
-          left: 3.w,
+          top: mobile ? 20.2.h : 16.h,
+          left: 3.3.w,
           right: 2.w,
           child: Row(
             children: [
@@ -135,7 +135,7 @@ Widget topProductwithtime({
           ),
         ),
         Positioned(
-          bottom: mobile ? 2.h : 1.5.h,
+          bottom: mobile ? 2.5.h : 1.5.h,
           left: 3.3.w,
           right: mobile ? 5.w : 3.w,
           child: Row(
