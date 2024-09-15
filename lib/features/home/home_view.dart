@@ -15,9 +15,6 @@ import 'Widgets/SectionWidgets/themeswitch.dart';
 import 'Widgets/SectionWidgets/topproducts.dart';
 import 'Widgets/SectionWidgets/weeklybestsellers.dart';
 
-
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -84,12 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+
   @override
   void initState() {
     start();
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -100,29 +97,23 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HomeAppBar(),
       body: Scrollbar(
-
         child: GlowingOverscrollIndicator(
-
           axisDirection: AxisDirection.down,
-
-           color: const Color.fromRGBO(51, 40, 88, 1),
+          color: const Color.fromRGBO(51, 40, 88, 1),
           child: SingleChildScrollView(
-          
             child: Container(
               padding: EdgeInsets.only(bottom: 2.h),
               child: Column(
                 children: [
-                  const Search_Filter(),
+                  Search_Filter(),
                   const ImageSlider(),
-                   const CategorySection1(),
-                   const CategorySection2(),
+                  const CategorySection1(),
+                  const CategorySection2(),
                   CycloneOfferSection(
                       digitDays: digitDays,
                       digitHours: digitHours,
@@ -138,8 +129,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   const WeeklyBestSellerSection(),
                   const DiscountSection2(),
                   const Featuredproductssection(),
-          
-          
                   CollectionsSection(),
                 ],
               ),
@@ -147,10 +136,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-
     );
   }
 }
-
-
-

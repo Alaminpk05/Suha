@@ -41,7 +41,7 @@ class _TabapgesState extends State<Tabapges> {
       body: pagedetails[selectedIndex]['page'],
       bottomNavigationBar: mobile?bottomNavBar(mobile,tablet):Container(
         height: 6.h,
-        color: const Color(0xFF4B2E83), // Dark purple background
+        color: const Color.fromRGBO(51, 40, 88, 1),
         child: Padding(
           padding:  EdgeInsets.symmetric(horizontal: 11.w), // Padding for spacing
           child: Row(
@@ -62,11 +62,11 @@ class _TabapgesState extends State<Tabapges> {
   Widget _buildChoiceChip(int builchipindex, String assetPath, String label) {
     return ChoiceChip(
       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
-      backgroundColor: const Color(0xFF4B2E83),
-      selectedColor: const Color(0xFF4B2E83),
+      backgroundColor: const Color.fromRGBO(51, 40, 88, 1),
+      selectedColor: const Color.fromRGBO(51, 40, 88, 1),
       shape: RoundedRectangleBorder(
         side: const BorderSide(
-          color: Color.fromRGBO(51,40,88,0.5), // No border when unselected
+          color: Color.fromRGBO(51, 40, 88, 1), // No border when unselected
           width: .0,
         ),
         borderRadius: BorderRadius.circular(25.sp), // Rounded border
