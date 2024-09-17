@@ -37,10 +37,7 @@ class TopProductsSection extends StatelessWidget {
           ViewProductlist(
             productListviewTitle: 'Top Products',
             ontab: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopGrid(digitDays: digitDays,
-                  digitHours: digitHours,
-                  digitMinutes: digitMinutes,
-                  digitSeconds: digitSeconds)));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopGrid()));
             },
           ),
           SizedBox(

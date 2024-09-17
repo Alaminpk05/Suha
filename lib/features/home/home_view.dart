@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(bottom: 2.h),
               child: Column(
                 children: [
-                  Search_Filter(),
+                  const Search_Filter(),
                   const ImageSlider(),
                   const CategorySection1(),
                   const CategorySection2(),

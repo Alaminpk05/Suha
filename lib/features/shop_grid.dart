@@ -5,16 +5,18 @@ import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ShopGrid extends StatefulWidget {
-  final String digitDays;
-  final String digitHours;
-  final String digitMinutes;
-  final String digitSeconds;
+  // final String digitDays;
+  // final String digitHours;
+  // final String digitMinutes;
+  // final String digitSeconds;
   const ShopGrid(
       {super.key,
-      required this.digitDays,
-      required this.digitHours,
-      required this.digitMinutes,
-      required this.digitSeconds});
+      // required this.digitDays,
+      // required this.digitHours,
+      // required this.digitMinutes,
+      // required this.digitSeconds
+
+      });
 
   @override
   State<ShopGrid> createState() => _ShopGridState();

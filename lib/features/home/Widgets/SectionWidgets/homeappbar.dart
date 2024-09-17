@@ -43,7 +43,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Container(
                     padding: EdgeInsets.only(right:1.w),
                   height: mobile?4.h:4.h,
-                  width: mobile?8.w:6.2.w,
+                  width: mobile?8.5.w:6.2.w,
                   child: Image.asset(
                     // height: mobile?4.20.h:0.h,
                     "assets/basket (1).png",
@@ -52,11 +52,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 Positioned(
                   top: 1.75.h,
-                  left: mobile?3.8.w:2.w,
+                  left: mobile?4.4.w:2.w,
                     child:Container(
-                      constraints: BoxConstraints(maxHeight:1.6.h,
-                      minWidth: 5.w),
-                      decoration: BoxDecoration(
+                      constraints: BoxConstraints(maxHeight:1.65.h,
+                      minWidth: 4.2.w),
+                      decoration: const BoxDecoration(
                         color: Color.fromRGBO(98, 90, 250, 1),
                         shape: BoxShape.circle
 
@@ -78,22 +78,37 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           width: 2.5.w,
         ),
         Container(
+
           height: mobile?4.h:4.h,
-          width: mobile?6.w:4.4.w,
-          decoration: const BoxDecoration(
+          width: mobile?7.5.w:5.w,
+          decoration:  BoxDecoration(
             shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage('assets/9.jpg'),
-              fit: BoxFit.contain,
+            border: Border.all(
+              color: const Color.fromRGBO(
+                  92, 83, 121, 1),
+              width: mobile?0.38.w:0.3.w,
             ),
+           
           ),
+          child: Align(
+            alignment: Alignment.center,
+            child: Container(
+              height: mobile?3.h:3.h,
+              width: mobile?6.5.w:4.25.w,
+                padding: EdgeInsets.all(5.sp),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/9.jpg'),
+              ),
+
+            ),
+          )
         ),
         SizedBox(
           width: 2.5.w,
         ),
         GestureDetector(
           onTap: () {},
-          child: CircleMenu(),),
+          child: const CircleMenu(),),
         SizedBox(
           width: 4.w,
         )

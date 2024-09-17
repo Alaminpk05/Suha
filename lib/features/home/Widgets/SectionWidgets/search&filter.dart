@@ -105,7 +105,7 @@ class _Search_FilterState extends State<Search_Filter> {
                                 text: 'Voice',
                                 fontszie: 15.sp,
                                 fonweight: FontWeight.normal,
-                                color: Color.fromRGBO(153, 172, 148, 0.7))
+                                color: const Color.fromRGBO(153, 172, 148, 0.7))
                           ],
                         ),
                       ),
@@ -132,7 +132,7 @@ class _Search_FilterState extends State<Search_Filter> {
                                 text: 'Image',
                                 fontszie: 15.sp,
                                 fonweight: FontWeight.normal,
-                                color: Color.fromRGBO(153, 172, 148, 0.7))
+                                color: const Color.fromRGBO(153, 172, 148, 0.7))
                           ],
                         ),
                       ),
