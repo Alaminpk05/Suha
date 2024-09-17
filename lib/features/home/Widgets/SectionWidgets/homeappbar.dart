@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,6 +13,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
     return AppBar(
+      automaticallyImplyLeading: false,
     leading: mobile?Padding(
         padding: EdgeInsets.only(left:4.w, bottom: 0.5.h),
         child: Image.asset(
@@ -91,16 +93,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         GestureDetector(
           onTap: () {},
-          child: SizedBox(
-            height: mobile?3.h:4.h,
-            width: mobile?6.w:4.4.w,
-            child: Image.asset(
-             
-              "assets/menu-2.png",
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
+          child: CircleMenu(),),
         SizedBox(
           width: 4.w,
         )

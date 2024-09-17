@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -35,7 +36,12 @@ class TopProductsSection extends StatelessWidget {
         children: [
           ViewProductlist(
             productListviewTitle: 'Top Products',
-            ontab: () {},
+            ontab: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopGrid(digitDays: digitDays,
+                  digitHours: digitHours,
+                  digitMinutes: digitMinutes,
+                  digitSeconds: digitSeconds)));
+            },
           ),
           SizedBox(
             height: mobile ? 1.h : 1.5.h,

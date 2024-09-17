@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/cart/cart_view.dart';
 import 'package:shuhaui/features/home/home_view.dart';
 import 'package:shuhaui/features/cart.dart';
 import 'package:shuhaui/features/chat.dart';
@@ -24,7 +25,7 @@ class _TabapgesState extends State<Tabapges> {
       'page': const Chat(),
     },
     {
-      'page': const Cart(),
+      'page': const CartView(title: 'MY Cart'),
     },
     {
       'page': const Settings(),
