@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
@@ -16,8 +17,9 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mobile=ResponsiveHelper.isMobile(context);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      padding: EdgeInsets.symmetric(horizontal: mobile?15.w:20.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,24 +37,24 @@ class TextFieldWidget extends StatelessWidget {
                 hintText: hindtext, // Hint text
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 15.sp,
+                  fontSize: mobile?15.5.sp:15.sp,
                   color: Color.fromRGBO(170, 188, 243, 0.7), // Hint text color
                 ),
                 prefixIcon: Padding(
-                  padding: EdgeInsets.fromLTRB(1.h, 0.w, 4.w, 1.h),
+                  padding: EdgeInsets.fromLTRB(0, mobile?1.2.h:0.7.h, 0.w, mobile?2.h:1.h),
                   child: Image.asset(
                     pefefiximage, // Custom image
-                    width: 0.w,
-                    height: 0.h,
+                    width: mobile?0.w:3.5.w,
+                    height: mobile?0.w:1.h,
                   ),
                 ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                      width: 0.06.w,
+                      width: 0.1.w,
                       color: Colors.white54), // Border color when enabled
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(width: 0.06.w, color: Colors.white54),
+                  borderSide: BorderSide(width: 0.1.w, color: Colors.white54),
                 ),
                 border: InputBorder.none // Remove focus border
             ),

@@ -5,6 +5,7 @@ import 'package:shuhaui/features/authentication/registration/registration.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/global_widgets/authtextfield.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,6 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    var mobile= ResponsiveHelper.isMobile(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(64, 91, 233, 1),
       body: Column(
@@ -39,11 +41,11 @@ class _LoginState extends State<Login> {
             height: 3.h,
           ),
           ElevatedTextButton(
-            text: 'Login',
+            text: 'Log In',
             fontsize: 16.sp,
             fontWeight: FontWeight.w600,
-            height: 4.h,
-            width: 60.w,
+            height: mobile?4.h:4.5.h,
+            width: mobile?70.w:60.w,
             radius: 10.sp,
             textcolor: Colors.black,
             buttoncolor: Color.fromRGBO(255, 175, 0, 1), elevation: 0.0,
@@ -65,14 +67,14 @@ class _LoginState extends State<Login> {
                     text: "Didn't have an account? ",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 14.sp,
+                      fontSize: 14.7.sp,
                       color: Color.fromRGBO(170, 188, 243, 0.7),
                     )),
                 TextSpan(
                     text: "Register Now",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 14.5.sp,
+                      fontSize: 14.8.sp,
                       color: Colors.white,
                     ),recognizer: TapGestureRecognizer()..onTap=(){
                       Navigator.push(context, MaterialPageRoute(builder: (c)=>Registration()));
@@ -82,7 +84,7 @@ class _LoginState extends State<Login> {
           SizedBox(height:2.h,),
           Container(
             height: 3.5.h,
-            width: 32.w,
+            width: mobile?32.w:24.3.w,
             child: ElevatedButton(
 
                 onPressed: (){},
@@ -100,7 +102,7 @@ class _LoginState extends State<Login> {
 
                   children: [
                     textwidget(text: 'View as guest',
-                        fontszie: 14.1.sp, fonweight: FontWeight.w700,
+                        fontszie: mobile?14.1.sp:14.sp, fonweight: FontWeight.w700,
                         color:Colors.white70),
                     SizedBox(width: 2.w,),
                     Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: 3.w,)
