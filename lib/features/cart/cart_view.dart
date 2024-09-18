@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 
@@ -50,7 +49,10 @@ class CartView extends StatelessWidget {
                          SizedBox(height: 2.2.h,),
                         ElevatedTextButton( text:'Go to Shop',
                          fontsize:mobile?15.sp:14.6.sp, fontWeight:  FontWeight.w600,
-                          height: mobile?3.5.h:3.1.h, width: mobile?24.9.w:17.w, radius: mobile?10.sp:8.5.sp,)
+                          height: mobile?3.5.h:3.1.h, width: mobile?24.9.w:17.w,
+                            radius: mobile?10.sp:8.5.sp,
+                          textcolor: const Color.fromRGBO(255, 255, 255, 0.98),
+                          buttoncolor:const Color.fromRGBO(98, 90, 250, 1), elevation: 2.0,)
                     ],
                   ),
                 ),

@@ -37,22 +37,24 @@ class _TabapgesState extends State<Tabapges> {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
-    return Scaffold(
-      body: pagedetails[selectedIndex]['page'],
-      bottomNavigationBar: mobile?bottomNavBar(mobile,tablet):Container(
-        height: 6.h,
-        color: const Color.fromRGBO(51, 40, 88, 1),
-        child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 11.w), // Padding for spacing
-          child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _buildChoiceChip(0, 'assets/home (1).png', "Home"),
-              _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
-              _buildChoiceChip(2,  'assets/basket (2).png', "Cart"),
-              _buildChoiceChip(3,  'assets/settings (1).png' ,"Settings"),
-              _buildChoiceChip(4, 'assets/heart (1).png', "Pages"),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        body: pagedetails[selectedIndex]['page'],
+        bottomNavigationBar: mobile?bottomNavBar(mobile,tablet):Container(
+          height: 6.h,
+          color: const Color.fromRGBO(51, 40, 88, 1),
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 11.w), // Padding for spacing
+            child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildChoiceChip(0, 'assets/home (1).png', "Home"),
+                _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
+                _buildChoiceChip(2,  'assets/basket (2).png', "Cart"),
+                _buildChoiceChip(3,  'assets/settings (1).png' ,"Settings"),
+                _buildChoiceChip(4, 'assets/heart (1).png', "Pages"),
+              ],
+            ),
           ),
         ),
       ),

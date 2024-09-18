@@ -9,14 +9,18 @@ class ElevatedTextButton extends StatelessWidget {
     required this.fontWeight,
     required this.height,
     required this.width, required this.radius,
+    required this.buttoncolor, required this.textcolor, required this.elevation,
   });
 
   final String text;
+  final double elevation;
   final double fontsize;
   final FontWeight fontWeight;
   final double height;
   final double width;
   final double radius;
+  final Color buttoncolor;
+  final Color textcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,8 @@ class ElevatedTextButton extends StatelessWidget {
             // Handle button press
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(98, 90, 250, 1),
+            elevation: elevation,
+            backgroundColor: buttoncolor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius),
             ),
@@ -37,7 +42,7 @@ class ElevatedTextButton extends StatelessWidget {
             text: text,
             fontszie: fontsize,
             fonweight: fontWeight,
-            color: const Color.fromRGBO(255, 255, 255, 0.98),
+            color: textcolor,
           )),
     );
   }

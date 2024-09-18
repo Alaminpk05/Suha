@@ -21,3 +21,25 @@ class textwidget extends StatelessWidget {
     ));
   }
 }
+
+// class textspane extends StatelessWidget {
+//   final String text;
+//   final double fontszie;
+//   final FontWeight fonweight;
+//   final Color color;
+//    textspane({
+//     super.key, required this.text,
+//     required this.fontszie,
+//     required this.fonweight,
+//     required this.color,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return TextSpan(text: text, style: TextStyle(
+//       fontWeight: fonweight,
+//       color: color,
+//       fontSize: fontszie,
+//     ));
+//   }
+// }
