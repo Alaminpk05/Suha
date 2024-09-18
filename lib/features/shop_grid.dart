@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
+import 'package:shuhaui/features/home/Widgets/singlewidgets/topproductswithcountdownCard.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
+
+import 'home/Widgets/singlewidgets/categorybuttonwidget.dart';
+import 'home/Widgets/singlewidgets/textwidget.dart';
+import 'home/Widgets/singlewidgets/topProductwithouttime.dart';
 
 class ShopGrid extends StatefulWidget {
   // final String digitDays;
@@ -26,6 +31,7 @@ class _ShopGridState extends State<ShopGrid> {
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
+    var tablet=ResponsiveHelper.isTablet(context);
     return SafeArea(
         child: Scaffold(
             appBar: PreferredSize(
@@ -37,6 +43,57 @@ class _ShopGridState extends State<ShopGrid> {
                         MaterialPageRoute(builder: (cxt) => const Tabapges()));
                   }),
             ),
-            body: Container()));
+            body:Padding(
+              padding: const EdgeInsets.symmetric(),
+              child: Column(
+                children: [
+
+
+
+                  SizedBox(height:2.h),
+                  ListView.builder(
+                    shrinkWrap: true,
+                      itemCount: 1,
+                      itemBuilder: (context,index){
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        topProductwithtime(
+                            name: "Beach Cap",
+                            image: "assets/11.png",
+                            miniButtonword: "Sale",
+                            miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
+                            color: Colors.black,
+                            digitDays: '150',
+                            digitHours: '24',
+                            digitMinutes: '24',
+                            digitSeconds: '24',
+                            mobile: mobile,
+                            tablet: tablet),
+                        topProductwithouttime(
+                            name: 'Wooden Sofa',
+                            photo: "assets/5.png",
+                            color: const Color.fromRGBO(0, 184, 148, 1),
+                            minibuttonword2: 'New',
+                            mobile: mobile,
+                            tablet: tablet,
+                            textcolor: Colors.white),
+                      ],
+                    );
+                  }),
+                ],
+              ),
+            )
+
+
+
+
+
+
+
+
+
+
+        ));
   }
 }
