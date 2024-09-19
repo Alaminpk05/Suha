@@ -83,8 +83,8 @@ class _ShopGridState extends State<ShopGrid> {
                               width: 0.7.w,
                             ),
                             textwidget(
-                                text: 'Black Shoe',
-                                fontszie: 13.sp,
+                                text: 'Furniture',
+                                fontszie: 13.5.sp,
                                 fonweight: FontWeight.w700,
                                 color: Colors.white),
                           ],
@@ -104,7 +104,7 @@ class _ShopGridState extends State<ShopGrid> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(9.sp)),
                     color: const Color.fromRGBO(51, 40, 88, 1),
-                    offset: mobile ? const Offset(0, 36) : const Offset(0, 67),
+                    offset: mobile ? const Offset(0, 38) : const Offset(0, 67),
                     itemBuilder: (BuildContext context) {
                       return [
                         PopupMenuItem<String>(
@@ -163,7 +163,7 @@ class _ShopGridState extends State<ShopGrid> {
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 1.w),
-                      width: 20.w,
+                      width: 22.w,
                       height: 4.h,
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(51, 40, 88, 1),
@@ -176,7 +176,7 @@ class _ShopGridState extends State<ShopGrid> {
                           children: [
                             textwidget(
                                 text: 'Short By',
-                                fontszie: 13.sp,
+                                fontszie: 13.5.sp,
                                 fonweight: FontWeight.w500,
                                 color: const Color.fromRGBO(116, 119, 148, 1)),
                             SizedBox(

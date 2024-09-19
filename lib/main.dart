@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/authentication/login/forgot.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'features/authentication/login/login.dart';
+import 'features/bottom_nav_bar/tabapges.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-         home:const ShopGrid(),
+         home:Bottompage(),
       );},
     );
   }
