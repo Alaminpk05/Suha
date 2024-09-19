@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/login/login.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/global_widgets/authtextfield.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -19,13 +18,13 @@ class _RegistrationState extends State<Registration> {
   Widget build(BuildContext context) {
     var mobile =ResponsiveHelper.isMobile(context);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(64, 91, 233, 1),
+      backgroundColor: const Color.fromRGBO(64, 91, 233, 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           
-          Container(
+          SizedBox(
             height: 13.5.h,
             width: 23.w,
             child: Image.asset('assets/logo-white.png',fit: BoxFit.contain,),
@@ -35,7 +34,7 @@ class _RegistrationState extends State<Registration> {
             height: 5.h
             ,
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             labeltext: 'Username',
             hindtext: 'Designing World',
             pefefiximage: 'assets/user.png',
@@ -43,7 +42,7 @@ class _RegistrationState extends State<Registration> {
           SizedBox(
             height: 3.h,
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             labeltext: 'Email',
             hindtext: 'help@example.com',
             pefefiximage: 'assets/at.png',
@@ -51,7 +50,7 @@ class _RegistrationState extends State<Registration> {
           SizedBox(
             height: 3.h,
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             labeltext: 'Password',
             hindtext: 'Password',
             pefefiximage: 'assets/key.png',
@@ -67,7 +66,7 @@ class _RegistrationState extends State<Registration> {
             width: mobile?70.w:60.w,
             radius: 10.sp,
             textcolor: Colors.black,
-            buttoncolor: Color.fromRGBO(255, 175, 0, 1), elevation: 0.0,
+            buttoncolor: const Color.fromRGBO(255, 175, 0, 1), elevation: 0.0, ontap: () {  },
           ),
           SizedBox(height: 2.h,),
           RichText(
@@ -77,7 +76,7 @@ class _RegistrationState extends State<Registration> {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 14.7.sp,
-                  color: Color.fromRGBO(170, 188, 243, 0.7),
+                  color: const Color.fromRGBO(170, 188, 243, 0.7),
                 )),
                 TextSpan(
                     text: "Sign In",
@@ -87,7 +86,7 @@ class _RegistrationState extends State<Registration> {
                       color: Colors.white,
                     ),recognizer: TapGestureRecognizer()..onTap=(){
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (c)=>Login()));
+                          MaterialPageRoute(builder: (c)=>const Login()));
 
                 })
           ])),

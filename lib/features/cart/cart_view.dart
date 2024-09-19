@@ -52,7 +52,7 @@ class CartView extends StatelessWidget {
                           height: mobile?3.5.h:3.1.h, width: mobile?24.9.w:17.w,
                             radius: mobile?10.sp:8.5.sp,
                           textcolor: const Color.fromRGBO(255, 255, 255, 0.98),
-                          buttoncolor:const Color.fromRGBO(98, 90, 250, 1), elevation: 2.0,)
+                          buttoncolor:const Color.fromRGBO(98, 90, 250, 1), elevation: 2.0, ontap: () {  },)
                     ],
                   ),
                 ),

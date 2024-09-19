@@ -28,7 +28,7 @@ class TextFieldWidget extends StatelessWidget {
             labeltext, // Label text
             style: TextStyle(
               color: Colors.white, // Label color
-              fontSize: 16.sp,
+              fontSize: 15.sp,
             ),
           ),
           SizedBox(height: 0.5.h), // Space between label and text field
@@ -36,12 +36,12 @@ class TextFieldWidget extends StatelessWidget {
             decoration: InputDecoration(
                 hintText: hindtext, // Hint text
                 hintStyle: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: mobile?15.5.sp:15.sp,
+                  fontWeight: FontWeight.w400,
+                  fontSize: mobile?14.5.sp:15.sp,
                   color: Color.fromRGBO(170, 188, 243, 0.7), // Hint text color
                 ),
                 prefixIcon: Padding(
-                  padding: EdgeInsets.fromLTRB(0, mobile?1.2.h:0.7.h, 0.w, mobile?2.h:1.h),
+                  padding: EdgeInsets.fromLTRB(0, mobile?1.5.h:0.7.h, 0.w, mobile?2.25.h:1.h),
                   child: Image.asset(
                     pefefiximage, // Custom image
                     width: mobile?0.w:3.5.w,
@@ -50,11 +50,11 @@ class TextFieldWidget extends StatelessWidget {
                 ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                      width: 0.1.w,
+                      width: 0.05.w,
                       color: Colors.white54), // Border color when enabled
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(width: 0.1.w, color: Colors.white54),
+                  borderSide: BorderSide(width: 0.05.w, color: Colors.white54),
                 ),
                 border: InputBorder.none // Remove focus border
             ),

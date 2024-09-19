@@ -7,14 +7,14 @@ import 'package:shuhaui/features/pages.dart';
 import 'package:shuhaui/features/settins.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-class Tabapges extends StatefulWidget {
-  const Tabapges({super.key});
+class Bottompage extends StatefulWidget {
+  const Bottompage({super.key});
 
   @override
-  State<Tabapges> createState() => _TabapgesState();
+  State<Bottompage> createState() => _BottompageState();
 }
 
-class _TabapgesState extends State<Tabapges> {
+class _BottompageState extends State<Bottompage> {
   int selectedIndex = 0;
   List<Map<String, dynamic>> pagedetails = [
     {
@@ -40,27 +40,31 @@ class _TabapgesState extends State<Tabapges> {
     return SafeArea(
       child: Scaffold(
         body: pagedetails[selectedIndex]['page'],
-        bottomNavigationBar: mobile?bottomNavBar(mobile,tablet):Container(
-          height: 6.h,
-          color: const Color.fromRGBO(51, 40, 88, 1),
-          child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 11.w), // Padding for spacing
-            child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildChoiceChip(0, 'assets/home (1).png', "Home"),
-                _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
-                _buildChoiceChip(2,  'assets/basket (2).png', "Cart"),
-                _buildChoiceChip(3,  'assets/settings (1).png' ,"Settings"),
-                _buildChoiceChip(4, 'assets/heart (1).png', "Pages"),
-              ],
-            ),
-          ),
-        ),
+        bottomNavigationBar: mobile
+            ? bottomNavBar(mobile, tablet)
+            : Container(
+                height: 6.h,
+                color: const Color.fromRGBO(51, 40, 88, 1),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 11.w), // Padding for spacing
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildChoiceChip(0, 'assets/home (1).png', "Home"),
+                      _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
+                      _buildChoiceChip(2, 'assets/basket (2).png', "Cart"),
+                      _buildChoiceChip(
+                          3, 'assets/settings (1).png', "Settings"),
+                      _buildChoiceChip(4, 'assets/heart (1).png', "Pages"),
+                    ],
+                  ),
+                ),
+              ),
       ),
     );
   }
-  
+
   Widget _buildChoiceChip(int builchipindex, String assetPath, String label) {
     return ChoiceChip(
       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
@@ -74,9 +78,9 @@ class _TabapgesState extends State<Tabapges> {
         borderRadius: BorderRadius.circular(25.sp), // Rounded border
       ),
       selected: selectedIndex == builchipindex,
-      onSelected: (bool  selected) {
+      onSelected: (bool selected) {
         setState(() {
-        selectedIndex = builchipindex ;
+          selectedIndex = builchipindex;
         });
       },
       label: Column(
@@ -89,7 +93,7 @@ class _TabapgesState extends State<Tabapges> {
                 ? Colors.white
                 : Colors.white, // Change color based on selection
           ),
-           const SizedBox(height: 0.0),
+          const SizedBox(height: 0.0),
           Text(
             label,
             style: TextStyle(
@@ -104,10 +108,7 @@ class _TabapgesState extends State<Tabapges> {
     );
   }
 
-
-
-
-  BottomNavigationBar bottomNavBar(var mobile,var tablet) {
+  BottomNavigationBar bottomNavBar(var mobile, var tablet) {
     Device.screenType == ScreenType.tablet;
     return BottomNavigationBar(
         currentIndex: selectedIndex,

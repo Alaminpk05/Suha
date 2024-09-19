@@ -1,17 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 
 class ElevatedTextButton extends StatelessWidget {
-  const ElevatedTextButton({
+   const ElevatedTextButton({
     super.key,
     required this.text,
+    required this.elevation,
     required this.fontsize,
     required this.fontWeight,
     required this.height,
-    required this.width, required this.radius,
-    required this.buttoncolor, required this.textcolor, required this.elevation,
+    required this.width,
+    required this.radius,
+    required this.buttoncolor,
+    required this.textcolor,
+    required this.ontap
   });
-
+   final void Function()? ontap;
   final String text;
   final double elevation;
   final double fontsize;
@@ -28,9 +33,7 @@ class ElevatedTextButton extends StatelessWidget {
       height: height,
       width: width,
       child: ElevatedButton(
-          onPressed: () {
-            // Handle button press
-          },
+          onPressed: ontap,
           style: ElevatedButton.styleFrom(
             elevation: elevation,
             backgroundColor: buttoncolor,
