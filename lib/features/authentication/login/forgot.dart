@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/login/login.dart';
-import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/utils/global_widgets/authtextfield.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';

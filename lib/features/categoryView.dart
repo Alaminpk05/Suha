@@ -14,18 +14,11 @@ class Categoryview extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Padding(
-       padding: ResponsiveHelper.isMobile(context)
-          ? EdgeInsets.only(
-              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
-          : EdgeInsets.only(
-              top: widgetTopPad, left: homeTabLP, right: homeTabRP),
-        child: Container(
-          child:ListView.builder(
-              itemCount:20,itemBuilder: (context,index){
-            return WeeklyProductsCard(image: image, title: title);
-          }
-          ),
+      body: Container(
+        child:ListView.builder(
+            itemCount:20,itemBuilder: (context,index){
+          return WeeklyProductsCard(image: image, title: title);
+        }
         ),
       ),
 

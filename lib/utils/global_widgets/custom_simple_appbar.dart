@@ -10,8 +10,9 @@ class CustomSimpleAppBar extends StatelessWidget {
   const CustomSimpleAppBar({
     super.key,
     required this.title,
-    required this.navigation,
+    required this.navigation, required this.widget,
   });
+  final Widget widget;
 
   final String title;
   final void Function()? navigation;
@@ -20,14 +21,11 @@ class CustomSimpleAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     return AppBar(
-    
-    automaticallyImplyLeading: false,
+     automaticallyImplyLeading: false,
       flexibleSpace: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: mobile
-                ? appbarMobPad
-                : appbarTabPad), 
-                // Add padding to the whole AppBar content
+            horizontal: mobile ? appbarMobPad : appbarTabPad),
+        // Add padding to the whole AppBar content
         child: Align(
           alignment: Alignment.center,
           child: Row(
@@ -37,8 +35,8 @@ class CustomSimpleAppBar extends StatelessWidget {
               GestureDetector(
                 onTap: navigation,
                 child: SizedBox(
-                  height: mobile ? 4.h : 4.h,
-                  width: mobile ? 6.5.w : 4.w,
+                  height: mobile ? 3.h : 4.h,
+                  width: mobile ? 6.w : 4.w,
                   child: Image.asset(
                     "assets/arrow-left.png",
                     fit: BoxFit.contain,
@@ -47,20 +45,19 @@ class CustomSimpleAppBar extends StatelessWidget {
               ),
               const SizedBox
                   .shrink(), // Empty space for leading widget (or replace it with something)
-    
+
               // The title
               Expanded(
                 child: Align(
                   alignment: Alignment.center,
                   child: textwidget(
                       text: title,
-                      fontszie: mobile ? 18.sp : 16.3.sp,
+                      fontszie: mobile ? 17.sp : 16.3.sp,
                       fonweight: FontWeight.w500,
                       color: Colors.white),
                 ),
               ),
-    
-              const CircleMenu()
+              widget
             ],
           ),
         ),

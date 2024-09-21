@@ -38,7 +38,7 @@ class TextFieldWidget extends StatelessWidget {
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: mobile?14.5.sp:15.sp,
-                  color: Color.fromRGBO(170, 188, 243, 0.7), // Hint text color
+                  color: const Color.fromRGBO(170, 188, 243, 0.7), // Hint text color
                 ),
                 prefixIcon: Padding(
                   padding: EdgeInsets.fromLTRB(0, mobile?1.5.h:0.7.h, 0.w, mobile?2.25.h:1.h),
@@ -58,7 +58,7 @@ class TextFieldWidget extends StatelessWidget {
                 ),
                 border: InputBorder.none // Remove focus border
             ),
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white, // Text color
             ),
             cursorColor: Colors.white, // Cursor color

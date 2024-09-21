@@ -15,53 +15,46 @@ class ThemeSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
       var Mobile=ResponsiveHelper.isMobile(context);
     var Tablet=ResponsiveHelper.isTablet(context);
-    return Padding(
-     padding: ResponsiveHelper.isMobile(context)
-          ? EdgeInsets.only(
-              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
-          : EdgeInsets.only(
-              top: 0.1.h, left: homeTabLP, right: homeTabRP),
-      child: ColorFiltered(
-        colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.5) , BlendMode.dstATop),
+    return ColorFiltered(
+      colorFilter: ColorFilter.mode(
+          Colors.black.withOpacity(0.5) , BlendMode.dstATop),
+      child: Container(
+       
+    
+        height: Mobile?18.h:18.h,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: const DecorationImage(image: AssetImage('assets/dark.jpg'),
+              filterQuality: FilterQuality.high,fit: BoxFit.cover),
+          borderRadius: BorderRadius.circular(10.sp),
+        ),
         child: Container(
-         
-      
-          height: Mobile?18.h:18.h,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: const DecorationImage(image: AssetImage('assets/dark.jpg'),
-                filterQuality: FilterQuality.high,fit: BoxFit.cover),
-            borderRadius: BorderRadius.circular(10.sp),
-          ),
-          child: Container(
-            padding: EdgeInsets.only(left: 7.w,bottom: 2.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-      
-      
-      
-                Text("You can change your display to a dark "
-                    "\n background using a dark mode.",
-                  style: TextStyle(color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily:"PlusJakartaSans-Regular.ttf",
-      
-                      fontSize: 16.sp ),textAlign: TextAlign.start,),
-                Switch(
-                    activeColor: Colors.purple,
-                    inactiveThumbColor: Colors.white,
-                    inactiveTrackColor: const Color.fromRGBO(12, 21, 59, 1),
-      
-                    value: switchValue,
-      
-                    onChanged:(value){
-      
-                    })
-              ],
-            ),
+          padding: EdgeInsets.only(left: 7.w,bottom: 2.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+    
+    
+    
+              Text("You can change your display to a dark "
+                  "\n background using a dark mode.",
+                style: TextStyle(color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontFamily:"PlusJakartaSans-Regular.ttf",
+    
+                    fontSize: 16.sp ),textAlign: TextAlign.start,),
+              Switch(
+                  activeColor: Colors.purple,
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: const Color.fromRGBO(12, 21, 59, 1),
+    
+                  value: switchValue,
+    
+                  onChanged:(value){
+    
+                  })
+            ],
           ),
         ),
       ),

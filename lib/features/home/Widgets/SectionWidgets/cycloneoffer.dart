@@ -42,12 +42,8 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
   Widget build(BuildContext context) {
     var Mobile = ResponsiveHelper.isMobile(context);
     var Tablet = ResponsiveHelper.isTablet(context);
-    return Container(
-      padding: ResponsiveHelper.isMobile(context)
-          ? EdgeInsets.only(
-              top: widgetTopPad, left: homeMobLP, right: homeMobRP)
-          : EdgeInsets.only(
-              top: sectionTopPad, left: homeTabLP, right: homeTabRP),
+    return SizedBox(
+     
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

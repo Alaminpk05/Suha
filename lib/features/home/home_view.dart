@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/featuredproductsSection.dart';
+import 'package:shuhaui/utils/constant/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import 'Widgets/SectionWidgets/category.dart';
 import 'Widgets/SectionWidgets/collectionSection.dart';
@@ -101,36 +103,52 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HomeAppBar(),
-      body: Scrollbar(
-        child: GlowingOverscrollIndicator(
-          axisDirection: AxisDirection.down,
-          color: const Color.fromRGBO(51, 40, 88, 1),
-          child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.only(bottom: 2.h),
-              child: Column(
-                children: [
-                  const Search_Filter(),
-                  const ImageSlider(),
-                  const CategorySection1(),
-                  const CategorySection2(),
-                  CycloneOfferSection(
-                      digitDays: digitDays,
-                      digitHours: digitHours,
-                      digitMinutes: digitMinutes,
-                      digitSeconds: digitSeconds),
-                  ThemeSwitch(switchValue: switchValue),
-                  TopProductsSection(
-                      digitDays: digitDays,
-                      digitHours: digitHours,
-                      digitMinutes: digitMinutes,
-                      digitSeconds: digitSeconds),
-                  const DiscountSection(),
-                  const WeeklyBestSellerSection(),
-                  const DiscountSection2(),
-                  const Featuredproductssection(),
-                  CollectionsSection(),
-                ],
+      body: Padding(
+        padding: ResponsiveHelper.isMobile(context)
+          ? EdgeInsets.only(top: oneHeightPad, left: homeMobLP, right: homeMobRP)
+          : EdgeInsets.only(top: oneHeightPad, left: homeTabLP, right: homeTabRP),
+        child: Scrollbar(
+          child: GlowingOverscrollIndicator(
+            axisDirection: AxisDirection.down,
+            color: const Color.fromRGBO(51, 40, 88, 1),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(bottom: 2.h),
+                child: Column(
+                  children: [
+                    const Search_Filter(),
+                    SizedBox(height:2.h),
+                    const ImageSlider(),
+                     SizedBox(height:2.h),
+                    const CategorySection1(),
+                     SizedBox(height:0.7.h),
+                    const CategorySection2(),
+                     SizedBox(height:1.5.h),
+                    CycloneOfferSection(
+                        digitDays: digitDays,
+                        digitHours: digitHours,
+                        digitMinutes: digitMinutes,
+                        digitSeconds: digitSeconds),
+                         SizedBox(height:2.h),
+                    ThemeSwitch(switchValue: switchValue),
+                     SizedBox(height:0.8.h),
+                    TopProductsSection(
+                        digitDays: digitDays,
+                        digitHours: digitHours,
+                        digitMinutes: digitMinutes,
+                        digitSeconds: digitSeconds),
+                         SizedBox(height:2.h),
+                    const DiscountSection(),
+                     SizedBox(height:1.h),
+                    const WeeklyBestSellerSection(),
+                     SizedBox(height:2.h),
+                    const DiscountSection2(),
+                     SizedBox(height:1.h),
+                    const Featuredproductssection(),
+                    SizedBox(height:0.6.h),
+                    CollectionsSection(),
+                  ],
+                ),
               ),
             ),
           ),

@@ -3,6 +3,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/shop_grid.dart';
+import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
@@ -25,7 +26,7 @@ class CartView extends StatelessWidget {
               navigation: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) =>const ShopGrid()));
-              },
+              }, widget: const CircleMenu(),
             )),
             body: Column(
               
