@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
-import 'package:shuhaui/features/home/Widgets/SectionWidgets/category.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/constant.dart';
-
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
-import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class SubProductCategory extends StatefulWidget {
@@ -25,7 +22,7 @@ class _SubProductCategoryState extends State<SubProductCategory> {
     return Scaffold(
         appBar: PreCustomAppBar(mobile, context, () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (c) => Bottompage()));
+              context, MaterialPageRoute(builder: (c) => const Bottompage()));
         },
             'Clothing',filterwidget(mobile: mobile)),
         body: SingleChildScrollView(

@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             return SafeArea(child: child!);
           },
           debugShowCheckedModeBanner: false,
-          home:  const SubProductCategory(),
+          home:  const Bottompage(),
         );
       },
     );

@@ -3,15 +3,21 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant.dart';
 
-
-
-class HorizontalProductList extends StatelessWidget {
+class HorizontalProductList extends StatefulWidget {
   const HorizontalProductList({
     super.key,
     required this.mobile,
   });
 
   final bool mobile;
+
+  @override
+  State<HorizontalProductList> createState() => _HorizontalProductListState();
+}
+
+class _HorizontalProductListState extends State<HorizontalProductList> {
+  var selected = '';
+  bool isopen = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +31,9 @@ class HorizontalProductList extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-         
             itemBuilder: (contex, index) {
               var infiniteIndex = index % horizontalProductList.length;
-              var item=horizontalProductList[infiniteIndex];
+              var item = horizontalProductList[infiniteIndex];
               return Container(
                 margin: EdgeInsets.only(right: 1.5.w),
                 decoration: BoxDecoration(
@@ -44,7 +49,7 @@ class HorizontalProductList extends StatelessWidget {
                       height: 3.5.h,
                       width: 4.w,
                       child: Image.asset(
-                       item['image'],
+                        item['image'],
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -52,7 +57,7 @@ class HorizontalProductList extends StatelessWidget {
                       width: 0.7.w,
                     ),
                     textwidget(
-                        text:item['text'],
+                        text: item['text'],
                         fontszie: 13.5.sp,
                         fonweight: FontWeight.w700,
                         color: Colors.white),
@@ -69,62 +74,89 @@ class HorizontalProductList extends StatelessWidget {
         ///FILTER LIST WIDGET
         Flexible(
           child: PopupMenuButton(
+            onOpened: () {
+              setState(() {
+                isopen = true;
+              });
+            },
+            onCanceled: () {
+              setState(() {
+                isopen = false;
+              });
+            },
             onSelected: (value) {
-              print(value);
+              print(selected);
+
+              setState(() {
+                selected = value;
+                isopen = false;
+              });
             },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(9.sp)),
             color: const Color.fromRGBO(51, 40, 88, 1),
-            offset: mobile ? const Offset(0, 38) : const Offset(0, 67),
+            offset: widget.mobile ? const Offset(0, 38) : const Offset(0, 67),
             itemBuilder: (BuildContext context) {
               return [
                 PopupMenuItem<String>(
                   height: 4.h,
-                  value: 'short by',
+                  value: 'Short By',
                   child: SizedBox(
                       height: 2.2.h,
                       width: 15.w,
                       child: textwidget(
                           text: 'Short By',
                           fontszie: 15.sp,
-                          fonweight: FontWeight.w400,
-                          color: const Color.fromRGBO(116, 119, 148, 1))),
+                          fonweight: FontWeight.w700,
+                          color: Colors.white)),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
-                  value: 'newest',
+                  value: 'Newest',
                   child: SizedBox(
                       height: 2.2.h,
                       width: 15.w,
                       child: textwidget(
                           text: 'Newest',
                           fontszie: 15.sp,
-                          fonweight: FontWeight.w400,
-                          color: const Color.fromRGBO(116, 119, 148, 1))),
+                          fonweight: selected == 'Newest'
+                              ? FontWeight.w700
+                              : FontWeight.w400,
+                          color: selected == 'Newest'
+                              ? Colors.white
+                              : const Color.fromRGBO(116, 119, 148, 1))),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
-                  value: 'popular',
+                  value: 'Popular',
                   child: SizedBox(
                       height: 2.2.h,
                       width: 15.w,
                       child: textwidget(
                           text: 'Popular',
                           fontszie: 15.sp,
-                          fonweight: FontWeight.w400,
-                          color: const Color.fromRGBO(116, 119, 148, 1))),
+                          fonweight: selected == 'Popular'
+                              ? FontWeight.w700
+                              : FontWeight.w400,
+                          color: selected == 'Popular'
+                              ? Colors.white
+                              : const Color.fromRGBO(116, 119, 148, 1))),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
-                  value: 'ratings',
+                  value: 'Ratings',
                   child: SizedBox(
                       height: 2.2.h,
                       width: 15.w,
                       child: textwidget(
                           text: 'Ratings',
                           fontszie: 15.sp,
-                          fonweight: FontWeight.w400,
-                          color: const Color.fromRGBO(116, 119, 148, 1))),
+                          fonweight: selected == 'Ratings'
+                              ? FontWeight.w700
+                              : FontWeight.w400,
+                          color: selected == 'Ratings'
+                              ? Colors.white
+                              : const Color.fromRGBO(116, 119, 148, 1))),
                 ),
               ];
             },
@@ -142,7 +174,7 @@ class HorizontalProductList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     textwidget(
-                        text: 'Short By',
+                        text: selected == '' ? 'Short By' : selected,
                         fontszie: 13.5.sp,
                         fonweight: FontWeight.w500,
                         color: const Color.fromRGBO(116, 119, 148, 1)),
@@ -152,10 +184,15 @@ class HorizontalProductList extends StatelessWidget {
                     SizedBox(
                         height: 5.h,
                         width: 3.w,
-                        child: Image.asset(
-                          'assets/chevron-down.png',
-                          fit: BoxFit.contain,
-                        ))
+                        child: isopen ==true
+                            ? Image.asset(
+                                'assets/chevron-down.png',
+                                fit: BoxFit.contain,
+                              )
+                            : Image.asset(
+                                'assets/chevron-up.png',
+                                fit: BoxFit.contain,
+                              ))
                   ],
                 ),
               ),

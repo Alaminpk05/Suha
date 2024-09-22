@@ -7,6 +7,7 @@ import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/features/shop_list.dart';
+import 'package:shuhaui/features/sub_category.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
@@ -59,10 +60,10 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const ShopList()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ShopList()));
                   },
                   title: 'Shop List',
                 ),
@@ -83,7 +84,12 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SubProductCategory()));
+                  },
                   title: 'Sub Category',
                 ),
                 ElevatedIconTextButton(
