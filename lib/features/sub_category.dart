@@ -10,14 +10,14 @@ import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-class ProductCategory extends StatefulWidget {
-  const ProductCategory({super.key});
+class SubProductCategory extends StatefulWidget {
+  const SubProductCategory({super.key});
 
   @override
-  State<ProductCategory> createState() => _ProductCategoryState();
+  State<SubProductCategory> createState() => _SubProductCategoryState();
 }
 
-class _ProductCategoryState extends State<ProductCategory> {
+class _SubProductCategoryState extends State<SubProductCategory> {
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
@@ -27,7 +27,7 @@ class _ProductCategoryState extends State<ProductCategory> {
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => Bottompage()));
         },
-            'Product Category',filterwidget(mobile: mobile)),
+            'Clothing',filterwidget(mobile: mobile)),
         body: SingleChildScrollView(
           child: Padding(
             padding: ResponsiveHelper.isMobile(context)
@@ -54,21 +54,7 @@ class _ProductCategoryState extends State<ProductCategory> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: PagesTitleText(
-                      title: 'Sub Category',
-                      fontsize: 17.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const CategorySection1(),
-                  SizedBox(
-                    height: 0.7.h,
-                  ),
-                  const CategorySection2(),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: PagesTitleText(
-                      title: 'Products',
+                      title: 'Sub Category Products',
                       fontsize: 17.sp,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,

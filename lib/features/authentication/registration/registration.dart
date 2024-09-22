@@ -58,6 +58,7 @@ class _RegistrationState extends State<Registration> {
           SizedBox(
             height: mobile?3.h:3.5.h,
           ),
+          
           ElevatedTextButton(
             text: 'Sign Up',
             fontsize: 16.sp,

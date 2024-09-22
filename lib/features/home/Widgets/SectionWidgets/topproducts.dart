@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/shop_grid.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/topProductwithouttime.dart';
@@ -31,7 +31,9 @@ class TopProductsSection extends StatelessWidget {
         ViewProductlist(
           productListviewTitle: 'Top Products',
           ontab: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ShopGrid()));
+            PersistentNavBarNavigator.pushNewScreen(context,
+                screen: const ShopGrid(),
+                withNavBar: true);
           },
         ),
         SizedBox(
@@ -52,9 +54,9 @@ class TopProductsSection extends StatelessWidget {
                 digitSeconds: digitSeconds,
                 mobile: mobile,
                 tablet: tablet),
-             SizedBox(width: 2.7.w,),
-            
-            
+            SizedBox(
+              width: 2.7.w,
+            ),
             topProductwithouttime(
                 name: 'Wooden Sofa',
                 photo: "assets/5.png",
@@ -63,8 +65,10 @@ class TopProductsSection extends StatelessWidget {
                 mobile: mobile,
                 tablet: tablet,
                 textcolor: Colors.white),
-             if(tablet)
-              SizedBox(width:2.7.w,),
+            if (tablet)
+              SizedBox(
+                width: 2.7.w,
+              ),
             if (tablet)
               topProductwithouttime(
                   name: "Roof Lamp",
@@ -76,8 +80,9 @@ class TopProductsSection extends StatelessWidget {
                   textcolor: Colors.white),
           ],
         ),
-        SizedBox(height: 1.4.h,),
-    
+        SizedBox(
+          height: 1.4.h,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -102,10 +107,10 @@ class TopProductsSection extends StatelessWidget {
                     digitSeconds: digitSeconds,
                     mobile: mobile,
                     tablet: tablet),
-        
+
             SizedBox(
               width: 2.7.w,
-             ),
+            ),
             topProductwithouttime(
                 name: 'Wooden Sofa',
                 photo: "assets/8.png",
@@ -115,7 +120,7 @@ class TopProductsSection extends StatelessWidget {
                 tablet: tablet,
                 textcolor: Colors.white),
             SizedBox(
-              width: mobile?0.w:1.5.w,
+              width: mobile ? 0.w : 1.5.w,
             ),
             if (tablet)
               topProductwithouttime(

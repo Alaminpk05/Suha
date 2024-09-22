@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscard.dart';
-import 'package:shuhaui/utils/constant.dart';
-import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Categoryview extends StatelessWidget {
   final String title;

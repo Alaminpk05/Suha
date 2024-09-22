@@ -52,7 +52,10 @@ class _LoginState extends State<Login> {
             textcolor: Colors.black,
             buttoncolor: const Color.fromRGBO(255, 175, 0, 1),
             elevation: 0.0,
-            ontap: () {},
+            ontap: () {
+               Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (c) => const Bottompage()));
+            },
           ),
           TextButton(
               onPressed: () {

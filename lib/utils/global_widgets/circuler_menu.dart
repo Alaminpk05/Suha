@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CircleMenu extends StatelessWidget {
@@ -44,4 +45,45 @@ Widget _buildLine(double isWidth, double height) {
     height: height, // Thickness of the lines
     color: const Color.fromRGBO(116, 119, 148, 1), // Line color
   );
+}
+
+
+
+  PreferredSize PreCustomAppBar(bool mobile, BuildContext context,
+      void Function()? navigator, final String title, Widget widget) {
+    return PreferredSize(
+        preferredSize: Size.fromHeight(mobile ? kToolbarHeight : 5.5.h),
+        child: CustomSimpleAppBar(
+          title: title,
+          navigation: navigator,
+          widget: widget,
+        ));
+  }
+
+
+
+
+
+  
+class filterwidget extends StatelessWidget {
+  const filterwidget({
+    super.key,
+    required this.mobile,
+  });
+
+  final bool mobile;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+       height: mobile ? 3.h : 4.h,
+          width: mobile ? 6.w : 5.w,
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                'assets/filter.png',
+              ),
+              fit: BoxFit.contain)),
+    );
+  }
 }

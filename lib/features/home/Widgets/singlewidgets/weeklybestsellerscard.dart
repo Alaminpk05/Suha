@@ -5,6 +5,7 @@ import 'package:shuhaui/utils/respnsive_helper.dart';
 class WeeklyProductsCard extends StatelessWidget {
   final String image;
   final String title;
+  
   const WeeklyProductsCard({
     super.key,
     required this.image,
@@ -13,10 +14,11 @@ class WeeklyProductsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var Mobile = ResponsiveHelper.isMobile(context);
-    var Tablet = ResponsiveHelper.isTablet(context);
+    var mobile = ResponsiveHelper.isMobile(context);
+   
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: Mobile?0.w:0, vertical: 0.5.h),
+      margin:
+          EdgeInsets.symmetric(horizontal: mobile ? 0.w : 0, vertical: 0.5.h),
       height: 12.h,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -27,10 +29,9 @@ class WeeklyProductsCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 1.h,
-             bottom: 1.h),
+            padding: EdgeInsets.only(top: 1.h, bottom: 1.h),
             height: double.infinity,
-            width: Mobile?25.w:18.w,
+            width: mobile ? 25.w : 18.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
                 color: const Color.fromRGBO(51, 40, 88, 1)),
@@ -50,7 +51,7 @@ class WeeklyProductsCard extends StatelessWidget {
                 bottom: 6.1.h,
                 child: Container(
                   height: 5.h,
-                  width:5.w ,
+                  width: 5.w,
                   decoration: const BoxDecoration(
                       color: Color.fromRGBO(36, 38, 68, 1),
                       shape: BoxShape.circle),
@@ -102,7 +103,7 @@ class WeeklyProductsCard extends StatelessWidget {
                       SizedBox(
                         width: 1.w,
                       ),
-                       Text(
+                      Text(
                         '\$54',
                         style: TextStyle(
                           color: Colors.white,
@@ -110,7 +111,7 @@ class WeeklyProductsCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                       SizedBox(width: 1.8.w),
+                      SizedBox(width: 1.8.w),
                       const Text(
                         '\$64',
                         style: TextStyle(

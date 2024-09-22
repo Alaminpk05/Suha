@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/featuredproductsSection.dart';
-import 'package:shuhaui/utils/constant/constant.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import 'Widgets/SectionWidgets/category.dart';

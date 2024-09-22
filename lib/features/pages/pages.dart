@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/categorybuttonwidget.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
+import 'package:shuhaui/features/shop_grid.dart';
+import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
@@ -31,22 +32,38 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FlashScreen()));
+                  },
                   title: 'Intro/Fash Screen',
                 ),
                 PagesTitleText(
                   title: 'Shop',
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ShopGrid()));
+                  },
                   title: 'Shop Grid',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const ShopList()));
+                  },
                   title: 'Shop List',
                 ),
                 ElevatedIconTextButton(
@@ -97,7 +114,8 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: 'Vendor',
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -117,7 +135,8 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: 'Cart & Checkout',
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -162,7 +181,8 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: 'Authentication',
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -201,7 +221,8 @@ class Pages extends StatelessWidget {
                 ),
                 PagesTitleText(
                   title: 'Blog',
-                  fontsize: 15.5.sp, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontsize: 15.5.sp,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                   fontWeight: FontWeight.w400,
                 ),
                 ElevatedIconTextButton(
@@ -222,7 +243,8 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: "Chat & Notifications",
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -242,7 +264,8 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: "Miscellaneous",
                   fontsize: 15.5.sp,
-                  fontWeight: FontWeight.w400, color: const Color.fromRGBO(116, 118, 140, 1),
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(116, 118, 140, 1),
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -297,4 +320,3 @@ class Pages extends StatelessWidget {
     );
   }
 }
-

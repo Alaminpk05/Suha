@@ -10,6 +10,10 @@ final widgetTopPad = 2.h;
 final oneHeightPad = 1.h;
 final sectionTopPad = 2.5.h;
 
+
+final appbarMobPad = 4.w;
+final appbarTabPad = 18.w;
+
 final widgetRPad = 1.w;
 
 final PageController pageController = PageController();
@@ -18,6 +22,9 @@ final List pageViewImage = [
   "assets/2.jpg",
   "assets/3.jpg",
 ];
+
+
+
 final List images = [
   "assets/18.png",
   "assets/7.png",
@@ -100,4 +107,9 @@ List<Map<String, dynamic>> cycloneOfferItems = [
   {'value': 0.33, 'asset': 'assets/1.png', 'title': 'Black Table Lamp'},
   {'value': 0.7, 'asset': 'assets/2.png', 'title': 'White Table Lamp'},
   {'value': 0.8, 'asset': 'assets/3.png', 'title': 'Modern Table Lamp'},
+];
+final List horizontalProductList = [
+ {'image': "assets/5.png", 'text': 'Furniture'},
+  {'image': "assets/9.png", 'text': 'Shoes'},
+  {'image': "assets/4.png", 'text': 'Cloths'},
 ];
