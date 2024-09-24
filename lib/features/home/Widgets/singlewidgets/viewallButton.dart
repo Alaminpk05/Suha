@@ -21,7 +21,8 @@ class ViewProductlist extends StatelessWidget {
       
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          regularfont(text:productListviewTitle, fontsize: 17.5.sp, color: Colors.white,)
+          regularfont(text:productListviewTitle,
+           fontsize: 17.5.sp, color: Colors.white,)
           ,
           ElevatedButton(onPressed: ontab,
               style: ElevatedButton.styleFrom(
@@ -35,7 +36,8 @@ class ViewProductlist extends StatelessWidget {
               child: Row(
       
                 children: [
-                  regularfont(text: "View all", fontsize: Mobile?15.sp:13.5.sp,
+                  regularfont(text: "View all", 
+                  fontsize: Mobile?15.sp:13.5.sp,
                       color: Colors.white),
                   SizedBox(width: Mobile?2.w:1.w,),
                   Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: Mobile?3.w:2.5.w,)

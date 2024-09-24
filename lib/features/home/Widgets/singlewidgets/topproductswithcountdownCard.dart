@@ -15,10 +15,11 @@ Widget topProductwithtime({
   required digitSeconds,
   required var mobile,
   required var tablet,
+  required double width
 }) {
   return Container(
     height: mobile ? 28.5.h : 22.h,
-    width: mobile ? 45.w : 30.w,
+    width: mobile ? width : width,
     // margin: EdgeInsets.only(
     //     top: 0.5.h, left:mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
     decoration: BoxDecoration(

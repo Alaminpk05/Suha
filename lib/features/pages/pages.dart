@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
+import 'package:shuhaui/features/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
 import 'package:shuhaui/features/shop_grid.dart';
@@ -69,7 +70,12 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PageDetails()));
+                  },
                   title: 'Product Details',
                 ),
                 ElevatedIconTextButton(

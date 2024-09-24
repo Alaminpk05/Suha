@@ -53,7 +53,7 @@ class TopProductsSection extends StatelessWidget {
                 digitMinutes: digitMinutes,
                 digitSeconds: digitSeconds,
                 mobile: mobile,
-                tablet: tablet),
+                tablet: tablet, width: mobile?45.w:30.w),
             SizedBox(
               width: 2.7.w,
             ),
@@ -64,7 +64,7 @@ class TopProductsSection extends StatelessWidget {
                 minibuttonword2: 'New',
                 mobile: mobile,
                 tablet: tablet,
-                textcolor: Colors.white),
+                textcolor: Colors.white, width: mobile?45.w:30.w),
             if (tablet)
               SizedBox(
                 width: 2.7.w,
@@ -77,7 +77,7 @@ class TopProductsSection extends StatelessWidget {
                   minibuttonword2: 'New',
                   mobile: mobile,
                   tablet: tablet,
-                  textcolor: Colors.white),
+                  textcolor: Colors.white, width: 30.w),
           ],
         ),
         SizedBox(
@@ -94,7 +94,7 @@ class TopProductsSection extends StatelessWidget {
                     minibuttonword2: 'New',
                     mobile: mobile,
                     tablet: tablet,
-                    textcolor: Colors.white)
+                    textcolor: Colors.white, width: 45.w)
                 : topProductwithtime(
                     name: "Sneaker Shoes",
                     image: "assets/9.png",
@@ -106,7 +106,7 @@ class TopProductsSection extends StatelessWidget {
                     digitMinutes: digitMinutes,
                     digitSeconds: digitSeconds,
                     mobile: mobile,
-                    tablet: tablet),
+                    tablet: tablet, width: 30.w),
 
             SizedBox(
               width: 2.7.w,
@@ -118,7 +118,7 @@ class TopProductsSection extends StatelessWidget {
                 minibuttonword2: '-11%',
                 mobile: mobile,
                 tablet: tablet,
-                textcolor: Colors.white),
+                textcolor: Colors.white, width: mobile?45.w:30.w),
             SizedBox(
               width: mobile ? 0.w : 1.5.w,
             ),
@@ -130,7 +130,7 @@ class TopProductsSection extends StatelessWidget {
                   minibuttonword2: 'Sale',
                   mobile: mobile,
                   tablet: tablet,
-                  textcolor: Colors.black),
+                  textcolor: Colors.black, width: 30.w),
             // SizedBox(
             //   width: 1.3.w,
             // ),

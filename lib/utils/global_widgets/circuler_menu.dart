@@ -84,3 +84,24 @@ class filterwidget extends StatelessWidget {
     );
   }
 }
+
+class FiveStar extends StatelessWidget {
+  const FiveStar({
+    super.key, required this.height, required this.width,
+  });
+  final double height;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: List.generate(5, (index) {
+        return Image.asset(
+          'assets/star.png',
+          height:height,
+          width: width
+        );
+      }),
+    );
+  }
+}

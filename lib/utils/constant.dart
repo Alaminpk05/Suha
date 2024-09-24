@@ -113,3 +113,32 @@ final List horizontalProductList = [
   {'image': "assets/9.png", 'text': 'Shoes'},
   {'image': "assets/4.png", 'text': 'Cloths'},
 ];
+
+
+ final List<String> autoSliderImage = [
+    'assets/10.jpg',
+    'assets/6.jpg',
+    'assets/11.jpg',
+  ];
+  final List<Map<String, dynamic>> rImages = [
+    {
+      'image': 'assets/7.jpg',
+    },
+    {'image': 'assets/8.jpg'},
+    {'image': 'assets/9.jpg'},
+  ];
+
+  final List<Map<String, dynamic>> rText = [
+    {
+      'title': 'Very good product. It is just amazing',
+      'subtitle': 'Designing World 12 Dec 2024'
+    },
+    {
+      'title': 'Very excellent product. Love it.',
+      'subtitle': 'Designing World 8 Dec 2024'
+    },
+    {
+      'title': 'What a nice product it is. I am looking it is.',
+      'subtitle': 'Designing World 28 Nov 2024'
+    },
+  ];

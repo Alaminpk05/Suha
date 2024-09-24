@@ -7,7 +7,6 @@ import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/constant.dart';
 
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
-import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ProductCategory extends StatefulWidget {
@@ -25,7 +24,7 @@ class _ProductCategoryState extends State<ProductCategory> {
     return Scaffold(
         appBar: PreCustomAppBar(mobile, context, () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (c) => Bottompage()));
+              context, MaterialPageRoute(builder: (c) => const Bottompage()));
         },
             'Product Category',filterwidget(mobile: mobile)),
         body: SingleChildScrollView(

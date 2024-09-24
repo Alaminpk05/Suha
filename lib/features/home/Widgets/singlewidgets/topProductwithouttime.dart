@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'categorybuttonwidget.dart';
 
-Widget topProductwithouttime(
-    {required String name,
-    required String photo,
-    required Color color,
-    required String minibuttonword2,
-    required var mobile,
-    required Color textcolor,
-    required var tablet}) {
+Widget topProductwithouttime({
+  required String name,
+  required String photo,
+  required Color color,
+  required String minibuttonword2,
+  required var mobile,
+  required Color textcolor,
+  required var tablet,
+  required width,
+}) {
   return Flexible(
     child: Container(
       height: mobile ? 28.5.h : 22.h,
-      width: mobile ? 45.w : 30.w,
+      width: width,
       // margin: EdgeInsets.only(
       //     top: 0.5.h, left: mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
       decoration: BoxDecoration(
@@ -22,11 +25,11 @@ Widget topProductwithouttime(
       ),
       child: Stack(
         children: [
-
           Positioned(
-            top: mobile?3.h:2.5.h,
-            left: mobile?6.w:1.5.w,
-            child: Center(child: Image.asset(photo, width: mobile ? 28.w : 16.5.w)),
+            top: mobile ? 3.h : 2.5.h,
+            left: mobile ? 6.w : 1.5.w,
+            child: Center(
+                child: Image.asset(photo, width: mobile ? 28.w : 16.5.w)),
           ),
           Positioned(
             top: mobile ? 3.h : 1.5.h,
@@ -46,7 +49,7 @@ Widget topProductwithouttime(
                     child: Text(
                       minibuttonword2,
                       style: TextStyle(
-                        color:textcolor,
+                        color: textcolor,
                         fontWeight: FontWeight.w500,
                         fontFamily: "PlusJakartaSans-Regular.ttf",
                         fontSize: mobile ? 13.5.sp : 12.sp,
@@ -73,11 +76,10 @@ Widget topProductwithouttime(
             left: mobile ? 3.3.w : 3.w,
             child: regularfont(
               text: name,
-              fontsize: mobile?16.sp:15.5.sp,
+              fontsize: mobile ? 16.sp : 15.5.sp,
               color: Colors.white,
             ),
           ),
-
           Positioned(
             top: mobile ? 20.2.h : 16.h,
             left: 3.3.w,
@@ -88,7 +90,7 @@ Widget topProductwithouttime(
                   "\$74",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize:mobile ? 18.sp : 15.5.sp,
+                    fontSize: mobile ? 18.sp : 15.5.sp,
                     fontWeight: FontWeight.w700,
                   ),
                   overflow: TextOverflow.ellipsis,
@@ -110,26 +112,19 @@ Widget topProductwithouttime(
             ),
           ),
           Positioned(
-             bottom: mobile ? 2.h : 1.5.h,
+            bottom: mobile ? 2.h : 1.5.h,
             left: 3.3.w,
             right: mobile ? 5.w : 3.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: List.generate(5, (index) {
-                    return Image.asset(
-                      'assets/star.png',
-                     height: mobile ? 2.5.h : 1.5.h,
-                        width: mobile ? 2.5.w : 1.5.w,
-                    );
-                  }),
-                ),
+                FiveStar(height: mobile?2.5.h:1.5.h, width: mobile?2.5.w:1.5.w,),
                 Container(
                   height: mobile ? 4.h : 2.5.h,
                   width: mobile
                       ? 4.h
-                      : 2.5.h,  // Use 4.h for both dimensions to maintain the circle
+                      : 2.5
+                          .h, // Use 4.h for both dimensions to maintain the circle
                   decoration: const BoxDecoration(
                     color: Colors.indigo,
                     shape: BoxShape.circle,
@@ -149,3 +144,4 @@ Widget topProductwithouttime(
     ),
   );
 }
+
