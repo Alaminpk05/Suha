@@ -31,7 +31,7 @@ class WeeklyBestSellerSection extends StatelessWidget {
             return  Column(
               children: [
     
-                WeeklyProductsCard(image: images[index], title:tilteList[index] ,),
+                WeeklyProductsCard(image: images[index], title:tilteList[index], icon: 'assets/heart (3).png' ,),
     
     
               ],

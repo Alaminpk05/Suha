@@ -5,17 +5,18 @@ import 'package:shuhaui/utils/respnsive_helper.dart';
 class WeeklyProductsCard extends StatelessWidget {
   final String image;
   final String title;
-  
+
   const WeeklyProductsCard({
     super.key,
     required this.image,
-    required this.title,
+    required this.title, required this.icon,
   });
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
-   
+
     return Container(
       margin:
           EdgeInsets.symmetric(horizontal: mobile ? 0.w : 0, vertical: 0.5.h),
@@ -50,17 +51,16 @@ class WeeklyProductsCard extends StatelessWidget {
                 left: 1.w,
                 bottom: 6.1.h,
                 child: Container(
-                  height: 5.h,
-                  width: 5.w,
+                  height: 5.5.h,
+                  width: 5.5.w,
                   decoration: const BoxDecoration(
                       color: Color.fromRGBO(36, 38, 68, 1),
                       shape: BoxShape.circle),
                   child: Padding(
                     padding: EdgeInsets.all(8.5.sp),
                     child: Image.asset(
-                      'assets/heart (3).png',
-                      height: 3.h,
-                      width: 3.w,
+                      icon,
+                     
                     ),
                   ),
                 ),

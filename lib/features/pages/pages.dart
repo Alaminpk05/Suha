@@ -1,14 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/feature_products.dart';
+import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
+import 'package:shuhaui/features/order_status.dart';
 import 'package:shuhaui/features/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/features/sub_category.dart';
+import 'package:shuhaui/features/wish_list.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
@@ -100,27 +104,52 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WishList()));
+                  },
                   title: 'Wishlist Grid',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WishList()));
+                  },
                   title: 'Whishlist List',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FlashSale()));
+                  },
                   title: 'Flash Sale',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FeaturedProductList()));
+                  },
                   title: 'Featured Products',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>  OrderStatus()));
+                  },
                   title: 'Order Status',
                 ),
                 PagesTitleText(

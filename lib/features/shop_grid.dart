@@ -107,7 +107,8 @@ class GridViewWidget extends StatelessWidget {
         shrinkWrap: true,
         physics: scrollPhysics,
         itemCount: 20,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const 
+        SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.7,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
