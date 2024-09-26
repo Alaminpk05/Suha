@@ -15,7 +15,7 @@ class CollectionCard extends StatelessWidget {
   final String assets;
 
   final String title;
-  final String value;
+  final int value;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class CollectionCard extends StatelessWidget {
               stackFit: StackFit.expand,
         
               badgeContent: Text(
-              '69',
+              '$value',
                 style: TextStyle(
                   fontSize: 12.5.sp,
                   color: Colors.white,

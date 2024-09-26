@@ -5,6 +5,7 @@ import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/order_status.dart';
 import 'package:shuhaui/features/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
@@ -16,7 +17,8 @@ import 'package:shuhaui/features/wish_list.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
-  const Pages({super.key});
+  const Pages({super.key,});
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                      Navigator.push(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const PageDetails()));
@@ -88,14 +90,16 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ProductCategory()));
+                            builder: (context) => const ProductCategory(
+                                
+                                )));
                   },
                   title: 'Category',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const SubProductCategory()));
@@ -125,7 +129,7 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const FlashSale()));
@@ -145,10 +149,8 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>  OrderStatus()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => OrderStatus()));
                   },
                   title: 'Order Status',
                 ),

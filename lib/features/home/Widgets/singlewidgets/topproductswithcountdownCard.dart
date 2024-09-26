@@ -3,20 +3,19 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'categorybuttonwidget.dart';
 
-Widget topProductwithtime({
-  required name,
-  required image,
-  required miniButtonword,
-  required Color miniButtoncolor,
-  required color,
-  required digitDays,
-  required digitHours,
-  required digitMinutes,
-  required digitSeconds,
-  required var mobile,
-  required var tablet,
-  required double width
-}) {
+Widget topProductwithtime(
+    {required name,
+    required image,
+    required miniButtonword,
+    required Color miniButtoncolor,
+    required textcolor,
+    required digitDays,
+    required digitHours,
+    required digitMinutes,
+    required digitSeconds,
+    required var mobile,
+    required var tablet,
+    required double width}) {
   return Container(
     height: mobile ? 28.5.h : 22.h,
     width: mobile ? width : width,
@@ -28,7 +27,6 @@ Widget topProductwithtime({
     ),
     child: Stack(
       children: [
-  
         Positioned(
           top: mobile ? 3.h : 1.5.h,
           left: mobile ? 4.w : 3.w,
@@ -47,7 +45,7 @@ Widget topProductwithtime({
                   child: Text(
                     miniButtonword,
                     style: TextStyle(
-                      color: color,
+                      color: textcolor,
                       fontWeight: FontWeight.w400,
                       fontFamily: "PlusJakartaSans-Regular.ttf",
                       fontSize: mobile ? 13.5.sp : 12.sp,
@@ -58,8 +56,7 @@ Widget topProductwithtime({
               SizedBox(
                 height: 2.h,
                 width: 10.w,
-                child: Image.asset('assets/heart (3).png',
-                fit: BoxFit.contain),
+                child: Image.asset('assets/heart (3).png', fit: BoxFit.contain),
               ),
             ],
           ),
@@ -99,7 +96,7 @@ Widget topProductwithtime({
           left: mobile ? 3.3.w : 3.w,
           child: regularfont(
             text: name,
-            fontsize: mobile?16.sp:15.5.sp,
+            fontsize: mobile ? 16.sp : 15.5.sp,
             color: Colors.white,
           ),
         ),
@@ -154,10 +151,11 @@ Widget topProductwithtime({
                 }),
               ),
               Container(
-               height: mobile ? 4.h : 2.5.h,
+                height: mobile ? 4.h : 2.5.h,
                 width: mobile
                     ? 4.h
-                    : 2.5.h, // Use 4.h for both dimensions to maintain the circle
+                    : 2.5
+                        .h, // Use 4.h for both dimensions to maintain the circle
                 decoration: const BoxDecoration(
                   color: Colors.indigo,
                   shape: BoxShape.circle,

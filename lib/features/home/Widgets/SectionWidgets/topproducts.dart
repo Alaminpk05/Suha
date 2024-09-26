@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -15,8 +16,9 @@ class TopProductsSection extends StatelessWidget {
     required this.digitHours,
     required this.digitMinutes,
     required this.digitSeconds,
+    required this.topProductList,
   });
-
+  final List<TopProduct> topProductList;
   final String digitDays;
   final String digitHours;
   final String digitMinutes;
@@ -32,110 +34,54 @@ class TopProductsSection extends StatelessWidget {
           productListviewTitle: 'Top Products',
           ontab: () {
             PersistentNavBarNavigator.pushNewScreen(context,
-                screen: const ShopGrid(),
-                withNavBar: true);
+                screen: const ShopGrid(), withNavBar: true);
           },
         ),
         SizedBox(
           height: mobile ? 1.h : 1.5.h,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            topProductwithtime(
-                name: "Beach Cap",
-                image: "assets/11.png",
-                miniButtonword: "Sale",
-                miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
-                color: Colors.black,
-                digitDays: digitDays,
-                digitHours: digitHours,
-                digitMinutes: digitMinutes,
-                digitSeconds: digitSeconds,
-                mobile: mobile,
-                tablet: tablet, width: mobile?45.w:30.w),
-            SizedBox(
-              width: 2.7.w,
-            ),
-            topProductwithouttime(
-                name: 'Wooden Sofa',
-                photo: "assets/5.png",
-                color: const Color.fromRGBO(0, 184, 148, 1),
-                minibuttonword2: 'New',
-                mobile: mobile,
-                tablet: tablet,
-                textcolor: Colors.white, width: mobile?45.w:30.w),
-            if (tablet)
-              SizedBox(
-                width: 2.7.w,
-              ),
-            if (tablet)
-              topProductwithouttime(
-                  name: "Roof Lamp",
-                  photo: "assets/6.png",
-                  color: const Color.fromRGBO(0, 184, 148, 1),
-                  minibuttonword2: 'New',
-                  mobile: mobile,
-                  tablet: tablet,
-                  textcolor: Colors.white, width: 30.w),
-          ],
-        ),
         SizedBox(
-          height: 1.4.h,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            mobile
-                ? topProductwithouttime(
-                    name: "Roof Lamp",
-                    photo: "assets/6.png",
-                    color: const Color.fromRGBO(0, 184, 148, 1),
-                    minibuttonword2: 'New',
-                    mobile: mobile,
-                    tablet: tablet,
-                    textcolor: Colors.white, width: 45.w)
-                : topProductwithtime(
-                    name: "Sneaker Shoes",
-                    image: "assets/9.png",
-                    miniButtonword: "-18%",
-                    miniButtoncolor: Colors.redAccent,
-                    color: Colors.white,
-                    digitDays: digitDays,
-                    digitHours: digitHours,
-                    digitMinutes: digitMinutes,
-                    digitSeconds: digitSeconds,
-                    mobile: mobile,
-                    tablet: tablet, width: 30.w),
-
-            SizedBox(
-              width: 2.7.w,
-            ),
-            topProductwithouttime(
-                name: 'Wooden Sofa',
-                photo: "assets/8.png",
-                color: Colors.redAccent,
-                minibuttonword2: '-11%',
-                mobile: mobile,
-                tablet: tablet,
-                textcolor: Colors.white, width: mobile?45.w:30.w),
-            SizedBox(
-              width: mobile ? 0.w : 1.5.w,
-            ),
-            if (tablet)
-              topProductwithouttime(
-                  name: 'Wooden Sofa',
-                  photo: "assets/4.png",
-                  color: const Color.fromRGBO(255, 175, 0, 1),
-                  minibuttonword2: 'Sale',
-                  mobile: mobile,
-                  tablet: tablet,
-                  textcolor: Colors.black, width: 30.w),
-            // SizedBox(
-            //   width: 1.3.w,
-            // ),
-          ],
-        ),
+          height: mobile?87.h:44.h,
+          width: double.infinity,
+          child: GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: topProductList.length,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 0.75,
+                    crossAxisSpacing: 2.w
+                    ,mainAxisSpacing: 1.h
+                    ,
+                    
+                    
+                    crossAxisCount: 2),
+              itemBuilder: (contex, index) {
+                final item = topProductList[index];
+                return topProductList[index].istimer == true
+                    ? topProductwithtime(
+                        name: item.title,
+                        image: item.imageUrl,
+                        miniButtonword: item.minibuttonword,
+                        miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
+                        textcolor: Colors.white,
+                        digitDays: digitDays,
+                        digitHours: digitHours,
+                        digitMinutes: digitMinutes,
+                        digitSeconds: digitSeconds,
+                        mobile: mobile,
+                        tablet: tablet,
+                        width: mobile ? 45.w : 30.w)
+                    : topProductwithouttime(
+                        name: item.title,
+                        photo: item.imageUrl,
+                        minibuttoncolor: const Color.fromRGBO(255, 175, 0, 1),
+                        minibuttonword2:item.minibuttonword,
+                        mobile: mobile,
+                        textcolor: Colors.white,
+                        tablet: tablet,
+                        width: mobile ? 45.w : 30.w);
+              }),
+        )
       ],
     );
   }

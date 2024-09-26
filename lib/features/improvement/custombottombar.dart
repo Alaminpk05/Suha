@@ -4,7 +4,6 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:shuhaui/features/cart/cart_view.dart';
 import 'package:shuhaui/features/home/home_view.dart';
 import 'package:shuhaui/features/chat.dart';
-import 'package:shuhaui/features/pages/pages.dart';
 import 'package:shuhaui/features/settins.dart';
 
 
@@ -30,7 +29,7 @@ class _BottompageState extends State<Bottompage> {
       const Chat(),
       const CartView(title: 'MY Cart'),
       const Settings(),
-      const Pages(),
+      // const Pages(),
     ];
   }
 

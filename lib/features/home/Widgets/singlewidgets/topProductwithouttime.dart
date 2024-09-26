@@ -6,7 +6,7 @@ import 'categorybuttonwidget.dart';
 Widget topProductwithouttime({
   required String name,
   required String photo,
-  required Color color,
+  required Color minibuttoncolor,
   required String minibuttonword2,
   required var mobile,
   required Color textcolor,
@@ -27,8 +27,8 @@ Widget topProductwithouttime({
         Positioned(
           top: mobile ? 3.h : 2.5.h,
           left: mobile ? 6.w : 1.5.w,
-          child: Center(
-              child: Image.asset(photo, width: mobile ? 28.w : 16.5.w)),
+          child:
+              Center(child: Image.asset(photo, width: mobile ? 28.w : 16.5.w)),
         ),
         Positioned(
           top: mobile ? 3.h : 1.5.h,
@@ -41,7 +41,7 @@ Widget topProductwithouttime({
                 height: mobile ? 2.h : 1.5.h,
                 width: mobile ? 9.5.w : 5.w,
                 decoration: BoxDecoration(
-                  color: color,
+                  color: minibuttoncolor,
                   borderRadius: BorderRadius.circular(20.sp),
                 ),
                 child: Center(
@@ -117,7 +117,10 @@ Widget topProductwithouttime({
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              FiveStar(height: mobile?2.5.h:1.5.h, width: mobile?2.5.w:1.5.w,),
+              FiveStar(
+                height: mobile ? 2.5.h : 1.5.h,
+                width: mobile ? 2.5.w : 1.5.w,
+              ),
               Container(
                 height: mobile ? 4.h : 2.5.h,
                 width: mobile
@@ -142,4 +145,3 @@ Widget topProductwithouttime({
     ),
   );
 }
-

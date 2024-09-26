@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/featuredproductsSection.dart';
+import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
+import 'package:shuhaui/features/home/data/model/collections.dart';
+import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
+import 'package:shuhaui/features/home/data/model/fetured_product.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
+import 'package:shuhaui/features/home/data/model/weekly_product.dart';
+import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -83,9 +91,43 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  late List<CategoryModel> categories = [];
+  late List<CycloneOffer> cycloneOffers = [];
+  late List<TopProduct> topProducts = [];
+  late List<WeeklyProduct> weeklyProducts = [];
+  late List<FeaturedProduct> featuredProducts = [];
+  late List<Collections> collectionProducts = [];
+  bool isLoading = true;
+
+  Future<void> loadData() async {
+    final data = await loadProductData();
+    setState(() {
+      categories = (data['categories'] as List)
+          .map((item) => CategoryModel.fromJson(item))
+          .toList();
+      cycloneOffers = (data['cycloneOffers'] as List)
+          .map((item) => CycloneOffer.fromJson(item))
+          .toList();
+      topProducts = (data['topProducts'] as List)
+          .map((item) => TopProduct.fromJson(item))
+          .toList();
+      weeklyProducts = (data['weeklybestsellerproduct'] as List)
+          .map((item) => WeeklyProduct.fromJson(item))
+          .toList();
+      featuredProducts = (data['featuredproducts'] as List)
+          .map((item) => FeaturedProduct.fromJson(item))
+          .toList();
+      collectionProducts = (data['collections'] as List)
+          .map((item) => Collections.fromJson(item))
+          .toList();
+
+      isLoading = false;
+    });
+  }
 
   @override
   void initState() {
+    loadData();
     start();
     super.initState();
   }
@@ -105,8 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: const HomeAppBar(),
       body: Padding(
         padding: ResponsiveHelper.isMobile(context)
-          ? EdgeInsets.only(top: oneHeightPad, left: homeMobLP, right: homeMobRP)
-          : EdgeInsets.only(top: oneHeightPad, left: homeTabLP, right: homeTabRP),
+            ? EdgeInsets.only(
+                top: oneHeightPad, left: homeMobLP, right: homeMobRP)
+            : EdgeInsets.only(
+                top: oneHeightPad, left: homeTabLP, right: homeTabRP),
         child: Scrollbar(
           child: GlowingOverscrollIndicator(
             axisDirection: AxisDirection.down,
@@ -117,36 +161,44 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     const Search_Filter(),
-                    SizedBox(height:2.h),
+                    SizedBox(height: 2.h),
                     const ImageSlider(),
-                     SizedBox(height:2.h),
-                    const CategorySection1(),
-                     SizedBox(height:0.7.h),
-                    const CategorySection2(),
-                     SizedBox(height:1.5.h),
+                    SizedBox(height: 2.h),
+                    CategorySection1(
+                      categorylist: categories,
+                    ),
+                    SizedBox(height: 1.5.h),
                     CycloneOfferSection(
-                        digitDays: digitDays,
-                        digitHours: digitHours,
-                        digitMinutes: digitMinutes,
-                        digitSeconds: digitSeconds),
-                         SizedBox(height:2.h),
+                      digitDays: digitDays,
+                      digitHours: digitHours,
+                      digitMinutes: digitMinutes,
+                      digitSeconds: digitSeconds,
+                      offerProductList: cycloneOffers,
+                    ),
+                    SizedBox(height: 2.h),
                     ThemeSwitch(switchValue: switchValue),
-                     SizedBox(height:0.8.h),
+                    SizedBox(height: 0.8.h),
                     TopProductsSection(
-                        digitDays: digitDays,
-                        digitHours: digitHours,
-                        digitMinutes: digitMinutes,
-                        digitSeconds: digitSeconds),
-                         SizedBox(height:2.h),
+                      digitDays: digitDays,
+                      digitHours: digitHours,
+                      digitMinutes: digitMinutes,
+                      digitSeconds: digitSeconds,
+                      topProductList: topProducts,
+                    ),
+                    SizedBox(height: 2.h),
                     const DiscountSection(),
-                     SizedBox(height:1.h),
-                    const WeeklyBestSellerSection(),
-                     SizedBox(height:2.h),
+                    SizedBox(height: 1.h),
+                    WeeklyBestSellerSection(
+                      weeklyproductList: weeklyProducts,
+                    ),
+                    SizedBox(height: 2.h),
                     const DiscountSection2(),
-                     SizedBox(height:1.h),
-                    const Featuredproductssection(),
-                    SizedBox(height:0.6.h),
-                    CollectionsSection(),
+                    SizedBox(height: 1.h),
+                    Featuredproductssection(
+                      featuredProductList: featuredProducts,
+                    ),
+                    SizedBox(height: 0.6.h),
+                    CollectionsSection(collectionProductList: collectionProducts,),
                   ],
                 ),
               ),

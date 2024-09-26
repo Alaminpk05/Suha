@@ -178,45 +178,45 @@ class _PageDetailsState extends State<PageDetails> {
                               ),
                               border: InputBorder.none),
                         ),
-                //        Positioned(
-                //   right: -2.w,
-                //   bottom: 0,
-                //   child: GestureDetector(
-                //     onPanStart: (_) {
-                //       setState(() {
-                //         ResizingVertically = true; // Start vertical resizing
-                //       });
-                //     },
-                //     onPanUpdate: (details) {
-                //       setState(() {
-                //         textFieldHeight += details.delta.dy; // Update height only
-                //         if (textFieldHeight < 10.h) textFieldHeight = 60.0; // Minimum height limit
-                //       });
-                //     },
-                //     onPanEnd: (_) {
-                //       setState(() {
-                //         ResizingVertically = false; // Stop vertical resizing
-                //       });
-                //     },
-                //     child: MouseRegion(
-                //       cursor: ResizingVertically
-                //           ? SystemMouseCursors.resizeUpDown // Vertical resize cursor
-                //           : SystemMouseCursors.resizeUpDown, // Cursor when hovering bottom-right corner
-                //       child: Container(
-                //         width: 20,
-                //         height: 10.h,
-                //         decoration: const BoxDecoration(
-                //           color: Colors.transparent,
-                //           border: Border(
+                        //        Positioned(
+                        //   right: -2.w,
+                        //   bottom: 0,
+                        //   child: GestureDetector(
+                        //     onPanStart: (_) {
+                        //       setState(() {
+                        //         ResizingVertically = true; // Start vertical resizing
+                        //       });
+                        //     },
+                        //     onPanUpdate: (details) {
+                        //       setState(() {
+                        //         textFieldHeight += details.delta.dy; // Update height only
+                        //         if (textFieldHeight < 10.h) textFieldHeight = 60.0; // Minimum height limit
+                        //       });
+                        //     },
+                        //     onPanEnd: (_) {
+                        //       setState(() {
+                        //         ResizingVertically = false; // Stop vertical resizing
+                        //       });
+                        //     },
+                        //     child: MouseRegion(
+                        //       cursor: ResizingVertically
+                        //           ? SystemMouseCursors.resizeUpDown // Vertical resize cursor
+                        //           : SystemMouseCursors.resizeUpDown, // Cursor when hovering bottom-right corner
+                        //       child: Container(
+                        //         width: 20,
+                        //         height: 10.h,
+                        //         decoration: const BoxDecoration(
+                        //           color: Colors.transparent,
+                        //           border: Border(
 
-                //             bottom: BorderSide(color: const Color.fromRGBO(54, 49, 86, 1)),
-                //             right: BorderSide(color:const Color.fromRGBO(54, 49, 86, 1)),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                        //             bottom: BorderSide(color: const Color.fromRGBO(54, 49, 86, 1)),
+                        //             right: BorderSide(color:const Color.fromRGBO(54, 49, 86, 1)),
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -310,7 +310,7 @@ class SixthSection extends StatelessWidget {
               topProductwithouttime(
                   name: 'Wooden Chair',
                   photo: 'assets/8.png',
-                  color: const Color.fromRGBO(0, 184, 148, 1),
+                  minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
                   minibuttonword2: 'New',
                   mobile: mobile,
                   textcolor: Colors.white,
@@ -319,7 +319,7 @@ class SixthSection extends StatelessWidget {
               topProductwithouttime(
                   name: 'Polo Shirt',
                   photo: 'assets/4.png',
-                  color: const Color.fromRGBO(0, 184, 148, 1),
+                  minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
                   minibuttonword2: 'New',
                   mobile: mobile,
                   textcolor: Colors.white,
@@ -430,7 +430,7 @@ class RatingsReviews extends StatelessWidget {
                 Row(
                   children: [
                     index == 2
-                        ? SizedBox(
+                        ? const SizedBox(
                             height: 0,
                             width: 0,
                           )
@@ -464,7 +464,7 @@ class RatingsReviews extends StatelessWidget {
           height: 1.3.h,
         ),
         index == 2
-            ? SizedBox(
+            ? const SizedBox(
                 height: 0,
                 width: 0,
               )

@@ -1,38 +1,303 @@
 {
-    "categories": [
-      {
-        "id": 1,
-        "name": "Home Appliance",
-        "iconUrl": "assets/1.png" 
-      },
-      {
-        "id": 1,
-        "name": "Home Appliance",
-        "iconUrl": "assets/1.png" 
-      }
-    ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Womens Fashion",
+      "iconUrl": "assets/woman-clothes.png"
+    },
+    {
+      "id": 2,
+      "name": "Groceries & Pets",
+      "iconUrl": "assets/grocery (1).png"
+    },
+    {
+      "id": 3,
+      "name": "Health & Beauty",
+      "iconUrl": "assets/shampoo.png"
+    },
+    {
+      "id": 4,
+      "name": "Sports & Outdoors",
+      "iconUrl": "assets/rowboat.png"
+    },
+    {
+      "id": 5,
+      "name": "Home Appliance",
+      "iconUrl": "assets/tv-table.png"
+    },
+    {
+      "id": 6,
+      "name": "Tour & Travels",
+      "iconUrl": "assets/beach.png"
+    },
+    {
+      "id": 7,
+      "name": "Mother & Baby",
+      "iconUrl": "assets/baby-products.png"
+    },
+    {
+      "id": 8,
+      "name": "Clearance Sale",
+      "iconUrl": "assets/price-tag.png"
+    }
+  ],
+
+
+
+
+
+
+
     "cycloneOffers": [
       {
         "id": 1,
         "title": "Black Table Lamp",
         "price": 7.99,
         "originalPrice": 15.0,
-        "soldPercentage": 33,
-        "imageUrl": "assets/11.png"
-      }
-    ],
-    
-    "topProducts": [
+        "soldPercentage": 0.33,
+        "imageUrl": "assets/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Grey Sofa",
+        "price": 14.00,
+        "originalPrice": 21.00,
+        "soldPercentage": 0.77,
+        "imageUrl": "assets/2.png"
+      },
+      {
+        "id": 3,
+        "title": "Designer Chair",
+        "price": 36.00,
+        "originalPrice": 49.00,
+        "soldPercentage": 0.99,
+        "imageUrl": "assets/3.png"
+      },
       {
         "id": 1,
-        "title": "Beach Cap",
-        "price": 13.0,
-        "originalPrice": 42.0,
-        "rating": 5,
-        "timer": "94d 19h 34m 3s",
-        "isFavorite": false,
-        "imageUrl": "assets/11.jpg"
+        "title": "Black Table Lamp",
+        "price": 7.99,
+        "originalPrice": 15.0,
+        "soldPercentage": 0.33,
+        "imageUrl": "assets/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Grey Sofa",
+        "price": 14.00,
+        "originalPrice": 21.00,
+        "soldPercentage": 0.77,
+        "imageUrl": "assets/2.png"
+      },
+      {
+        "id": 3,
+        "title": "Designer Chair",
+        "price": 36.00,
+        "originalPrice": 49.00,
+        "soldPercentage": 0.99,
+        "imageUrl": "assets/3.png"
       }
-    ]
+    ],
+
+
+
+
+
+"topProducts": [
+    {
+      "id": 1,
+      "istimer":true,
+      "minibuttonword":"Sale",
+      "title": "Beach Cap",
+      "price": 13.0,
+      "originalPrice": 42.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/11.png"
+    },
+    {
+      "id": 2,
+      "istimer":false,
+      "minibuttonword":"New",
+      "title": "Wooden Sofa",
+      "price": 74.0,
+      "originalPrice": 99.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/5.png"
+    },
+    {
+      "id": 3,
+      "istimer":false,
+      "minibuttonword":"New",
+      "title": "Roof Lamp",
+      "price": 99.0,
+      "originalPrice": 113.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/6.png"
+    },
+    {
+      "id": 4,
+      "istimer":true,
+      "minibuttonword":"-18",
+      "title": "Sneaker Shoes",
+      "price": 87.0,
+      "originalPrice": 92.0,
+      "rating": 4,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/9.png"
+    },
+    {
+      "id": 5,
+      "istimer":false,
+      "minibuttonword":"-11",
+      "title": "Wooden Chair",
+      "price": 21.0,
+      "originalPrice": 25.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/8.png"
+    },
+    {
+      "id": 6,
+      "istimer":false,
+      "minibuttonword":"On Sale",
+      "title": "Polo Shirts",
+      "price": 38.0,
+      "originalPrice": 41.0,
+      "rating": 4,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/4.png"
+    }
+  ],
+
+
+
+
+
+
+  "weeklybestsellerproduct": [
+    {
+      "id": 1,
+      "name": "Nescafe Coffee Jar",
+      "price": 64,
+      "original_price": 89,
+      "rating": 4.88,
+      "reviews": 39,
+      "image": "assets/18.png",
+      "is_favourite": false
+    },
+    {
+      "id": 2,
+      "name": "Modern Office Chair",
+      "price": 99,
+      "original_price": 159,
+      "rating": 4.82,
+      "reviews": 125,
+      "image": "assets/7.png",
+      "is_favourite": false
+    },
+    {
+      "id": 3,
+      "name": "Beach Sunglasses",
+      "price": 24,
+      "original_price": 32,
+      "rating": 4.89,
+      "reviews": 63,
+      "image": "assets/12.png",
+      "is_favourite": false
+    },
+    {
+      "id": 4,
+      "name": "Meow Mix Cat Food",
+      "price": 11.49,
+      "original_price": 13,
+      "rating": 4.78,
+      "reviews": 1,
+      "image": "assets/17.png",
+      "is_favourite": false
+    }
+  ],
+
+
+  "featuredproducts": [
+    {
+      "id": 1,
+      "name": "Blue Skateboard",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/14.png"
+    },
+    {
+      "id": 2,
+      "name": "Travel Bag",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/15.png"
+    },
+    {
+      "id": 3,
+      "name": "Cotton T-shirts",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/16.png"
+    },
+    {
+      "id": 4,
+      "name": "ECG Rice Cooker",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/21.png"
+    },
+    {
+      "id": 5,
+      "name": "Beauty Cosmetic Kit",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/20.png"
+    },
+    {
+      "id": 6,
+      "name": "Basketball",
+      "price": "39.0",
+      "original_price": "89.0",
+      "image": "assets/19.png"
+    }
+  ],
+
+
+
+
+  "collections": [
+    {
+      "id": 1,
+      "name": "Women",
+      "image": "assets/17.jpg",
+      "item_count": 9
+    },
+    {
+      "id": 2,
+      "name": "Men",
+      "image": "assets/19.jpg",
+      "item_count": 29
+    },
+    {
+      "id": 3,
+      "name": "Kids",
+      "image": "assets/21.jpg",
+      "item_count": 4
+    }
+  ]
+
+
+
+
   }
   

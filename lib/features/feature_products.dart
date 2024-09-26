@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/cycloneofferCard.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';

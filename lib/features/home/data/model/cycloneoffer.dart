@@ -3,7 +3,7 @@ class CycloneOffer {
   final String title;
   final double price;
   final double originalPrice;
-  final int soldPercentage;
+  final double soldPercentage;
   final String imageUrl;
 
   CycloneOffer({

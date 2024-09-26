@@ -17,38 +17,36 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var Tablet = ResponsiveHelper.isTablet(context);
     var mobile = ResponsiveHelper.isMobile(context);
-    return Expanded(
-      child: GestureDetector(
-        onTap: ontap,
-        child: Center(
-          child: Container(
-            height: mobile ? 14.h : 12.h,
-            width: mobile ? 22.w : 16.w,
-            decoration: BoxDecoration(
-                color: const Color.fromRGBO(36, 38, 68, 1),
-                borderRadius: BorderRadius.circular(12.sp)),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: Tablet ? 2.h : 0,
-                  ),
-                  child: Image.asset(
-                    image,
-                    height: mobile ? 8.h : 4.5.h,
-                    width: mobile ? 10.5.w : 10.5.w,
-                  ),
+    return GestureDetector(
+      onTap: ontap,
+      child: Center(
+        child: Container(
+          height: mobile ? 14.h : 12.h,
+          width: mobile ? 22.w : 16.w,
+          decoration: BoxDecoration(
+              color: const Color.fromRGBO(36, 38, 68, 1),
+              borderRadius: BorderRadius.circular(12.sp)),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  top: Tablet ? 2.h : 0,
                 ),
-                SizedBox(
-                  height: mobile ? 0 : 0.7.h,
+                child: Image.asset(
+                  image,
+                  height: mobile ? 8.h : 4.5.h,
+                  width: mobile ? 10.5.w : 10.5.w,
                 ),
-                regularfont(
-                  text: text,
-                  fontsize: mobile ? 15.sp : 13.3.sp,
-                  color: const Color.fromRGBO(116, 119, 148, 0.8),
-                )
-              ],
-            ),
+              ),
+              SizedBox(
+                height: mobile ? 0 : 0.7.h,
+              ),
+              regularfont(
+                text: text,
+                fontsize: mobile ? 15.sp : 13.3.sp,
+                color: const Color.fromRGBO(116, 119, 148, 0.8),
+              )
+            ],
           ),
         ),
       ),

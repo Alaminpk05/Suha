@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:shuhaui/features/improvement/json/model/top_product.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
 
 
 class TopProductWidget extends StatelessWidget {
   final TopProduct product;
 
-  TopProductWidget({required this.product});
+  const TopProductWidget({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.7),
         borderRadius: BorderRadius.circular(12),
@@ -26,7 +26,7 @@ class TopProductWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Image.asset(product.imageUrl, fit: BoxFit.contain,)),
               if (product.isFavorite)
-                Positioned(
+                const Positioned(
                   top: 8,
                   right: 8,
                   child: Icon(Icons.favorite, color: Colors.red),
@@ -35,48 +35,48 @@ class TopProductWidget extends StatelessWidget {
                 top: 8,
                 left: 8,
                 child: Container(
-                  padding: EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(4),
                   color: Colors.orange,
-                  child: Text('Sale', style: TextStyle(color: Colors.white)),
+                  child: const Text('Sale', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             product.title,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Row(
             children: [
               Text(
                 '\$${product.price}',
-                style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+                style: const TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 '\$${product.originalPrice}',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey,
                   decoration: TextDecoration.lineThrough,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             product.timer,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Row(
             children: [
-              Icon(Icons.star, color: Colors.yellow, size: 16),
-              SizedBox(width: 4),
+              const Icon(Icons.star, color: Colors.yellow, size: 16),
+              const SizedBox(width: 4),
               Text(
                 '${product.rating} Stars',
-                style: TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey),
               ),
             ],
           ),

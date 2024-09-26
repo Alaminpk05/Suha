@@ -10,7 +10,9 @@ import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ProductCategory extends StatefulWidget {
-  const ProductCategory({super.key});
+  const ProductCategory({
+    super.key,
+  });
 
   @override
   State<ProductCategory> createState() => _ProductCategoryState();
@@ -25,8 +27,7 @@ class _ProductCategoryState extends State<ProductCategory> {
         appBar: PreCustomAppBar(mobile, context, () {
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => const Bottompage()));
-        },
-            'Product Category',filterwidget(mobile: mobile)),
+        }, 'Product Category', filterwidget(mobile: mobile)),
         body: SingleChildScrollView(
           child: Padding(
             padding: ResponsiveHelper.isMobile(context)
@@ -59,11 +60,13 @@ class _ProductCategoryState extends State<ProductCategory> {
                       color: Colors.white,
                     ),
                   ),
-                  const CategorySection1(),
+                  const CategorySection1(
+                    categorylist: [],
+                  ),
                   SizedBox(
                     height: 0.7.h,
                   ),
-                  const CategorySection2(),
+                  // const CategorySection2(),
                   Align(
                     alignment: Alignment.topLeft,
                     child: PagesTitleText(
@@ -84,7 +87,4 @@ class _ProductCategoryState extends State<ProductCategory> {
           ),
         ));
   }
-
-
 }
-

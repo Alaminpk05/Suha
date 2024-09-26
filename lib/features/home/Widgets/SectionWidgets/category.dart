@@ -1,60 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:shuhaui/features/categoryView.dart';
-import 'package:shuhaui/utils/constant.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/authentication/login/forgot.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
 import '../singlewidgets/categorybuttonwidget.dart';
 
 class CategorySection1 extends StatelessWidget {
-  const CategorySection1({super.key});
+  const CategorySection1({super.key, required this.categorylist});
+  final List<CategoryModel> categorylist;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    
-      children: List.generate(categoryDataList1.length, (index) {
-        final item = categoryDataList1[index];
-        return CategoryWidget(
-          image: item['image'],
-          text: item['text'],
-          ontap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Categoryview(
-                          title: item['title'],
-                          image: item['image'],
-                        )));
-          },
-        );
-      }),
+    return SizedBox(
+      height:29.h,
+      width: double.infinity,
+      child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            
+              crossAxisCount: 4, childAspectRatio: 0.74),
+              
+          itemCount: categorylist.length,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (contex, index) {
+            final category = categorylist[index];
+            return CategoryWidget(
+                image: category.iconUrl, text: category.name, ontap: () {});
+          }),
     );
-  }
-}
 
-class CategorySection2 extends StatelessWidget {
-  const CategorySection2({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     
-        children: List.generate(categoryDataList2.length, (index) {
-          final item = categoryDataList2[index];
-          return CategoryWidget(
-              image: item['image'],
-              text: item['text'],
-              ontap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Categoryview(
-                              title: item['title'],
-                              image: item['image'],
-                            )));
-              });
-        }));
   }
 }
+

@@ -5,7 +5,6 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttim
 import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscard.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
-import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class WishList extends StatefulWidget {
@@ -91,7 +90,8 @@ class _WishListState extends State<WishList> {
                             return topProductwithouttime(
                                 name: 'Wooden Sofa',
                                 photo: "assets/5.png",
-                                color: const Color.fromRGBO(0, 184, 148, 1),
+                                minibuttoncolor:
+                                    const Color.fromRGBO(0, 184, 148, 1),
                                 minibuttonword2: 'New',
                                 mobile: mobile,
                                 tablet: tablet,

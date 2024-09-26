@@ -1,13 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
+import 'package:shuhaui/features/home/data/model/fetured_product.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/featuredproducts.dart';
 
 class Featuredproductssection extends StatefulWidget {
-  const Featuredproductssection({super.key});
+  const Featuredproductssection({
+    super.key,
+    required this.featuredProductList,
+  });
+  final List<FeaturedProduct> featuredProductList;
 
   @override
   State<Featuredproductssection> createState() =>
@@ -18,80 +24,43 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
-   
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ViewProductlist(
             productListviewTitle: "Featured Products", ontab: () {}),
         SizedBox(
-          height: mobile?0.8.h:1.5.h,
+          height: mobile ? 0.8.h : 1.5.h,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FeaturedProducts(
-              image: 'assets/14.png',
-              title: 'Blue Skateboard',
-              newprice: '39',
-              oldprice: '89',
-              ontap: () {},
-            ),
-            SizedBox(
-              width: 1.w,
-            ),
-            FeaturedProducts(
-              image: 'assets/15.png',
-              title: 'Travel Bag',
-              newprice: '14.7',
-              oldprice: '21',
-              ontap: () {},
-            ),
-            SizedBox(
-              width: 1.w,
-            ),
-            FeaturedProducts(
-              image: 'assets/16.png',
-              title: 'Cotton T- Shirt',
-              newprice: '3.69',
-              oldprice: '5',
-              ontap: () {},
-            ),
-          ],
+        SizedBox(
+          height: 41.h,
+          width: double.infinity,
+          child: GridView.builder(
+            
+            itemCount: widget.featuredProductList.length,
+            physics: const NeverScrollableScrollPhysics(),
+            
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(
+                    
+                    crossAxisCount: 3,
+                    childAspectRatio: 0.7,
+                    
+                    
+                    
+                    
+                    ),
+              itemBuilder: (context, index) {
+                final item = widget.featuredProductList[index];
+                return FeaturedProducts(
+                    image: item.image,
+                    title: item.name,
+                    newprice: item.price,
+                    oldprice: item.originalPrice);
+              }),
         ),
-       
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FeaturedProducts(
-              image: 'assets/21.png',
-              title: 'ECG Rice Maker',
-              newprice: '9.99',
-              oldprice: '13',
-              ontap: () {},
-            ),
-            SizedBox(
-              width: 1.5.w,
-            ),
-            FeaturedProducts(
-              image: 'assets/20.png',
-              title: 'Beauty Cent',
-              newprice: '5.99',
-              oldprice: '8',
-              ontap: () {},
-            ),
-            SizedBox(
-              width: 1.w,
-            ),
-            FeaturedProducts(
-              image: 'assets/19.png',
-              title: 'Basketball',
-              newprice: '16',
-              oldprice: '19',
-              ontap: () {},
-            ),
-          ],
-        ),
+      
       ],
     );
   }

@@ -4,7 +4,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/cart/cart_view.dart';
 import 'package:shuhaui/features/chat.dart';
 import 'package:shuhaui/features/home/home_view.dart';
-import 'package:shuhaui/features/pages/pages.dart';
 import 'package:shuhaui/features/settins.dart';
 
 void main() {
@@ -46,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
       Chat(),
       CartView(title: 'Cart Page',),
       Settings(),
-      Pages(),
+      // Pages(),
     ];
   }
 

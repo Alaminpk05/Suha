@@ -57,7 +57,7 @@ class CycloneOfferWidget extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal:2.5.w),
                   child: Column(
-
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         title!,

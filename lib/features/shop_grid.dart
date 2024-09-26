@@ -8,7 +8,6 @@ import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/global_widgets/horizontal_prduct_lis.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-
 class ShopGrid extends StatefulWidget {
   // final String digitDays;
   // final String digitHours;
@@ -62,8 +61,6 @@ class _ShopGridState extends State<ShopGrid> {
   }
 }
 
-
-
 class ProductsGridView extends StatelessWidget {
   const ProductsGridView({
     super.key,
@@ -107,8 +104,7 @@ class GridViewWidget extends StatelessWidget {
         shrinkWrap: true,
         physics: scrollPhysics,
         itemCount: 20,
-        gridDelegate: const 
-        SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.7,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -119,13 +115,14 @@ class GridViewWidget extends StatelessWidget {
               image: "assets/11.png",
               miniButtonword: "Sale",
               miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
-              color: Colors.black,
+              textcolor: Colors.black,
               digitDays: '150',
               digitHours: '24',
               digitMinutes: '24',
               digitSeconds: '24',
               mobile: mobile,
-              tablet: tablet, width: mobile?45.w:30.w);
+              tablet: tablet,
+              width: mobile ? 45.w : 30.w);
         });
   }
 }

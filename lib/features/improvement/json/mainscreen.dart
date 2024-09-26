@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:shuhaui/features/improvement/json/model/category.dart';
-import 'package:shuhaui/features/improvement/json/model/cycloneoffer.dart';
-import 'package:shuhaui/features/improvement/json/model/top_product.dart';
-import 'package:shuhaui/features/improvement/json/repository/load_product_data.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
+import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
+import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/features/improvement/json/widgets/top_product.dart';
 import 'widgets/category_widget.dart';
 import 'widgets/cyclone_offer_widget.dart';
 
 class ProductDisplayScreen extends StatefulWidget {
+  const ProductDisplayScreen({super.key});
+
   @override
   _ProductDisplayScreenState createState() => _ProductDisplayScreenState();
 }
 
 class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
-  late List<Category> categories = [];
+  late List<CategoryModel> categories = [];
   late List<CycloneOffer> cycloneOffers = [];
   late List<TopProduct> topProducts = [];
   bool isLoading = true;
@@ -28,7 +30,7 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
     final data = await loadProductData();
     setState(() {
       categories = (data['categories'] as List)
-          .map((item) => Category.fromJson(item))
+          .map((item) => CategoryModel.fromJson(item))
           .toList();
       cycloneOffers = (data['cycloneOffers'] as List)
           .map((item) => CycloneOffer.fromJson(item))
@@ -59,7 +61,7 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
                 ),
                 SizedBox(
                   height: 100,
-                  width:MediaQuery.of(context).size.width ,
+                  width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: categories.length,
@@ -80,9 +82,8 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
                 ),
                 SizedBox(
                   height: 180,
-                 width:MediaQuery.of(context).size.width ,
+                  width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
-                    
                     itemCount: cycloneOffers.length,
                     itemBuilder: (context, index) {
                       return CycloneOfferWidget(offer: cycloneOffers[index]);
@@ -101,7 +102,7 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
                 ),
                 SizedBox(
                   height: 100,
-                width:MediaQuery.of(context).size.width ,
+                  width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: topProducts.length,

@@ -53,51 +53,71 @@ List<Map<String, String>> sliderdetails = [
   {'image': "assets/3.jpg", 'text': 'Amazon3 Echo\n3rd Generation, Charcoal'},
 ];
 
-///Category Data List & Category2
-final List<Map<String, dynamic>> categoryDataList1 = [
-  {
-    "image": 'assets/woman-clothes.png',
-    'text': 'Womens \n Fashion',
-    'title': 'Womens Fashion'
-  },
-  {
-    "image": 'assets/grocery.png',
-    'text': 'Groceries &\n Pets',
-    'title': 'Groceries & Pets'
-  },
-  {
-    "image": 'assets/shampoo.png',
-    'text': 'Health &\n Beauty',
-    'title': 'Health & Beauty'
-  },
-  {
-    "image": 'assets/rowboat.png',
-    'text': 'Sports &\n Outdoors',
-    'title': 'Sports & Outdoors'
-  },
-];
-List<Map<String, dynamic>> categoryDataList2 = [
-  {
-    "image": 'assets/tv-table.png',
-    'text': 'Home & \nAppllance',
-    'title': 'Home Appllance',
-  },
-  {
-    "image": 'assets/beach.png',
-    'text': 'Tour & \n Travels',
-    'title': 'Tour & Travels',
-  },
-  {
-    "image": 'assets/baby-products.png',
-    'text': 'Mother & \n Baby',
-    'title': 'Mother & Baby',
-  },
-  {
-    "image": 'assets/price-tag.png',
-    'text': 'Clearance\n Sale',
-    'title': 'Clearance Sale',
-  },
-];
+// ///Category Data List & Category2
+// final List<Map<String, dynamic>> categoryDataList1 = [
+//   {
+//     "image": 'assets/woman-clothes.png',
+//     'text': 'Womens \n Fashion',
+//     'title': 'Womens Fashion'
+//   },
+//   {
+//     "image": 'assets/grocery.png',
+//     'text': 'Groceries &\n Pets',
+//     'title': 'Groceries & Pets'
+//   },
+//   {
+//     "image": 'assets/shampoo.png',
+//     'text': 'Health &\n Beauty',
+//     'title': 'Health & Beauty'
+//   },
+//   {
+//     "image": 'assets/rowboat.png',
+//     'text': 'Sports &\n Outdoors',
+//     'title': 'Sports & Outdoors'
+//   },
+//   {
+//     "image": 'assets/tv-table.png',
+//     'text': 'Home & \nAppllance',
+//     'title': 'Home Appllance',
+//   },
+//   {
+//     "image": 'assets/beach.png',
+//     'text': 'Tour & \n Travels',
+//     'title': 'Tour & Travels',
+//   },
+//   {
+//     "image": 'assets/baby-products.png',
+//     'text': 'Mother & \n Baby',
+//     'title': 'Mother & Baby',
+//   },
+//   {
+//     "image": 'assets/price-tag.png',
+//     'text': 'Clearance\n Sale',
+//     'title': 'Clearance Sale',
+//   },
+// ];
+// List<Map<String, dynamic>> categoryDataList2 = [
+//   {
+//     "image": 'assets/tv-table.png',
+//     'text': 'Home & \nAppllance',
+//     'title': 'Home Appllance',
+//   },
+//   {
+//     "image": 'assets/beach.png',
+//     'text': 'Tour & \n Travels',
+//     'title': 'Tour & Travels',
+//   },
+//   {
+//     "image": 'assets/baby-products.png',
+//     'text': 'Mother & \n Baby',
+//     'title': 'Mother & Baby',
+//   },
+//   {
+//     "image": 'assets/price-tag.png',
+//     'text': 'Clearance\n Sale',
+//     'title': 'Clearance Sale',
+//   },
+// ];
 
 /// cyclone offer widget's List
 List<Map<String, dynamic>> cycloneOfferItems = [

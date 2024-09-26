@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/cart/cart_view.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/home_view.dart';
 import 'package:shuhaui/features/chat.dart';
 import 'package:shuhaui/features/pages/pages.dart';
@@ -8,7 +9,7 @@ import 'package:shuhaui/features/settins.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Bottompage extends StatefulWidget {
-  const Bottompage({super.key});
+  const Bottompage({super.key, });
 
   @override
   State<Bottompage> createState() => _BottompageState();
@@ -30,7 +31,9 @@ class _BottompageState extends State<Bottompage> {
       'page': const Settings(),
     },
     {
-      'page': const Pages(),
+      'page': const Pages(
+      
+      ),
     }
   ];
   @override

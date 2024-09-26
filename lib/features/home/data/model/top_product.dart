@@ -9,6 +9,8 @@ class TopProduct {
   final String timer;
   final bool isFavorite;
   final String imageUrl;
+  final bool istimer;
+  final String minibuttonword;
 
   TopProduct({
     required this.id,
@@ -20,6 +22,8 @@ class TopProduct {
     required this.timer,
     required this.isFavorite,
     required this.imageUrl,
+    required this.istimer,
+    required this.minibuttonword,
   });
 
   factory TopProduct.fromJson(Map<String, dynamic> json) {
@@ -33,6 +37,7 @@ class TopProduct {
       isFavorite: json['isFavorite'],
       imageUrl: json['imageUrl'],
       status: json['imageUrl'],
+      istimer: json['istimer'], minibuttonword: json['minibuttonword'],
     );
   }
 }
