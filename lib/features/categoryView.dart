@@ -13,6 +13,7 @@ class Categoryview extends StatelessWidget {
         title: Text(title),
       ),
       body: Container(
+        
         child:ListView.builder(
             itemCount:20,itemBuilder: (context,index){
           return WeeklyProductsCard(image: image, title: title, icon: 'assets/heart (3).png',);

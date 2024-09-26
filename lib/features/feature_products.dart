@@ -26,7 +26,7 @@ class FeaturedProductList extends StatelessWidget {
           child: GridView.builder(
               itemCount: 6,
               shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 2.1,
               ),

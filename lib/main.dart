@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
-import 'package:shuhaui/features/feature_products.dart';
-import 'package:shuhaui/features/flash_sale.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
-import 'package:shuhaui/features/order_status.dart';
-import 'package:shuhaui/features/page_details.dart';
-import 'package:shuhaui/features/wish_list.dart';
+import 'package:shuhaui/features/improvement/json/mainscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +31,7 @@ class MyApp extends StatelessWidget {
             return SafeArea(child: child!);
           },
           debugShowCheckedModeBanner: false,
-          home: 
-           const Bottompage(),
+          home:ProductDisplayScreen(),
         );
       },
     );

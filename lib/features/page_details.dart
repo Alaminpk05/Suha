@@ -335,11 +335,11 @@ class SixthSection extends StatelessWidget {
 
 class SeventhSection extends StatelessWidget {
   const SeventhSection({
-    Key? key,
+    super.key,
     required this.detailPageContColor,
     required this.detailsPageTextColor,
     required this.widget,
-  }) : super(key: key);
+  });
 
   final Color detailPageContColor;
   final Color detailsPageTextColor;
@@ -430,7 +430,7 @@ class RatingsReviews extends StatelessWidget {
                 Row(
                   children: [
                     index == 2
-                        ? Container(
+                        ? SizedBox(
                             height: 0,
                             width: 0,
                           )
@@ -464,7 +464,7 @@ class RatingsReviews extends StatelessWidget {
           height: 1.3.h,
         ),
         index == 2
-            ? Container(
+            ? SizedBox(
                 height: 0,
                 width: 0,
               )
@@ -774,12 +774,12 @@ class SpecificationsWidget extends StatelessWidget {
   final Color contentColor;
 
   const SpecificationsWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.specifications,
     required this.contentColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -871,13 +871,13 @@ class SpecificationRules extends StatelessWidget {
 
 class DetailPageIconButton extends StatelessWidget {
   const DetailPageIconButton({
-    Key? key,
+    super.key,
     required this.width,
     required this.height,
     required this.widget,
     required this.ontab,
     required this.color,
-  }) : super(key: key);
+  });
   final double width;
   final double height;
   final Widget widget;

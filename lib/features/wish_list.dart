@@ -23,8 +23,8 @@ class _WishListState extends State<WishList> {
 
     bool isBorder = true;
     bool isChecklist = false;
-    Color inactiveColor = Color.fromRGBO(51, 40, 88, 1);
-    Color activeColor = Color.fromRGBO(234, 76, 98, 1);
+    Color inactiveColor = const Color.fromRGBO(51, 40, 88, 1);
+    Color activeColor = const Color.fromRGBO(234, 76, 98, 1);
     return Scaffold(
       appBar: PreCustomAppBar(
           mobile, context, () {}, 'WishList', const CircleMenu()),
@@ -118,7 +118,7 @@ class _WishListState extends State<WishList> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13.sp),
-                    color: Color.fromRGBO(98, 90, 250, 1)),
+                    color: const Color.fromRGBO(98, 90, 250, 1)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -1,0 +1,38 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Home Appliance",
+        "iconUrl": "assets/1.png" 
+      },
+      {
+        "id": 1,
+        "name": "Home Appliance",
+        "iconUrl": "assets/1.png" 
+      }
+    ],
+    "cycloneOffers": [
+      {
+        "id": 1,
+        "title": "Black Table Lamp",
+        "price": 7.99,
+        "originalPrice": 15.0,
+        "soldPercentage": 33,
+        "imageUrl": "assets/11.png"
+      }
+    ],
+    
+    "topProducts": [
+      {
+        "id": 1,
+        "title": "Beach Cap",
+        "price": 13.0,
+        "originalPrice": 42.0,
+        "rating": 5,
+        "timer": "94d 19h 34m 3s",
+        "isFavorite": false,
+        "imageUrl": "assets/11.jpg"
+      }
+    ]
+  }
+  
