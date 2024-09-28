@@ -20,27 +20,7 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
   late List<TopProductModel> topProducts = [];
   bool isLoading = true;
 
-  @override
-  void initState() {
-    super.initState();
-    loadData();
-  }
 
-  Future<void> loadData() async {
-    final data = await loadProductData();
-    setState(() {
-      categories = (data['categories'] as List)
-          .map((item) => CategoryModel.fromJson(item))
-          .toList();
-      cycloneOffers = (data['cycloneOffers'] as List)
-          .map((item) => CycloneOfferModel.fromJson(item))
-          .toList();
-      topProducts = (data['topProducts'] as List)
-          .map((item) => TopProductModel.fromJson(item))
-          .toList();
-      isLoading = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -89,7 +89,7 @@ class _WishListState extends State<WishList> {
               ),
 
               ////main
-              if (isChecklist == false)
+              if (isChecklist == true)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 2.h),
                   child: TopProductList(
