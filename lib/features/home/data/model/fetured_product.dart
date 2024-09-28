@@ -1,26 +1,25 @@
-class FeaturedProduct {
+class FeaturedProductModel {
   String name;
   String price;
   String originalPrice;
   String image;
- 
 
-  FeaturedProduct({
+  FeaturedProductModel({
     required this.name,
     required this.price,
     required this.originalPrice,
     required this.image,
-      // Default is false if not provided
+    // Default is false if not provided
   });
 
   // Factory constructor to create a Product from a JSON map
-  factory FeaturedProduct.fromJson(Map<String, dynamic> json) {
-    return FeaturedProduct(
+  factory FeaturedProductModel.fromJson(Map<String, dynamic> json) {
+    return FeaturedProductModel(
       name: json['name'],
       price: json['price'],
       originalPrice: json['original_price'],
       image: json['image'],
-       // Default to false if not present
+      // Default to false if not present
     );
   }
 
@@ -31,7 +30,6 @@ class FeaturedProduct {
       'price': price,
       'original_price': originalPrice,
       'image': image,
-      
     };
   }
 }

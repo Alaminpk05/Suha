@@ -1,4 +1,4 @@
-class CycloneOffer {
+class CycloneOfferModel {
   final int id;
   final String title;
   final double price;
@@ -6,7 +6,7 @@ class CycloneOffer {
   final double soldPercentage;
   final String imageUrl;
 
-  CycloneOffer({
+  CycloneOfferModel({
     required this.id,
     required this.title,
     required this.price,
@@ -15,8 +15,8 @@ class CycloneOffer {
     required this.imageUrl,
   });
 
-  factory CycloneOffer.fromJson(Map<String, dynamic> json) {
-    return CycloneOffer(
+  factory CycloneOfferModel.fromJson(Map<String, dynamic> json) {
+    return CycloneOfferModel(
       id: json['id'],
       title: json['title'],
       price: json['price'],

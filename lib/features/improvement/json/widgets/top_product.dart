@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 
-
 class TopProductWidget extends StatelessWidget {
-  final TopProduct product;
+  final TopProductModel product;
 
   const TopProductWidget({super.key, required this.product});
 
@@ -22,9 +21,12 @@ class TopProductWidget extends StatelessWidget {
           Stack(
             children: [
               SizedBox(
-                height: 100,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(product.imageUrl, fit: BoxFit.contain,)),
+                  height: 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    product.imageUrl,
+                    fit: BoxFit.contain,
+                  )),
               if (product.isFavorite)
                 const Positioned(
                   top: 8,
@@ -37,7 +39,8 @@ class TopProductWidget extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(4),
                   color: Colors.orange,
-                  child: const Text('Sale', style: TextStyle(color: Colors.white)),
+                  child:
+                      const Text('Sale', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
@@ -45,14 +48,16 @@ class TopProductWidget extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             product.title,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
           Row(
             children: [
               Text(
                 '\$${product.price}',
-                style: const TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    color: Colors.yellow, fontWeight: FontWeight.bold),
               ),
               const SizedBox(width: 8),
               Text(

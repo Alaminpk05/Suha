@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/discount2.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/featuredproductsSection.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
 import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
@@ -12,9 +11,10 @@ import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-import 'Widgets/SectionWidgets/category.dart';
+import 'Widgets/SectionWidgets/category_section.dart';
 import 'Widgets/SectionWidgets/collectionSection.dart';
 import 'Widgets/SectionWidgets/cycloneoffer.dart';
 import 'Widgets/SectionWidgets/discount.dart';
@@ -91,44 +91,61 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  late List<CategoryModel> categories = [];
-  late List<CycloneOffer> cycloneOffers = [];
-  late List<TopProduct> topProducts = [];
-  late List<WeeklyProduct> weeklyProducts = [];
-  late List<FeaturedProduct> featuredProducts = [];
-  late List<Collections> collectionProducts = [];
+  // late List<CategoryModel> categories = [];
+  // late List<CycloneOfferModel> cycloneOffers = [];
+  // late List<TopProductModel> topProducts = [];
+  // late List<WeeklyProductModel> weeklyProducts = [];
+  // late List<FeaturedProductModel> featuredProducts = [];
+  // late List<CollectionsModel> collectionProducts = [];
   bool isLoading = true;
 
-  Future<void> loadData() async {
-    final data = await loadProductData();
-    setState(() {
-      categories = (data['categories'] as List)
-          .map((item) => CategoryModel.fromJson(item))
-          .toList();
-      cycloneOffers = (data['cycloneOffers'] as List)
-          .map((item) => CycloneOffer.fromJson(item))
-          .toList();
-      topProducts = (data['topProducts'] as List)
-          .map((item) => TopProduct.fromJson(item))
-          .toList();
-      weeklyProducts = (data['weeklybestsellerproduct'] as List)
-          .map((item) => WeeklyProduct.fromJson(item))
-          .toList();
-      featuredProducts = (data['featuredproducts'] as List)
-          .map((item) => FeaturedProduct.fromJson(item))
-          .toList();
-      collectionProducts = (data['collections'] as List)
-          .map((item) => Collections.fromJson(item))
-          .toList();
+  /// GET IT
+  late Future<List<CategoryModel>> categoryList;
+  late Future<List<CycloneOfferModel>> cycloneProductList;
+  late Future<List<TopProductModel>> topProductList;
+  late Future<List<WeeklyProductModel>> weeklyProductList;
+  late Future<List<FeaturedProductModel>> featuredProductList;
+  late Future<List<CollectionsModel>> collectionProductList;
 
-      isLoading = false;
-    });
-  }
+  // Future<void> loadData() async {
+  //   final data = await loadProductData();
+  //   setState(() {
+  //     // categories = (data['categories'] as List)
+  //     //     .map((item) => CategoryModel.fromJson(item))
+  //     //     .toList();
+  //     // cycloneOffers = (data['cycloneOffers'] as List)
+  //     //     .map((item) => CycloneOfferModel.fromJson(item))
+  //     //     .toList();
+  //     // topProducts = (data['topProducts'] as List)
+  //     //     .map((item) => TopProductModel.fromJson(item))
+  //     //     .toList();
+  //     // weeklyProducts = (data['weeklybestsellerproduct'] as List)
+  //     //     .map((item) => WeeklyProductModel.fromJson(item))
+  //     //     .toList();
+  //     // featuredProducts = (data['featuredproducts'] as List)
+  //     //     .map((item) => FeaturedProductModel.fromJson(item))
+  //     //     .toList();
+  //     // collectionProducts = (data['collections'] as List)
+  //     //     .map((item) => CollectionsModel.fromJson(item))
+  //     //     .toList();
+
+  //     isLoading = false;
+  //   });
+  // }
 
   @override
   void initState() {
-    loadData();
+    // loadData();
     start();
+    categoryList = getIt<ProductService>().fetchCategoryList();
+    cycloneProductList = getIt<ProductService>().fetchCycloneProductList();
+    topProductList = getIt<ProductService>().fetchTopProductList();
+    weeklyProductList = getIt<ProductService>().fetchweeklyProductListt();
+    featuredProductList = getIt<ProductService>().fetchFeaturedProductList();
+    collectionProductList = getIt<ProductService>().fetchCllectionProductList();
+    print('FEATURED AND COLELCTION PRODCUTS LSIT');
+    print(featuredProductList.asStream());
+
     super.initState();
   }
 
@@ -164,8 +181,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(height: 2.h),
                     const ImageSlider(),
                     SizedBox(height: 2.h),
-                    CategorySection1(
-                      categorylist: categories,
+                    CategorySection(categorylist: categoryList,
+                     
                     ),
                     SizedBox(height: 1.5.h),
                     CycloneOfferSection(
@@ -173,32 +190,29 @@ class _HomeScreenState extends State<HomeScreen> {
                       digitHours: digitHours,
                       digitMinutes: digitMinutes,
                       digitSeconds: digitSeconds,
-                      offerProductList: cycloneOffers,
+                      offerProductList: cycloneProductList,
                     ),
                     SizedBox(height: 2.h),
                     ThemeSwitch(switchValue: switchValue),
                     SizedBox(height: 0.8.h),
                     TopProductsSection(
-                      digitDays: digitDays,
-                      digitHours: digitHours,
-                      digitMinutes: digitMinutes,
-                      digitSeconds: digitSeconds,
-                      topProductList: topProducts,
+                      
+                      topProductList: topProductList,
                     ),
                     SizedBox(height: 2.h),
                     const DiscountSection(),
                     SizedBox(height: 1.h),
                     WeeklyBestSellerSection(
-                      weeklyproductList: weeklyProducts,
+                      weeklyproductList: weeklyProductList,
                     ),
                     SizedBox(height: 2.h),
                     const DiscountSection2(),
                     SizedBox(height: 1.h),
                     Featuredproductssection(
-                      featuredProductList: featuredProducts,
+                      featuredProductList: featuredProductList,
                     ),
                     SizedBox(height: 0.6.h),
-                    CollectionsSection(collectionProductList: collectionProducts,),
+                    CollectionsSection(),
                   ],
                 ),
               ),

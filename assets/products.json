@@ -294,9 +294,128 @@
       "image": "assets/21.jpg",
       "item_count": 4
     }
+  ],
+
+  "checklistpageproducts": [
+    {
+      "id": 1,
+      "name": "Meow Mix Cat Food",
+      "price": 11.49,
+      "original_price": 13,
+      "rating": 4.78,
+      "reviews": 1,
+      "image": "assets/17.png",
+      "is_favourite": false
+    },
+      {
+        "id": 2,
+        "name": "Nescafe Coffee Jar",
+        "price": 64,
+        "original_price": 89,
+        "rating": 4.88,
+        "reviews": 39,
+        "image": "assets/18.png",
+        "is_favourite": false
+      },
+      {
+        "id": 3,
+        "name": "Modern Office Chair",
+        "price": 99,
+        "original_price": 159,
+        "rating": 4.82,
+        "reviews": 125,
+        "image": "assets/7.png",
+        "is_favourite": false
+      },
+      {
+        "id": 4,
+        "name": "Beach Sunglasses",
+        "price": 24,
+        "original_price": 32,
+        "rating": 4.89,
+        "reviews": 63,
+        "image": "assets/12.png",
+        "is_favourite": false
+      }
+      
+    
+  ],
+
+  "borderpageproducts":[
+    {
+      "id": 1,
+      "istimer":true,
+      "minibuttonword":"Sale",
+      "title": "Beach Cap",
+      "price": 13.0,
+      "originalPrice": 42.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/11.png"
+    },
+    {
+      "id": 2,
+      "istimer":false,
+      "minibuttonword":"New",
+      "title": "Wooden Sofa",
+      "price": 74.0,
+      "originalPrice": 99.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/5.png"
+    },
+    {
+      "id": 3,
+      "istimer":false,
+      "minibuttonword":"New",
+      "title": "Roof Lamp",
+      "price": 99.0,
+      "originalPrice": 113.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/6.png"
+    },
+    {
+      "id": 4,
+      "istimer":true,
+      "minibuttonword":"-18",
+      "title": "Sneaker Shoes",
+      "price": 87.0,
+      "originalPrice": 92.0,
+      "rating": 4,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/9.png"
+    },
+    
+    {
+      "id": 5,
+      "istimer":false,
+      "minibuttonword":"On Sale",
+      "title": "Polo Shirts",
+      "price": 38.0,
+      "originalPrice": 41.0,
+      "rating": 4,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/4.png"
+    },
+    {
+      "id": 6,
+      "istimer":false,
+      "minibuttonword":"-11",
+      "title": "Wooden Chair",
+      "price": 21.0,
+      "originalPrice": 25.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/8.png"
+    }
   ]
-
-
 
 
   }

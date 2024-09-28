@@ -30,7 +30,7 @@ class FeaturedProducts extends StatelessWidget {
               top: .5.h,
               left: Mobile ? 0.5.w : 0,
               right: Mobile ? 0.5.h : 0,
-              bottom: 0.5.h),
+              bottom: 0.35.h),
           padding: EdgeInsets.only(right: 0.5.w),
           decoration: BoxDecoration(
               color: const Color.fromRGBO(36, 38, 68, 1),
@@ -63,7 +63,7 @@ class FeaturedProducts extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            title,
+                            "$title",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: Mobile ? 16.5.sp : 14.5.sp,

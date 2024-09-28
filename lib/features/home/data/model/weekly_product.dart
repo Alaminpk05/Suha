@@ -1,4 +1,4 @@
-class WeeklyProduct {
+class WeeklyProductModel {
   String name;
   double price;
   double originalPrice;
@@ -7,7 +7,7 @@ class WeeklyProduct {
   String image;
   bool isFavourite;
 
-  WeeklyProduct({
+  WeeklyProductModel({
     required this.name,
     required this.price,
     required this.originalPrice,
@@ -18,8 +18,8 @@ class WeeklyProduct {
   });
 
   // Factory constructor to create a Product from a JSON map
-  factory WeeklyProduct.fromJson(Map<String, dynamic> json) {
-    return WeeklyProduct(
+  factory WeeklyProductModel.fromJson(Map<String, dynamic> json) {
+    return WeeklyProductModel(
       name: json['name'],
       price: json['price'].toDouble(),
       originalPrice: json['original_price'].toDouble(),

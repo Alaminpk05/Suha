@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
-import 'package:shuhaui/features/home/data/model/category.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/order_status.dart';
 import 'package:shuhaui/features/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
@@ -17,8 +18,7 @@ import 'package:shuhaui/features/wish_list.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
-  const Pages({super.key,});
-
+  const Pages({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,10 @@ class Pages extends StatelessWidget {
               children: [
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (c) => Bottompage()));
+                  },
                   title: 'Home',
                 ),
                 ElevatedIconTextButton(
@@ -90,9 +93,7 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ProductCategory(
-                                
-                                )));
+                            builder: (context) => const ProductCategory()));
                   },
                   title: 'Category',
                 ),
@@ -102,7 +103,9 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SubProductCategory()));
+                            builder: (context) =>  SubProductCategory(
+                                
+                                )));
                   },
                   title: 'Sub Category',
                 ),
@@ -142,7 +145,7 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FeaturedProductList()));
+                            builder: (context) => const FeaturedProductPage()));
                   },
                   title: 'Featured Products',
                 ),

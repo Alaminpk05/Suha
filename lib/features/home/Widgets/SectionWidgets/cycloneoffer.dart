@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
-import '../../../../utils/constant.dart';
 import '../singlewidgets/cycloneofferCard.dart';
 
 class CycloneOfferSection extends StatefulWidget {
@@ -14,7 +13,7 @@ class CycloneOfferSection extends StatefulWidget {
     required this.digitSeconds,
     required this.offerProductList,
   });
-  final List<CycloneOffer> offerProductList;
+  final Future<List<CycloneOfferModel>> offerProductList;
   final String digitDays;
   final String digitHours;
   final String digitMinutes;
@@ -79,22 +78,35 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
           SizedBox(
               height: 44.w,
               width: 100.w,
-              child: ListView.builder(
-                  controller: scrollController,
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: widget.offerProductList.length,
-                  itemBuilder: (context, index) {
-                    print(widget.offerProductList);
-                    // final realIndex = index % widget.offerProductList.length;
-                    final item = widget.offerProductList[index];
-              
-                    return CycloneOfferWidget(
-                      value: item.soldPercentage,
-                      asset: item.imageUrl,
-                      title: item.title,
-                    );
-                  }))
+              child: FutureBuilder(
+                future: widget.offerProductList,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return const Center(child: Text('No categories found'));
+                  }
+                  final offerProducts = snapshot.data!;
+                  return ListView.builder(
+                      controller: scrollController,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: offerProducts.length,
+                      itemBuilder: (context, index) {
+                        print(widget.offerProductList);
+                        // final realIndex = index % widget.offerProductList.length;
+                        final item = offerProducts[index];
+
+                        return CycloneOfferWidget(
+                          value: item.soldPercentage,
+                          asset: item.imageUrl,
+                          title: item.title,
+                        );
+                      });
+                },
+              ))
         ],
       ),
     );

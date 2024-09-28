@@ -5,14 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/features/authentication/login/forgot.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
 import 'package:shuhaui/utils/constant.dart';
-import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
-import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class PageDetails extends StatefulWidget {

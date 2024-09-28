@@ -35,8 +35,9 @@ Widget topProductwithtime(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: mobile ? 2.h : 1.5.h,
-                width: mobile ? 9.5.w : 5.w,
+                // height: mobile ? 2.h : 1.5.h,
+                // width: mobile ? 9.5.w : 5.w,
+                 padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.2.h),
                 decoration: BoxDecoration(
                   color: miniButtoncolor,
                   borderRadius: BorderRadius.circular(20.sp),
@@ -45,7 +46,7 @@ Widget topProductwithtime(
                   child: Text(
                     miniButtonword,
                     style: TextStyle(
-                      color: textcolor,
+                      color: miniButtonword=="Sale"|| miniButtonword=="On Sale"?Colors.black:textcolor,
                       fontWeight: FontWeight.w400,
                       fontFamily: "PlusJakartaSans-Regular.ttf",
                       fontSize: mobile ? 13.5.sp : 12.sp,

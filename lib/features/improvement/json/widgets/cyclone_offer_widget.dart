@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 
 class CycloneOfferWidget extends StatelessWidget {
-  final CycloneOffer offer;
+  final CycloneOfferModel offer;
 
   const CycloneOfferWidget({super.key, required this.offer});
 
@@ -19,11 +19,15 @@ class CycloneOfferWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(offer.imageUrl,height: 40,),
+          Image.asset(
+            offer.imageUrl,
+            height: 40,
+          ),
           const SizedBox(height: 8),
           Text(
             offer.title,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
           Row(

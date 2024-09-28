@@ -16,8 +16,8 @@ class ProductDisplayScreen extends StatefulWidget {
 
 class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
   late List<CategoryModel> categories = [];
-  late List<CycloneOffer> cycloneOffers = [];
-  late List<TopProduct> topProducts = [];
+  late List<CycloneOfferModel> cycloneOffers = [];
+  late List<TopProductModel> topProducts = [];
   bool isLoading = true;
 
   @override
@@ -33,10 +33,10 @@ class _ProductDisplayScreenState extends State<ProductDisplayScreen> {
           .map((item) => CategoryModel.fromJson(item))
           .toList();
       cycloneOffers = (data['cycloneOffers'] as List)
-          .map((item) => CycloneOffer.fromJson(item))
+          .map((item) => CycloneOfferModel.fromJson(item))
           .toList();
       topProducts = (data['topProducts'] as List)
-          .map((item) => TopProduct.fromJson(item))
+          .map((item) => TopProductModel.fromJson(item))
           .toList();
       isLoading = false;
     });

@@ -38,9 +38,11 @@ Widget topProductwithouttime({
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: mobile ? 2.h : 1.5.h,
-                width: mobile ? 9.5.w : 5.w,
+                padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.2.h),
+                // height: mobile ? 2.h : 1.5.h,
+                // width: mobile ? 10.w : 5.w,
                 decoration: BoxDecoration(
+                  
                   color: minibuttoncolor,
                   borderRadius: BorderRadius.circular(20.sp),
                 ),
@@ -48,8 +50,8 @@ Widget topProductwithouttime({
                   child: Text(
                     minibuttonword2,
                     style: TextStyle(
-                      color: textcolor,
-                      fontWeight: FontWeight.w500,
+                      color: minibuttonword2=="Sale"|| minibuttonword2=="On Sale"?Colors.black:textcolor,
+                      fontWeight: FontWeight.w400,
                       fontFamily: "PlusJakartaSans-Regular.ttf",
                       fontSize: mobile ? 13.5.sp : 12.sp,
                     ),

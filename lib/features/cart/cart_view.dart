@@ -24,8 +24,8 @@ class CartView extends StatelessWidget {
             child: CustomSimpleAppBar(
               title: 'My Cart',
               navigation: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>const ShopGrid()));
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) =>ShopGrid()));
               }, widget: const CircleMenu(),
             )),
             body: Column(

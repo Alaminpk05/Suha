@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
-import 'package:shuhaui/features/home/Widgets/SectionWidgets/category.dart';
+import 'package:shuhaui/features/home/Widgets/SectionWidgets/category_section.dart';
+import 'package:shuhaui/features/home/Widgets/SectionWidgets/topproducts.dart';
+import 'package:shuhaui/features/home/data/model/category.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
+import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -18,7 +23,29 @@ class ProductCategory extends StatefulWidget {
   State<ProductCategory> createState() => _ProductCategoryState();
 }
 
+
+
+
 class _ProductCategoryState extends State<ProductCategory> {
+
+
+late Future<List<CategoryModel>> categoryList;
+late Future<List<TopProductModel>> topproductList;
+
+
+
+
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    categoryList = getIt<ProductService>().fetchCategoryList();
+    topproductList = getIt<ProductService>().fetchTopProductList();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
@@ -60,13 +87,12 @@ class _ProductCategoryState extends State<ProductCategory> {
                       color: Colors.white,
                     ),
                   ),
-                  const CategorySection1(
-                    categorylist: [],
+                  CategorySection(
+                    categorylist: categoryList,
                   ),
                   SizedBox(
                     height: 0.7.h,
                   ),
-                  // const CategorySection2(),
                   Align(
                     alignment: Alignment.topLeft,
                     child: PagesTitleText(
@@ -76,11 +102,7 @@ class _ProductCategoryState extends State<ProductCategory> {
                       color: Colors.white,
                     ),
                   ),
-                  GridViewWidget(
-                    mobile: mobile,
-                    tablet: tablet,
-                    scrollPhysics: const NeverScrollableScrollPhysics(),
-                  )
+                 TopProductList(mobile: mobile, topProductList: topproductList, tablet: tablet)
                 ],
               ),
             ),

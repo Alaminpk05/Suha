@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
+import 'package:shuhaui/features/home/data/model/fetured_product.dart';
+import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-class FeaturedProductList extends StatelessWidget {
-  const FeaturedProductList({super.key});
+class FeaturedProductPage extends StatefulWidget {
+  const FeaturedProductPage({
+    super.key,
+  });
+
+  @override
+  State<FeaturedProductPage> createState() => _FeaturedProductPageState();
+}
+
+class _FeaturedProductPageState extends State<FeaturedProductPage> {
+  late Future<List<FeaturedProductModel>> featuredProductList;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    featuredProductList = getIt<ProductService>().fetchFeaturedProductList();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,34 +35,42 @@ class FeaturedProductList extends StatelessWidget {
           mobile,
           context,
           () {},
-          'Flash Sale',
+          'Featured Products',
           filterwidget(
             mobile: mobile,
           )),
       body: Padding(
           padding: EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 3.w),
-          child: GridView.builder(
-              itemCount: 6,
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                childAspectRatio: 2.1,
-              ),
-              itemBuilder: (context, index) {
-                return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(3, (index) {
-                      var item = cycloneOfferItems[index];
-                      return FeaturedProducts(
-                        image: 'assets/14.png',
-                        title: 'Blue Skateboard',
-                        newprice: '39',
-                        oldprice: '89',
-                        ontap: () {},
-                      );
-                    }));
-              })),
+          child: FutureBuilder(
+            future: featuredProductList,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Center(child: Text('No categories found'));
+              }
+              final featuredproductList = snapshot.data!;
+              return GridView.builder(
+                  itemCount: featuredproductList.length,
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 0.7,
+                  ),
+                  itemBuilder: (context, index) {
+                    final item = featuredproductList[index];
+                    return FeaturedProducts(
+                      image: item.image,
+                      title: item.name,
+                      newprice: item.price,
+                      oldprice: item.originalPrice,
+                      ontap: () {},
+                    );
+                  });
+            },
+          )),
     );
   }
 }

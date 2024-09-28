@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-class TopProduct {
+class TopProductModel {
   final int id;
   final String status;
   final String title;
@@ -12,7 +12,7 @@ class TopProduct {
   final bool istimer;
   final String minibuttonword;
 
-  TopProduct({
+  TopProductModel({
     required this.id,
     required this.status,
     required this.title,
@@ -26,8 +26,8 @@ class TopProduct {
     required this.minibuttonword,
   });
 
-  factory TopProduct.fromJson(Map<String, dynamic> json) {
-    return TopProduct(
+  factory TopProductModel.fromJson(Map<String, dynamic> json) {
+    return TopProductModel(
       id: json['id'],
       title: json['title'],
       price: json['price'],
@@ -37,7 +37,8 @@ class TopProduct {
       isFavorite: json['isFavorite'],
       imageUrl: json['imageUrl'],
       status: json['imageUrl'],
-      istimer: json['istimer'], minibuttonword: json['minibuttonword'],
+      istimer: json['istimer'],
+      minibuttonword: json['minibuttonword'],
     );
   }
 }

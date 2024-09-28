@@ -13,8 +13,8 @@ class ViewProductlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     var Mobile = ResponsiveHelper.isMobile(context);
-    var Tablet = ResponsiveHelper.isTablet(context);
+     var mobile = ResponsiveHelper.isMobile(context);
+    
     return GestureDetector(
       onTap: ontab,
       child: Row(
@@ -27,7 +27,7 @@ class ViewProductlist extends StatelessWidget {
           ElevatedButton(onPressed: ontab,
               style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(36, 38, 68, 1),
-                   minimumSize: Size(0.w,Mobile?4.1.h:3.5.h),
+                   minimumSize: Size(0.w,mobile?4.1.h:3.5.h),
                   
                  
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.sp))
@@ -37,10 +37,10 @@ class ViewProductlist extends StatelessWidget {
       
                 children: [
                   regularfont(text: "View all", 
-                  fontsize: Mobile?15.sp:13.5.sp,
+                  fontsize: mobile?15.sp:13.5.sp,
                       color: Colors.white),
-                  SizedBox(width: Mobile?2.w:1.w,),
-                  Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: Mobile?3.w:2.5.w,)
+                  SizedBox(width: mobile?2.w:1.w,),
+                  Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: mobile?3.w:2.5.w,)
                 ],
               ))
         ],

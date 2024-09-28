@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
+import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
             return SafeArea(child: child!);
           },
           debugShowCheckedModeBanner: false,
-          home:const Bottompage(),
+          home: const Bottompage(),
         );
       },
     );

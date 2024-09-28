@@ -21,8 +21,8 @@ class CycloneOfferWidget extends StatelessWidget {
     var Mobile = ResponsiveHelper.isMobile(context);
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProductCategory()));
+        // Navigator.push(context,
+        //     MaterialPageRoute(builder: (context) => const ProductCategory()));
       },
       child: Container(
        
