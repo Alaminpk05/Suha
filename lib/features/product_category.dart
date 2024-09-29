@@ -7,7 +7,6 @@ import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
-import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 
@@ -102,7 +101,7 @@ late Future<List<TopProductModel>> topproductList;
                       color: Colors.white,
                     ),
                   ),
-                 TopProductList(mobile: mobile, topProductList: topproductList, tablet: tablet)
+                 TopProductList(mobile: mobile, topProductList: topproductList, tablet: tablet, childratio: mobile ? 0.75 : 0.675,)
                 ],
               ),
             ),

@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/topproducts.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscard.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -60,7 +58,13 @@ class _WishListState extends State<WishList> {
                       WishListButton(
                         icon: 'assets/border-all.png',
                         color: isBorder == true ? activeColor : inactiveColor,
-                        ontap: () {},
+                        ontap: () {
+                          setState(() {
+                            print(' clicked on border button');
+                            isBorder = true;
+                            isChecklist = false;
+                          });
+                        },
                       ),
                       SizedBox(
                         width: 2.w,
@@ -71,15 +75,9 @@ class _WishListState extends State<WishList> {
                             isChecklist == true ? activeColor : inactiveColor,
                         ontap: () {
                           setState(() {
-                            if (isChecklist == true) {
-                              isChecklist = false;
-                              isBorder = true;
-                            } else {
-                              isChecklist = true;
-                              isBorder = false;
-                            }
-                            print(isChecklist);
-                            print(isBorder);
+                            print(' clicked on checklist button');
+                            isChecklist = true;
+                            isBorder = false;
                           });
                         },
                       ),
@@ -89,13 +87,14 @@ class _WishListState extends State<WishList> {
               ),
 
               ////main
-              if (isChecklist == true)
+              if (isChecklist)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 2.h),
                   child: TopProductList(
                       mobile: mobile,
                       topProductList: topProductList,
-                      tablet: tablet),
+                      tablet: tablet, childratio: 
+                      mobile ? 0.75 : 0.675,),
                 )
               else
                 Container(

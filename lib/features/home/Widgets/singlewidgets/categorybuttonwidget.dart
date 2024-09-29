@@ -21,8 +21,8 @@ class CategoryWidget extends StatelessWidget {
       onTap: ontap,
       child: Center(
         child: Container(
-          height: mobile ? 14.h : 12.h,
-          width: mobile ? 22.w : 16.w,
+          height: mobile ? 14.h : 1.h,
+          width: mobile ? 22.w : 16.4.w,
           decoration: BoxDecoration(
               color: const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(12.sp)),
@@ -75,6 +75,7 @@ class regularfont extends StatelessWidget {
           fontWeight: FontWeight.w700,
           fontFamily: "PlusJakartaSans-Regular.ttf",
           fontSize: fontsize),
+      overflow: TextOverflow.ellipsis,
       textAlign: TextAlign.center,
     );
   }

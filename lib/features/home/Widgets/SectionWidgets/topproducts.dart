@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/shop_grid.dart';
@@ -12,11 +11,9 @@ import '../singlewidgets/viewallButton.dart';
 class TopProductsSection extends StatelessWidget {
   const TopProductsSection({
     super.key,
-   
     required this.topProductList,
   });
   final Future<List<TopProductModel>> topProductList;
- 
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +24,15 @@ class TopProductsSection extends StatelessWidget {
         ViewProductlist(
           productListviewTitle: 'Top Products',
           ontab: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ShopGrid(
-                         
-                        )));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ShopGrid()));
           },
         ),
         SizedBox(
           height: mobile ? 1.h : 1.5.h,
         ),
-        TopProductList(mobile: mobile, topProductList: topProductList, tablet: tablet)
+        TopProductList(
+            mobile: mobile, topProductList: topProductList, tablet: tablet, childratio: mobile ? 0.75 : 0.675,)
       ],
     );
   }
@@ -49,16 +43,17 @@ class TopProductList extends StatelessWidget {
     super.key,
     required this.mobile,
     required this.topProductList,
-    required this.tablet,
+    required this.tablet, required this.childratio,
   });
 
   final bool mobile;
   final Future<List<TopProductModel>> topProductList;
-  final String digitDays='150';
-  final String digitHours='24';
-  final String digitMinutes='60';
-  final String digitSeconds='60';
+  final String digitDays = '150';
+  final String digitHours = '24';
+  final String digitMinutes = '60';
+  final String digitSeconds = '60';
   final bool tablet;
+  final double childratio;
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +75,10 @@ class TopProductList extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: topProductList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.75,
-                  crossAxisSpacing: 2.w,
+                  childAspectRatio: childratio,
+                  crossAxisSpacing: mobile ? 2.w : 1.5.w,
                   mainAxisSpacing: 1.h,
-                  crossAxisCount: 2),
+                  crossAxisCount: mobile ? 2 : 3),
               itemBuilder: (contex, index) {
                 final item = topProductList[index];
                 return topProductList[index].istimer == true
@@ -91,8 +86,7 @@ class TopProductList extends StatelessWidget {
                         name: item.title,
                         image: item.imageUrl,
                         miniButtonword: item.minibuttonword,
-                        miniButtoncolor:
-                            const Color.fromRGBO(255, 175, 0, 1),
+                        miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
                         textcolor: Colors.white,
                         digitDays: digitDays,
                         digitHours: digitHours,
@@ -104,8 +98,7 @@ class TopProductList extends StatelessWidget {
                     : topProductwithouttime(
                         name: item.title,
                         photo: item.imageUrl,
-                        minibuttoncolor:
-                            const Color.fromRGBO(255, 175, 0, 1),
+                        minibuttoncolor: const Color.fromRGBO(255, 175, 0, 1),
                         minibuttonword2: item.minibuttonword,
                         mobile: mobile,
                         textcolor: Colors.white,

@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/feature_products.dart';
@@ -55,9 +54,10 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
               return GridView.builder(
                   itemCount: featuredProductList.length,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    childAspectRatio: 0.7,
+                    childAspectRatio: 0.72,
+                   crossAxisSpacing: 1.2.w
                   ),
                   itemBuilder: (context, index) {
                     final item = featuredProductList[index];

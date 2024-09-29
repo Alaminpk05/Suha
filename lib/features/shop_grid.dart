@@ -6,6 +6,7 @@ import 'package:shuhaui/features/home/Widgets/SectionWidgets/topproducts.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/topproductswithcountdownCard.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
@@ -18,24 +19,22 @@ class ShopGrid extends StatefulWidget {
   // final String digitMinutes;
   // final String digitSeconds;
 
-  
-
-  const ShopGrid({super.key,});
+  const ShopGrid({
+    super.key,
+  });
 
   @override
   State<ShopGrid> createState() => _ShopGridState();
 }
 
 class _ShopGridState extends State<ShopGrid> {
- late Future<List<TopProductModel>>  productList;
- @override
+  late Future<List<TopProductModel>> productList;
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    productList=getIt<ProductService>().fetchTopProductList();
+    productList = getIt<ProductService>().fetchTopProductList();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +55,9 @@ class _ShopGridState extends State<ShopGrid> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.5.h),
+          padding: EdgeInsets.symmetric(
+              horizontal: mobile ? 5.w : homeTabLP,
+              vertical: mobile ? 1.5.h : homeTopPad),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -65,8 +66,12 @@ class _ShopGridState extends State<ShopGrid> {
               SizedBox(
                 height: 4.h,
               ),
-              TopProductList(mobile: mobile, topProductList: productList,
-              tablet: tablet)
+              TopProductList(
+                mobile: mobile,
+                topProductList: productList,
+                tablet: tablet,
+                childratio: 0.68,
+              )
             ],
           ),
         ),
@@ -80,7 +85,8 @@ class ProductsGridView extends StatelessWidget {
     super.key,
     required this.mobile,
     required this.tablet,
-    this.scrollPhysics, required this.productList,
+    this.scrollPhysics,
+    required this.productList,
   });
 
   final bool mobile;
@@ -95,7 +101,11 @@ class ProductsGridView extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: GridViewWidget(
-            scrollPhysics: scrollPhysics, mobile: mobile, tablet: tablet, productList:productList,),
+          scrollPhysics: scrollPhysics,
+          mobile: mobile,
+          tablet: tablet,
+          productList: productList,
+        ),
       ),
     );
   }
@@ -106,7 +116,8 @@ class GridViewWidget extends StatelessWidget {
     super.key,
     required this.scrollPhysics,
     required this.mobile,
-    required this.tablet, required this.productList,
+    required this.tablet,
+    required this.productList,
   });
 
   final ScrollPhysics? scrollPhysics;
@@ -119,14 +130,14 @@ class GridViewWidget extends StatelessWidget {
     return GridView.builder(
         shrinkWrap: true,
         physics: scrollPhysics,
-        itemCount:productList.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        itemCount: productList.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.7,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             crossAxisCount: 2),
         itemBuilder: (context, index) {
-          final item=productList[index];
+          final item = productList[index];
           return topProductwithtime(
               name: item.title,
               image: item.imageUrl,

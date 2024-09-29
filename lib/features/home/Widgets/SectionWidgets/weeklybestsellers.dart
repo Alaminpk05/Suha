@@ -1,12 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-import '../../../../utils/constant.dart';
 import '../singlewidgets/viewallButton.dart';
 import '../singlewidgets/weeklybestsellerscard.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class HorizontalProductList extends StatefulWidget {
   const HorizontalProductList({
@@ -21,11 +22,12 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
 
   @override
   Widget build(BuildContext context) {
+    var mobile = ResponsiveHelper.isMobile(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: 60.w,
+          width: mobile?60.w:45.w,
           height: 4.h,
           color: const Color.fromRGBO(12, 21, 59, 1),
           child: ListView.builder(
@@ -40,7 +42,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                   borderRadius: BorderRadius.circular(12.sp),
                   color: const Color.fromRGBO(51, 40, 88, 1),
                 ),
-                width: 23.w,
+                width: mobile?23.w:18.w,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -161,8 +163,8 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
               ];
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 1.w),
-              width: 22.w,
+              padding: EdgeInsets.symmetric(horizontal: mobile?1.w:0.w),
+              width: mobile?22.w:16.w,
               height: 4.h,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(51, 40, 88, 1),
@@ -183,8 +185,8 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                     ),
                     SizedBox(
                         height: 5.h,
-                        width: 3.w,
-                        child: isopen ==true
+                        width: mobile?3.w:2.5.w,
+                        child: isopen == true
                             ? Image.asset(
                                 'assets/chevron-down.png',
                                 fit: BoxFit.contain,

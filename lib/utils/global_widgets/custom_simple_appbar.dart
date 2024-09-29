@@ -22,7 +22,7 @@ class CustomSimpleAppBar extends StatelessWidget {
      automaticallyImplyLeading: false,
       flexibleSpace: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: mobile ? appbarMobPad : appbarTabPad),
+            horizontal: mobile ? appbarMobPad : homeTabLP),
         // Add padding to the whole AppBar content
         child: Align(
           alignment: Alignment.center,

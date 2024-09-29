@@ -73,17 +73,17 @@ Widget topProductwithouttime({
           ),
         ),
         Positioned(
-          top: mobile ? 17.5.h : 13.5.h,
-          left: mobile ? 3.3.w : 3.w,
+        top: mobile ? 17.5.h : 13.5.h,
+          left: mobile ? 3.3.w : 2.5.w,
           child: regularfont(
             text: name,
-            fontsize: mobile ? 16.sp : 15.5.sp,
+            fontsize: mobile ? 16.sp : 21.px,
             color: Colors.white,
           ),
         ),
         Positioned(
-          top: mobile ? 20.2.h : 16.h,
-          left: 3.3.w,
+          top: mobile ? 20.2.h : 15.7.h,
+           left: mobile ? 3.3.w : 2.5.w,
           right: 2.w,
           child: Row(
             children: [
@@ -91,10 +91,10 @@ Widget topProductwithouttime({
                 "\$74",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: mobile ? 18.sp : 15.5.sp,
+                  fontSize: mobile ? 18.sp : 23.px,
                   fontWeight: FontWeight.w700,
                 ),
-                overflow: TextOverflow.ellipsis,
+                
               ),
               SizedBox(width: 1.w),
               Text(
@@ -107,14 +107,14 @@ Widget topProductwithouttime({
                   decorationColor: const Color.fromRGBO(116, 119, 148, 1),
                   decorationThickness: 0.3.h,
                 ),
-                overflow: TextOverflow.ellipsis,
+                
               ),
             ],
           ),
         ),
         Positioned(
-          bottom: mobile ? 2.h : 1.5.h,
-          left: 3.3.w,
+            bottom: mobile ? 2.5.h : 1.35.h,
+          left: mobile ? 3.3.w : 2.8.w,
           right: mobile ? 5.w : 3.w,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

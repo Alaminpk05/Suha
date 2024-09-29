@@ -19,17 +19,18 @@ class FeaturedProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var Mobile = ResponsiveHelper.isMobile(context);
+
+    var mobile = ResponsiveHelper.isMobile(context);
 
     return GestureDetector(
       onTap: ontap,
       child: Container(
           height: 20.h,
-          width: Mobile ? 29.w : 30.w,
+          width: mobile ? 29.w : 30.w,
           margin: EdgeInsets.only(
               top: .5.h,
-              left: Mobile ? 0.5.w : 0,
-              right: Mobile ? 0.5.h : 0,
+              left: mobile ? 0.5.w : 0,
+              right: mobile ? 0.5.h : 0,
               bottom: 0.35.h),
           padding: EdgeInsets.only(right: 0.5.w),
           decoration: BoxDecoration(
@@ -45,40 +46,40 @@ class FeaturedProducts extends StatelessWidget {
                   children: [
                     Center(
                         child: SizedBox(
-                      height: Mobile ? 9.h : 8.5.h,
-                      width: Mobile ? 30.w : 28.w,
+                      height: mobile ? 9.h : 8.5.h,
+                      width: mobile ? 30.w : 28.w,
                       child: Image.asset(
                         image,
                         fit: BoxFit.contain,
                       ),
                     )),
                     SizedBox(
-                      height: 1.2.h,
+                      height: mobile?1.2.h:1.8.h,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          left: Mobile ? 4.w : 3.w,
-                          right: Mobile ? 3.5.w : 2.5.w),
+                          left: mobile ? 4.w : 3.w,
+                          right: mobile ? 3.5.w : 2.5.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "$title",
+                            title,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: Mobile ? 16.5.sp : 14.5.sp,
+                                fontSize: mobile ? 16.5.sp : 21.px,
                                 fontWeight: FontWeight.w700),
                             overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(
-                            height: 1.h,
+                            height: mobile?1.h:0.5.h,
                           ),
                           Row(children: [
                             Text(
                               newprice.toString(),
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16.sp,
+                                  fontSize: mobile?16.sp:21.px,
                                   fontWeight: FontWeight.w700),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -89,7 +90,7 @@ class FeaturedProducts extends StatelessWidget {
                                 style: TextStyle(
                                   color:
                                       const Color.fromRGBO(116, 119, 148, 1),
-                                  fontSize: Mobile ? 16.sp : 15.sp,
+                                  fontSize: mobile ? 16.sp : 15.sp,
                                   fontWeight: FontWeight.w600,
                                   decoration: TextDecoration.lineThrough,
                                   decorationColor:
@@ -107,8 +108,8 @@ class FeaturedProducts extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: Mobile ? 2.w : 0.6.w,
-                top: Mobile ? 0.7.h : 1.h,
+                left: mobile ? 2.w : 0.6.w,
+                top: mobile ? 0.7.h : 1.h,
                 child: Container(
                   height: 3.h,
                   width: 6.5.w,
@@ -122,8 +123,8 @@ class FeaturedProducts extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: Mobile ? 3.7.w : 2.3.w,
-                top: Mobile ? 1.5.h : 1.8.h,
+                left: mobile ? 3.7.w : 2.3.w,
+                top: mobile ? 1.5.h : 1.8.h,
                 child: Container(
                   height: 1.4.h,
                   width: 3.w,

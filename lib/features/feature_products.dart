@@ -3,7 +3,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/featuredproducts.dart';
 import 'package:shuhaui/features/home/data/model/fetured_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -55,7 +54,7 @@ class _FeaturedProductPageState extends State<FeaturedProductPage> {
               return GridView.builder(
                   itemCount: featuredproductList.length,
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 0.7,
                   ),

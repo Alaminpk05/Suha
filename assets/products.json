@@ -2,42 +2,42 @@
   "categories": [
     {
       "id": 1,
-      "name": "Womens Fashion",
+      "name": "Womens\nFashion",
       "iconUrl": "assets/woman-clothes.png"
     },
     {
       "id": 2,
-      "name": "Groceries & Pets",
+      "name": "Groceries &\nPets",
       "iconUrl": "assets/grocery (1).png"
     },
     {
       "id": 3,
-      "name": "Health & Beauty",
+      "name": "Health \n& Beauty",
       "iconUrl": "assets/shampoo.png"
     },
     {
       "id": 4,
-      "name": "Sports & Outdoors",
+      "name": "Sports\n& Outdoors",
       "iconUrl": "assets/rowboat.png"
     },
     {
       "id": 5,
-      "name": "Home Appliance",
+      "name": "Home\nAppliance",
       "iconUrl": "assets/tv-table.png"
     },
     {
       "id": 6,
-      "name": "Tour & Travels",
+      "name": "Tour &\nTravels",
       "iconUrl": "assets/beach.png"
     },
     {
       "id": 7,
-      "name": "Mother & Baby",
+      "name": "Mother &\nBaby",
       "iconUrl": "assets/baby-products.png"
     },
     {
       "id": 8,
-      "name": "Clearance Sale",
+      "name": "Clearance\nSale",
       "iconUrl": "assets/price-tag.png"
     }
   ],

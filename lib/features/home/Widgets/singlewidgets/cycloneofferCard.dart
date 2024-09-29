@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/features/product_category.dart';
 
 import 'package:shuhaui/utils/respnsive_helper.dart';
 

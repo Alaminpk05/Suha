@@ -24,6 +24,7 @@ class CycloneOfferSection extends StatefulWidget {
 }
 
 class _CycloneOfferSectionState extends State<CycloneOfferSection> {
+
   late ScrollController scrollController = ScrollController();
   @override
   void initState() {
@@ -41,7 +42,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
 
   @override
   Widget build(BuildContext context) {
-    var Mobile = ResponsiveHelper.isMobile(context);
+    var mobile = ResponsiveHelper.isMobile(context);
     var Tablet = ResponsiveHelper.isTablet(context);
     return SizedBox(
       child: Column(
@@ -65,7 +66,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                   "${widget.digitDays}d ${widget.digitHours}h ${widget.digitMinutes}m ${widget.digitSeconds}s",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: Mobile ? 17.sp : 15.5.sp,
+                      fontSize: mobile ? 17.sp : 15.5.sp,
                       fontWeight: FontWeight.w500),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -73,10 +74,10 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
             ),
           ),
           SizedBox(
-            height: Mobile ? 1.h : 0,
+            height: mobile ? 1.h : 0,
           ),
           SizedBox(
-              height: 44.w,
+              height: mobile?44.w:44.w,
               width: 100.w,
               child: FutureBuilder(
                 future: widget.offerProductList,

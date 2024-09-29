@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:path_provider/path_provider.dart';
 import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
@@ -78,4 +80,28 @@ class ProductService {
         .map((json) => TopProductModel.fromJson(json))
         .toList();
   }
+
+
+//// START FUNCTION TO ADD ITEM ON THE JSON FILE
+Future<String> get _localPath async {
+  final directory = await getApplicationDocumentsDirectory();
+  return directory.path;
+}
+
+Future<File> get _localFile async {
+  final path = await _localPath;
+  return File('$path/products.json'); // Your JSON file
+}
+
+
+
+
+
+
+
+
+
+
+
+
 }

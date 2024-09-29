@@ -6,7 +6,6 @@ import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
-import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/order_status.dart';
 import 'package:shuhaui/features/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
@@ -37,7 +36,7 @@ class Pages extends StatelessWidget {
                   mobile: mobile,
                   ontap: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (c) => Bottompage()));
+                        MaterialPageRoute(builder: (c) => const Bottompage()));
                   },
                   title: 'Home',
                 ),
@@ -103,7 +102,7 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  SubProductCategory(
+                            builder: (context) =>  const SubProductCategory(
                                 
                                 )));
                   },

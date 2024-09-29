@@ -37,7 +37,7 @@ Widget topProductwithtime(
               Container(
                 // height: mobile ? 2.h : 1.5.h,
                 // width: mobile ? 9.5.w : 5.w,
-                 padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.2.h),
+                padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 0.2.h),
                 decoration: BoxDecoration(
                   color: miniButtoncolor,
                   borderRadius: BorderRadius.circular(20.sp),
@@ -46,7 +46,10 @@ Widget topProductwithtime(
                   child: Text(
                     miniButtonword,
                     style: TextStyle(
-                      color: miniButtonword=="Sale"|| miniButtonword=="On Sale"?Colors.black:textcolor,
+                      color: miniButtonword == "Sale" ||
+                              miniButtonword == "On Sale"
+                          ? Colors.black
+                          : textcolor,
                       fontWeight: FontWeight.w400,
                       fontFamily: "PlusJakartaSans-Regular.ttf",
                       fontSize: mobile ? 13.5.sp : 12.sp,
@@ -94,16 +97,16 @@ Widget topProductwithtime(
         ),
         Positioned(
           top: mobile ? 17.5.h : 13.5.h,
-          left: mobile ? 3.3.w : 3.w,
+          left: mobile ? 3.3.w : 2.5.w,
           child: regularfont(
             text: name,
-            fontsize: mobile ? 16.sp : 15.5.sp,
+            fontsize: mobile ? 16.sp : 21.px,
             color: Colors.white,
           ),
         ),
         Positioned(
-          top: mobile ? 20.2.h : 16.h,
-          left: 3.3.w,
+          top: mobile ? 20.2.h : 15.7.h,
+          left: mobile ? 3.3.w : 2.5.w,
           right: 2.w,
           child: Row(
             children: [
@@ -111,7 +114,7 @@ Widget topProductwithtime(
                 "\$7.99",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: mobile ? 18.sp : 15.5.sp,
+                  fontSize: mobile ? 18.sp : 23.px,
                   fontWeight: FontWeight.w700,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -133,8 +136,8 @@ Widget topProductwithtime(
           ),
         ),
         Positioned(
-          bottom: mobile ? 2.5.h : 1.5.h,
-          left: 3.3.w,
+          bottom: mobile ? 2.5.h : 1.35.h,
+          left: mobile ? 3.3.w : 2.8.w,
           right: mobile ? 5.w : 3.w,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

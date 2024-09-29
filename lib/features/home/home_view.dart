@@ -160,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
       appBar: const HomeAppBar(),
       body: Padding(
@@ -181,8 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(height: 2.h),
                     const ImageSlider(),
                     SizedBox(height: 2.h),
-                    CategorySection(categorylist: categoryList,
-                     
+                    CategorySection(
+                      categorylist: categoryList,
                     ),
                     SizedBox(height: 1.5.h),
                     CycloneOfferSection(
@@ -192,11 +193,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       digitSeconds: digitSeconds,
                       offerProductList: cycloneProductList,
                     ),
-                    SizedBox(height: 2.h),
+                    SizedBox(height: mobile ? 2.h : 0.h),
                     ThemeSwitch(switchValue: switchValue),
                     SizedBox(height: 0.8.h),
                     TopProductsSection(
-                      
                       topProductList: topProductList,
                     ),
                     SizedBox(height: 2.h),
@@ -211,8 +211,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Featuredproductssection(
                       featuredProductList: featuredProductList,
                     ),
-                    SizedBox(height: 0.6.h),
-                    CollectionsSection(),
+                    SizedBox(height: 0.5.h),
+                    const CollectionsSection(),
                   ],
                 ),
               ),

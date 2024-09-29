@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/product_category.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 import '../singlewidgets/categorybuttonwidget.dart';
 
 class CategorySection extends StatelessWidget {
@@ -10,8 +11,9 @@ class CategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mobile=ResponsiveHelper.isMobile(context);
     return SizedBox(
-      height: 29.h,
+      height: mobile?29.h:26.h,
       width: double.infinity,
       child: FutureBuilder<List<CategoryModel>>(
         future: categorylist,
@@ -26,8 +28,9 @@ class CategorySection extends StatelessWidget {
 
           final categories = snapshot.data!;
           return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, childAspectRatio: 0.74),
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: mobile?0:0.35.w,
+                  crossAxisCount: 4, childAspectRatio: mobile?0.74:0.86),
               itemCount: categories.length,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (contex, index) {
@@ -37,7 +40,7 @@ class CategorySection extends StatelessWidget {
                     text: category.name,
                     ontap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (c) => ProductCategory()));
+                          MaterialPageRoute(builder: (c) => const ProductCategory()));
                     });
               });
         },

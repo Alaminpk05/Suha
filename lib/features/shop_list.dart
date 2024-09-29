@@ -5,6 +5,7 @@ import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
@@ -47,7 +48,9 @@ class _ShopListState extends State<ShopList> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.5.h),
+          padding: EdgeInsets.symmetric(
+              horizontal: mobile ? 5.w : homeTabLP,
+              vertical: mobile ? 1.5.h : homeTopPad),
           child: Column(
             children: [
               HorizontalProductList(mobile: mobile),
@@ -58,12 +61,12 @@ class _ShopListState extends State<ShopList> {
                 future: weeklyProductList,
                 builder: (c, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
-        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No categories found'));
-        }
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return const Center(child: Text('No categories found'));
+                  }
                   final weeklyProductList = snapshot.data!;
                   return ListView.builder(
                       shrinkWrap: true,
@@ -95,12 +98,12 @@ class _ShopListState extends State<ShopList> {
                                     color: const Color.fromRGBO(51, 40, 88, 1)),
                                 child: Stack(children: [
                                   Positioned(
-                                    left: 3.w,
-                                    bottom: 0,
+                                    left: 2.w,
+                                    bottom: 0.5.h,
                                     top: 0,
                                     child: SizedBox(
-                                      height: 22.h,
-                                      width: 19.w,
+                                      height: mobile ? 22.h : 18.h,
+                                      width: mobile ? 19.w : 14.w,
                                       child: Image.asset(
                                         item.image,
                                         fit: BoxFit.contain,
@@ -108,20 +111,21 @@ class _ShopListState extends State<ShopList> {
                                     ),
                                   ),
                                   Positioned(
-                                    left: 2.w,
-                                    bottom: 6.3.h,
+                                    left: mobile ? 2.w : 1.w,
+                                    bottom: mobile ? 6.3.h : 7.5.h,
                                     child: Container(
-                                      height: 5.h,
-                                      width: 6.w,
-                                      decoration: const BoxDecoration(
+                                      height: mobile ? 5.h : 3.h,
+                                      width: mobile ? 6.w : 5.w,
+                                      decoration: BoxDecoration(
                                           color: Color.fromRGBO(36, 38, 68, 1),
                                           shape: BoxShape.circle),
                                       child: Padding(
-                                        padding: EdgeInsets.all(8.5.sp),
+                                        padding: EdgeInsets.all(
+                                            mobile ? 8.5.sp : 8.5.sp),
                                         child: Image.asset(
                                           'assets/heart (3).png',
-                                          height: 4.h,
-                                          width: 4.w,
+                                          height: mobile ? 4.h : 1.h,
+                                          width: mobile ? 4.w : 2.w,
                                         ),
                                       ),
                                     ),
@@ -144,7 +148,7 @@ class _ShopListState extends State<ShopList> {
                                           item.name,
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16.5.sp,
+                                            fontSize: mobile ? 16.5.sp : 23.px,
                                             fontWeight: FontWeight.bold,
                                           ),
                                           maxLines: 2,
@@ -169,16 +173,16 @@ class _ShopListState extends State<ShopList> {
                                             '\$${item.price}',
                                             style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 16.sp,
+                                              fontSize: mobile ? 16.sp : 22.px,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                           SizedBox(width: 1.8.w),
                                           Text(
                                             '\$${item.originalPrice}',
-                                            style: const TextStyle(
-                                              color: Color(0xFFDC3545),
-                                              fontSize: 14,
+                                            style: TextStyle(
+                                              color: const Color(0xFFDC3545),
+                                              fontSize: mobile ? 14.sp : 20.px,
                                               fontWeight: FontWeight.w600,
                                               decoration:
                                                   TextDecoration.lineThrough,
@@ -187,23 +191,23 @@ class _ShopListState extends State<ShopList> {
                                         ],
                                       ),
                                       const SizedBox(height: 5),
-                                      const Row(
+                                      Row(
                                         children: [
-                                          Icon(Icons.star,
+                                          const Icon(Icons.star,
                                               color: Colors.amber, size: 16),
-                                          SizedBox(width: 4),
+                                          const SizedBox(width: 4),
                                           Text(
                                             "4.88",
                                             style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 14,
+                                              fontSize: mobile ? 14.sp : 22.px,
                                             ),
                                           ),
                                           Text(
-                                            " (125 Reviews",
+                                            " (125 reviews)",
                                             style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 14,
+                                              fontSize: mobile ? 14.sp : 22.px,
                                             ),
                                           ),
                                         ],
@@ -218,12 +222,12 @@ class _ShopListState extends State<ShopList> {
                                             borderRadius:
                                                 BorderRadius.circular(10.sp)),
                                         height: 3.8.h,
-                                        width: 23.w,
+                                        width: mobile ? 23.w : 17.5.w,
                                         child: Align(
                                           alignment: Alignment.center,
                                           child: textwidget(
                                               text: 'Add to cart',
-                                              fontszie: 15.sp,
+                                              fontszie: mobile ? 15.sp : 22.px,
                                               fonweight: FontWeight.w700,
                                               color: Colors.white),
                                         ),
