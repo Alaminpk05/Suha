@@ -19,7 +19,8 @@ Widget topProductwithouttime({
     // margin: EdgeInsets.only(
     //     top: 0.5.h, left: mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
     decoration: BoxDecoration(
-      color: const Color.fromRGBO(36, 38, 68, 1),
+      color:Color.fromRGBO(24,179,210,1),
+      //  const Color.fromRGBO(36, 38, 68, 1),
       borderRadius: BorderRadius.circular(10),
     ),
     child: Stack(

@@ -22,7 +22,8 @@ Widget topProductwithtime(
     // margin: EdgeInsets.only(
     //     top: 0.5.h, left:mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
     decoration: BoxDecoration(
-      color: const Color.fromRGBO(36, 38, 68, 1),
+      color:Color.fromRGBO(24,179,210,1),
+      // const Color.fromRGBO(36, 38, 68, 1),
       borderRadius: BorderRadius.circular(10),
     ),
     child: Stack(
@@ -81,7 +82,9 @@ Widget topProductwithtime(
             height: mobile ? 2.5.h : 1.7.h,
             width: mobile ? 27.w : 16.w,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(255, 175, 0, 1),
+              color: Color.fromRGBO(226, 248, 251, 1),
+
+
               borderRadius: BorderRadius.circular(20.sp),
             ),
             child: Center(
@@ -113,7 +116,7 @@ Widget topProductwithtime(
               Text(
                 "\$7.99",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: mobile ? 18.sp : 23.px,
                   fontWeight: FontWeight.w700,
                 ),
@@ -123,11 +126,13 @@ Widget topProductwithtime(
               Text(
                 "\$15",
                 style: TextStyle(
-                  color: const Color.fromRGBO(116, 119, 148, 1),
+                  color:Colors.black, 
+                  // const Color.fromRGBO(116, 119, 148, 1),
                   fontSize: mobile ? 15.5.sp : 13.5.sp,
                   fontWeight: FontWeight.w500,
                   decoration: TextDecoration.lineThrough,
-                  decorationColor: const Color.fromRGBO(116, 119, 148, 1),
+                  decorationColor:Colors.black,
+                  //  const Color.fromRGBO(116, 119, 148, 1),
                   decorationThickness: 0.3.h,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -161,7 +166,7 @@ Widget topProductwithtime(
                     : 2.5
                         .h, // Use 4.h for both dimensions to maintain the circle
                 decoration: const BoxDecoration(
-                  color: Colors.indigo,
+                  color: Color.fromRGBO(24,179,210,1),
                   shape: BoxShape.circle,
                 ),
                 child: Center(

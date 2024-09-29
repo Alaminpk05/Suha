@@ -86,8 +86,9 @@ class TopProductList extends StatelessWidget {
                         name: item.title,
                         image: item.imageUrl,
                         miniButtonword: item.minibuttonword,
-                        miniButtoncolor: const Color.fromRGBO(255, 175, 0, 1),
-                        textcolor: Colors.white,
+                        miniButtoncolor:  Color.fromRGBO(24,179,210,1),
+
+                        textcolor: Colors.black,
                         digitDays: digitDays,
                         digitHours: digitHours,
                         digitMinutes: digitMinutes,

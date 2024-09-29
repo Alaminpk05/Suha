@@ -57,7 +57,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       constraints: BoxConstraints(maxHeight:1.65.h,
                       minWidth: 4.2.w),
                       decoration: const BoxDecoration(
-                        color: Color.fromRGBO(98, 90, 250, 1),
+                        color: Color.fromRGBO(24,179,210,1),
+                        // Color.fromRGBO(98, 90, 250, 1),
                         shape: BoxShape.circle
 
                       ),
@@ -97,7 +98,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: mobile?6.5.w:4.25.w,
                 padding: EdgeInsets.all(5.sp),
               child: const CircleAvatar(
-                backgroundImage: AssetImage('assets/9.jpg'),
+                backgroundImage: AssetImage('assets/9.jpg',),
               ),
 
             ),

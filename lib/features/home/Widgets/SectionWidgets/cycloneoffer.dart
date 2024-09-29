@@ -57,7 +57,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                 Text(
                   "Cyclone Offer",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(226, 248, 251, 1),
                       fontSize: 17.sp,
                       fontWeight: FontWeight.w700),
                   overflow: TextOverflow.ellipsis,

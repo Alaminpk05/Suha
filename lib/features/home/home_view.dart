@@ -107,31 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<FeaturedProductModel>> featuredProductList;
   late Future<List<CollectionsModel>> collectionProductList;
 
-  // Future<void> loadData() async {
-  //   final data = await loadProductData();
-  //   setState(() {
-  //     // categories = (data['categories'] as List)
-  //     //     .map((item) => CategoryModel.fromJson(item))
-  //     //     .toList();
-  //     // cycloneOffers = (data['cycloneOffers'] as List)
-  //     //     .map((item) => CycloneOfferModel.fromJson(item))
-  //     //     .toList();
-  //     // topProducts = (data['topProducts'] as List)
-  //     //     .map((item) => TopProductModel.fromJson(item))
-  //     //     .toList();
-  //     // weeklyProducts = (data['weeklybestsellerproduct'] as List)
-  //     //     .map((item) => WeeklyProductModel.fromJson(item))
-  //     //     .toList();
-  //     // featuredProducts = (data['featuredproducts'] as List)
-  //     //     .map((item) => FeaturedProductModel.fromJson(item))
-  //     //     .toList();
-  //     // collectionProducts = (data['collections'] as List)
-  //     //     .map((item) => CollectionsModel.fromJson(item))
-  //     //     .toList();
-
-  //     isLoading = false;
-  //   });
-  // }
 
   @override
   void initState() {

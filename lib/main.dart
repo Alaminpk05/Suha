@@ -20,11 +20,15 @@ class MyApp extends StatelessWidget {
           title: 'Demo Ui',
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
-              backgroundColor: Color.fromRGBO(51, 40, 88, 1),
+              backgroundColor:Color.fromRGBO(24,179,210,1),
+
+              //  Color.fromRGBO(51, 40, 88, 1),
             ),
-            scaffoldBackgroundColor: const Color.fromRGBO(12, 21, 59, 1),
+            scaffoldBackgroundColor: Colors.black26,
+            // const Color.fromRGBO(12, 21, 59, 1),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor: Color.fromRGBO(51, 40, 88, 1),
+              backgroundColor:Color.fromRGBO(24,179,210,1),
+              //  Color.fromRGBO(51, 40, 88, 1),
             ),
             useMaterial3: false,
           ),

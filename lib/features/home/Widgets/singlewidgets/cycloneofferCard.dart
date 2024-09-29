@@ -31,7 +31,8 @@ class CycloneOfferWidget extends StatelessWidget {
               top: Mobile?0.5.h:2.h, left: Mobile?0.5.w:0.3.w,
               right: 0.65.h, bottom: Mobile?0.h:3.h),
           decoration: BoxDecoration(
-              color: const Color.fromRGBO(36, 38, 68, 1),
+              color: Color.fromRGBO(226, 248, 251, 1),
+              //  const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.only(
              bottom: Mobile?0.h:0.h, top: Mobile?2.3.h:3.h),
@@ -61,7 +62,7 @@ class CycloneOfferWidget extends StatelessWidget {
                       Text(
                         title!,
                         style: TextStyle(
-                            color: Colors.white,
+                             color: Colors.black,
                             fontSize: Mobile?16.sp:14.sp,
                             fontWeight: FontWeight.w700),
                         overflow: TextOverflow.ellipsis,
@@ -73,7 +74,7 @@ class CycloneOfferWidget extends StatelessWidget {
                         Text(
                           "\$7.99",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: Mobile?16.sp:14.sp,
                               fontWeight: FontWeight.w700),
                           overflow: TextOverflow.ellipsis,
@@ -83,12 +84,11 @@ class CycloneOfferWidget extends StatelessWidget {
                           child: Text(
                             "\$15",
                             style: TextStyle(
-                              color: const Color.fromRGBO(116, 119, 148, 1),
+                              color: Colors.black,
                               fontSize: Mobile?15.5.sp:13.5.sp,
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.lineThrough,
-                              decorationColor:
-                                  const Color.fromRGBO(116, 119, 148, 1),
+                              // decorationColor: const Color.fromRGBO(116, 119, 148, 1),
                               decorationThickness: 0.3.h,
                             ),
                             overflow: TextOverflow.ellipsis,
@@ -104,9 +104,9 @@ class CycloneOfferWidget extends StatelessWidget {
                           Text(
                             "${(value * 100).toStringAsFixed(0)}% Sold",
                             style: TextStyle(
-                              color: const Color.fromRGBO(116, 119, 148, 1),
+                               color: Colors.black,
                               fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           LinearPercentIndicator(
@@ -114,7 +114,8 @@ class CycloneOfferWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: Mobile?0.6.w:0),
                             lineHeight: 0.5.h,
                             percent: value,
-                            progressColor: const Color.fromRGBO(13, 110, 253, 1),
+                            progressColor:const Color.fromRGBO(24,179,210,1),
+                            //  const Color.fromRGBO(13, 110, 253, 1),
                           ),
                         ],
                       )

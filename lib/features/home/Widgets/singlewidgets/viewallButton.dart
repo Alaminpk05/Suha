@@ -26,7 +26,8 @@ class ViewProductlist extends StatelessWidget {
           ,
           ElevatedButton(onPressed: ontab,
               style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(36, 38, 68, 1),
+                  backgroundColor:Color.fromRGBO(226, 248, 251, 1),
+                  //  const Color.fromRGBO(36, 38, 68, 1),
                    minimumSize: Size(0.w,mobile?4.1.h:3.5.h),
                   
                  
@@ -38,9 +39,11 @@ class ViewProductlist extends StatelessWidget {
                 children: [
                   regularfont(text: "View all", 
                   fontsize: mobile?15.sp:13.5.sp,
-                      color: Colors.white),
+                      color: Colors.black),
                   SizedBox(width: mobile?2.w:1.w,),
-                  Image.asset('assets/arrow-narrow-right.png',height: 3.h,width: mobile?3.w:2.5.w,)
+                  Image.asset('assets/arrow-narrow-right.png', 
+                  color: Colors.black, 
+                  height: 3.h,width: mobile?3.w:2.5.w,)
                 ],
               ))
         ],

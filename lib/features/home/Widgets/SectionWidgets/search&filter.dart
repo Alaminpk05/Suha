@@ -31,7 +31,8 @@ class _Search_FilterState extends State<Search_Filter> {
             height: mobile ? 5.50.h : 5.0.h,
             width: 79.w,
             decoration: BoxDecoration(
-                color: const Color.fromRGBO(51, 40, 88, 1),
+                color:Colors.white, 
+                // const Color.fromRGBO(51, 40, 88, 1),
                 borderRadius: BorderRadius.circular(13.sp)),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 4.w),
@@ -40,7 +41,7 @@ class _Search_FilterState extends State<Search_Filter> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/search.png',
+                    'assets/search.png',color: Colors.black26,
                     height: 3.h,
                     width: 6.w,
                   ),
@@ -53,7 +54,9 @@ class _Search_FilterState extends State<Search_Filter> {
                     decoration: const InputDecoration(
                         hintText: "Search in Suha",
                         hintStyle: TextStyle(
-                            color: Color.fromRGBO(153, 172, 148, 0.7)),
+                            color: Colors.black26,
+                            // Color.fromRGBO(153, 172, 148, 0.7)
+                            ),
                         border: InputBorder.none),
                   ))
                 ],
@@ -138,12 +141,13 @@ class _Search_FilterState extends State<Search_Filter> {
                 width: 27.sp,
                 height: 5.h,
                 decoration: BoxDecoration(
-                    color: const Color.fromRGBO(11, 94, 217, 1),
+                    color:  const Color.fromRGBO(24,179,210,1),
+                    // const Color.fromRGBO(11, 94, 217, 1),
                     borderRadius: BorderRadius.circular(12.sp)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset(
-                    'assets/adjustments-horizontal (1).png',
+                    'assets/adjustments-horizontal (1).png',color: Colors.white,
                     fit: BoxFit.contain,
                   ),
                 ),
