@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class WeeklyProductsCard extends StatelessWidget {
@@ -23,8 +24,7 @@ class WeeklyProductsCard extends StatelessWidget {
       height: 12.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(
-            36, 38, 68, 1), // Use the passed container color
+        color:productColor, // Use the passed container color
         borderRadius: BorderRadius.circular(10.sp),
       ),
       child: Row(
@@ -35,7 +35,7 @@ class WeeklyProductsCard extends StatelessWidget {
             width: mobile ? 25.w : 18.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
-                color: const Color.fromRGBO(51, 40, 88, 1)),
+                color:   Color.fromRGBO(24,179,210,1),),
             child: Stack(children: [
               Positioned(
                 child: SizedBox(
@@ -53,8 +53,8 @@ class WeeklyProductsCard extends StatelessWidget {
                 child: Container(
                   height: 5.5.h,
                   width: 5.5.w,
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(36, 38, 68, 1),
+                  decoration:  BoxDecoration(
+
                       shape: BoxShape.circle),
                   child: Padding(
                     padding: EdgeInsets.all(8.5.sp),
@@ -81,7 +81,7 @@ class WeeklyProductsCard extends StatelessWidget {
                     child: Text(
                       title,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: textColor,
                         fontSize: 16.5.sp,
                         fontWeight: FontWeight.bold,
                       ),
@@ -95,7 +95,7 @@ class WeeklyProductsCard extends StatelessWidget {
                       Text(
                         '\$',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: textColor,
                           fontSize: 11.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -106,7 +106,7 @@ class WeeklyProductsCard extends StatelessWidget {
                       Text(
                         '\$54',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: textColor,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -124,21 +124,21 @@ class WeeklyProductsCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 5),
-                  const Row(
+                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.amber, size: 16),
                       SizedBox(width: 4),
                       Text(
                         "4.88",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: textColor,
                           fontSize: 14,
                         ),
                       ),
                       Text(
                         " (125 Reviews",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: textColor,
                           fontSize: 14,
                         ),
                       ),

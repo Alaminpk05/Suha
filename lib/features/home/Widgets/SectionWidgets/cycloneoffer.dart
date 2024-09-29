@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 import '../singlewidgets/cycloneofferCard.dart';
 
@@ -57,7 +58,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                 Text(
                   "Cyclone Offer",
                   style: TextStyle(
-                      color: Color.fromRGBO(226, 248, 251, 1),
+                      color: productsHeaderColor,
                       fontSize: 17.sp,
                       fontWeight: FontWeight.w700),
                   overflow: TextOverflow.ellipsis,
@@ -65,7 +66,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                 Text(
                   "${widget.digitDays}d ${widget.digitHours}h ${widget.digitMinutes}m ${widget.digitSeconds}s",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: timerColor,
                       fontSize: mobile ? 17.sp : 15.5.sp,
                       fontWeight: FontWeight.w500),
                   overflow: TextOverflow.ellipsis,

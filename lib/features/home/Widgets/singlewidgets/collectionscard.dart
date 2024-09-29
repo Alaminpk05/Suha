@@ -4,6 +4,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CollectionCard extends StatelessWidget {
@@ -79,7 +80,7 @@ class CollectionCard extends StatelessWidget {
               badgeAnimation: const badges.BadgeAnimation.scale(),
               badgeStyle: BadgeStyle(
         
-                badgeColor: const Color.fromRGBO(234,76,98, 1),
+                badgeColor: badgeColor,
                 shape: badges.BadgeShape.square,
                 borderRadius: BorderRadius.circular(11.sp),
               ),

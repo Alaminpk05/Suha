@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class FeaturedProducts extends StatelessWidget {
@@ -34,7 +35,7 @@ class FeaturedProducts extends StatelessWidget {
               bottom: 0.35.h),
           padding: EdgeInsets.only(right: 0.5.w),
           decoration: BoxDecoration(
-              color: const Color.fromRGBO(36, 38, 68, 1),
+              color: productColor,
               borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
@@ -66,7 +67,7 @@ class FeaturedProducts extends StatelessWidget {
                           Text(
                             title,
                             style: TextStyle(
-                                color: Colors.white,
+                                color: textColor,
                                 fontSize: mobile ? 16.5.sp : 21.px,
                                 fontWeight: FontWeight.w700),
                             overflow: TextOverflow.ellipsis,
@@ -78,7 +79,7 @@ class FeaturedProducts extends StatelessWidget {
                             Text(
                               newprice.toString(),
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: textColor,
                                   fontSize: mobile?16.sp:21.px,
                                   fontWeight: FontWeight.w700),
                               overflow: TextOverflow.ellipsis,
@@ -89,12 +90,11 @@ class FeaturedProducts extends StatelessWidget {
                                 oldprice.toString(),
                                 style: TextStyle(
                                   color:
-                                      const Color.fromRGBO(116, 119, 148, 1),
+                                      textColor,
                                   fontSize: mobile ? 16.sp : 15.sp,
                                   fontWeight: FontWeight.w600,
                                   decoration: TextDecoration.lineThrough,
-                                  decorationColor:
-                                      const Color.fromRGBO(116, 119, 148, 1),
+                                  decorationColor:textColor,
                                   decorationThickness: 0.3.h,
                                 ),
                                 overflow: TextOverflow.ellipsis,

@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
 
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
-            scaffoldBackgroundColor: Colors.black26,
+            scaffoldBackgroundColor: Color.fromRGBO(238, 238, 238, 1),
             // const Color.fromRGBO(12, 21, 59, 1),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor:Color.fromRGBO(24,179,210,1),
+              backgroundColor:Colors.black,
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
             useMaterial3: false,

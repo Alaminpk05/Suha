@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/pages/pages.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -20,8 +21,7 @@ class CircleMenu extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: const Color.fromRGBO(
-              92, 83, 121, 1), // Border color (outer circle)
+          color: appbariconColor, // Border color (outer circle)
           width: mobile ? 0.4.w : 0.3.w, // Width of the outer circle
         ),
       ),
@@ -42,9 +42,10 @@ class CircleMenu extends StatelessWidget {
 
 Widget _buildLine(double isWidth, double height) {
   return Container(
+
     width: isWidth, // Adjust width of the lines
     height: height, // Thickness of the lines
-    color: const Color.fromRGBO(116, 119, 148, 1), // Line color
+    color: appbariconColor, // Line color
   );
 }
 

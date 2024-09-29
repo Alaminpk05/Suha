@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'categorybuttonwidget.dart';
 
 Widget topProductwithtime(
@@ -22,7 +23,7 @@ Widget topProductwithtime(
     // margin: EdgeInsets.only(
     //     top: 0.5.h, left:mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
     decoration: BoxDecoration(
-      color:Color.fromRGBO(24,179,210,1),
+      color:productColor,
       // const Color.fromRGBO(36, 38, 68, 1),
       borderRadius: BorderRadius.circular(10),
     ),
@@ -36,21 +37,16 @@ Widget topProductwithtime(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                // height: mobile ? 2.h : 1.5.h,
-                // width: mobile ? 9.5.w : 5.w,
                 padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 0.2.h),
                 decoration: BoxDecoration(
-                  color: miniButtoncolor,
+                  color: miniButtonColor,
                   borderRadius: BorderRadius.circular(20.sp),
                 ),
                 child: Center(
                   child: Text(
                     miniButtonword,
                     style: TextStyle(
-                      color: miniButtonword == "Sale" ||
-                              miniButtonword == "On Sale"
-                          ? Colors.black
-                          : textcolor,
+                      color:  miniButtonTextColor,
                       fontWeight: FontWeight.w400,
                       fontFamily: "PlusJakartaSans-Regular.ttf",
                       fontSize: mobile ? 13.5.sp : 12.sp,
@@ -104,7 +100,7 @@ Widget topProductwithtime(
           child: regularfont(
             text: name,
             fontsize: mobile ? 16.sp : 21.px,
-            color: Colors.white,
+            color: textColor
           ),
         ),
         Positioned(
@@ -116,7 +112,7 @@ Widget topProductwithtime(
               Text(
                 "\$7.99",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: textColor,
                   fontSize: mobile ? 18.sp : 23.px,
                   fontWeight: FontWeight.w700,
                 ),
@@ -126,12 +122,12 @@ Widget topProductwithtime(
               Text(
                 "\$15",
                 style: TextStyle(
-                  color:Colors.black, 
+                  color:textColor,
                   // const Color.fromRGBO(116, 119, 148, 1),
                   fontSize: mobile ? 15.5.sp : 13.5.sp,
                   fontWeight: FontWeight.w500,
                   decoration: TextDecoration.lineThrough,
-                  decorationColor:Colors.black,
+                  decorationColor:textColor,
                   //  const Color.fromRGBO(116, 119, 148, 1),
                   decorationThickness: 0.3.h,
                 ),
@@ -165,13 +161,14 @@ Widget topProductwithtime(
                     ? 4.h
                     : 2.5
                         .h, // Use 4.h for both dimensions to maintain the circle
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(24,179,210,1),
+                decoration:  BoxDecoration(
+                  color: addButtonColor,
                   shape: BoxShape.circle,
                 ),
                 child: Center(
                     child: Image.asset(
                   'assets/plus.png',
+                  color: addButtoniconColor,
                   height: mobile ? 2.h : 2.h,
                   width: mobile ? 2.h : 1.5.h,
                 )),

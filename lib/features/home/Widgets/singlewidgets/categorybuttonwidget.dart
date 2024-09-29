@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -25,7 +26,7 @@ class CategoryWidget extends StatelessWidget {
           height: mobile ? 14.h : 1.h,
           width: mobile ? 22.w : 16.4.w,
           decoration: BoxDecoration(
-              color:Color.fromRGBO(226, 248, 251, 1),
+              color: productColor,
               // const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(12.sp)),
           child: Column(
@@ -46,7 +47,7 @@ class CategoryWidget extends StatelessWidget {
               regularfont(
                 text: text,
                 fontsize: mobile ? 15.sp : 13.3.sp,
-                color:Colors.black 
+                color:textColor
                 // const Color.fromRGBO(116, 119, 148, 0.8),
               )
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import 'categorybuttonwidget.dart';
@@ -22,11 +23,11 @@ class ViewProductlist extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           regularfont(text:productListviewTitle,
-           fontsize: 17.5.sp, color: Colors.white,)
+           fontsize: 17.5.sp, color: productsHeaderColor,)
           ,
           ElevatedButton(onPressed: ontab,
               style: ElevatedButton.styleFrom(
-                  backgroundColor:Color.fromRGBO(226, 248, 251, 1),
+                  backgroundColor:viewButtonColor,
                   //  const Color.fromRGBO(36, 38, 68, 1),
                    minimumSize: Size(0.w,mobile?4.1.h:3.5.h),
                   
@@ -39,10 +40,10 @@ class ViewProductlist extends StatelessWidget {
                 children: [
                   regularfont(text: "View all", 
                   fontsize: mobile?15.sp:13.5.sp,
-                      color: Colors.black),
+                      color: viewButtontextColor),
                   SizedBox(width: mobile?2.w:1.w,),
                   Image.asset('assets/arrow-narrow-right.png', 
-                  color: Colors.black, 
+                  color: viewButtontextColor,
                   height: 3.h,width: mobile?3.w:2.5.w,)
                 ],
               ))

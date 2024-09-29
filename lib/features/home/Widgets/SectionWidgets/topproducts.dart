@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/shop_grid.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/topProductwithouttime.dart';
@@ -102,7 +103,7 @@ class TopProductList extends StatelessWidget {
                         minibuttoncolor: const Color.fromRGBO(255, 175, 0, 1),
                         minibuttonword2: item.minibuttonword,
                         mobile: mobile,
-                        textcolor: Colors.white,
+                        textcolor: textColor,
                         tablet: tablet,
                         width: mobile ? 45.w : 30.w);
               });

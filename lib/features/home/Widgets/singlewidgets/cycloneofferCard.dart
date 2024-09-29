@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -31,7 +32,7 @@ class CycloneOfferWidget extends StatelessWidget {
               top: Mobile?0.5.h:2.h, left: Mobile?0.5.w:0.3.w,
               right: 0.65.h, bottom: Mobile?0.h:3.h),
           decoration: BoxDecoration(
-              color: Color.fromRGBO(226, 248, 251, 1),
+              color:productColor,
               //  const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.only(
@@ -62,7 +63,7 @@ class CycloneOfferWidget extends StatelessWidget {
                       Text(
                         title!,
                         style: TextStyle(
-                             color: Colors.black,
+                             color: textColor,
                             fontSize: Mobile?16.sp:14.sp,
                             fontWeight: FontWeight.w700),
                         overflow: TextOverflow.ellipsis,
@@ -74,7 +75,7 @@ class CycloneOfferWidget extends StatelessWidget {
                         Text(
                           "\$7.99",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textColor,
                               fontSize: Mobile?16.sp:14.sp,
                               fontWeight: FontWeight.w700),
                           overflow: TextOverflow.ellipsis,
@@ -84,7 +85,7 @@ class CycloneOfferWidget extends StatelessWidget {
                           child: Text(
                             "\$15",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: textColor,
                               fontSize: Mobile?15.5.sp:13.5.sp,
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.lineThrough,
@@ -104,7 +105,7 @@ class CycloneOfferWidget extends StatelessWidget {
                           Text(
                             "${(value * 100).toStringAsFixed(0)}% Sold",
                             style: TextStyle(
-                               color: Colors.black,
+                               color:textColor,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
                             ),
@@ -114,7 +115,7 @@ class CycloneOfferWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: Mobile?0.6.w:0),
                             lineHeight: 0.5.h,
                             percent: value,
-                            progressColor:const Color.fromRGBO(24,179,210,1),
+                            progressColor:productSoldColor,
                             //  const Color.fromRGBO(13, 110, 253, 1),
                           ),
                         ],

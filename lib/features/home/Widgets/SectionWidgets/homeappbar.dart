@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -46,6 +47,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   width: mobile?8.5.w:6.2.w,
                   child: Image.asset(
                     // height: mobile?4.20.h:0.h,
+                    color: appbariconColor,
                     "assets/basket (1).png",
                     fit: BoxFit.contain,
                   ),
@@ -56,8 +58,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child:Container(
                       constraints: BoxConstraints(maxHeight:1.65.h,
                       minWidth: 4.2.w),
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(24,179,210,1),
+                      decoration:  BoxDecoration(
+                        color: badgeColor,
                         // Color.fromRGBO(98, 90, 250, 1),
                         shape: BoxShape.circle
 
@@ -85,8 +87,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           decoration:  BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-              color: const Color.fromRGBO(
-                  92, 83, 121, 1),
+              color: appbariconColor,
               width: mobile?0.38.w:0.3.w,
             ),
            

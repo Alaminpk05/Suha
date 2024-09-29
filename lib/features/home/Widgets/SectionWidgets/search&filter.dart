@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 import '../singlewidgets/textwidget.dart';
@@ -78,7 +79,7 @@ class _Search_FilterState extends State<Search_Filter> {
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9.sp)),
-              color: const Color.fromRGBO(51, 40, 88, 1),
+              color: filterCardColor,
               offset: mobile?const Offset(0, 49):const Offset(0, 67),
               itemBuilder: (BuildContext context) {
                 return [
@@ -94,6 +95,7 @@ class _Search_FilterState extends State<Search_Filter> {
                           Image.asset(
                             alignment: Alignment.topLeft,
                             'assets/microphone.png',
+                            color: filteritemColor,
                             fit: BoxFit.contain,
                           ),
                           SizedBox(
@@ -103,7 +105,7 @@ class _Search_FilterState extends State<Search_Filter> {
                               text: 'Voice',
                               fontszie: 15.sp,
                               fonweight: FontWeight.normal,
-                              color: const Color.fromRGBO(153, 172, 148, 0.7))
+                              color: filteritemColor)
                         ],
                       ),
                     ),
@@ -118,6 +120,7 @@ class _Search_FilterState extends State<Search_Filter> {
                         children: [
                           Image.asset(
                             alignment: Alignment.topLeft,
+                            color: filteritemColor,
                             'assets/layout-collage.png',
                             height: 2.h,
                             width: 4.w,
@@ -130,7 +133,7 @@ class _Search_FilterState extends State<Search_Filter> {
                               text: 'Image',
                               fontszie: 15.sp,
                               fonweight: FontWeight.normal,
-                              color: const Color.fromRGBO(153, 172, 148, 0.7))
+                              color: filteritemColor)
                         ],
                       ),
                     ),
