@@ -6,6 +6,7 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscar
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -33,10 +34,11 @@ class _WishListState extends State<WishList> {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
 
-    bool isBorder = true;
-    bool isChecklist = false;
-    Color inactiveColor = const Color.fromRGBO(51, 40, 88, 1);
+    bool isBorder = false;
+    bool isChecklist = true;
+    Color inactiveColor = textColor;
     Color activeColor = const Color.fromRGBO(234, 76, 98, 1);
+    Color activeIconColor=Colors.white;
     return Scaffold(
       appBar: PreCustomAppBar(
           mobile, context, () {}, 'WishList', const CircleMenu()),
@@ -135,7 +137,7 @@ class _WishListState extends State<WishList> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13.sp),
-                    color: const Color.fromRGBO(98, 90, 250, 1)),
+                    color: addButtonColor),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -149,8 +151,8 @@ class _WishListState extends State<WishList> {
                     textwidget(
                         text: 'Add all items to cart',
                         fontszie: 16.px,
-                        fonweight: FontWeight.w600,
-                        color: Colors.white),
+                        fonweight: FontWeight.w500,
+                        color: productColor),
                   ],
                 ),
               )
@@ -184,6 +186,7 @@ class WishListButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.sp), color: color),
           child: Image.asset(
             icon,
+
             scale: 15.sp,
           )),
     );

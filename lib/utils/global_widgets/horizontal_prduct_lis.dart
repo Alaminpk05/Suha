@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class HorizontalProductList extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
         Container(
           width: mobile?60.w:45.w,
           height: 4.h,
-          color: const Color.fromRGBO(12, 21, 59, 1),
+          color: scaffoldColor,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -40,7 +41,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                 margin: EdgeInsets.only(right: 1.5.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.sp),
-                  color: const Color.fromRGBO(51, 40, 88, 1),
+                  color: Color.fromRGBO(226, 248, 251, 1),
                 ),
                 width: mobile?23.w:18.w,
                 child: Row(
@@ -62,7 +63,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                         text: item['text'],
                         fontszie: 13.5.sp,
                         fonweight: FontWeight.w700,
-                        color: Colors.white),
+                        color: textColor),
                   ],
                 ),
               );
@@ -96,7 +97,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
             },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(9.sp)),
-            color: const Color.fromRGBO(51, 40, 88, 1),
+            color:productColor,
             offset: widget.mobile ? const Offset(0, 38) : const Offset(0, 67),
             itemBuilder: (BuildContext context) {
               return [
@@ -109,8 +110,8 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                       child: textwidget(
                           text: 'Short By',
                           fontszie: 15.sp,
-                          fonweight: FontWeight.w700,
-                          color: Colors.white)),
+                          fonweight: FontWeight.w600,
+                          color: textColor)),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
@@ -122,11 +123,11 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                           text: 'Newest',
                           fontszie: 15.sp,
                           fonweight: selected == 'Newest'
-                              ? FontWeight.w700
+                              ? FontWeight.w600
                               : FontWeight.w400,
                           color: selected == 'Newest'
-                              ? Colors.white
-                              : const Color.fromRGBO(116, 119, 148, 1))),
+                              ? textColor
+                              : grayColor)),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
@@ -141,8 +142,8 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                               ? FontWeight.w700
                               : FontWeight.w400,
                           color: selected == 'Popular'
-                              ? Colors.white
-                              : const Color.fromRGBO(116, 119, 148, 1))),
+                              ? textColor
+                              : grayColor)),
                 ),
                 PopupMenuItem<String>(
                   height: 4.h,
@@ -157,8 +158,8 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                               ? FontWeight.w700
                               : FontWeight.w400,
                           color: selected == 'Ratings'
-                              ? Colors.white
-                              : const Color.fromRGBO(116, 119, 148, 1))),
+                              ? textColor
+                              : grayColor)),
                 ),
               ];
             },
@@ -167,7 +168,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
               width: mobile?22.w:16.w,
               height: 4.h,
               decoration: BoxDecoration(
-                  color: const Color.fromRGBO(51, 40, 88, 1),
+                  color: Color.fromRGBO(226, 248, 251, 1),
                   borderRadius: BorderRadius.circular(12.sp)),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 2.w),
@@ -179,7 +180,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                         text: selected == '' ? 'Short By' : selected,
                         fontszie: 13.5.sp,
                         fonweight: FontWeight.w500,
-                        color: const Color.fromRGBO(116, 119, 148, 1)),
+                        color: textColor,),
                     SizedBox(
                       width: 0.5.w,
                     ),
@@ -189,10 +190,12 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                         child: isopen == true
                             ? Image.asset(
                                 'assets/chevron-down.png',
+                                color: textColor,
                                 fit: BoxFit.contain,
                               )
                             : Image.asset(
                                 'assets/chevron-up.png',
+                                color: textColor,
                                 fit: BoxFit.contain,
                               ))
                   ],

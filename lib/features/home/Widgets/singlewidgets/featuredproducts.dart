@@ -73,7 +73,7 @@ class FeaturedProducts extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(
-                            height: mobile?1.h:0.5.h,
+                            height: mobile?0.h:0.5.h,
                           ),
                           Row(children: [
                             Text(

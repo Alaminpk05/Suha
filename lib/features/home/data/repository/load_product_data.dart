@@ -6,6 +6,7 @@ import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 import 'package:shuhaui/features/home/data/model/fetured_product.dart';
+import 'package:shuhaui/features/home/data/model/home_slider_image.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 
@@ -81,6 +82,14 @@ class ProductService {
         .toList();
   }
 
+  Future<List<SliderImageModel>> fetchHomesliderImage()async{
+    final response = await rootBundle.loadString(jsonfilepath);
+    final data = jsonDecode(response);
+    return (data["sliderimages"] as List)
+        .map((json) => SliderImageModel.fromJson(json))
+        .toList();
+  }
+
 
 //// START FUNCTION TO ADD ITEM ON THE JSON FILE
 Future<String> get _localPath async {
@@ -92,6 +101,8 @@ Future<File> get _localFile async {
   final path = await _localPath;
   return File('$path/products.json'); // Your JSON file
 }
+
+
 
 
 

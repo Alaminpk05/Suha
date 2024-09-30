@@ -80,7 +80,7 @@ Widget topProductwithouttime({
           child: regularfont(
             text: name,
             fontsize: mobile ? 16.sp : 21.px,
-            color: textcolor,
+            color: textColor,
           ),
         ),
         Positioned(
@@ -92,7 +92,7 @@ Widget topProductwithouttime({
               Text(
                 "\$74",
                 style: TextStyle(
-                  color: textcolor,
+                  color: textColor,
                   fontSize: mobile ? 18.sp : 23.px,
                   fontWeight: FontWeight.w700,
                 ),

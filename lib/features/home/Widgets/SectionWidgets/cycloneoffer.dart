@@ -97,7 +97,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                       shrinkWrap: true,
                       itemCount: offerProducts.length,
                       itemBuilder: (context, index) {
-                        print(widget.offerProductList);
+
                         // final realIndex = index % widget.offerProductList.length;
                         final item = offerProducts[index];
 

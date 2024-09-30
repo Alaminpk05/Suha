@@ -32,7 +32,7 @@ class _Search_FilterState extends State<Search_Filter> {
             height: mobile ? 5.50.h : 5.0.h,
             width: 79.w,
             decoration: BoxDecoration(
-                color:Colors.white, 
+                color:searchBoxColor, 
                 // const Color.fromRGBO(51, 40, 88, 1),
                 borderRadius: BorderRadius.circular(13.sp)),
             child: Padding(

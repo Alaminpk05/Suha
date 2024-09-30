@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ThemeSwitch extends StatelessWidget {
@@ -16,7 +17,7 @@ class ThemeSwitch extends StatelessWidget {
     var Tablet=ResponsiveHelper.isTablet(context);
     return ColorFiltered(
       colorFilter: ColorFilter.mode(
-          Colors.black.withOpacity(0.5) , BlendMode.dstATop),
+          Colors.black.withOpacity(opacity) , BlendMode.dstATop),
       child: Container(
        
     

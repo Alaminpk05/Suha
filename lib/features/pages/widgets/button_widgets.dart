@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/categorybuttonwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 
 class PagesTitleText extends StatelessWidget {
   const PagesTitleText({
@@ -9,19 +10,19 @@ class PagesTitleText extends StatelessWidget {
     required this.title,
     required this.fontsize,
     required this.fontWeight,
-    required this.color,
+
   });
   final String title;
   final double fontsize;
   final FontWeight fontWeight;
-  final Color color;
+
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 1.4.h),
       child: textwidget(
-          text: title, fontszie: fontsize, fonweight: fontWeight, color: color),
+          text: title, fontszie: fontsize, fonweight: fontWeight, color:productsHeaderColor),
     );
   }
 }
@@ -47,7 +48,7 @@ class ElevatedIconTextButton extends StatelessWidget {
       child: ElevatedButton(
           onPressed: ontap,
           style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(51, 40, 88, 1),
+              backgroundColor: productColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.sp))),
           child: Row(
@@ -56,12 +57,13 @@ class ElevatedIconTextButton extends StatelessWidget {
               regularfont(
                   text: title,
                   fontsize: mobile ? 15.sp : 13.5.sp,
-                  color: Colors.white),
+                  color: textColor),
               SizedBox(
                 width: mobile ? 2.w : 1.w,
               ),
               Image.asset(
                 'assets/arrow-right2.png',
+                color: textColor,
                 height: 3.h,
                 width: mobile ? 4.w : 2.5.w,
               )

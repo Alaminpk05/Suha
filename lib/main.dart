@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 
 void main() {
@@ -19,15 +20,29 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Demo Ui',
           theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              backgroundColor:Color.fromRGBO(24,179,210,1),
+            fontFamily: 'Poppins',
+            textTheme: const TextTheme(
+              bodyLarge: TextStyle(fontWeight: FontWeight.w400),
+              bodyMedium: TextStyle(fontWeight: FontWeight.w400),
+              bodySmall: TextStyle(fontWeight: FontWeight.w400,),
+              displayLarge: TextStyle(fontWeight: FontWeight.w600),
+              displayMedium: TextStyle(fontWeight: FontWeight.w600),
+              displaySmall: TextStyle(fontWeight: FontWeight.w500),
+              headlineMedium: TextStyle(fontWeight: FontWeight.w500),
+              titleMedium: TextStyle(fontWeight: FontWeight.w600),
+              titleSmall: TextStyle(fontWeight: FontWeight.w600),
+            ),
+
+
+            appBarTheme:  AppBarTheme(
+              backgroundColor:appbarColor,
 
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
-            scaffoldBackgroundColor: Color.fromRGBO(238, 238, 238, 1),
+            scaffoldBackgroundColor: scaffoldColor,
             // const Color.fromRGBO(12, 21, 59, 1),
-            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor:Colors.black,
+            bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+              backgroundColor:bottomnavColor,
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
             useMaterial3: false,

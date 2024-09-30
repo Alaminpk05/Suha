@@ -48,7 +48,7 @@ class _ImageSliderState extends State<ImageSlider> {
             borderRadius: BorderRadius.all(Radius.circular(mobile?15.sp:12)),
             child:PageView.builder(
               controller: pageController,
-        
+
               itemBuilder: (context, index) {
                 final realindex=index% sliderData.length;
                 final item=sliderData[realindex];
@@ -79,13 +79,13 @@ class _ImageSliderState extends State<ImageSlider> {
                                   255, 0.9)),
                           SizedBox(height: mobile?1.h:1.30.h),
                           ElevatedButton(
-                            
+
                             onPressed: () {
                               // Handle button press
                             },
                             style: ElevatedButton.styleFrom(
-                              
-                              
+
+
                               backgroundColor: const Color.fromRGBO(98,
                                   90, 250, 1),
                               shape: RoundedRectangleBorder(

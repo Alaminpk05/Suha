@@ -76,12 +76,13 @@ Widget topProductwithtime(
               : 3.w, // Center horizontally within the parent width
           child: Container(
             height: mobile ? 2.5.h : 1.7.h,
-            width: mobile ? 27.w : 16.w,
+            width: mobile ? 28.w : 16.w,
+            padding: EdgeInsets.symmetric(horizontal: 0.5.w),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(226, 248, 251, 1),
+              color: const Color.fromRGBO(255, 175, 0, 1),
 
 
-              borderRadius: BorderRadius.circular(20.sp),
+              borderRadius: BorderRadius.circular(15.sp),
             ),
             child: Center(
               child: textwidget(

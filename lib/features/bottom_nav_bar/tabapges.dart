@@ -5,6 +5,7 @@ import 'package:shuhaui/features/home/home_view.dart';
 import 'package:shuhaui/features/chat.dart';
 import 'package:shuhaui/features/pages/pages.dart';
 import 'package:shuhaui/features/settins.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Bottompage extends StatefulWidget {
@@ -74,7 +75,7 @@ class _BottompageState extends State<Bottompage> {
       selectedColor: const Color.fromRGBO(51, 40, 88, 1),
       shape: RoundedRectangleBorder(
         side: const BorderSide(
-          color: Color.fromRGBO(51, 40, 88, 1), // No border when unselected
+          // color: Color.fromRGBO(51, 40, 88, 1), // No border when unselected
           width: .0,
         ),
         borderRadius: BorderRadius.circular(25.sp), // Rounded border
@@ -91,17 +92,13 @@ class _BottompageState extends State<Bottompage> {
           Image.asset(
             assetPath,
             height: 2.8.h, // Adjust the image size
-            color: builchipindex == builchipindex
-                ? Colors.white
-                : Colors.white, // Change color based on selection
+             // Change color based on selection
           ),
           const SizedBox(height: 0.0),
           Text(
             label,
             style: TextStyle(
-              color: builchipindex == builchipindex
-                  ? Colors.white
-                  : Colors.white, // Change color based on selection
+              color: bottomnavIconColor,// Change color based on selection
               fontSize: 13.sp,
             ),
           )
@@ -123,20 +120,20 @@ class _BottompageState extends State<Bottompage> {
         },
         type: BottomNavigationBarType.fixed,
         iconSize: 12.sp,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.white,
+        unselectedItemColor: bottomnavIconColor,
+        selectedItemColor: bottomnavIconColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/home (1).png',
-                color: Colors.white,
+                color: bottomnavIconColor,
                 height: 3.h,
               ),
               label: "Home"),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/message (1).png',
-              color: Colors.white,
+              color: bottomnavIconColor,
               height: 3.h,
             ),
             label: "Chat",
@@ -144,7 +141,7 @@ class _BottompageState extends State<Bottompage> {
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/basket (2).png',
-              color: Colors.white,
+              color: bottomnavIconColor,
               height: 3.h,
             ),
             label: "Cart",
@@ -152,15 +149,16 @@ class _BottompageState extends State<Bottompage> {
           BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/settings (1).png',
-                color: Colors.white,
+                color: bottomnavIconColor,
                 height: 3.h,
               ),
               label: "Settings"),
           BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/heart (1).png',
+                color: bottomnavIconColor,
                 fit: BoxFit.contain,
-                color: Colors.white,
+               
                 height: 3.h,
               ),
               label: "Pages"),

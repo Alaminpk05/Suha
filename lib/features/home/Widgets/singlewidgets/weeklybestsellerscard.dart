@@ -35,7 +35,7 @@ class WeeklyProductsCard extends StatelessWidget {
             width: mobile ? 25.w : 18.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
-                color:   Color.fromRGBO(24,179,210,1),),
+                color: weeklycardBox),
             child: Stack(children: [
               Positioned(
                 child: SizedBox(
@@ -53,7 +53,7 @@ class WeeklyProductsCard extends StatelessWidget {
                 child: Container(
                   height: 5.5.h,
                   width: 5.5.w,
-                  decoration:  BoxDecoration(
+                  decoration:  const BoxDecoration(
 
                       shape: BoxShape.circle),
                   child: Padding(
@@ -126,8 +126,8 @@ class WeeklyProductsCard extends StatelessWidget {
                   const SizedBox(height: 5),
                    Row(
                     children: [
-                      Icon(Icons.star, color: Colors.amber, size: 16),
-                      SizedBox(width: 4),
+                      const Icon(Icons.star, color: Colors.amber, size: 16),
+                      const SizedBox(width: 4),
                       Text(
                         "4.88",
                         style: TextStyle(

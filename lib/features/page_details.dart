@@ -9,6 +9,7 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -70,7 +71,7 @@ class _PageDetailsState extends State<PageDetails> {
             /// START THE SECOND HEADER
             SecondSection(
                 width: width,
-                detailsPageTextColor: detailsPageTextColor,
+                detailsPageTextColor: textColor,
                 value: value,
                 mobile: mobile),
             SizedBox(
@@ -82,7 +83,7 @@ class _PageDetailsState extends State<PageDetails> {
             SizedBox(
               height: 1.5.h,
             ),
-            FouthSection(detailPageContColor: detailPageContColor),
+            FouthSection(detailPageContColor: productColor),
 
             FifthSection(width: width),
             SixthSection(
@@ -116,15 +117,15 @@ class _PageDetailsState extends State<PageDetails> {
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
               height: 25.5.h,
               width: width,
-              color: detailPageContColor,
+              color: productColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   textwidget(
                       text: 'Submit A Review',
                       fontszie: 16.px,
-                      fonweight: FontWeight.w700,
-                      color: Colors.white),
+                      fonweight: FontWeight.w600,
+                      color: textColor),
                   SizedBox(
                     height: 1.h,
                   ),
@@ -143,7 +144,7 @@ class _PageDetailsState extends State<PageDetails> {
                     padding: EdgeInsets.symmetric(horizontal: 2.w),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.sp),
-                        color: const Color.fromRGBO(36, 38, 68, 1),
+                        color:null,
                         border: Border.all(
                             color: const Color.fromRGBO(54, 49, 86, 1))),
                     width: 70.w,
@@ -157,7 +158,7 @@ class _PageDetailsState extends State<PageDetails> {
                           focusNode: focusNode,
                           maxLines: null,
                           cursorHeight: 1.5.h,
-                          cursorColor: Colors.white,
+                          cursorColor: textColor,
                           cursorWidth: 0.15.w,
                           style: TextStyle(
                               fontSize: 14.px,
@@ -223,7 +224,7 @@ class _PageDetailsState extends State<PageDetails> {
                   DetailPageTextButton(
                       ontab: () {},
                       buttonWidth: 25.w,
-                      height: 3.5.h,
+                      height: 3.h,
                       text: 'Save Review')
                 ],
               ),
@@ -263,6 +264,7 @@ class _PageDetailsState extends State<PageDetails> {
               right: 0,
               child: Image.asset(
                 'assets/curve.png',
+                color:productColor,
                 scale: 1,
               )),
           Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile)),
@@ -291,7 +293,7 @@ class SixthSection extends StatelessWidget {
     return Container(
       height: 37.9.h,
       width: width.w,
-      color: detailPageContColor,
+      color: null,
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -310,7 +312,7 @@ class SixthSection extends StatelessWidget {
                   minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
                   minibuttonword2: 'New',
                   mobile: mobile,
-                  textcolor: Colors.white,
+                  textcolor: textColor,
                   tablet: tablet,
                   width: 43.5.w),
               topProductwithouttime(
@@ -345,13 +347,13 @@ class SeventhSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46.5.h,
+      height: 50.h,
       padding: EdgeInsets.only(
         top: 2.h,
         left: 5.w,
         right: 5.w,
       ),
-      color: detailPageContColor,
+      color: productColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -359,7 +361,7 @@ class SeventhSection extends StatelessWidget {
               text: 'Ratings & Reviews',
               fontszie: 16.px,
               fonweight: FontWeight.w700,
-              color: Colors.white),
+              color: textColor),
           SizedBox(
             height: 1.3.h,
           ),
@@ -414,13 +416,13 @@ class RatingsReviews extends StatelessWidget {
                     text: reviews,
                     fontszie: 14.px,
                     fonweight: FontWeight.w400,
-                    color: detailsPageTextColor),
+                    color: textColor),
                 SizedBox(height: 0.3.h),
                 textwidget(
                     text: datetime,
                     fontszie: 12.px,
                     fonweight: FontWeight.w400,
-                    color: detailsPageTextColor),
+                    color: textColor),
                 SizedBox(
                   height: 0.5.h,
                 ),
@@ -437,7 +439,7 @@ class RatingsReviews extends StatelessWidget {
                             widget: Image.asset(
                                 index == 0 ? 'assets/3.png' : 'assets/4.png'),
                             ontab: () {},
-                            color: detailPageContColor,
+                            color: productColor,
                           ),
                     if (index == 1)
                       SizedBox(
@@ -449,7 +451,7 @@ class RatingsReviews extends StatelessWidget {
                         height: 6.h,
                         widget: Image.asset('assets/6.png'),
                         ontab: () {},
-                        color: detailPageContColor,
+                        color: productColor,
                       ),
                   ],
                 )
@@ -471,7 +473,7 @@ class RatingsReviews extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 0.5.w),
                   height: 0.2.h,
                   width: 1.w,
-                  color: detailsPageTextColor,
+                  color: textColor,
                 );
               })),
         SizedBox(
@@ -562,7 +564,7 @@ class SecondSection extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 12.h),
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.5.h),
-      color: const Color.fromRGBO(51, 40, 88, 1),
+      color: productColor,
       height: 8.h,
       width: width,
       child: Row(
@@ -576,7 +578,7 @@ class SecondSection extends StatelessWidget {
                   text: 'Flash sale end in',
                   fontszie: 15.sp,
                   fonweight: FontWeight.w400,
-                  color: detailsPageTextColor),
+                  color: textColor),
               SizedBox(
                 height: 0.3.h,
               ),
@@ -584,7 +586,7 @@ class SecondSection extends StatelessWidget {
                   text: '150d 24h 60m 60s',
                   fontszie: 15.sp,
                   fonweight: FontWeight.w700,
-                  color: detailsPageTextColor),
+                  color: textColor),
             ],
           ),
           Column(
@@ -594,7 +596,7 @@ class SecondSection extends StatelessWidget {
               Text(
                 "${(value * 100).toStringAsFixed(0)}% Sold Out",
                 style: TextStyle(
-                  color: const Color.fromRGBO(116, 119, 148, 1),
+                  color: textColor,
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                 ),
@@ -660,7 +662,7 @@ class ThirdSection extends StatelessWidget {
     return Container(
       height: 6.5.h,
       width: width,
-      color: const Color.fromRGBO(51, 40, 88, 1),
+      color: productColor,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 5.w,
@@ -747,12 +749,12 @@ class DetailPageTextButton extends StatelessWidget {
         height: height,
         width: buttonWidth,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(98, 90, 250, 1),
+          color: const Color.fromRGBO(24,179,210,1),
           borderRadius: BorderRadius.circular(10.sp),
         ),
         child: textwidget(
             text: text,
-            fontszie: 15.sp,
+            fontszie: 14.px,
             fonweight: FontWeight.w700,
             color: Colors.white),
       ),
@@ -789,7 +791,8 @@ class SpecificationsWidget extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: Colors.white,
+              fontFamily: 'Poppins',
+              color: textColor,
               fontSize: 16.5.sp,
               fontWeight: FontWeight.bold,
             ),
@@ -800,7 +803,7 @@ class SpecificationsWidget extends StatelessWidget {
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
               fontszie: 15.sp,
               fonweight: FontWeight.w400,
-              color: const Color.fromRGBO(116, 119, 148, 1)),
+              color: textColor),
           SizedBox(height: 2.h),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -829,7 +832,7 @@ class SpecificationsWidget extends StatelessWidget {
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
               fontszie: 15.sp,
               fonweight: FontWeight.w400,
-              color: const Color.fromARGB(255, 112, 114, 129)),
+              color: textColor),
         ],
       ),
     );
@@ -849,6 +852,7 @@ class SpecificationRules extends StatelessWidget {
       children: [
         Image.asset(
           'assets/check.png',
+          color: textColor,
           scale: 18,
         ),
         SizedBox(
@@ -858,7 +862,7 @@ class SpecificationRules extends StatelessWidget {
             text: title,
             fontszie: 15.sp,
             fonweight: FontWeight.w400,
-            color: const Color.fromRGBO(116, 119, 148, 1))
+            color: textColor)
       ],
     );
   }
@@ -913,7 +917,7 @@ class ProductHeader extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.5.h),
       decoration: BoxDecoration(
-          color: const Color.fromRGBO(36, 38, 68, 1),
+          color: productColor,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20.sp))),
       height: 13.h,
       width: MediaQuery.of(context).size.width,
@@ -927,7 +931,7 @@ class ProductHeader extends StatelessWidget {
                   text: 'Wooden Sofa',
                   fontszie: 18.sp,
                   fonweight: FontWeight.w700,
-                  color: Colors.white),
+                  color: textColor),
               SizedBox(
                   height: 3.h,
                   width: 5.w,
@@ -952,11 +956,11 @@ class ProductHeader extends StatelessWidget {
               Text(
                 "\$15",
                 style: TextStyle(
-                  color: const Color.fromRGBO(116, 119, 148, 1),
+                  color: textColor,
                   fontSize: mobile ? 14.5.sp : 13.5.sp,
                   fontWeight: FontWeight.w400,
                   decoration: TextDecoration.lineThrough,
-                  decorationColor: const Color.fromRGBO(116, 119, 148, 1),
+                  decorationColor: textColor,
                   decorationThickness: 0.3.h,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -986,8 +990,8 @@ class ProductHeader extends StatelessWidget {
                   textwidget(
                     text: '3 ratings',
                     fontszie: 14.sp,
-                    fonweight: FontWeight.w300,
-                    color: const Color.fromRGBO(116, 119, 148, 1),
+                    fonweight: FontWeight.w400,
+                    color: textColor,
                   )
                 ],
               ),

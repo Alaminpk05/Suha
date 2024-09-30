@@ -54,7 +54,7 @@ class Pages extends StatelessWidget {
                   title: 'Shop',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -160,7 +160,7 @@ class Pages extends StatelessWidget {
                   title: 'Vendor',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -181,7 +181,7 @@ class Pages extends StatelessWidget {
                   title: 'Cart & Checkout',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -227,7 +227,7 @@ class Pages extends StatelessWidget {
                   title: 'Authentication',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                  
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -267,7 +267,7 @@ class Pages extends StatelessWidget {
                 PagesTitleText(
                   title: 'Blog',
                   fontsize: 15.5.sp,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                 
                   fontWeight: FontWeight.w400,
                 ),
                 ElevatedIconTextButton(
@@ -289,7 +289,7 @@ class Pages extends StatelessWidget {
                   title: "Chat & Notifications",
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -310,7 +310,7 @@ class Pages extends StatelessWidget {
                   title: "Miscellaneous",
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  color: const Color.fromRGBO(116, 118, 140, 1),
+                  
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,

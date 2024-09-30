@@ -7,6 +7,7 @@ import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 import 'package:shuhaui/features/home/data/model/fetured_product.dart';
+import 'package:shuhaui/features/home/data/model/home_slider_image.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
@@ -91,12 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // late List<CategoryModel> categories = [];
-  // late List<CycloneOfferModel> cycloneOffers = [];
-  // late List<TopProductModel> topProducts = [];
-  // late List<WeeklyProductModel> weeklyProducts = [];
-  // late List<FeaturedProductModel> featuredProducts = [];
-  // late List<CollectionsModel> collectionProducts = [];
   bool isLoading = true;
 
   /// GET IT
@@ -106,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<WeeklyProductModel>> weeklyProductList;
   late Future<List<FeaturedProductModel>> featuredProductList;
   late Future<List<CollectionsModel>> collectionProductList;
+
 
 
   @override
@@ -118,8 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
     weeklyProductList = getIt<ProductService>().fetchweeklyProductListt();
     featuredProductList = getIt<ProductService>().fetchFeaturedProductList();
     collectionProductList = getIt<ProductService>().fetchCllectionProductList();
-    print('FEATURED AND COLELCTION PRODCUTS LSIT');
-    print(featuredProductList.asStream());
+
+
 
     super.initState();
   }
@@ -155,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     const Search_Filter(),
                     SizedBox(height: 2.h),
-                    const ImageSlider(),
+                     ImageSlider(),
                     SizedBox(height: 2.h),
                     CategorySection(
                       categorylist: categoryList,

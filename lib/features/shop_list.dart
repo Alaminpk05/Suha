@@ -6,6 +6,7 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
@@ -81,8 +82,7 @@ class _ShopListState extends State<ShopList> {
                           height: 16.h,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(36, 38, 68,
-                                1), // Use the passed container color
+                            color: productColor, // Use the passed container color
                             borderRadius: BorderRadius.circular(10.sp),
                           ),
                           child: Row(
@@ -95,7 +95,7 @@ class _ShopListState extends State<ShopList> {
                                 width: mobile ? 27.w : 18.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(13.sp),
-                                    color: const Color.fromRGBO(51, 40, 88, 1)),
+                                    color: addButtonColor),
                                 child: Stack(children: [
                                   Positioned(
                                     left: 2.w,
@@ -116,8 +116,8 @@ class _ShopListState extends State<ShopList> {
                                     child: Container(
                                       height: mobile ? 5.h : 3.h,
                                       width: mobile ? 6.w : 5.w,
-                                      decoration: BoxDecoration(
-                                          color: Color.fromRGBO(36, 38, 68, 1),
+                                      decoration:  BoxDecoration(
+                                          color: productColor,
                                           shape: BoxShape.circle),
                                       child: Padding(
                                         padding: EdgeInsets.all(
@@ -147,7 +147,7 @@ class _ShopListState extends State<ShopList> {
                                         child: Text(
                                           item.name,
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: textColor,
                                             fontSize: mobile ? 16.5.sp : 23.px,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -161,7 +161,7 @@ class _ShopListState extends State<ShopList> {
                                           Text(
                                             '\$',
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontSize: 11.sp,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -172,7 +172,7 @@ class _ShopListState extends State<ShopList> {
                                           Text(
                                             '\$${item.price}',
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontSize: mobile ? 16.sp : 22.px,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -199,14 +199,14 @@ class _ShopListState extends State<ShopList> {
                                           Text(
                                             "4.88",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontSize: mobile ? 14.sp : 22.px,
                                             ),
                                           ),
                                           Text(
                                             " (125 reviews)",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontSize: mobile ? 14.sp : 22.px,
                                             ),
                                           ),
@@ -232,19 +232,6 @@ class _ShopListState extends State<ShopList> {
                                               color: Colors.white),
                                         ),
                                       ),
-
-                                      //  ElevatedTextButton(
-                                      //     text: 'Add to cart',
-                                      //     elevation: 0,
-                                      //     fontsize: 15.5.sp,
-                                      //     fontWeight: FontWeight.w700,
-                                      //     height: 3.5.h,
-                                      //     width: 26.5.w,
-                                      //     radius: 8.sp,
-                                      //     buttoncolor:
-                                      //         Color.fromRGBO(0, 184, 148, 1),
-                                      //     textcolor: Colors.white,
-                                      //     ontap: () {})
                                     ],
                                   ),
                                 ),

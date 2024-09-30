@@ -83,7 +83,7 @@ late Future<List<TopProductModel>> topproductList;
                       title: 'Sub Category',
                       fontsize: 17.sp,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+
                     ),
                   ),
                   CategorySection(
@@ -98,7 +98,7 @@ late Future<List<TopProductModel>> topproductList;
                       title: 'Products',
                       fontsize: 17.sp,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                     
                     ),
                   ),
                  TopProductList(mobile: mobile, topProductList: topproductList, tablet: tablet, childratio: mobile ? 0.75 : 0.675,)

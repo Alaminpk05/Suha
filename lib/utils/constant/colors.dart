@@ -1,18 +1,42 @@
 import 'package:flutter/material.dart';
 
-Color elevateTextButtonColor= const Color.fromRGBO(255, 255, 255, 0.98);
-Color productColor= const Color.fromRGBO(24,179,210,1);
-Color textColor=Colors.white;
-Color addButtonColor=Color.fromRGBO(238, 238, 238, 1);
-Color viewButtonColor=Color.fromRGBO(24,179,210,1);
-Color badgeColor=const Color.fromRGBO(234,76,98, 1);
-Color appbariconColor=Colors.white;
-Color addButtoniconColor=Colors.black;
-Color viewButtontextColor=Colors.white;
-Color productsHeaderColor=Colors.black;
-Color miniButtonColor=Colors.black;
-Color miniButtonTextColor=Colors.white;
-Color productSoldColor=Colors.orangeAccent;
-Color timerColor=Colors.black;
-Color filterCardColor=Colors.white;
-Color filteritemColor=Colors.black;
+Color elevateTextButtonColor = const Color.fromRGBO(255, 255, 255, 0.98);
+Color productColor = Color.fromRGBO(226, 248, 251, 1);
+Color productsHeaderColor = Colors.white;
+Color textColor = Colors.black;
+
+Color viewButtonColor = const Color.fromRGBO(24, 179, 210, 1);
+Color viewButtontextColor = Colors.white;
+Color badgeColor = const Color.fromRGBO(234, 76, 98, 1);
+Color appbarColor = Color.fromRGBO(26, 26, 26,1);
+Color appbariconColor = Color.fromRGBO(226, 248, 251, 1);
+Color bottomnavColor = Color.fromRGBO(26, 26, 26,1);
+Color bottomnavIconColor = Color.fromRGBO(226, 248, 251, 1);
+Color addButtoniconColor = Colors.white;
+Color addButtonColor = const Color.fromRGBO(24,179,210,1);
+
+
+Color miniButtonColor = Colors.black;
+Color miniButtonTextColor = Colors.white;
+Color productSoldColor = Colors.orangeAccent;
+Color timerColor = Colors.white;
+Color filterCardColor = Colors.white;
+Color filteritemColor = Colors.black;
+
+Color scaffoldColor = Color.fromRGBO(26, 26, 26,1);
+
+Color searchBoxColor = Color.fromRGBO(226, 248, 251, 1);
+Color weeklycardBox = Color.fromRGBO(24, 179, 210, 1);
+Color grayColor= const Color.fromRGBO(116, 119, 148, 1);
+
+double opacity = .8;
+
+
+
+
+// cyan: Color.fromRGBO(24,179,210,1),
+// white:Color.fromRGBO(226, 248, 251, 1),
+// secondary:
+// black: Color.fromRGBO(0,0,0,1),
+
+// gray: Color.fromRGBO(98,98,98,1)

@@ -67,7 +67,7 @@ class _SubProductCategoryState extends State<SubProductCategory> {
                       title: 'Sub Category Products',
                       fontsize: 17.sp,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                     
                     ),
                   ),
                   TopProductList(mobile: mobile,

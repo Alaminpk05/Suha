@@ -69,7 +69,7 @@ class CycloneOfferWidget extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(
-                        height: 0.5.h,
+                        height: 0.0.h,
                       ),
                       Row(children: [
                         Text(
@@ -97,7 +97,7 @@ class CycloneOfferWidget extends StatelessWidget {
                         ),
                       ]),
                       SizedBox(
-                        height: 0.5.h,
+                        height: 0.0.h,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
