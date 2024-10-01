@@ -78,7 +78,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
             height: mobile ? 1.h : 0,
           ),
           SizedBox(
-              height: mobile?44.w:44.w,
+              height: mobile?50.w:44.w,
               width: 100.w,
               child: FutureBuilder(
                 future: widget.offerProductList,

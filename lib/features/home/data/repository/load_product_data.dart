@@ -7,6 +7,7 @@ import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 import 'package:shuhaui/features/home/data/model/fetured_product.dart';
 import 'package:shuhaui/features/home/data/model/home_slider_image.dart';
+import 'package:shuhaui/features/home/data/model/productdetails.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 
@@ -89,6 +90,45 @@ class ProductService {
         .map((json) => SliderImageModel.fromJson(json))
         .toList();
   }
+
+  Future<List<TopProductModel>> fetchRelatedProducts()async{
+    final response = await rootBundle.loadString(jsonfilepath);
+    final data = jsonDecode(response);
+    return (data["relatedproducts"] as List)
+        .map((json) => TopProductModel.fromJson(json))
+        .toList();
+  }
+
+
+
+  Future<List<ProductDetailsModel>> fetchdetailslidableimage()async{
+    final response = await rootBundle.loadString(jsonfilepath);
+    final data = jsonDecode(response);
+    return (data["detailslidableimages"] as List)
+        .map((json) => ProductDetailsModel.fromJson(json))
+        .toList();
+  }
+  Future<List<CycloneOfferModel>> fetchFlashProducts()async{
+    final response = await rootBundle.loadString(jsonfilepath);
+    final data = jsonDecode(response);
+    return (data["flash"] as List)
+        .map((json) => CycloneOfferModel.fromJson(json))
+        .toList();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //// START FUNCTION TO ADD ITEM ON THE JSON FILE

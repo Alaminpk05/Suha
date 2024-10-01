@@ -41,7 +41,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                 margin: EdgeInsets.only(right: 1.5.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.sp),
-                  color: Color.fromRGBO(226, 248, 251, 1),
+                  color: const Color.fromRGBO(226, 248, 251, 1),
                 ),
                 width: mobile?23.w:18.w,
                 child: Row(
@@ -168,7 +168,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
               width: mobile?22.w:16.w,
               height: 4.h,
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(226, 248, 251, 1),
+                  color: const Color.fromRGBO(226, 248, 251, 1),
                   borderRadius: BorderRadius.circular(12.sp)),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 2.w),

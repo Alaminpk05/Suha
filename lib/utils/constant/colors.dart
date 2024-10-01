@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 Color elevateTextButtonColor = const Color.fromRGBO(255, 255, 255, 0.98);
-Color productColor = Color.fromRGBO(226, 248, 251, 1);
+Color productColor = const Color.fromRGBO(226, 248, 251, 1);
 Color productsHeaderColor = Colors.white;
 Color textColor = Colors.black;
 
 Color viewButtonColor = const Color.fromRGBO(24, 179, 210, 1);
 Color viewButtontextColor = Colors.white;
 Color badgeColor = const Color.fromRGBO(234, 76, 98, 1);
-Color appbarColor = Color.fromRGBO(26, 26, 26,1);
-Color appbariconColor = Color.fromRGBO(226, 248, 251, 1);
-Color bottomnavColor = Color.fromRGBO(26, 26, 26,1);
-Color bottomnavIconColor = Color.fromRGBO(226, 248, 251, 1);
+Color appbarColor = const Color.fromRGBO(26, 26, 26,1);
+Color appbariconColor = const Color.fromRGBO(226, 248, 251, 1);
+Color bottomnavColor = const Color.fromRGBO(26, 26, 26,1);
+Color bottomnavIconColor = const Color.fromRGBO(226, 248, 251, 1);
 Color addButtoniconColor = Colors.white;
 Color addButtonColor = const Color.fromRGBO(24,179,210,1);
 
@@ -23,10 +23,10 @@ Color timerColor = Colors.white;
 Color filterCardColor = Colors.white;
 Color filteritemColor = Colors.black;
 
-Color scaffoldColor = Color.fromRGBO(26, 26, 26,1);
+Color scaffoldColor = const Color.fromRGBO(26, 26, 26,1);
 
-Color searchBoxColor = Color.fromRGBO(226, 248, 251, 1);
-Color weeklycardBox = Color.fromRGBO(24, 179, 210, 1);
+Color searchBoxColor = const Color.fromRGBO(226, 248, 251, 1);
+Color weeklycardBox = const Color.fromRGBO(24, 179, 210, 1);
 Color grayColor= const Color.fromRGBO(116, 119, 148, 1);
 
 double opacity = .8;

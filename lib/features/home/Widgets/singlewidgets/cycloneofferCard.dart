@@ -25,18 +25,17 @@ class CycloneOfferWidget extends StatelessWidget {
         //     MaterialPageRoute(builder: (context) => const ProductCategory()));
       },
       child: Container(
-       
           height: Mobile?22.h:24.h,
           width: Mobile?30.w:22.w,
           margin: EdgeInsets.only(
-              top: Mobile?0.5.h:2.h, left: Mobile?0.5.w:0.3.w,
+              top: Mobile?0.1.h:2.h, left: Mobile?0.5.w:0.3.w,
               right: 0.65.h, bottom: Mobile?0.h:3.h),
           decoration: BoxDecoration(
               color:productColor,
               //  const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.only(
-             bottom: Mobile?0.h:0.h, top: Mobile?2.3.h:3.h),
+             bottom: Mobile?0.h:0.h, top: Mobile?0.5.h:3.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -46,13 +45,13 @@ class CycloneOfferWidget extends StatelessWidget {
                 child: Center(
                     child: Image.asset(
                   asset!,
-                  fit: BoxFit.contain,
+
                  
-                  width: Mobile?22.w:null,
+                  width: Mobile?30.w:null,
                 )),
               ),
               SizedBox(
-                height: Mobile?1.2.h:2.2.h,
+                height: Mobile?0.h:2.2.h,
               ),
               Expanded(
                 child: Padding(

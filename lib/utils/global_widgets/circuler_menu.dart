@@ -76,7 +76,7 @@ class filterwidget extends StatelessWidget {
     return Container(
       height: mobile ? 3.h : 4.h,
       width: mobile ? 6.w : 5.w,
-      decoration:  BoxDecoration(
+      decoration:  const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
                 'assets/filter.png',

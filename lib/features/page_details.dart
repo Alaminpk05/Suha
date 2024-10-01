@@ -8,10 +8,15 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
+import 'package:shuhaui/features/home/data/model/top_product.dart';
+import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
+import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
+
+import 'home/data/model/productdetails.dart';
 
 class PageDetails extends StatefulWidget {
   const PageDetails({super.key});
@@ -31,11 +36,17 @@ class _PageDetailsState extends State<PageDetails> {
   double textFieldHeight = 10.h;
   bool ResizingVertically = false;
 
+
+
+
   static Color detailsPageTextColor = const Color.fromRGBO(116, 119, 148, 1);
   static Color detailPageContColor = const Color.fromRGBO(51, 40, 88, 1);
 
   @override
   void initState() {
+
+
+
     pageController = PageController(initialPage: 0);
     timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       currentpage++;
@@ -44,6 +55,8 @@ class _PageDetailsState extends State<PageDetails> {
     });
 
     super.initState();
+    itemlist=getIt<ProductService>().fetchRelatedProducts();
+    productImage=getIt<ProductService>().fetchdetailslidableimage();
   }
 
   @override
@@ -53,6 +66,9 @@ class _PageDetailsState extends State<PageDetails> {
     focusNode.dispose();
     super.dispose();
   }
+late Future<List<TopProductModel>>itemlist;
+  late Future<List<ProductDetailsModel>> productImage;
+
 
   final FocusNode focusNode = FocusNode();
   @override
@@ -62,11 +78,11 @@ class _PageDetailsState extends State<PageDetails> {
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'Signle Product', const CircleMenu()),
+          mobile, context, () {}, 'Product Details', const CircleMenu()),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FirstSection(mobile),
+            FirstSection(mobile,productImage),
 
             /// START THE SECOND HEADER
             SecondSection(
@@ -83,19 +99,19 @@ class _PageDetailsState extends State<PageDetails> {
             SizedBox(
               height: 1.5.h,
             ),
-            FouthSection(detailPageContColor: productColor),
+            SpecificationSection(detailPageContColor: productColor),
 
-            FifthSection(width: width),
-            SixthSection(
+            VideoSection(width: width),
+            RelatedProductsSection(
                 width: width,
                 detailPageContColor: detailPageContColor,
                 mobile: mobile,
-                tablet: tablet),
+                tablet: tablet, datalist: itemlist,),
             SizedBox(
               height: 1.5.h,
             ),
 
-            SeventhSection(
+            RatingsReviewsSection(
                 detailPageContColor: detailPageContColor,
                 detailsPageTextColor: detailsPageTextColor,
                 widget: Column(
@@ -113,180 +129,182 @@ class _PageDetailsState extends State<PageDetails> {
             SizedBox(
               height: 1.5.h,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
-              height: 25.5.h,
-              width: width,
-              color: productColor,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  textwidget(
-                      text: 'Submit A Review',
-                      fontszie: 16.px,
-                      fonweight: FontWeight.w600,
-                      color: textColor),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Row(
-                      children: List.generate(5, (index) {
-                    return Icon(
-                      Icons.star,
-                      color: Colors.grey.shade400,
-                    );
-                  })),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.symmetric(horizontal: 2.w),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.sp),
-                        color:null,
-                        border: Border.all(
-                            color: const Color.fromRGBO(54, 49, 86, 1))),
-                    width: 70.w,
-                    height: textFieldHeight,
-                    child: Stack(
-                      children: [
-                        TextFormField(
-                          onTapOutside: (event) {
-                            FocusScope.of(context).unfocus();
-                          },
-                          focusNode: focusNode,
-                          maxLines: null,
-                          cursorHeight: 1.5.h,
-                          cursorColor: textColor,
-                          cursorWidth: 0.15.w,
-                          style: TextStyle(
-                              fontSize: 14.px,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white),
-                          decoration: InputDecoration(
-                              alignLabelWithHint: true,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 2.w, vertical: 1.h),
-                              hintText: 'Write your review...',
-                              hintStyle: TextStyle(
-                                color: const Color.fromRGBO(112, 114, 133, 1),
-                                fontSize: 14.px,
-                                fontWeight: FontWeight.w400,
-                              ),
-                              border: InputBorder.none),
-                        ),
-                        //        Positioned(
-                        //   right: -2.w,
-                        //   bottom: 0,
-                        //   child: GestureDetector(
-                        //     onPanStart: (_) {
-                        //       setState(() {
-                        //         ResizingVertically = true; // Start vertical resizing
-                        //       });
-                        //     },
-                        //     onPanUpdate: (details) {
-                        //       setState(() {
-                        //         textFieldHeight += details.delta.dy; // Update height only
-                        //         if (textFieldHeight < 10.h) textFieldHeight = 60.0; // Minimum height limit
-                        //       });
-                        //     },
-                        //     onPanEnd: (_) {
-                        //       setState(() {
-                        //         ResizingVertically = false; // Stop vertical resizing
-                        //       });
-                        //     },
-                        //     child: MouseRegion(
-                        //       cursor: ResizingVertically
-                        //           ? SystemMouseCursors.resizeUpDown // Vertical resize cursor
-                        //           : SystemMouseCursors.resizeUpDown, // Cursor when hovering bottom-right corner
-                        //       child: Container(
-                        //         width: 20,
-                        //         height: 10.h,
-                        //         decoration: const BoxDecoration(
-                        //           color: Colors.transparent,
-                        //           border: Border(
-
-                        //             bottom: BorderSide(color: const Color.fromRGBO(54, 49, 86, 1)),
-                        //             right: BorderSide(color:const Color.fromRGBO(54, 49, 86, 1)),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  DetailPageTextButton(
-                      ontab: () {},
-                      buttonWidth: 25.w,
-                      height: 3.h,
-                      text: 'Save Review')
-                ],
-              ),
-            )
+            SubmitSection(width: width, textFieldHeight: textFieldHeight, focusNode: focusNode)
           ],
         ),
       ),
     );
   }
 
-  SizedBox FirstSection(bool mobile) {
-    return SizedBox(
-      height: 25.h,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned.fill(
-            child: PageView.builder(
-                controller: pageController,
-                onPageChanged: (int page) {
-                  currentpage = page;
-                },
-                itemBuilder: (context, index) {
-                  final int imageindex = index % autoSliderImage.length;
-                  return SizedBox(
-                    height: 10.h,
-                    width: double.infinity,
-                    child: Image.asset(
-                      autoSliderImage[imageindex],
-                      fit: BoxFit.cover,
-                    ),
-                  );
-                }),
+  FutureBuilder<List<ProductDetailsModel>> FirstSection(bool mobile,Future<List<ProductDetailsModel>> slidableimage) {
+    return FutureBuilder(
+      future: slidableimage,
+      builder: (context,snapshot){
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('No categories found'));
+        }
+
+        final itemlist=snapshot.data!;
+        return SizedBox(
+          height: 25.h,
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Positioned.fill(
+                child: PageView.builder(
+                    controller: pageController,
+                    onPageChanged: (int page) {
+                      currentpage = page;
+                    },
+                    itemBuilder: (context, index) {
+                      final int imageindex = index % itemlist.length;
+                      final item=itemlist[imageindex];
+
+
+                      return SizedBox(
+
+                        height: 10.h,
+                        width: double.infinity,
+                        child: Image.asset(
+                          item.image,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    }),
+              ),
+              Positioned(
+                  bottom: 2.5.h,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/curve.png',
+                    color:productColor,
+                    scale: 1,
+                  )),
+              Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile)),
+            ],
           ),
-          Positioned(
-              bottom: 2.5.h,
-              right: 0,
-              child: Image.asset(
-                'assets/curve.png',
-                color:productColor,
-                scale: 1,
-              )),
-          Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile)),
+        );
+      },
+
+    );
+  }
+}
+
+class SubmitSection extends StatelessWidget {
+  const SubmitSection({
+    super.key,
+    required this.width,
+    required this.textFieldHeight,
+    required this.focusNode,
+  });
+
+  final double width;
+  final double textFieldHeight;
+  final FocusNode focusNode;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+      height: 25.5.h,
+      width: width,
+      color: productColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          textwidget(
+              text: 'Submit A Review',
+              fontszie: 16.px,
+              fonweight: FontWeight.w600,
+              color: textColor),
+          SizedBox(
+            height: 1.h,
+          ),
+          Row(
+              children: List.generate(5, (index) {
+            return Icon(
+              Icons.star,
+              color: Colors.grey.shade400,
+            );
+          })),
+          SizedBox(
+            height: 1.h,
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.symmetric(horizontal: 2.w),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.sp),
+                color:null,
+                border: Border.all(
+                    color: const Color.fromRGBO(54, 49, 86, 1))),
+            width: 70.w,
+            height: textFieldHeight,
+            child: Stack(
+              children: [
+                TextFormField(
+                  onTapOutside: (event) {
+                    FocusScope.of(context).unfocus();
+                  },
+                  focusNode: focusNode,
+                  maxLines: null,
+                  cursorHeight: 1.5.h,
+                  cursorColor: textColor,
+                  cursorWidth: 0.15.w,
+                  style: TextStyle(
+                      fontSize: 14.px,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white),
+                  decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 2.w, vertical: 1.h),
+                      hintText: 'Write your review...',
+                      hintStyle: TextStyle(
+                        color: const Color.fromRGBO(112, 114, 133, 1),
+                        fontSize: 14.px,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      border: InputBorder.none),
+                ),
+
+
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 1.h,
+          ),
+          DetailPageTextButton(
+              ontab: () {},
+              buttonWidth: 25.w,
+              height: 3.h,
+              text: 'Save Review')
         ],
       ),
     );
   }
 }
 
-class SixthSection extends StatelessWidget {
-  const SixthSection({
+class RelatedProductsSection extends StatelessWidget {
+   RelatedProductsSection({
     super.key,
     required this.width,
     required this.detailPageContColor,
     required this.mobile,
-    required this.tablet,
+    required this.tablet, required this.datalist,
   });
 
   final double width;
   final Color detailPageContColor;
   final bool mobile;
   final bool tablet;
+  final Future<List<TopProductModel>>datalist;
 
   @override
   Widget build(BuildContext context) {
@@ -303,37 +321,76 @@ class SixthSection extends StatelessWidget {
           SizedBox(
             height: 1.h,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              topProductwithouttime(
-                  name: 'Wooden Chair',
-                  photo: 'assets/8.png',
-                  minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
-                  minibuttonword2: 'New',
-                  mobile: mobile,
-                  textcolor: textColor,
-                  tablet: tablet,
-                  width: 43.5.w),
-              topProductwithouttime(
-                  name: 'Polo Shirt',
-                  photo: 'assets/4.png',
-                  minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
-                  minibuttonword2: 'New',
-                  mobile: mobile,
-                  textcolor: Colors.white,
-                  tablet: tablet,
-                  width: 43.5.w)
+          FutureBuilder(
+            future: datalist,
+            builder: (context,snapshot){
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Center(child: Text('No categories found'));
+              }
+              final itemlist=snapshot.data;
+              print('REALATED PRODUCTS LIST PRINT ');
+              print(itemlist?.first.title);
+              return Expanded(
+                child: ListView.builder(
+
+                    itemCount: itemlist!.length,
+                    shrinkWrap: true,
+                    scrollDirection:Axis.horizontal,
+                    itemBuilder: (context,index){
+                      final item=itemlist[index];
+                      print(item.title);
+                      return Padding(
+                        padding:  EdgeInsets.only(right: 2.w),
+                        child: topProductwithouttime(
+                            name: item.title,
+                            photo: item.imageUrl,
+                            minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
+                            minibuttonword2: item.minibuttonword,
+                            mobile: mobile,
+                            textcolor: textColor,
+                            tablet: tablet,
+                            width: 43.5.w),
+                      );
+                    }),
+              );
+            },
+
+          )
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     topProductwithouttime(
+          //         name: 'Wooden Chair',
+          //         photo: 'assets/8.png',
+          //         minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
+          //         minibuttonword2: 'New',
+          //         mobile: mobile,
+          //         textcolor: textColor,
+          //         tablet: tablet,
+          //         width: 43.5.w),
+          //     topProductwithouttime(
+          //         name: 'Polo Shirt',
+          //         photo: 'assets/4.png',
+          //         minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
+          //         minibuttonword2: 'New',
+          //         mobile: mobile,
+          //         textcolor: Colors.white,
+          //         tablet: tablet,
+          //         width: 43.5.w)
             ],
           ),
-        ],
-      ),
+
+
     );
   }
 }
 
-class SeventhSection extends StatelessWidget {
-  const SeventhSection({
+class RatingsReviewsSection extends StatelessWidget {
+  const RatingsReviewsSection({
     super.key,
     required this.detailPageContColor,
     required this.detailsPageTextColor,
@@ -484,8 +541,8 @@ class RatingsReviews extends StatelessWidget {
   }
 }
 
-class FifthSection extends StatelessWidget {
-  const FifthSection({
+class VideoSection extends StatelessWidget {
+  const VideoSection({
     super.key,
     required this.width,
   });
@@ -529,7 +586,7 @@ class FifthSection extends StatelessWidget {
                   width: 9.w,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromRGBO(98, 90, 250, 1),
+                    color: Color.fromRGBO(24,179,210,1),
                   ),
                   child: Image.asset(
                     'assets/player-play (1).png',
@@ -622,8 +679,8 @@ class SecondSection extends StatelessWidget {
   }
 }
 
-class FouthSection extends StatelessWidget {
-  const FouthSection({
+class SpecificationSection extends StatelessWidget {
+  const SpecificationSection({
     super.key,
     required this.detailPageContColor,
   });

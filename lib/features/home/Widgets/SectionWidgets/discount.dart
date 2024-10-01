@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 import '../singlewidgets/textwidget.dart';
 
@@ -58,17 +59,18 @@ class DiscountSection extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
     
-                    backgroundColor: const Color.fromRGBO(98,90,250,1), // Button background color
+                    backgroundColor: const Color.fromRGBO(24,179,210,1),
+                       // Button background color
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.sp), // Button corners
                     ),
                    
                   ),
-                  child: const Text(
+                  child:  Text(
                     'Grab this offer',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white, // Button text color
+                      color: textColor, // Button text color
                     ),
                   ),
                 ),

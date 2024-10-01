@@ -34,6 +34,13 @@ class _ImageSliderState extends State<ImageSlider> {
       "subtitle": '3 years Wrranty',
     },
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
@@ -86,8 +93,7 @@ class _ImageSliderState extends State<ImageSlider> {
                             style: ElevatedButton.styleFrom(
 
 
-                              backgroundColor: const Color.fromRGBO(98,
-                                  90, 250, 1),
+                              backgroundColor: Color.fromRGBO(24,179,210,1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0.sp),
                               ),

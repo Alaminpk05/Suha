@@ -7,7 +7,6 @@ import 'package:shuhaui/features/home/data/model/category.dart';
 import 'package:shuhaui/features/home/data/model/collections.dart';
 import 'package:shuhaui/features/home/data/model/cycloneoffer.dart';
 import 'package:shuhaui/features/home/data/model/fetured_product.dart';
-import 'package:shuhaui/features/home/data/model/home_slider_image.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
@@ -151,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     const Search_Filter(),
                     SizedBox(height: 2.h),
-                     ImageSlider(),
+                     const ImageSlider(),
                     SizedBox(height: 2.h),
                     CategorySection(
                       categorylist: categoryList,

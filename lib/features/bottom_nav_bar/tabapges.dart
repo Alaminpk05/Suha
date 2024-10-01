@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/cart/cart_view.dart';
@@ -54,7 +55,7 @@ class _BottompageState extends State<Bottompage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _buildChoiceChip(0, 'assets/home (1).png', "Home"),
+                      _buildChoiceChip(0, 'assets/home (1).png', ""),
                       _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
                       _buildChoiceChip(2, 'assets/basket (2).png', "Cart"),
                       _buildChoiceChip(
@@ -124,43 +125,31 @@ class _BottompageState extends State<Bottompage> {
         selectedItemColor: bottomnavIconColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/home (1).png',
-                color: bottomnavIconColor,
-                height: 3.h,
-              ),
-              label: "Home"),
+              icon: Icon(CupertinoIcons.house
+                ,
+              size: 3.h,),
+
+              label: 'Home'),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/message (1).png',
-              color: bottomnavIconColor,
-              height: 3.h,
-            ),
+            icon: Icon(CupertinoIcons.chat_bubble_text,
+            size: 3.h,),
             label: "Chat",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/basket (2).png',
-              color: bottomnavIconColor,
-              height: 3.h,
+            icon: Icon(CupertinoIcons.shopping_cart,
+            size: 3.h,
             ),
             label: "Cart",
           ),
           BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/settings (1).png',
-                color: bottomnavIconColor,
-                height: 3.h,
+              icon: Icon(CupertinoIcons.settings,size: 3.h,
+
+
               ),
+
               label: "Settings"),
           BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/heart (1).png',
-                color: bottomnavIconColor,
-                fit: BoxFit.contain,
-               
-                height: 3.h,
-              ),
+              icon: Icon(CupertinoIcons.heart,size: 3.h,),
               label: "Pages"),
         ]);
   }
