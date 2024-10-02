@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/product_details/page/page_details.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -12,8 +13,8 @@ class CycloneOfferWidget extends StatelessWidget {
     required this.asset,
     required this.title,
   });
-  final String? asset;
-  final String? title;
+  final String asset;
+  final String title;
   final double value;
 
   @override
@@ -21,11 +22,13 @@ class CycloneOfferWidget extends StatelessWidget {
     var Mobile = ResponsiveHelper.isMobile(context);
     return GestureDetector(
       onTap: () {
-        // Navigator.push(context,
-        //     MaterialPageRoute(builder: (context) => const ProductCategory()));
+
+        
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) =>  PageDetails(image: asset, title: title,)));
       },
       child: Container(
-          height: Mobile?22.h:24.h,
+          height: Mobile?23.h:24.h,
           width: Mobile?30.w:22.w,
           margin: EdgeInsets.only(
               top: Mobile?0.1.h:2.h, left: Mobile?0.5.w:0.3.w,

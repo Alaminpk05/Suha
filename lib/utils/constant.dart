@@ -10,7 +10,6 @@ final widgetTopPad = 2.h;
 final oneHeightPad = 1.h;
 final sectionTopPad = 2.5.h;
 
-
 final appbarMobPad = 4.w;
 final appbarTabPad = 18.w;
 
@@ -22,8 +21,6 @@ final List pageViewImage = [
   "assets/2.jpg",
   "assets/3.jpg",
 ];
-
-
 
 final List images = [
   "assets/18.png",
@@ -129,36 +126,35 @@ List<Map<String, dynamic>> cycloneOfferItems = [
   {'value': 0.8, 'asset': 'assets/3.png', 'title': 'Modern Table Lamp'},
 ];
 final List horizontalProductList = [
- {'image': "assets/5.png", 'text': 'Furniture'},
-  {'image': "assets/9.png", 'text': 'Shoes'},
-  {'image': "assets/4.png", 'text': 'Cloths'},
+  {'image': "assets/images/boss.png", 'text': 'Furniture'},
+  {'image': "assets/images/shoe.png", 'text': 'Shoes'},
+  {'image': "assets/images/shirts.png", 'text': 'Cloths'},
 ];
 
+final List<String> autoSliderImage = [
+  'assets/10.jpg',
+  'assets/6.jpg',
+  'assets/11.jpg',
+];
+final List<Map<String, dynamic>> rImages = [
+  {
+    'image': 'assets/images/bmen2.png',
+  },
+  {'image': 'assets/images/bwomen.jpg'},
+  {'image': 'assets/images/men.jpg'},
+];
 
- final List<String> autoSliderImage = [
-    'assets/10.jpg',
-    'assets/6.jpg',
-    'assets/11.jpg',
-  ];
-  final List<Map<String, dynamic>> rImages = [
-    {
-      'image': 'assets/7.jpg',
-    },
-    {'image': 'assets/8.jpg'},
-    {'image': 'assets/9.jpg'},
-  ];
-
-  final List<Map<String, dynamic>> rText = [
-    {
-      'title': 'Very good product. It is just amazing',
-      'subtitle': 'Designing World 12 Dec 2024'
-    },
-    {
-      'title': 'Very excellent product. Love it.',
-      'subtitle': 'Designing World 8 Dec 2024'
-    },
-    {
-      'title': 'What a nice product it is. I am looking it is.',
-      'subtitle': 'Designing World 28 Nov 2024'
-    },
-  ];
+final List<Map<String, dynamic>> rText = [
+  {
+    'title': 'Very good product. It is just amazing',
+    'subtitle': 'Designing World 12 Dec 2024'
+  },
+  {
+    'title': 'Very excellent product. Love it.',
+    'subtitle': 'Designing World 8 Dec 2024'
+  },
+  {
+    'title': 'What a nice product it is. I am looking it is.',
+    'subtitle': 'Designing World 28 Nov 2024'
+  },
+];

@@ -96,7 +96,7 @@ class TopProductList extends StatelessWidget {
                         digitSeconds: digitSeconds,
                         mobile: mobile,
                         tablet: tablet,
-                        width: mobile ? 45.w : 30.w)
+                        width: mobile ? 45.w : 30.w, context: contex)
                     : topProductwithouttime(
                         name: item.title,
                         photo: item.imageUrl,
@@ -105,7 +105,8 @@ class TopProductList extends StatelessWidget {
                         mobile: mobile,
                         textcolor: textColor,
                         tablet: tablet,
-                        width: mobile ? 45.w : 30.w);
+                        width: mobile ? 45.w : 30.w,
+                        context:context);
               });
         },
       ),

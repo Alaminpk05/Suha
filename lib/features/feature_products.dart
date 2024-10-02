@@ -23,7 +23,6 @@ class _FeaturedProductPageState extends State<FeaturedProductPage> {
     // TODO: implement initState
     super.initState();
     featuredProductList = getIt<ProductService>().fetchFeaturedProductList();
-
   }
 
   @override
@@ -60,7 +59,7 @@ class _FeaturedProductPageState extends State<FeaturedProductPage> {
                   ),
                   itemBuilder: (context, index) {
                     final item = featuredproductList[index];
-                    return FeaturedProducts(
+                    return FeaturedProduct(
                       image: item.image,
                       title: item.name,
                       newprice: item.price,

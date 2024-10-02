@@ -24,7 +24,7 @@ class ThemeSwitch extends StatelessWidget {
         height: Mobile?18.h:18.h,
         width: double.infinity,
         decoration: BoxDecoration(
-          image: const DecorationImage(image: AssetImage('assets/dark.jpg'),
+          image: const DecorationImage(image: AssetImage('assets/images/night.jpg'),
               filterQuality: FilterQuality.high,fit: BoxFit.cover),
           borderRadius: BorderRadius.circular(10.sp),
         ),

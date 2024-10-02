@@ -62,7 +62,7 @@ class OrderStatus extends StatelessWidget {
               height: 44.h,
               width: 85.w,
               decoration: BoxDecoration(
-                  color: const Color.fromRGBO(36, 38, 68, 1),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(12.sp)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,10 +113,11 @@ class OrderSingleStatus extends StatelessWidget {
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: index > 2
-                        ? const Color.fromRGBO(58, 60, 87, 1)
-                        : const Color.fromRGBO(98, 90, 250, 1)),
+                        ?Colors.grey
+                        : Colors.cyan),
                 child: Image.asset(
                   icon,
+
                   scale: 10.5,
                 ),
               ),
@@ -130,10 +131,10 @@ class OrderSingleStatus extends StatelessWidget {
                   textwidget(
                       text: text,
                       fontszie: 14.px,
-                      fonweight: FontWeight.w700,
+                      fonweight: FontWeight.w600,
                       color: index > 2
-                          ? const Color.fromRGBO(116, 119, 148, 1)
-                          : Colors.white),
+                          ? Colors.grey///const Color.fromRGBO(116, 119, 148, 1)
+                          : Colors.black),
                   SizedBox(
                     height: 0.3.h,
                   ),
@@ -141,7 +142,7 @@ class OrderSingleStatus extends StatelessWidget {
                       text: date,
                       fontszie: 12.px,
                       fonweight: FontWeight.w400,
-                      color: const Color.fromRGBO(116, 119, 148, 1)),
+                      color:Colors.grey),
                 ],
               ),
             ],

@@ -19,17 +19,17 @@ class _ImageSliderState extends State<ImageSlider> {
 
   final List<Map<String, String>> sliderData = [
     {
-      "image": 'assets/1.jpg',
+      "image": 'assets/images/echo.jpeg',
       "title": 'Amazon Echo',
       "subtitle": '3rd Generation, Charcoal',
     },
     {
-      "image": 'assets/2.jpg',
+      "image": 'assets/images/candle.jpg',
       "title": 'Light Candle',
       "subtitle": 'Now only \$22',
     },
     {
-      "image": 'assets/3.jpg',
+      "image": 'assets/images/fancy2.png',
       "title": 'Fancy Chair',
       "subtitle": '3 years Wrranty',
     },
@@ -93,7 +93,7 @@ class _ImageSliderState extends State<ImageSlider> {
                             style: ElevatedButton.styleFrom(
 
 
-                              backgroundColor: Color.fromRGBO(24,179,210,1),
+                              backgroundColor: const Color.fromRGBO(24,179,210,1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0.sp),
                               ),

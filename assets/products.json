@@ -360,7 +360,7 @@
       "name": "Scent",
       "price": "39.0",
       "original_price": "89.0",
-      "image": "assets/images/scent.png"
+      "image": "assets/images/boss.png"
     },
     {
       "id": 6,
@@ -527,8 +527,50 @@
 
 
 
+  ],
+
+  "reviews": [
+    {
+      "rating": 5,
+      "review": "Very good product. It is just amazing!",
+      "author": {
+        "name": "Designing World",
+        "date": "12 Dec 2024",
+        "profile_picture": "assets/images/rmen.jpeg"
+      },
+      "reviewimages": [
+        "assets/images/polo.png"
+       
+      ]
+    },
+    {
+      "rating": 5,
+      "review": "Very excellent product. Love it.",
+      "author": {
+        "name": "Designing World",
+        "date": "8 Dec 2024",
+        "profile_picture": "assets/images/bwomen.jpg"
+      },
+      "reviewimages": [
+        "assets/images/polo.png",
+        "assets/images/lamp.png"
+      ]
+    },
+    {
+      "rating": 5,
+      "review": "What a nice product it is. I am looking it is.",
+      "author": {
+        "name": "Designing World",
+        "date": "28 Nov 2024",
+        "profile_picture": "assets/images/bmen2.png"
+      },
+      "reviewimages": [
+        
+      ]
+    }
   ]
 
 
-  }
+
+}
   

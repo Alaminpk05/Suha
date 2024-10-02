@@ -10,6 +10,7 @@ import 'package:shuhaui/features/home/data/model/home_slider_image.dart';
 import 'package:shuhaui/features/home/data/model/productdetails.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
+import 'package:shuhaui/features/product_details/data/model/ratings_review.dart';
 
 // Future<Map<String, dynamic>> loadProductData() async {
 //   final String response = await rootBundle.loadString('assets/products.json');
@@ -113,6 +114,13 @@ class ProductService {
     final data = jsonDecode(response);
     return (data["flash"] as List)
         .map((json) => CycloneOfferModel.fromJson(json))
+        .toList();
+  }
+  Future<List<ReviewModel>> fetchReviews()async{
+    final response = await rootBundle.loadString(jsonfilepath);
+    final data = jsonDecode(response);
+    return (data["reviews"] as List)
+        .map((json) => ReviewModel.fromJson(json))
         .toList();
   }
 

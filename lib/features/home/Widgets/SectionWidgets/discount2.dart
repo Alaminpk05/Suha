@@ -31,23 +31,25 @@ class DiscountSection2 extends StatelessWidget {
         borderRadius: BorderRadius.circular(12), // Rounded corners
       ),
       child: Padding(
-        padding:EdgeInsets.only(right:Mobile?4.w:5,left: Mobile?0:4.w),
+        padding:EdgeInsets.only(right:Mobile?4.w:5,
+            left: Mobile?2.5.w:4.w),
         child: Align(
           alignment:Alignment.center,
           child: Row(
           
             children: [
               SizedBox(
-                height: Mobile?8.5.h:7.5.h,
-                width: Mobile?30.w:11.8.w
+                height: Mobile?12.h:7.5.h,
+                width: Mobile?15.w:11.8.w
                 ,
                 child: Image.asset(
-                  'assets/discount.png', // Your image path here
+                  'assets/images/discount2.png',
+                  // color: Colors.white,// Your image path here
                   fit: BoxFit.contain,
                 
                 ),
               ),
-              SizedBox(width: Mobile?0.5.w:1.w,),
+              SizedBox(width: Mobile?2.w:1.w,),
               Flexible(
                 
                 child: Padding(

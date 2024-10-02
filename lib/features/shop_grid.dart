@@ -150,7 +150,7 @@ class GridViewWidget extends StatelessWidget {
               digitSeconds: '24',
               mobile: mobile,
               tablet: tablet,
-              width: mobile ? 45.w : 30.w);
+              width: mobile ? 45.w : 30.w, context: context);
         });
   }
 }

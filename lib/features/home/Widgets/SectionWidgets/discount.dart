@@ -38,9 +38,9 @@ class DiscountSection extends StatelessWidget {
             right: mobile?-0.5.w:-4.8.w,
             bottom:0.3.h,
             child: Image.asset(
-              'assets/make-up.png', // Your image path here
-              height: mobile?18.h:0.h,
-              width: mobile?20.w:20.w,
+              'assets/images/brash.png', // Your image path here
+              height: mobile?20.h:0.h,
+              width: mobile?30.w:20.w,
               fit: BoxFit.contain,
     
             ),
@@ -70,7 +70,7 @@ class DiscountSection extends StatelessWidget {
                     'Grab this offer',
                     style: TextStyle(
                       fontSize: 14,
-                      color: textColor, // Button text color
+                      color: productColor, // Button text color
                     ),
                   ),
                 ),

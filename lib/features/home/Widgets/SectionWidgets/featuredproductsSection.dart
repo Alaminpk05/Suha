@@ -31,8 +31,10 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
         ViewProductlist(
             productListviewTitle: "Featured Products",
             ontab: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (c) => const FeaturedProductPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (c) => const FeaturedProductPage()));
             }),
         SizedBox(
           height: mobile ? 0.8.h : 1.5.h,
@@ -54,14 +56,13 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
               return GridView.builder(
                   itemCount: featuredProductList.length,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 0.72,
-                   crossAxisSpacing: 1.2.w
-                  ),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 0.72,
+                      crossAxisSpacing: 1.2.w),
                   itemBuilder: (context, index) {
                     final item = featuredProductList[index];
-                    return FeaturedProducts(
+                    return FeaturedProduct(
                         image: item.image,
                         title: item.name,
                         newprice: item.price,

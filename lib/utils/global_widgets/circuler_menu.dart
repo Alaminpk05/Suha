@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/pages/pages.dart';
@@ -18,24 +19,8 @@ class CircleMenu extends StatelessWidget {
       padding: EdgeInsets.only(left: mobile ? 1.w : 1.w),
       height: mobile ? 4.h : 4.h,
       width: mobile ? 7.5.w : 5.w,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: appbariconColor, // Border color (outer circle)
-          width: mobile ? 0.4.w : 0.3.w, // Width of the outer circle
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildLine(mobile ? 4.5.w : 2.3.w, mobile ? 0.20.h : 0.20.h),
-          SizedBox(height: mobile ? 0.35.h : 0.4.h), // Spacing between lines
-          _buildLine(mobile ? 3.w : 1.5.w, mobile ? 0.20.h : 0.20.h),
-          SizedBox(height: mobile ? 0.35.h : 0.38.h), // Spacing between lines
-          _buildLine(mobile ? 4.w : 2.w, mobile ? 0.20.h : 0.20.h),
-        ],
-      ),
+
+      child: Image.asset('assets/icons/menu-2.png')
     );
   }
 }
@@ -73,18 +58,7 @@ class filterwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: mobile ? 3.h : 4.h,
-      width: mobile ? 6.w : 5.w,
-      decoration:  const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/filter.png',
-
-
-              ),
-              fit: BoxFit.contain)),
-    );
+    return const Icon(CupertinoIcons.slider_horizontal_3,color: Colors.white,);
   }
 }
 

@@ -10,16 +10,19 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttim
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
+import 'package:shuhaui/features/product_details/data/model/ratings_review.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-import 'home/data/model/productdetails.dart';
+import '../../home/data/model/productdetails.dart';
 
 class PageDetails extends StatefulWidget {
-  const PageDetails({super.key});
+  const PageDetails({super.key, required this.image, required this.title});
+  final String image;
+  final String title;
 
   @override
   State<PageDetails> createState() => _PageDetailsState();
@@ -36,17 +39,11 @@ class _PageDetailsState extends State<PageDetails> {
   double textFieldHeight = 10.h;
   bool ResizingVertically = false;
 
-
-
-
   static Color detailsPageTextColor = const Color.fromRGBO(116, 119, 148, 1);
   static Color detailPageContColor = const Color.fromRGBO(51, 40, 88, 1);
 
   @override
   void initState() {
-
-
-
     pageController = PageController(initialPage: 0);
     timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       currentpage++;
@@ -55,8 +52,9 @@ class _PageDetailsState extends State<PageDetails> {
     });
 
     super.initState();
-    itemlist=getIt<ProductService>().fetchRelatedProducts();
-    productImage=getIt<ProductService>().fetchdetailslidableimage();
+    itemlist = getIt<ProductService>().fetchRelatedProducts();
+    productImage = getIt<ProductService>().fetchdetailslidableimage();
+    reviews = getIt<ProductService>().fetchReviews();
   }
 
   @override
@@ -66,9 +64,11 @@ class _PageDetailsState extends State<PageDetails> {
     focusNode.dispose();
     super.dispose();
   }
-late Future<List<TopProductModel>>itemlist;
+
+  late Future<List<TopProductModel>> itemlist;
   late Future<List<ProductDetailsModel>> productImage;
 
+  late Future<List<ReviewModel>> reviews;
 
   final FocusNode focusNode = FocusNode();
   @override
@@ -82,7 +82,7 @@ late Future<List<TopProductModel>>itemlist;
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FirstSection(mobile,productImage),
+            FirstSection(mobile, productImage, widget.image,widget.title),
 
             /// START THE SECOND HEADER
             SecondSection(
@@ -103,44 +103,42 @@ late Future<List<TopProductModel>>itemlist;
 
             VideoSection(width: width),
             RelatedProductsSection(
-                width: width,
-                detailPageContColor: detailPageContColor,
-                mobile: mobile,
-                tablet: tablet, datalist: itemlist,),
+              width: width,
+              detailPageContColor: detailPageContColor,
+              mobile: mobile,
+              tablet: tablet,
+              datalist: itemlist,
+            ),
             SizedBox(
               height: 1.5.h,
             ),
 
             RatingsReviewsSection(
-                detailPageContColor: detailPageContColor,
-                detailsPageTextColor: detailsPageTextColor,
-                widget: Column(
-                  children: List.generate(3, (index) {
-                    return RatingsReviews(
-                      detailsPageTextColor: detailsPageTextColor,
-                      detailPageContColor: detailPageContColor,
-                      image: rImages[index]['image'],
-                      reviews: rText[index]['title'],
-                      datetime: rText[index]['subtitle'],
-                      index: index,
-                    );
-                  }),
-                )),
+              reviewlist: reviews,
+            ),
+
             SizedBox(
               height: 1.5.h,
             ),
-            SubmitSection(width: width, textFieldHeight: textFieldHeight, focusNode: focusNode)
+            SubmitSection(
+                width: width,
+                textFieldHeight: textFieldHeight,
+                focusNode: focusNode)
           ],
         ),
       ),
     );
   }
 
-  FutureBuilder<List<ProductDetailsModel>> FirstSection(bool mobile,Future<List<ProductDetailsModel>> slidableimage) {
+  FutureBuilder<List<ProductDetailsModel>> FirstSection(
+    bool mobile,
+    Future<List<ProductDetailsModel>> slidableimage,
+    String assets,
+    String title,
+  ) {
     return FutureBuilder(
       future: slidableimage,
-      builder: (context,snapshot){
-
+      builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
@@ -149,7 +147,7 @@ late Future<List<TopProductModel>>itemlist;
           return const Center(child: Text('No categories found'));
         }
 
-        final itemlist=snapshot.data!;
+        final itemlist = snapshot.data!;
         return SizedBox(
           height: 25.h,
           child: Stack(
@@ -163,16 +161,18 @@ late Future<List<TopProductModel>>itemlist;
                     },
                     itemBuilder: (context, index) {
                       final int imageindex = index % itemlist.length;
-                      final item=itemlist[imageindex];
-
+                      final item = itemlist[imageindex];
 
                       return SizedBox(
-
-                        height: 10.h,
+                       height: 8.h,
                         width: double.infinity,
-                        child: Image.asset(
-                          item.image,
-                          fit: BoxFit.cover,
+                        child: Padding(
+                          padding:  EdgeInsets.symmetric(vertical: 2.h
+                          ),
+                          child: Image.asset(
+                            assets,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       );
                     }),
@@ -182,15 +182,14 @@ late Future<List<TopProductModel>>itemlist;
                   right: 0,
                   child: Image.asset(
                     'assets/curve.png',
-                    color:productColor,
+                    color: productColor,
                     scale: 1,
                   )),
-              Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile)),
+              Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile, title: title,)),
             ],
           ),
         );
       },
-
     );
   }
 }
@@ -240,9 +239,8 @@ class SubmitSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 2.w),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
-                color:null,
-                border: Border.all(
-                    color: const Color.fromRGBO(54, 49, 86, 1))),
+                color: null,
+                border: Border.all(color: const Color.fromRGBO(54, 49, 86, 1))),
             width: 70.w,
             height: textFieldHeight,
             child: Stack(
@@ -262,8 +260,8 @@ class SubmitSection extends StatelessWidget {
                       color: Colors.white),
                   decoration: InputDecoration(
                       alignLabelWithHint: true,
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 2.w, vertical: 1.h),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
                       hintText: 'Write your review...',
                       hintStyle: TextStyle(
                         color: const Color.fromRGBO(112, 114, 133, 1),
@@ -272,8 +270,6 @@ class SubmitSection extends StatelessWidget {
                       ),
                       border: InputBorder.none),
                 ),
-
-
               ],
             ),
           ),
@@ -281,10 +277,7 @@ class SubmitSection extends StatelessWidget {
             height: 1.h,
           ),
           DetailPageTextButton(
-              ontab: () {},
-              buttonWidth: 25.w,
-              height: 3.h,
-              text: 'Save Review')
+              ontab: () {}, buttonWidth: 25.w, height: 3.h, text: 'Save Review')
         ],
       ),
     );
@@ -292,19 +285,20 @@ class SubmitSection extends StatelessWidget {
 }
 
 class RelatedProductsSection extends StatelessWidget {
-   RelatedProductsSection({
+  const RelatedProductsSection({
     super.key,
     required this.width,
     required this.detailPageContColor,
     required this.mobile,
-    required this.tablet, required this.datalist,
+    required this.tablet,
+    required this.datalist,
   });
 
   final double width;
   final Color detailPageContColor;
   final bool mobile;
   final bool tablet;
-  final Future<List<TopProductModel>>datalist;
+  final Future<List<TopProductModel>> datalist;
 
   @override
   Widget build(BuildContext context) {
@@ -323,7 +317,7 @@ class RelatedProductsSection extends StatelessWidget {
           ),
           FutureBuilder(
             future: datalist,
-            builder: (context,snapshot){
+            builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
@@ -331,60 +325,36 @@ class RelatedProductsSection extends StatelessWidget {
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                 return const Center(child: Text('No categories found'));
               }
-              final itemlist=snapshot.data;
+              final itemlist = snapshot.data;
               print('REALATED PRODUCTS LIST PRINT ');
               print(itemlist?.first.title);
               return Expanded(
                 child: ListView.builder(
-
                     itemCount: itemlist!.length,
                     shrinkWrap: true,
-                    scrollDirection:Axis.horizontal,
-                    itemBuilder: (context,index){
-                      final item=itemlist[index];
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final item = itemlist[index];
                       print(item.title);
                       return Padding(
-                        padding:  EdgeInsets.only(right: 2.w),
+                        padding: EdgeInsets.only(right: 2.w),
                         child: topProductwithouttime(
                             name: item.title,
                             photo: item.imageUrl,
-                            minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
+                            minibuttoncolor:
+                                const Color.fromRGBO(0, 184, 148, 1),
                             minibuttonword2: item.minibuttonword,
                             mobile: mobile,
                             textcolor: textColor,
                             tablet: tablet,
-                            width: 43.5.w),
+                            width: 43.5.w, context: context),
                       );
                     }),
               );
             },
-
           )
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     topProductwithouttime(
-          //         name: 'Wooden Chair',
-          //         photo: 'assets/8.png',
-          //         minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
-          //         minibuttonword2: 'New',
-          //         mobile: mobile,
-          //         textcolor: textColor,
-          //         tablet: tablet,
-          //         width: 43.5.w),
-          //     topProductwithouttime(
-          //         name: 'Polo Shirt',
-          //         photo: 'assets/4.png',
-          //         minibuttoncolor: const Color.fromRGBO(0, 184, 148, 1),
-          //         minibuttonword2: 'New',
-          //         mobile: mobile,
-          //         textcolor: Colors.white,
-          //         tablet: tablet,
-          //         width: 43.5.w)
-            ],
-          ),
-
-
+        ],
+      ),
     );
   }
 }
@@ -392,14 +362,9 @@ class RelatedProductsSection extends StatelessWidget {
 class RatingsReviewsSection extends StatelessWidget {
   const RatingsReviewsSection({
     super.key,
-    required this.detailPageContColor,
-    required this.detailsPageTextColor,
-    required this.widget,
+    required this.reviewlist,
   });
-
-  final Color detailPageContColor;
-  final Color detailsPageTextColor;
-  final Widget widget;
+  final Future<List<ReviewModel>> reviewlist;
 
   @override
   Widget build(BuildContext context) {
@@ -422,121 +387,124 @@ class RatingsReviewsSection extends StatelessWidget {
           SizedBox(
             height: 1.3.h,
           ),
-          widget,
+          FutureBuilder(
+              future:
+                  Future.delayed(const Duration(seconds: 1), () => reviewlist),
+              builder: (c, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return const Center(child: Text('No categories found'));
+                }
+                final datalist = snapshot.data!;
+
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: datalist.length,
+                    itemBuilder: (context, index) {
+                      final item = datalist[index];
+                      return Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 0.5.h),
+                                child: CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage(item.author.profilePicture),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 2.5.w,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  FiveStar(height: 1.5.h, width: 3.w),
+                                  SizedBox(
+                                    height: 0.5.h,
+                                  ),
+                                  textwidget(
+                                      text: item.reviewText,
+                                      fontszie: 14.px,
+                                      fonweight: FontWeight.w400,
+                                      color: textColor),
+                                  SizedBox(height: 0.3.h),
+                                  Row(children: [
+                                    textwidget(
+                                        text: item.author.name,
+                                        fontszie: 12.px,
+                                        fonweight: FontWeight.w400,
+                                        color: textColor),
+                                    SizedBox(
+                                      width: 1.w,
+                                    ),
+                                    textwidget(
+                                        text: item.author.date,
+                                        fontszie: 12.px,
+                                        fonweight: FontWeight.w400,
+                                        color: textColor),
+                                  ]),
+                                  SizedBox(
+                                    height: 0.5.h,
+                                  ),
+                                  if (item.reviewImages != null &&
+                                      item.reviewImages!.isNotEmpty)
+                                    SizedBox(
+                                      width: 36.w,
+                                      height: 6.h,
+                                      child: ListView.builder(
+                                        itemCount: item.reviewImages!.length,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder: (c, index) {
+                                          final images =
+                                              item.reviewImages![index];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsets.only(right: 1.w),
+                                            child: DetailPageIconButton(
+                                              width: 12.w,
+                                              height: 6.h,
+                                              widget: Image.asset(images),
+                                              ontab: () {},
+                                              color: productColor,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                ],
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 1.3.h,
+                          ),
+                          if (datalist.length - 1 != index)
+                            Row(
+                                children: List.generate(45, (index) {
+                              return Container(
+                                margin: EdgeInsets.symmetric(horizontal: 0.5.w),
+                                height: 0.2.h,
+                                width: 1.w,
+                                color: textColor,
+                              );
+                            })),
+                          SizedBox(
+                            height: 2.h,
+                          )
+                        ],
+                      );
+                    },
+                  ),
+                );
+              })
         ],
       ),
-    );
-  }
-}
-
-class RatingsReviews extends StatelessWidget {
-  const RatingsReviews(
-      {super.key,
-      required this.detailsPageTextColor,
-      required this.detailPageContColor,
-      required this.image,
-      required this.reviews,
-      required this.datetime,
-      required this.index});
-  final int index;
-
-  final Color detailsPageTextColor;
-  final Color detailPageContColor;
-  final String image;
-  final String reviews;
-  final String datetime;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 0.5.h),
-              child: CircleAvatar(
-                backgroundImage: AssetImage(image),
-              ),
-            ),
-            SizedBox(
-              width: 2.5.w,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                FiveStar(height: 1.5.h, width: 3.w),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                textwidget(
-                    text: reviews,
-                    fontszie: 14.px,
-                    fonweight: FontWeight.w400,
-                    color: textColor),
-                SizedBox(height: 0.3.h),
-                textwidget(
-                    text: datetime,
-                    fontszie: 12.px,
-                    fonweight: FontWeight.w400,
-                    color: textColor),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                Row(
-                  children: [
-                    index == 2
-                        ? const SizedBox(
-                            height: 0,
-                            width: 0,
-                          )
-                        : DetailPageIconButton(
-                            width: 12.w,
-                            height: 6.h,
-                            widget: Image.asset(
-                                index == 0 ? 'assets/3.png' : 'assets/4.png'),
-                            ontab: () {},
-                            color: productColor,
-                          ),
-                    if (index == 1)
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                    if (index == 1)
-                      DetailPageIconButton(
-                        width: 12.w,
-                        height: 6.h,
-                        widget: Image.asset('assets/6.png'),
-                        ontab: () {},
-                        color: productColor,
-                      ),
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-        SizedBox(
-          height: 1.3.h,
-        ),
-        index == 2
-            ? const SizedBox(
-                height: 0,
-                width: 0,
-              )
-            : Row(
-                children: List.generate(45, (index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 0.5.w),
-                  height: 0.2.h,
-                  width: 1.w,
-                  color: textColor,
-                );
-              })),
-        SizedBox(
-          height: 2.h,
-        )
-      ],
     );
   }
 }
@@ -586,7 +554,7 @@ class VideoSection extends StatelessWidget {
                   width: 9.w,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromRGBO(24,179,210,1),
+                    color: Color.fromRGBO(24, 179, 210, 1),
                   ),
                   child: Image.asset(
                     'assets/player-play (1).png',
@@ -806,7 +774,7 @@ class DetailPageTextButton extends StatelessWidget {
         height: height,
         width: buttonWidth,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(24,179,210,1),
+          color: const Color.fromRGBO(24, 179, 210, 1),
           borderRadius: BorderRadius.circular(10.sp),
         ),
         child: textwidget(
@@ -964,10 +932,12 @@ class DetailPageIconButton extends StatelessWidget {
 class ProductHeader extends StatelessWidget {
   const ProductHeader({
     super.key,
-    required this.mobile,
+    required this.mobile, required this.title,
   });
 
   final bool mobile;
+  final String title;
+
 
   @override
   Widget build(BuildContext context) {
@@ -985,7 +955,7 @@ class ProductHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               textwidget(
-                  text: 'Wooden Sofa',
+                  text: title,
                   fontszie: 18.sp,
                   fonweight: FontWeight.w700,
                   color: textColor),

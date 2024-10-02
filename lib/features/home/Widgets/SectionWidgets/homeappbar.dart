@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
@@ -45,12 +46,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                     padding: EdgeInsets.only(right:1.w),
                   height: mobile?4.h:4.h,
                   width: mobile?8.5.w:6.2.w,
-                  child: Image.asset(
-                    // height: mobile?4.20.h:0.h,
-                    color: appbariconColor,
-                    "assets/basket (1).png",
-                    fit: BoxFit.contain,
-                  ),
+                  child: const Icon(CupertinoIcons.cart)
                 ),
                 Positioned(
                   top: 1.75.h,
@@ -83,7 +79,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         Container(
 
           height: mobile?4.h:4.h,
-          width: mobile?7.5.w:5.w,
+          width: mobile?7.w:5.w,
           decoration:  BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -96,7 +92,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             alignment: Alignment.center,
             child: Container(
               height: mobile?3.h:3.h,
-              width: mobile?6.5.w:4.25.w,
+              width: mobile?6.w:4.25.w,
                 padding: EdgeInsets.all(5.sp),
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/9.jpg',),

@@ -8,7 +8,8 @@ class CustomSimpleAppBar extends StatelessWidget {
   const CustomSimpleAppBar({
     super.key,
     required this.title,
-    required this.navigation, required this.widget,
+    required this.navigation,
+    required this.widget,
   });
   final Widget widget;
 
@@ -19,10 +20,10 @@ class CustomSimpleAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     return AppBar(
-     automaticallyImplyLeading: false,
+      automaticallyImplyLeading: false,
       flexibleSpace: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: mobile ? appbarMobPad : homeTabLP),
+        padding:
+            EdgeInsets.symmetric(horizontal: mobile ? appbarMobPad : homeTabLP),
         // Add padding to the whole AppBar content
         child: Align(
           alignment: Alignment.center,
@@ -31,7 +32,9 @@ class CustomSimpleAppBar extends StatelessWidget {
             children: [
               // Add a back button or leading widget if needed
               GestureDetector(
-                onTap: navigation,
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: SizedBox(
                   height: mobile ? 3.h : 4.h,
                   width: mobile ? 6.w : 4.w,

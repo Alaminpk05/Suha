@@ -7,7 +7,7 @@ import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
 import 'package:shuhaui/features/order_status.dart';
-import 'package:shuhaui/features/page_details.dart';
+import 'package:shuhaui/features/product_details/page/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
 import 'package:shuhaui/features/shop_grid.dart';
@@ -79,10 +79,11 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PageDetails()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                           
+                    //         builder: (context) =>   PageDetails()));
                   },
                   title: 'Product Details',
                 ),

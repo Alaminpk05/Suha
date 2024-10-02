@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/product_details/page/page_details.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
-class FeaturedProducts extends StatelessWidget {
+class FeaturedProduct extends StatelessWidget {
   final String image;
   final String title;
   final String newprice;
   final String oldprice;
   final void Function()? ontap;
-  const FeaturedProducts({
+  const FeaturedProduct({
     super.key,
     required this.image,
     required this.title,
@@ -20,11 +21,13 @@ class FeaturedProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var mobile = ResponsiveHelper.isMobile(context);
 
     return GestureDetector(
-      onTap: ontap,
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (c)=>PageDetails(image: image,
+         title: title)));
+      },
       child: Container(
           height: 20.h,
           width: mobile ? 29.w : 30.w,
@@ -35,8 +38,7 @@ class FeaturedProducts extends StatelessWidget {
               bottom: 0.35.h),
           padding: EdgeInsets.only(right: 0.5.w),
           decoration: BoxDecoration(
-              color: productColor,
-              borderRadius: BorderRadius.circular(10)),
+              color: productColor, borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
               Padding(
@@ -55,7 +57,7 @@ class FeaturedProducts extends StatelessWidget {
                       ),
                     )),
                     SizedBox(
-                      height: mobile?1.2.h:1.8.h,
+                      height: mobile ? 1.2.h : 1.8.h,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -68,20 +70,20 @@ class FeaturedProducts extends StatelessWidget {
                             title,
                             style: TextStyle(
                                 color: textColor,
-                                fontSize: mobile ? 16.5.sp : 21.px,
-                                fontWeight: FontWeight.w700),
+                                fontSize: mobile ? 14.px : 21.px,
+                                fontWeight: FontWeight.w600),
                             overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(
-                            height: mobile?0.h:0.5.h,
+                            height: mobile ? 0.h : 0.5.h,
                           ),
                           Row(children: [
                             Text(
                               newprice.toString(),
                               style: TextStyle(
                                   color: textColor,
-                                  fontSize: mobile?16.sp:21.px,
-                                  fontWeight: FontWeight.w700),
+                                  fontSize: mobile ? 14.px : 21.px,
+                                  fontWeight: FontWeight.w600),
                               overflow: TextOverflow.ellipsis,
                             ),
                             SizedBox(width: 1.w),
@@ -89,12 +91,11 @@ class FeaturedProducts extends StatelessWidget {
                               child: Text(
                                 oldprice.toString(),
                                 style: TextStyle(
-                                  color:
-                                      textColor,
+                                  color: textColor,
                                   fontSize: mobile ? 16.sp : 15.sp,
                                   fontWeight: FontWeight.w600,
                                   decoration: TextDecoration.lineThrough,
-                                  decorationColor:textColor,
+                                  decorationColor: textColor,
                                   decorationThickness: 0.3.h,
                                 ),
                                 overflow: TextOverflow.ellipsis,
