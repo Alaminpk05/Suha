@@ -6,6 +6,7 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscar
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
@@ -34,17 +35,18 @@ class _WishListState extends State<WishList> {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
 
-    bool isBorder = false;
-    bool isChecklist = true;
+    bool isBorder = true;
+    bool isChecklist = false;
     Color inactiveColor = textColor;
     Color activeColor = const Color.fromRGBO(234, 76, 98, 1);
-    Color activeIconColor=Colors.white;
+    Color activeIconColor = Colors.white;
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'WishList', const CircleMenu()),
+          mobile, context, () {}, 'WishList', const MenuWidget()),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+          padding: EdgeInsets.symmetric(
+              vertical: 2.h, horizontal: mobile ? 3.w : homeTabLP),
           child: Column(
             children: [
               Row(
@@ -52,7 +54,7 @@ class _WishListState extends State<WishList> {
                 children: [
                   textwidget(
                       text: "Whishlist Items",
-                      fontszie: 16.px,
+                      fontszie: mobile ? 16.px : 24.px,
                       fonweight: FontWeight.w700,
                       color: Colors.white),
                   Row(
@@ -66,7 +68,7 @@ class _WishListState extends State<WishList> {
                             isBorder = true;
                             isChecklist = false;
                           });
-                        },
+                        }, mobile: mobile,
                       ),
                       SizedBox(
                         width: 2.w,
@@ -81,7 +83,7 @@ class _WishListState extends State<WishList> {
                             isChecklist = true;
                             isBorder = false;
                           });
-                        },
+                        }, mobile: mobile,
                       ),
                     ],
                   )
@@ -89,14 +91,15 @@ class _WishListState extends State<WishList> {
               ),
 
               ////main
-              if (isChecklist)
+              if (isChecklist==false)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 2.h),
                   child: TopProductList(
-                      mobile: mobile,
-                      topProductList: topProductList,
-                      tablet: tablet, childratio: 
-                      mobile ? 0.75 : 0.675,),
+                    mobile: mobile,
+                    topProductList: topProductList,
+                    tablet: tablet,
+                    childratio: mobile ? 0.75 : 0.675,
+                  ),
                 )
               else
                 Container(
@@ -143,15 +146,15 @@ class _WishListState extends State<WishList> {
                   children: [
                     Image.asset(
                       'assets/circle-check (3).png',
-                      scale: 15.sp,
+                      scale: mobile?15.sp:10,
                     ),
                     SizedBox(
                       width: 1.w,
                     ),
                     textwidget(
                         text: 'Add all items to cart',
-                        fontszie: 16.px,
-                        fonweight: FontWeight.w500,
+                        fontszie: mobile?16.px:24.px,
+                        fonweight: mobile?FontWeight.w500:FontWeight.w600,
                         color: productColor),
                   ],
                 ),
@@ -169,25 +172,25 @@ class WishListButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.color,
-    required this.ontap,
+    required this.ontap, required this.mobile,
   });
   final String icon;
   final Color color;
   final void Function()? ontap;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ontap,
       child: Container(
-          height: 3.2.h,
-          width: 7.5.w,
+          height: mobile?3.2.h:3.5.h,
+          width: mobile?7.5.w:6.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.sp), color: color),
           child: Image.asset(
             icon,
-
-            scale: 15.sp,
+            scale: mobile ? 15.sp : 9.px,
           )),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/login/login.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -16,7 +17,7 @@ class _FlashScreenState extends State<FlashScreen> {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(64, 91, 233, 1),
+      backgroundColor: scaffoldColor,
       body: Padding(
         padding: EdgeInsets.only(top: 40.h, bottom: 5.h),
         child: Align(
@@ -41,7 +42,7 @@ class _FlashScreenState extends State<FlashScreen> {
                 width: mobile ? 60.w : 60.w,
                 radius: 10.sp,
                 textcolor: Colors.black,
-                buttoncolor: const Color.fromRGBO(255, 175, 0, 1),
+                buttoncolor: addButtonColor,
                 elevation: 0.0,
                 ontap: () {
                   Navigator.pushReplacement(context,

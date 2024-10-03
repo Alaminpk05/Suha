@@ -50,7 +50,7 @@ class _ShopGridState extends State<ShopGrid> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (cxt) => const Bottompage()));
           },
-          widget: const CircleMenu(),
+          widget: const MenuWidget(),
         ),
       ),
       body: SingleChildScrollView(
@@ -150,7 +150,8 @@ class GridViewWidget extends StatelessWidget {
               digitSeconds: '24',
               mobile: mobile,
               tablet: tablet,
-              width: mobile ? 45.w : 30.w, context: context);
+              width: mobile ? 45.w : 30.w,
+              context: context);
         });
   }
 }

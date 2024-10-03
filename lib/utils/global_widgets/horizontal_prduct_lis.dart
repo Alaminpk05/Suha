@@ -165,7 +165,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: mobile?1.w:0.w),
-              width: mobile?22.w:16.w,
+              width: mobile?22.w:16.5.w,
               height: 4.h,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(226, 248, 251, 1),

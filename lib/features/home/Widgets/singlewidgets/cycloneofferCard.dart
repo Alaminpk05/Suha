@@ -19,7 +19,7 @@ class CycloneOfferWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var Mobile = ResponsiveHelper.isMobile(context);
+    var mobile = ResponsiveHelper.isMobile(context);
     return GestureDetector(
       onTap: () {
 
@@ -28,17 +28,16 @@ class CycloneOfferWidget extends StatelessWidget {
             MaterialPageRoute(builder: (context) =>  PageDetails(image: asset, title: title,)));
       },
       child: Container(
-          height: Mobile?23.h:24.h,
-          width: Mobile?30.w:22.w,
-          margin: EdgeInsets.only(
-              top: Mobile?0.1.h:2.h, left: Mobile?0.5.w:0.3.w,
-              right: 0.65.h, bottom: Mobile?0.h:3.h),
+          // height: mobile?23.h:12.h,
+          // width: mobile?30.w:22.w,
+          constraints: BoxConstraints(maxWidth: mobile?30.w:22.w,maxHeight: mobile?23.h:15.h),
+         
           decoration: BoxDecoration(
               color:productColor,
               //  const Color.fromRGBO(36, 38, 68, 1),
               borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.only(
-             bottom: Mobile?0.h:0.h, top: Mobile?0.5.h:3.h),
+             bottom: mobile?0.h:0.h, top: mobile?0.5.h:0.5.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -47,83 +46,81 @@ class CycloneOfferWidget extends StatelessWidget {
                 padding:  EdgeInsets.symmetric(horizontal: 0.5.w),
                 child: Center(
                     child: Image.asset(
-                  asset!,
+                  asset,
 
                  
-                  width: Mobile?30.w:null,
+                  width: mobile?30.w:null,
                 )),
               ),
               SizedBox(
-                height: Mobile?0.h:2.2.h,
+                height: mobile?0.h:0.5.h,
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal:2.5.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal:2.5.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                           color: textColor,
+                          fontSize: mobile?16.sp:15.sp,
+                          fontWeight: FontWeight.w700),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(
+                      height: 0.0.h,
+                    ),
+                    Row(children: [
                       Text(
-                        title!,
+                        "\$7.99",
                         style: TextStyle(
-                             color: textColor,
-                            fontSize: Mobile?16.sp:14.sp,
+                            color: textColor,
+                            fontSize: mobile?16.sp:14.sp,
                             fontWeight: FontWeight.w700),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(
-                        height: 0.0.h,
-                      ),
-                      Row(children: [
-                        Text(
-                          "\$7.99",
+                      SizedBox(width: 1.w),
+                      Center(
+                        child: Text(
+                          "\$15",
                           style: TextStyle(
-                              color: textColor,
-                              fontSize: Mobile?16.sp:14.sp,
-                              fontWeight: FontWeight.w700),
+                            color: textColor,
+                            fontSize: mobile?15.5.sp:13.5.sp,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.lineThrough,
+                            // decorationColor: const Color.fromRGBO(116, 119, 148, 1),
+                            decorationThickness: 0.3.h,
+                          ),
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SizedBox(width: 1.w),
-                        Center(
-                          child: Text(
-                            "\$15",
-                            style: TextStyle(
-                              color: textColor,
-                              fontSize: Mobile?15.5.sp:13.5.sp,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.lineThrough,
-                              // decorationColor: const Color.fromRGBO(116, 119, 148, 1),
-                              decorationThickness: 0.3.h,
-                            ),
-                            overflow: TextOverflow.ellipsis,
+                      ),
+                    ]),
+                    SizedBox(
+                      height: 0.0.h,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${(value * 100).toStringAsFixed(0)}% Sold",
+                          style: TextStyle(
+                             color:textColor,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ]),
-                      SizedBox(
-                        height: 0.0.h,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "${(value * 100).toStringAsFixed(0)}% Sold",
-                            style: TextStyle(
-                               color:textColor,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          LinearPercentIndicator(
-                            barRadius: Radius.circular(25.sp),
-                            padding: EdgeInsets.symmetric(horizontal: Mobile?0.6.w:0),
-                            lineHeight: 0.5.h,
-                            percent: value,
-                            progressColor:productSoldColor,
-                            //  const Color.fromRGBO(13, 110, 253, 1),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                        LinearPercentIndicator(
+                          barRadius: Radius.circular(25.sp),
+                          padding: EdgeInsets.symmetric(horizontal: mobile?0.6.w:0),
+                          lineHeight: 0.5.h,
+                          percent: value,
+                          progressColor:productSoldColor,
+                          //  const Color.fromRGBO(13, 110, 253, 1),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ],

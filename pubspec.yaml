@@ -79,17 +79,8 @@ flutter:
     - assets/images/
     - assets/images/women2.jpg
     - assets/images/women3.jpg
-    - assets/9.jpg
-    - assets/dark.jpg
     - assets/static/
-    - assets/1.jpg
-    - assets/2.jpg
-    - assets/3.jpg
-    - assets/18.png
-    - assets/7.png
-    - assets/12.png
-    - assets/17.png
-    - assets/products.json
+    - assets/json/products.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

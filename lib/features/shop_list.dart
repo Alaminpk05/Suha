@@ -44,7 +44,7 @@ class _ShopListState extends State<ShopList> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (cxt) => const Bottompage()));
           },
-          widget: const CircleMenu(),
+          widget: const MenuWidget(),
         ),
       ),
       body: SingleChildScrollView(
@@ -82,7 +82,8 @@ class _ShopListState extends State<ShopList> {
                           height: 16.h,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: productColor, // Use the passed container color
+                            color:
+                                productColor, // Use the passed container color
                             borderRadius: BorderRadius.circular(10.sp),
                           ),
                           child: Row(
@@ -116,7 +117,7 @@ class _ShopListState extends State<ShopList> {
                                     child: Container(
                                       height: mobile ? 5.h : 3.h,
                                       width: mobile ? 6.w : 5.w,
-                                      decoration:  BoxDecoration(
+                                      decoration: BoxDecoration(
                                           color: productColor,
                                           shape: BoxShape.circle),
                                       child: Padding(

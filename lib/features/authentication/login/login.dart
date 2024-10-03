@@ -5,6 +5,7 @@ import 'package:shuhaui/features/authentication/login/forgot.dart';
 import 'package:shuhaui/features/authentication/registration/registration.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/authtextfield.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -21,7 +22,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(64, 91, 233, 1),
+      backgroundColor: scaffoldColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,11 +47,12 @@ class _LoginState extends State<Login> {
             text: 'Log In',
             fontsize: 16.sp,
             fontWeight: FontWeight.w600,
+            
             height: mobile ? 4.h : 4.5.h,
             width: mobile ? 70.w : 60.w,
             radius: 10.sp,
             textcolor: Colors.black,
-            buttoncolor: const Color.fromRGBO(255, 175, 0, 1),
+            buttoncolor:addButtonColor,
             elevation: 0.0,
             ontap: () {
                Navigator.pushReplacement(context,
@@ -67,21 +69,24 @@ class _LoginState extends State<Login> {
               child: textwidget(
                   text: 'Forgot Password?',
                   fontszie: 14.8.sp,
-                  fonweight: FontWeight.w700,
-                  color: Colors.white)),
+                 
+                  fonweight: FontWeight.w600,
+                  color: productColor)),
           RichText(
               text: TextSpan(children: [
             TextSpan(
                 text: "Didn't have an account? ",
                 style: TextStyle(
+                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w400,
                   fontSize: 14.7.sp,
-                  color: const Color.fromRGBO(170, 188, 243, 0.7),
+                  color: loginadditonaltextColor,
                 )),
             TextSpan(
                 text: "Register Now",
                 style: TextStyle(
-                  fontWeight: FontWeight.w700,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600,
                   fontSize: 14.8.sp,
                   color: Colors.white,
                 ),
@@ -98,12 +103,12 @@ class _LoginState extends State<Login> {
           ),
           SizedBox(
             height: 3.5.h,
-            width: mobile ? 32.w : 24.3.w,
+            width: mobile ? 34.w : 25.1.w,
             child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    backgroundColor: const Color.fromRGBO(88, 90, 245, 0.8),
+                    backgroundColor: const Color.fromRGBO(24,179,210,1),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(9.sp))),
                 child: GestureDetector(
@@ -117,17 +122,13 @@ class _LoginState extends State<Login> {
                     children: [
                       textwidget(
                           text: 'View as guest',
-                          fontszie: mobile ? 14.1.sp : 14.sp,
-                          fonweight: FontWeight.w700,
-                          color: Colors.white70),
+                          fontszie: mobile ? 14.sp : 14.sp,
+                          fonweight: FontWeight.w600,
+                          color: textColor),
                       SizedBox(
-                        width: 2.w,
+                        width: 1.w,
                       ),
-                      Image.asset(
-                        'assets/arrow-narrow-right.png',
-                        height: 3.h,
-                        width: 3.w,
-                      )
+                      Icon(Icons.arrow_forward,size: 3.w,color: textColor,)
                     ],
                   ),
                 )),

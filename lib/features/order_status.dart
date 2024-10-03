@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -46,7 +47,7 @@ class OrderStatus extends StatelessWidget {
     var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'Order Status', const CircleMenu()),
+          mobile, context, () {}, 'Order Status', const MenuWidget()),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -57,7 +58,8 @@ class OrderStatus extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 2.h),
+              margin: EdgeInsets.symmetric(
+                  vertical: 2.h, horizontal: mobile ? 0 : homeTabLP),
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
               height: 44.h,
               width: 85.w,
@@ -103,7 +105,7 @@ class OrderSingleStatus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom:1.5.h),
+          padding: EdgeInsets.only(bottom: 1.5.h),
           child: Row(
             /// FIRST ROW
             children: [
@@ -112,12 +114,9 @@ class OrderSingleStatus extends StatelessWidget {
                 width: 10.w,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: index > 2
-                        ?Colors.grey
-                        : Colors.cyan),
+                    color: index > 2 ? Colors.grey : Colors.cyan),
                 child: Image.asset(
                   icon,
-
                   scale: 10.5,
                 ),
               ),
@@ -133,7 +132,9 @@ class OrderSingleStatus extends StatelessWidget {
                       fontszie: 14.px,
                       fonweight: FontWeight.w600,
                       color: index > 2
-                          ? Colors.grey///const Color.fromRGBO(116, 119, 148, 1)
+                          ? Colors.grey
+
+                          ///const Color.fromRGBO(116, 119, 148, 1)
                           : Colors.black),
                   SizedBox(
                     height: 0.3.h,
@@ -142,7 +143,7 @@ class OrderSingleStatus extends StatelessWidget {
                       text: date,
                       fontszie: 12.px,
                       fonweight: FontWeight.w400,
-                      color:Colors.grey),
+                      color: Colors.grey),
                 ],
               ),
             ],
@@ -168,7 +169,10 @@ class OrderSingleStatus extends StatelessWidget {
                 fit: BoxFit.contain,
               )),
             ),
-            if (index < 5) StraightDotList(index: index,),
+            if (index < 5)
+              StraightDotList(
+                index: index,
+              ),
             if (index == 5)
               StraightDot(
                 height: 0.8.h,
@@ -203,7 +207,8 @@ class StraightDot extends StatelessWidget {
 
 class StraightDotList extends StatelessWidget {
   const StraightDotList({
-    super.key, required this.index,
+    super.key,
+    required this.index,
   });
   final int index;
 

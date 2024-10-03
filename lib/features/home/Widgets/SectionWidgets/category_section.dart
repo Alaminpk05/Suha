@@ -13,7 +13,7 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     var mobile=ResponsiveHelper.isMobile(context);
     return SizedBox(
-      height: mobile?29.h:26.h,
+      height: mobile?29.h:29.h,
       width: double.infinity,
       child: FutureBuilder<List<CategoryModel>>(
         future: categorylist,
@@ -30,7 +30,8 @@ class CategorySection extends StatelessWidget {
           return GridView.builder(
               gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: mobile?0:0.35.w,
-                  crossAxisCount: 4, childAspectRatio: mobile?0.74:0.86),
+                mainAxisSpacing: 1.2.w,
+                  crossAxisCount: 4, childAspectRatio: mobile?0.74:0.8),
               itemCount: categories.length,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (contex, index) {

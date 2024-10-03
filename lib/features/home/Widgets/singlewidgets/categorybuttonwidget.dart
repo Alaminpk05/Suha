@@ -23,7 +23,7 @@ class CategoryWidget extends StatelessWidget {
       onTap: ontap,
       child: Center(
         child: Container(
-          height: mobile ? 14.h : 1.h,
+          height: mobile ? 14.h : 14.h,
           width: mobile ? 22.w : 16.4.w,
           decoration: BoxDecoration(
               color: productColor,

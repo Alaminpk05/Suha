@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
@@ -38,10 +40,7 @@ class CustomSimpleAppBar extends StatelessWidget {
                 child: SizedBox(
                   height: mobile ? 3.h : 4.h,
                   width: mobile ? 6.w : 4.w,
-                  child: Image.asset(
-                    "assets/arrow-left.png",
-                    fit: BoxFit.contain,
-                  ),
+                  child: Platform.isIOS?const Icon(Icons.arrow_back_ios_new_rounded,color: Colors.white,): const Icon(Icons.arrow_back,color:Colors.white,)
                 ),
               ),
               const SizedBox

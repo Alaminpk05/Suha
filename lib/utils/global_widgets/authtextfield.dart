@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class TextFieldWidget extends StatelessWidget {
           Text(
             labeltext, // Label text
             style: TextStyle(
-              color: Colors.white, // Label color
+              color: productColor, // Label color
               fontSize: 15.sp,
             ),
           ),
@@ -35,9 +36,10 @@ class TextFieldWidget extends StatelessWidget {
             decoration: InputDecoration(
                 hintText: hindtext, // Hint text
                 hintStyle: TextStyle(
+                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400,
                   fontSize: mobile?14.5.sp:15.sp,
-                  color: const Color.fromRGBO(170, 188, 243, 0.7), // Hint text color
+                  color: textfieldhintColor, // Hint text color
                 ),
                 prefixIcon: Padding(
                   padding: EdgeInsets.fromLTRB(0, mobile?1.5.h:0.7.h, 0.w, mobile?2.25.h:1.h),

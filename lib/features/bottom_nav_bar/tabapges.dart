@@ -48,14 +48,14 @@ class _BottompageState extends State<Bottompage> {
             ? bottomNavBar(mobile, tablet)
             : Container(
                 height: 6.h,
-                color: const Color.fromRGBO(51, 40, 88, 1),
+                color: scaffoldColor,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: 11.w), // Padding for spacing
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _buildChoiceChip(0, 'assets/home (1).png', ""),
+                      _buildChoiceChip(0, 'assets/home (1).png', "Home"),
                       _buildChoiceChip(1, 'assets/message (1).png', "Chat"),
                       _buildChoiceChip(2, 'assets/basket (2).png', "Cart"),
                       _buildChoiceChip(
@@ -72,11 +72,11 @@ class _BottompageState extends State<Bottompage> {
   Widget _buildChoiceChip(int builchipindex, String assetPath, String label) {
     return ChoiceChip(
       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
-      backgroundColor: const Color.fromRGBO(51, 40, 88, 1),
-      selectedColor: const Color.fromRGBO(51, 40, 88, 1),
+      backgroundColor:scaffoldColor,
+      selectedColor: scaffoldColor,
       shape: RoundedRectangleBorder(
-        side: const BorderSide(
-          // color: Color.fromRGBO(51, 40, 88, 1), // No border when unselected
+        side:  BorderSide(
+           color: scaffoldColor, // No border when unselected
           width: .0,
         ),
         borderRadius: BorderRadius.circular(25.sp), // Rounded border

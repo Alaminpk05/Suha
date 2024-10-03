@@ -59,6 +59,7 @@ class _FeaturedproductssectionState extends State<Featuredproductssection> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       childAspectRatio: 0.72,
+                     
                       crossAxisSpacing: 1.2.w),
                   itemBuilder: (context, index) {
                     final item = featuredProductList[index];

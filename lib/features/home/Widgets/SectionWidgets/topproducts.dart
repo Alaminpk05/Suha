@@ -59,7 +59,7 @@ class TopProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: mobile ? 87.h : 44.h,
+      // height: mobile ? 87.h : 44.h,
       width: double.infinity,
       child: FutureBuilder(
         future: topProductList,
@@ -73,6 +73,7 @@ class TopProductList extends StatelessWidget {
           }
           final topProductList = snapshot.data!;
           return GridView.builder(
+            shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: topProductList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -88,7 +89,7 @@ class TopProductList extends StatelessWidget {
                         image: item.imageUrl,
                         miniButtonword: item.minibuttonword,
                         miniButtoncolor:  const Color.fromRGBO(24,179,210,1),
-
+              
                         textcolor: Colors.black,
                         digitDays: digitDays,
                         digitHours: digitHours,
@@ -106,10 +107,11 @@ class TopProductList extends StatelessWidget {
                         textcolor: textColor,
                         tablet: tablet,
                         width: mobile ? 45.w : 30.w,
-                        context:context);
+                        context:context, );
               });
         },
       ),
+      
     );
   }
 }

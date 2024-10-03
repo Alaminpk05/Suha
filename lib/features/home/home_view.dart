@@ -136,9 +136,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: ResponsiveHelper.isMobile(context)
             ? EdgeInsets.only(
-                top: oneHeightPad, left: homeMobLP, right: homeMobRP)
+                top: appbarMobPad, left: homeMobLP, right: homeMobRP)
             : EdgeInsets.only(
-                top: oneHeightPad, left: homeTabLP, right: homeTabRP),
+                top: appbarMobPad, left: homeTabLP, right: homeTabRP),
         child: Scrollbar(
           child: GlowingOverscrollIndicator(
             axisDirection: AxisDirection.down,
@@ -163,9 +163,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       digitSeconds: digitSeconds,
                       offerProductList: cycloneProductList,
                     ),
-                    SizedBox(height: mobile ? 2.h : 0.h),
+                    SizedBox(height: mobile ? 2.h : 2.h
+                    ),
                     ThemeSwitch(switchValue: switchValue),
-                    SizedBox(height: 0.8.h),
+                    SizedBox(height: 1.h),
                     TopProductsSection(
                       topProductList: topProductList,
                     ),

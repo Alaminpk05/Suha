@@ -7,13 +7,13 @@ import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
 import 'package:shuhaui/features/home/Widgets/SectionWidgets/homeappbar.dart';
 import 'package:shuhaui/features/order_status.dart';
-import 'package:shuhaui/features/product_details/page/page_details.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/features/product_category.dart';
 import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/features/sub_category.dart';
 import 'package:shuhaui/features/wish_list.dart';
+import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
@@ -26,7 +26,7 @@ class Pages extends StatelessWidget {
       appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 2.h),
+          padding: EdgeInsets.symmetric(vertical: 2.h,horizontal: mobile?0:homeTabLP),
           child: Align(
             alignment: Alignment.topCenter,
             child: Column(

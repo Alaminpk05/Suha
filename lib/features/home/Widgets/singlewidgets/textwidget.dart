@@ -9,7 +9,7 @@ class textwidget extends StatelessWidget {
     super.key, required this.text,
     required this.fontszie,
     required this.fonweight,
-    required this.color,
+    required this.color, 
   });
 
   @override

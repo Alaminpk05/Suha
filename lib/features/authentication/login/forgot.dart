@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/login/login.dart';
+import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/authtextfield.dart';
 import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -17,7 +18,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(64, 91, 233, 1),
+      backgroundColor:scaffoldColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -33,8 +34,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             height: mobile ? 4.h : 4.5.h,
             width: mobile ? 70.w : 60.w,
             radius: 10.sp,
-            textcolor: Colors.black,
-            buttoncolor: const Color.fromRGBO(255, 175, 0, 1),
+            textcolor: textfieldbuttontextColor,
+            buttoncolor:textfieldbuttonColor,
             elevation: 0.0,
             ontap: () {
               Navigator.push(context,

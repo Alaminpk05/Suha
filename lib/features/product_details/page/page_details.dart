@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/home/Widgets/singlewidgets/categorybuttonwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
@@ -78,11 +79,11 @@ class _PageDetailsState extends State<PageDetails> {
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'Product Details', const CircleMenu()),
+          mobile, context, () {}, 'Product Details', const MenuWidget()),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FirstSection(mobile, productImage, widget.image,widget.title),
+            FirstSection(mobile, productImage, widget.image, widget.title),
 
             /// START THE SECOND HEADER
             SecondSection(
@@ -95,11 +96,17 @@ class _PageDetailsState extends State<PageDetails> {
             ),
 
             /// ADD TO CART COMPONENT
-            ThirdSection(width: width),
+            ThirdSection(
+              width: width,
+              mobile: mobile,
+            ),
             SizedBox(
               height: 1.5.h,
             ),
-            SpecificationSection(detailPageContColor: productColor),
+            SpecificationSection(
+              detailPageContColor: productColor,
+              mobile: mobile,
+            ),
 
             VideoSection(width: width),
             RelatedProductsSection(
@@ -115,15 +122,18 @@ class _PageDetailsState extends State<PageDetails> {
 
             RatingsReviewsSection(
               reviewlist: reviews,
+              mobile: mobile,
             ),
 
             SizedBox(
               height: 1.5.h,
             ),
             SubmitSection(
-                width: width,
-                textFieldHeight: textFieldHeight,
-                focusNode: focusNode)
+              width: width,
+              textFieldHeight: textFieldHeight,
+              focusNode: focusNode,
+              mobile: mobile,
+            )
           ],
         ),
       ),
@@ -164,11 +174,10 @@ class _PageDetailsState extends State<PageDetails> {
                       final item = itemlist[imageindex];
 
                       return SizedBox(
-                       height: 8.h,
+                        height: 8.h,
                         width: double.infinity,
                         child: Padding(
-                          padding:  EdgeInsets.symmetric(vertical: 2.h
-                          ),
+                          padding: EdgeInsets.symmetric(vertical: 2.h),
                           child: Image.asset(
                             assets,
                             fit: BoxFit.contain,
@@ -185,7 +194,12 @@ class _PageDetailsState extends State<PageDetails> {
                     color: productColor,
                     scale: 1,
                   )),
-              Positioned(bottom: -10.5.h, child: ProductHeader(mobile: mobile, title: title,)),
+              Positioned(
+                  bottom: -10.5.h,
+                  child: ProductHeader(
+                    mobile: mobile,
+                    title: title,
+                  )),
             ],
           ),
         );
@@ -200,16 +214,19 @@ class SubmitSection extends StatelessWidget {
     required this.width,
     required this.textFieldHeight,
     required this.focusNode,
+    required this.mobile,
   });
 
   final double width;
   final double textFieldHeight;
   final FocusNode focusNode;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 5.w : homeTabLP, vertical: 2.h),
       height: 25.5.h,
       width: width,
       color: productColor,
@@ -218,7 +235,7 @@ class SubmitSection extends StatelessWidget {
         children: [
           textwidget(
               text: 'Submit A Review',
-              fontszie: 16.px,
+              fontszie: mobile ? 16.px : 22.px,
               fonweight: FontWeight.w600,
               color: textColor),
           SizedBox(
@@ -265,7 +282,7 @@ class SubmitSection extends StatelessWidget {
                       hintText: 'Write your review...',
                       hintStyle: TextStyle(
                         color: const Color.fromRGBO(112, 114, 133, 1),
-                        fontSize: 14.px,
+                        fontSize: mobile ? 14.px : 20.px,
                         fontWeight: FontWeight.w400,
                       ),
                       border: InputBorder.none),
@@ -277,7 +294,12 @@ class SubmitSection extends StatelessWidget {
             height: 1.h,
           ),
           DetailPageTextButton(
-              ontab: () {}, buttonWidth: 25.w, height: 3.h, text: 'Save Review')
+            ontab: () {},
+            buttonWidth: mobile ? 25.w : 20.w,
+            height: 3.h,
+            text: 'Save Review',
+            mobile: mobile,
+          )
         ],
       ),
     );
@@ -303,15 +325,37 @@ class RelatedProductsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 37.9.h,
+      height: mobile ? 37.9.h : 34.h,
       width: width.w,
       color: null,
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 5.w : homeTabLP, vertical: 1.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ViewProductlist(
-              productListviewTitle: 'Related Products', ontab: () {}),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              textwidget(
+                  text: "Related Products",
+                  fontszie: mobile ? 16.px : 22.px,
+                  fonweight: FontWeight.w600,
+                  color: productColor),
+              Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: mobile ? 1.w : 1.5.w, vertical: 0.5.h),
+                decoration: BoxDecoration(
+                  color: addButtonColor,
+                  borderRadius: BorderRadius.circular(8.px),
+                ),
+                child: textwidget(
+                    text: "View All",
+                    fontszie: 16.px,
+                    fonweight: FontWeight.w500,
+                    color: productColor),
+              )
+            ],
+          ),
           SizedBox(
             height: 1.h,
           ),
@@ -338,16 +382,157 @@ class RelatedProductsSection extends StatelessWidget {
                       print(item.title);
                       return Padding(
                         padding: EdgeInsets.only(right: 2.w),
-                        child: topProductwithouttime(
-                            name: item.title,
-                            photo: item.imageUrl,
-                            minibuttoncolor:
-                                const Color.fromRGBO(0, 184, 148, 1),
-                            minibuttonword2: item.minibuttonword,
-                            mobile: mobile,
-                            textcolor: textColor,
-                            tablet: tablet,
-                            width: 43.5.w, context: context),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (c) => PageDetails(
+                                        image: item.imageUrl,
+                                        title: item.title)));
+                          },
+                          child: Container(
+                            height: mobile ? 28.5.h : 22.h,
+                            width: 30.w,
+                            // margin: EdgeInsets.only(
+                            //     top: 0.5.h, left: mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
+                            decoration: BoxDecoration(
+                              color: productColor,
+                              //  const Color.fromRGBO(36, 38, 68, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  top: mobile ? 3.h : 2.5.h,
+                                  left: mobile ? 6.w : 1.5.w,
+                                  child: Center(
+                                      child: Image.asset(item.imageUrl,
+                                          width: mobile ? 28.w : 25.w)),
+                                ),
+                                Positioned(
+                                  top: mobile ? 3.h : 1.5.h,
+                                  left: mobile ? 4.w : 2.5.w,
+                                  right: mobile ? 3.5.w : -2.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 0.2.h),
+                                        // height: mobile ? 2.h : 1.5.h,
+                                        // width: mobile ? 10.w : 5.w,
+                                        decoration: BoxDecoration(
+                                          color: miniButtonColor,
+                                          borderRadius:
+                                              BorderRadius.circular(20.sp),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            item.minibuttonword,
+                                            style: TextStyle(
+                                              color: miniButtonTextColor,
+                                              fontWeight: FontWeight.w400,
+                                              fontFamily:
+                                                  "PlusJakartaSans-Regular.ttf",
+                                              fontSize:
+                                                  mobile ? 13.5.sp : 12.sp,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                        width: 10.w,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.only(right: 0.7.w),
+                                          child: Image.asset(
+                                            'assets/heart (3).png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  top: mobile ? 17.5.h : 19.h,
+                                  left: mobile ? 3.3.w : 2.5.w,
+                                  child: regularfont(
+                                    text: item.title,
+                                    fontsize: mobile ? 16.sp : 23.px,
+                                    color: textColor,
+                                  ),
+                                ),
+                                Positioned(
+                                  top: mobile ? 20.2.h : 21.h,
+                                  left: mobile ? 3.3.w : 2.5.w,
+                                  right: 2.w,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "\$74",
+                                        style: TextStyle(
+                                          color: textColor,
+                                          fontSize: mobile ? 18.sp : 23.px,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      SizedBox(width: 1.w),
+                                      Text(
+                                        "\$99",
+                                        style: TextStyle(
+                                          color: textColor,
+                                          fontSize: mobile ? 15.5.sp : 13.5.sp,
+                                          fontWeight: FontWeight.w500,
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                          decorationColor: textColor,
+                                          decorationThickness: 0.3.h,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: mobile ? 2.5.h : 1.5.h,
+                                  left: mobile ? 3.3.w : 2.8.w,
+                                  right: mobile ? 5.w : 3.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      FiveStar(
+                                        height: mobile ? 2.5.h : 1.5.h,
+                                        width: mobile ? 2.5.w : 1.5.w,
+                                      ),
+                                      Container(
+                                        height: mobile ? 4.h : 2.5.h,
+                                        width: mobile
+                                            ? 4.h
+                                            : 2.5
+                                                .h, // Use 4.h for both dimensions to maintain the circle
+                                        decoration: BoxDecoration(
+                                          color: addButtonColor,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Center(
+                                            child: Image.asset(
+                                          color: addButtoniconColor,
+                                          'assets/plus.png',
+                                          height: mobile ? 2.h : 2.h,
+                                          width: mobile ? 2.h : 1.5.h,
+                                        )),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       );
                     }),
               );
@@ -363,8 +548,10 @@ class RatingsReviewsSection extends StatelessWidget {
   const RatingsReviewsSection({
     super.key,
     required this.reviewlist,
+    required this.mobile,
   });
   final Future<List<ReviewModel>> reviewlist;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
@@ -372,8 +559,8 @@ class RatingsReviewsSection extends StatelessWidget {
       height: 50.h,
       padding: EdgeInsets.only(
         top: 2.h,
-        left: 5.w,
-        right: 5.w,
+        left: mobile ? 5.w : homeTabLP,
+        right: mobile ? 5.w : homeTabLP,
       ),
       color: productColor,
       child: Column(
@@ -381,7 +568,7 @@ class RatingsReviewsSection extends StatelessWidget {
         children: [
           textwidget(
               text: 'Ratings & Reviews',
-              fontszie: 16.px,
+              fontszie: mobile ? 16.px : 22.px,
               fonweight: FontWeight.w700,
               color: textColor),
           SizedBox(
@@ -486,10 +673,11 @@ class RatingsReviewsSection extends StatelessWidget {
                           ),
                           if (datalist.length - 1 != index)
                             Row(
-                                children: List.generate(45, (index) {
+                                children:
+                                    List.generate(mobile ? 45 : 35, (index) {
                               return Container(
                                 margin: EdgeInsets.symmetric(horizontal: 0.5.w),
-                                height: 0.2.h,
+                                height: 0.05.h,
                                 width: 1.w,
                                 color: textColor,
                               );
@@ -587,8 +775,11 @@ class SecondSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12.h),
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.5.h),
+      margin: EdgeInsets.only(
+        top: 12.h,
+      ),
+      padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 5.w : homeTabLP, vertical: 0.5.h),
       color: productColor,
       height: 8.h,
       width: width,
@@ -651,7 +842,9 @@ class SpecificationSection extends StatelessWidget {
   const SpecificationSection({
     super.key,
     required this.detailPageContColor,
+    required this.mobile,
   });
+  final bool mobile;
 
   final Color detailPageContColor;
 
@@ -670,6 +863,7 @@ class SpecificationSection extends StatelessWidget {
         '100% Brand New Product',
       ],
       contentColor: detailPageContColor,
+      mobile: mobile,
     );
   }
 }
@@ -678,9 +872,11 @@ class ThirdSection extends StatelessWidget {
   const ThirdSection({
     super.key,
     required this.width,
+    required this.mobile,
   });
 
   final double width;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
@@ -690,7 +886,7 @@ class ThirdSection extends StatelessWidget {
       color: productColor,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 5.w,
+          horizontal: mobile ? 5.w : homeTabLP,
         ),
         child: Row(
           children: [
@@ -744,6 +940,7 @@ class ThirdSection extends StatelessWidget {
               buttonWidth: 22.w,
               height: 3.5.h,
               text: 'Add To Cart',
+              mobile: mobile,
             ),
           ],
         ),
@@ -759,11 +956,13 @@ class DetailPageTextButton extends StatelessWidget {
     required this.buttonWidth,
     required this.height,
     required this.text,
+    required this.mobile,
   });
   final void Function()? ontab;
   final double buttonWidth;
   final double height;
   final String text;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
@@ -779,8 +978,8 @@ class DetailPageTextButton extends StatelessWidget {
         ),
         child: textwidget(
             text: text,
-            fontszie: 14.px,
-            fonweight: FontWeight.w700,
+            fontszie: mobile ? 14.px : 20.px,
+            fonweight: FontWeight.w600,
             color: Colors.white),
       ),
     );
@@ -803,12 +1002,15 @@ class SpecificationsWidget extends StatelessWidget {
     required this.description,
     required this.specifications,
     required this.contentColor,
+    required this.mobile,
   });
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 5.w : homeTabLP, vertical: 2.h),
       color: contentColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -818,7 +1020,7 @@ class SpecificationsWidget extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Poppins',
               color: textColor,
-              fontSize: 16.5.sp,
+              fontSize: mobile ? 16.5.px : 22.px,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -826,7 +1028,7 @@ class SpecificationsWidget extends StatelessWidget {
           textwidget(
               text:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
-              fontszie: 15.sp,
+              fontszie: mobile ? 20.px : 20.px,
               fonweight: FontWeight.w400,
               color: textColor),
           SizedBox(height: 2.h),
@@ -837,6 +1039,7 @@ class SpecificationsWidget extends StatelessWidget {
                       children: [
                         SpecificationRules(
                           title: spec,
+                          mobile: mobile,
                         ),
                         // const SpecificationRules(
                         //   title: '7 Days Returns',
@@ -855,7 +1058,7 @@ class SpecificationsWidget extends StatelessWidget {
           textwidget(
               text:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
-              fontszie: 15.sp,
+              fontszie: 20.px,
               fonweight: FontWeight.w400,
               color: textColor),
         ],
@@ -867,9 +1070,10 @@ class SpecificationsWidget extends StatelessWidget {
 class SpecificationRules extends StatelessWidget {
   const SpecificationRules({
     super.key,
-    required this.title,
+    required this.title, this.mobile,
   });
   final String title;
+  final mobile;
 
   @override
   Widget build(BuildContext context) {
@@ -878,14 +1082,14 @@ class SpecificationRules extends StatelessWidget {
         Image.asset(
           'assets/check.png',
           color: textColor,
-          scale: 18,
+          scale: mobile ? 18 : 16,
         ),
         SizedBox(
           width: 1.w,
         ),
         textwidget(
             text: title,
-            fontszie: 15.sp,
+            fontszie: 20.px,
             fonweight: FontWeight.w400,
             color: textColor)
       ],
@@ -932,17 +1136,17 @@ class DetailPageIconButton extends StatelessWidget {
 class ProductHeader extends StatelessWidget {
   const ProductHeader({
     super.key,
-    required this.mobile, required this.title,
+    required this.mobile,
+    required this.title,
   });
 
   final bool mobile;
   final String title;
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.5.h),
+      padding: EdgeInsets.symmetric(horizontal: mobile?5.w:homeTabLP, vertical: 0.5.h),
       decoration: BoxDecoration(
           color: productColor,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20.sp))),

@@ -75,11 +75,12 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
             ),
           ),
           SizedBox(
-            height: mobile ? 1.h : 0,
+            height: mobile ? 1.h : 1.h,
           ),
-          SizedBox(
-              height: mobile?50.w:44.w,
-              width: 100.w,
+          Container(
+           
+              height: mobile?50.w:24.h,
+              width: double.infinity,
               child: FutureBuilder(
                 future: widget.offerProductList,
                 builder: (context, snapshot) {
@@ -92,19 +93,23 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
                   }
                   final offerProducts = snapshot.data!;
                   return ListView.builder(
+                   
                       controller: scrollController,
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
-                      itemCount: offerProducts.length,
+                     
                       itemBuilder: (context, index) {
 
-                        // final realIndex = index % widget.offerProductList.length;
-                        final item = offerProducts[index];
+                         final realIndex = index % offerProducts.length;
+                        final item = offerProducts[realIndex];
 
-                        return CycloneOfferWidget(
-                          value: item.soldPercentage,
-                          asset: item.imageUrl,
-                          title: item.title,
+                        return Padding(
+                          padding: EdgeInsets.only(right: 1.35.w),
+                          child: CycloneOfferWidget(
+                            value: item.soldPercentage,
+                            asset: item.imageUrl,
+                            title: item.title,
+                          ),
                         );
                       });
                 },

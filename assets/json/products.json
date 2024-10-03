@@ -369,6 +369,7 @@
       "original_price": "89.0",
       "image": "assets/images/ball.png"
     }
+  
   ],
 
 
@@ -503,6 +504,17 @@
       "imageUrl": "assets/images/polo.png"
     },
     {
+      "id": 6,
+      "istimer":false,
+      "minibuttonword":"-11",
+      "title": "Wooden Chair",
+      "price": 21.0,
+      "originalPrice": 25.0,
+      "rating": 5,
+      "timer": "94d 19h 34m 3s",
+      "isFavorite": false,
+      "imageUrl": "assets/images/woodenchair.png"
+    }, {
       "id": 6,
       "istimer":false,
       "minibuttonword":"-11",

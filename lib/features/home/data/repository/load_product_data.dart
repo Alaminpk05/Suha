@@ -18,7 +18,7 @@ import 'package:shuhaui/features/product_details/data/model/ratings_review.dart'
 // }
 
 class ProductService {
-  var jsonfilepath = 'assets/products.json';
+  var jsonfilepath = 'assets/json/products.json';
 
   Future<List<CategoryModel>> fetchCategoryList() async {
     final response = await rootBundle.loadString(jsonfilepath);
