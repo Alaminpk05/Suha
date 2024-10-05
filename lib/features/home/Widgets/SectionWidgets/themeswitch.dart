@@ -28,7 +28,7 @@ class ThemeSwitch extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             
-            image:  DecorationImage(
+            image:  const DecorationImage(
             
               image: 
             AssetImage('assets/images/night.jpg'),
@@ -52,7 +52,7 @@ class ThemeSwitch extends StatelessWidget {
             
                       fontSize: 16.sp ),textAlign: TextAlign.start,),
                 Switch(
-                    activeColor: Color.fromRGBO(24,179,210,1),
+                    activeColor: const Color.fromRGBO(24,179,210,1),
                     inactiveThumbColor: Colors.white,
                     inactiveTrackColor: const Color.fromRGBO(12, 21, 59, 1),
             

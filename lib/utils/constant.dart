@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-final homeTabRP = 15.w;
-final homeTabLP = 15.w;
-final homeMobRP = 3.w;
-final homeMobLP = 3.w;
-final homeTopPad = 2.h;
-final widgetTopPad = 2.h;
-final oneHeightPad = 1.h;
-final sectionTopPad = 2.5.h;
-
-final appbarMobPad = 4.w;
-final appbarTabPad = 18.w;
-
-final widgetRPad = 1.w;
-
 final PageController pageController = PageController();
 final List pageViewImage = [
   "assets/1.jpg",

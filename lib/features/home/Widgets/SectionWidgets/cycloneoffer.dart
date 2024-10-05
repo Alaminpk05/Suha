@@ -77,7 +77,7 @@ class _CycloneOfferSectionState extends State<CycloneOfferSection> {
           SizedBox(
             height: mobile ? 1.h : 1.h,
           ),
-          Container(
+          SizedBox(
            
               height: mobile?50.w:24.h,
               width: double.infinity,

@@ -34,9 +34,12 @@ Color textfieldbuttonColor = const Color.fromRGBO(24, 179, 210, 1);
 Color textfieldhintColor =
     const Color.fromRGBO(170, 188, 243, 0.7).withOpacity(0.4);
 Color textfieldbuttontextColor = Colors.black;
-Color loginadditonaltextColor=const Color.fromRGBO(170, 188, 243, 0.7);
+Color loginadditonaltextColor = const Color.fromRGBO(170, 188, 243, 0.7);
 
-
+/// AUTHENTICATION CONST COLOR
+Color authButtonColor = addButtonColor;
+Color authButtonTextColor = Colors.black;
+Color authPageTextColor = Colors.white;
 
 
 // cyan: Color.fromRGBO(24,179,210,1),

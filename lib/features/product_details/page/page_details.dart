@@ -7,13 +7,12 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/categorybuttonwidget.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/topProductwithouttime.dart';
-import 'package:shuhaui/features/home/Widgets/singlewidgets/viewallButton.dart';
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/features/product_details/data/model/ratings_review.dart';
 import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
+import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -325,8 +324,8 @@ class RelatedProductsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: mobile ? 37.9.h : 34.h,
-      width: width.w,
+      height: mobile ? 34.h : 34.h,
+      width: width,
       color: null,
       padding: EdgeInsets.symmetric(
           horizontal: mobile ? 5.w : homeTabLP, vertical: 1.h),
@@ -343,14 +342,14 @@ class RelatedProductsSection extends StatelessWidget {
                   color: productColor),
               Container(
                 padding: EdgeInsets.symmetric(
-                    horizontal: mobile ? 1.w : 1.5.w, vertical: 0.5.h),
+                    horizontal: mobile ? 1.5.w : 1.5.w, vertical: 0.5.h),
                 decoration: BoxDecoration(
                   color: addButtonColor,
                   borderRadius: BorderRadius.circular(8.px),
                 ),
                 child: textwidget(
                     text: "View All",
-                    fontszie: 16.px,
+                    fontszie: mobile?12.px:16.px,
                     fonweight: FontWeight.w500,
                     color: productColor),
               )
@@ -381,7 +380,7 @@ class RelatedProductsSection extends StatelessWidget {
                       final item = itemlist[index];
                       print(item.title);
                       return Padding(
-                        padding: EdgeInsets.only(right: 2.w),
+                        padding: EdgeInsets.only(right: mobile?4.w:2.w),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -393,7 +392,7 @@ class RelatedProductsSection extends StatelessWidget {
                           },
                           child: Container(
                             height: mobile ? 28.5.h : 22.h,
-                            width: 30.w,
+                            width: mobile?42.5.w:30.w,
                             // margin: EdgeInsets.only(
                             //     top: 0.5.h, left: mobile?0.5.w:0, right: 1.h, bottom: 0.5.h),
                             decoration: BoxDecoration(
@@ -1028,7 +1027,7 @@ class SpecificationsWidget extends StatelessWidget {
           textwidget(
               text:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
-              fontszie: mobile ? 20.px : 20.px,
+              fontszie: mobile ? 14.px : 20.px,
               fonweight: FontWeight.w400,
               color: textColor),
           SizedBox(height: 2.h),
@@ -1058,7 +1057,7 @@ class SpecificationsWidget extends StatelessWidget {
           textwidget(
               text:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae?',
-              fontszie: 20.px,
+              fontszie: mobile?14.px:20.px,
               fonweight: FontWeight.w400,
               color: textColor),
         ],
@@ -1089,7 +1088,7 @@ class SpecificationRules extends StatelessWidget {
         ),
         textwidget(
             text: title,
-            fontszie: 20.px,
+            fontszie: mobile?14.px:20.px,
             fonweight: FontWeight.w400,
             color: textColor)
       ],

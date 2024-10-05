@@ -8,6 +8,7 @@ import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
 import 'package:shuhaui/features/pages/widgets/button_widgets.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
 
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';

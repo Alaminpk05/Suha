@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/authentication/forget_pass_success.dart';
+import 'package:shuhaui/features/authentication/otp_confirmation.dart';
+import 'package:shuhaui/features/authentication/privacy_policy.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
@@ -24,7 +27,9 @@ class MyApp extends StatelessWidget {
             textTheme: const TextTheme(
               bodyLarge: TextStyle(fontWeight: FontWeight.w400),
               bodyMedium: TextStyle(fontWeight: FontWeight.w400),
-              bodySmall: TextStyle(fontWeight: FontWeight.w400,),
+              bodySmall: TextStyle(
+                fontWeight: FontWeight.w400,
+              ),
               displayLarge: TextStyle(fontWeight: FontWeight.w600),
               displayMedium: TextStyle(fontWeight: FontWeight.w600),
               displaySmall: TextStyle(fontWeight: FontWeight.w500),
@@ -33,16 +38,15 @@ class MyApp extends StatelessWidget {
               titleSmall: TextStyle(fontWeight: FontWeight.w600),
             ),
 
-
-            appBarTheme:  AppBarTheme(
-              backgroundColor:appbarColor,
+            appBarTheme: AppBarTheme(
+              backgroundColor: appbarColor,
 
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
             scaffoldBackgroundColor: scaffoldColor,
             // const Color.fromRGBO(12, 21, 59, 1),
-            bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-              backgroundColor:bottomnavColor,
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              backgroundColor: bottomnavColor,
               //  Color.fromRGBO(51, 40, 88, 1),
             ),
             useMaterial3: false,
@@ -51,7 +55,7 @@ class MyApp extends StatelessWidget {
             return SafeArea(child: child!);
           },
           debugShowCheckedModeBanner: false,
-          home: const Bottompage(),
+          home: Bottompage(),
         );
       },
     );

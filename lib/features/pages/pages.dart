@@ -1,6 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/authentication/change_password.dart';
+import 'package:shuhaui/features/authentication/forget_pass_success.dart';
+import 'package:shuhaui/features/authentication/login/forgot.dart';
+import 'package:shuhaui/features/authentication/otp_confirmation.dart';
+import 'package:shuhaui/features/authentication/otp_send.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
@@ -14,6 +19,7 @@ import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/features/sub_category.dart';
 import 'package:shuhaui/features/wish_list.dart';
 import 'package:shuhaui/utils/constant.dart';
+import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class Pages extends StatelessWidget {
@@ -242,27 +248,43 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const OTPSendPage()));
+                  },
                   title: 'OTP Send',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>   OTPConfirmationPage()));
+                  },
                   title: 'OTP Confirmation',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const ForgotPassword()));
+                  },
                   title: 'Forget Password',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                   Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const ChangePasswordPage()));
+                  },
                   title: 'Change Password',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const ForgetPassStatusPage()));
+
+                  },
                   title: 'Forget Password Success',
                 ),
                 PagesTitleText(
