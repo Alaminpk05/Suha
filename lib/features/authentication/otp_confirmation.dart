@@ -8,6 +8,8 @@ import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 
 
 class OTPConfirmationPage extends StatefulWidget {
+  const OTPConfirmationPage({super.key});
+
   @override
   _OTPConfirmationPageState createState() => _OTPConfirmationPageState();
 }

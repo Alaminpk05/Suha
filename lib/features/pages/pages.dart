@@ -18,7 +18,6 @@ import 'package:shuhaui/features/shop_grid.dart';
 import 'package:shuhaui/features/shop_list.dart';
 import 'package:shuhaui/features/sub_category.dart';
 import 'package:shuhaui/features/wish_list.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -258,7 +257,7 @@ class Pages extends StatelessWidget {
                   mobile: mobile,
                   ontap: () {
                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>   OTPConfirmationPage()));
+                        MaterialPageRoute(builder: (context) =>   const OTPConfirmationPage()));
                   },
                   title: 'OTP Confirmation',
                 ),
@@ -274,7 +273,7 @@ class Pages extends StatelessWidget {
                   mobile: mobile,
                   ontap: () {
                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const ChangePasswordPage()));
+                        MaterialPageRoute(builder: (context) =>   const ChangePasswordPage()));
                   },
                   title: 'Change Password',
                 ),

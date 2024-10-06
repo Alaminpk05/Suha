@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
+  const OtpVerificationScreen({super.key});
+
   @override
   _OtpVerificationScreenState createState() => _OtpVerificationScreenState();
 }
@@ -43,7 +45,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blue, Colors.purple],
             begin: Alignment.topLeft,
@@ -56,7 +58,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   'Verify Phone Number',
                   style: TextStyle(
                     fontSize: 24,
@@ -64,12 +66,12 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 10),
-                Text(
+                const SizedBox(height: 10),
+                const Text(
                   'Enter the OTP code sent to 0123 456 7890',
                   style: TextStyle(color: Colors.white60),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // Four OTP text fields
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -80,7 +82,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                         controller: controllers[index],
                         focusNode: focusNodes[index],
                         onChanged: (value) => nextField(value, index),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                           color: Colors.white,
                         ),
@@ -91,18 +93,18 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                           counterText: "",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(color: Colors.white),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Colors.orange),
+                            borderSide: const BorderSide(color: Colors.orange),
                           ),
                         ),
                       ),
                     );
                   }),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // Verify Button
                 ElevatedButton(
                   onPressed: () {
@@ -112,23 +114,23 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Verify & Proceed',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 // Resend OTP
                 TextButton(
                   onPressed: () {
                     // Resend OTP logic here
                   },
-                  child: Text(
+                  child: const Text(
                     "Didn't receive the OTP?",
                     style: TextStyle(color: Colors.white60),
                   ),

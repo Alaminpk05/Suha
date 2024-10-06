@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
-import 'package:shuhaui/features/cart/cart_view.dart';
+import 'package:shuhaui/features/cart&checkout.dart/cart/cart_view.dart';
 import 'package:shuhaui/features/chat.dart';
 import 'package:shuhaui/features/home/home_view.dart';
 import 'package:shuhaui/features/pages/pages.dart';

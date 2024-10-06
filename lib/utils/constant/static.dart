@@ -4,8 +4,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 final textsize20 = 20.px;
 final textsize14 = 14.px;
+final textsize15 = 15.px;
 final textsize16 = 16.px;
 final textsize12 = 12.px;
+final textsize13 = 13.px;
 const FontWeight fontWeight400 = FontWeight.w400;
 const FontWeight fontWeight500 = FontWeight.w500;
 FontWeight fontWeight600 = FontWeight.w600;

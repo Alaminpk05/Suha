@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/features/pages/pages.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
@@ -37,10 +36,7 @@ PreferredSize PreCustomAppBar(bool mobile, BuildContext context,
       preferredSize: Size.fromHeight(mobile ? kToolbarHeight : 5.5.h),
       child: CustomSimpleAppBar(
         title: title,
-        navigation: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (c) => const Pages()));
-        },
+     
         widget: widget,
       ));
 }

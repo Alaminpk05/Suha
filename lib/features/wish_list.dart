@@ -6,7 +6,6 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/weeklybestsellerscar
 import 'package:shuhaui/features/home/data/model/top_product.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';

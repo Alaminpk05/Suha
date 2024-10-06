@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/otp_confirmation.dart';
-import 'package:shuhaui/features/authentication/privacy_policy.dart';
 import 'package:shuhaui/features/authentication/term_of_service.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
@@ -195,7 +194,7 @@ class _OTPSendPageState extends State<OTPSendPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (c) =>  OTPConfirmationPage()));
+                          builder: (c) =>  const OTPConfirmationPage()));
                 }),
             SizedBox(
               height: 2.h,

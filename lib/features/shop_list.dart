@@ -1,11 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/features/home/data/model/weekly_product.dart';
 import 'package:shuhaui/features/home/data/repository/load_product_data.dart';
-import 'package:shuhaui/utils/constant.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
@@ -39,13 +37,10 @@ class _ShopListState extends State<ShopList> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(mobile ? kToolbarHeight : 5.5.h),
-        child: CustomSimpleAppBar(
+        child: const CustomSimpleAppBar(
           title: 'Shop List',
-          navigation: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (cxt) => const Bottompage()));
-          },
-          widget: const MenuWidget(),
+         
+          widget: MenuWidget(),
         ),
       ),
       body: SingleChildScrollView(

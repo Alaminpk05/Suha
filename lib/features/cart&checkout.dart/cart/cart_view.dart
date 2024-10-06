@@ -20,13 +20,10 @@ class CartView extends StatelessWidget {
       child: Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(mobile ? kToolbarHeight : 5.5.h),
-            child: CustomSimpleAppBar(
+            child: const CustomSimpleAppBar(
               title: 'My Cart',
-              navigation: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) =>ShopGrid()));
-              },
-              widget: const MenuWidget(),
+             
+              widget: MenuWidget(),
             )),
         body: Column(
           children: [
