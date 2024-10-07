@@ -9,8 +9,8 @@ import 'package:shuhaui/utils/global_widgets/elevated_text_button.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class CartView extends StatelessWidget {
-  final String title;
-  const CartView({super.key, required this.title});
+
+   const CartView({super.key, });
 
   @override
   Widget build(BuildContext context) {

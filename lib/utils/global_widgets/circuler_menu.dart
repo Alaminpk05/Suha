@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
+import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
@@ -75,4 +76,24 @@ class FiveStar extends StatelessWidget {
       }),
     );
   }
+}
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final Widget widget;
+
+  const CustomAppBar({Key? key, required this.title, required this.widget})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    bool mobile = ResponsiveHelper.isMobile(context);
+    return PreferredSize(
+      preferredSize: mobile?const Size.fromHeight(kToolbarHeight):Size.fromHeight(appbarTabheight),
+      child: CustomSimpleAppBar(title: title, widget: widget),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

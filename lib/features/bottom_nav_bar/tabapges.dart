@@ -26,7 +26,7 @@ class _BottompageState extends State<Bottompage> {
       'page': const Chat(),
     },
     {
-      'page': const CartView(title: 'MY Cart'),
+      'page': const CartView(),
     },
     {
       'page': const Settings(),

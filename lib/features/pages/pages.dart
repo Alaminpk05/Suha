@@ -7,6 +7,13 @@ import 'package:shuhaui/features/authentication/login/forgot.dart';
 import 'package:shuhaui/features/authentication/otp_confirmation.dart';
 import 'package:shuhaui/features/authentication/otp_send.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
+import 'package:shuhaui/features/cart&checkout.dart/cart/cart_view.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/bank_transfer_page.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/billing_information.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/cash_page.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/choose_payment_method.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/credit_page.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/payple_page.dart';
 import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
 import 'package:shuhaui/features/flash_screen.dart';
@@ -31,7 +38,8 @@ class Pages extends StatelessWidget {
       appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 2.h,horizontal: mobile?0:homeTabLP),
+          padding: EdgeInsets.symmetric(
+              vertical: 2.h, horizontal: mobile ? 0 : homeTabLP),
           child: Align(
             alignment: Alignment.topCenter,
             child: Column(
@@ -59,7 +67,6 @@ class Pages extends StatelessWidget {
                   title: 'Shop',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -87,7 +94,7 @@ class Pages extends StatelessWidget {
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
-                           
+
                     //         builder: (context) =>   PageDetails()));
                   },
                   title: 'Product Details',
@@ -108,9 +115,7 @@ class Pages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  const SubProductCategory(
-                                
-                                )));
+                            builder: (context) => const SubProductCategory()));
                   },
                   title: 'Sub Category',
                 ),
@@ -166,7 +171,6 @@ class Pages extends StatelessWidget {
                   title: 'Vendor',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -187,53 +191,78 @@ class Pages extends StatelessWidget {
                   title: 'Cart & Checkout',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => const CartView()));
+                  },
                   title: 'Cart',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (c) => const BillingInformation()));
+                  },
                   title: 'Checkout',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (c) =>  BankTransferPage()));
+                  },
                   title: 'Checkout Bank',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => const CashPage()));
+                  },
                   title: 'Checkout Cash',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => const CreditPage()));
+                  },
                   title: 'Checkout Credit Card',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=>
+                     ChoosePaymentMethod()));
+                  },
                   title: 'Checkout Payment',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => PaypalPage()));
+                  },
                   title: 'Checkout Paypal',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                  
+                  },
                   title: 'Payment Success',
                 ),
                 PagesTitleText(
                   title: 'Authentication',
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -248,48 +277,57 @@ class Pages extends StatelessWidget {
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const OTPSendPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OTPSendPage()));
                   },
                   title: 'OTP Send',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>   const OTPConfirmationPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OTPConfirmationPage()));
                   },
                   title: 'OTP Confirmation',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const ForgotPassword()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ForgotPassword()));
                   },
                   title: 'Forget Password',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                   Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>   const ChangePasswordPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ChangePasswordPage()));
                   },
                   title: 'Change Password',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const ForgetPassStatusPage()));
-
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const ForgetPassStatusPage()));
                   },
                   title: 'Forget Password Success',
                 ),
                 PagesTitleText(
                   title: 'Blog',
                   fontsize: 15.5.sp,
-                 
                   fontWeight: FontWeight.w400,
                 ),
                 ElevatedIconTextButton(
@@ -311,7 +349,6 @@ class Pages extends StatelessWidget {
                   title: "Chat & Notifications",
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                 
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
@@ -332,7 +369,6 @@ class Pages extends StatelessWidget {
                   title: "Miscellaneous",
                   fontsize: 15.5.sp,
                   fontWeight: FontWeight.w400,
-                  
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,

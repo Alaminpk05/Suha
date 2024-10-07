@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/authentication/change_password.dart';
+import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/cart&checkout.dart/checkout/billing_information.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/dependency_injection/dependency_setup.dart';
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
             return SafeArea(child: child!);
           },
           debugShowCheckedModeBanner: false,
-          home:  const BillingInformation(),
+          home: const Bottompage(),
         );
       },
     );

@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/choose_payment_method.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/constant/static.dart';
@@ -81,7 +83,7 @@ class _BillingInformationState extends State<BillingInformation> {
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 1.5.h),
-                height: 35.h,
+                height: 24.h,
                 width: 80.w,
                 decoration: BoxDecoration(
                   color: productColor,
@@ -94,7 +96,7 @@ class _BillingInformationState extends State<BillingInformation> {
                         options: GroupButtonOptions(
                           selectedColor: Colors.orange,
                           unselectedColor: productColor,
-                          selectedTextStyle: TextStyle(color: Colors.white),
+                          selectedTextStyle: const TextStyle(color: Colors.red),
                           unselectedTextStyle:
                               TextStyle(color: Colors.grey[400]),
                           borderRadius: BorderRadius.circular(8),
@@ -111,34 +113,44 @@ class _BillingInformationState extends State<BillingInformation> {
                             selectedIndex = index;
                           });
                         },
-                        buttons: [
+                        buttons: const [
                           "Fast Shipping 1 days delivery for \$1.0",
                           "Reguler 3-7 days delivery for \$0.4",
                           "Courier 5-8 days delivery for \$0.3",
                         ],
                         buttonIndexedBuilder: (isSelected, index, context) {
                           return Padding(
-                            padding:  EdgeInsets.symmetric(horizontal: 3.w
-                            ),
-                            child: ListTile(title: Row(
-                              children: [
-                                 Icon(
-                                  isSelected
-                                      ? Icons.radio_button_checked
-                                      : Icons.radio_button_unchecked,
-                                  color:
-                                      isSelected ? Colors.orange : Colors.green,
+                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              child: ListTile(
+                                minTileHeight: 4.5.h,
+                                title: Row(
+                                  children: [
+                                    Icon(
+                                        isSelected
+                                            ? Icons.radio_button_checked
+                                            : Icons.radio_button_unchecked,
+                                        color: isSelected
+                                            ? Colors.orange
+                                            : addButtonColor),
+                                    SizedBox(
+                                      width: 1.w,
+                                    ),
+                                    textwidget(
+                                        text: "Fast Shipping ",
+                                        fontszie: 14.px,
+                                        fonweight: fontWeight500,
+                                        color: textColor),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    textwidget(
+                                        text: "1 days delivary for  \$1.0",
+                                        fontszie: 12.px,
+                                        fonweight: fontWeight500,
+                                        color: textColor)
+                                  ],
                                 ),
-                                SizedBox(width: 1.w,),
-                                textwidget(text: "Fast Shipping ",
-                                 fontszie: 14.px, fonweight: fontWeight500, 
-                                 color: textColor),
-                                 SizedBox(width: 2.w,),
-                                 textwidget(text: "1 days delivary for  \$1.0", fontszie: 12.px,
-                                  fonweight: fontWeight500, color: textColor)
-                              ],
-                            ),)
-                          );
+                              ));
                         })
                   ],
                 ),
@@ -163,6 +175,12 @@ class _BillingInformationState extends State<BillingInformation> {
                         fonweight: fontWeight600,
                         color: textColor),
                     ContainerTextButton(
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (c) => ChoosePaymentMethod()));
+                      },
                       text: 'Confirm & Pay',
                       height: 5.h,
                       fontsize: 14.px,
@@ -182,34 +200,39 @@ class _BillingInformationState extends State<BillingInformation> {
 
 class ContainerTextButton extends StatelessWidget {
   const ContainerTextButton({
-    super.key,
+    Key? key,
     required this.text,
     required this.height,
     required this.fontsize,
     required this.titleColor,
     required this.width,
-  });
+    this.ontap,
+  }) : super(key: key);
   final String text;
   final double height;
   final double fontsize;
   final Color titleColor;
   final double width;
+  final void Function()? ontap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 1.w,
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 1.w,
+        ),
+        width: width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: addButtonColor, borderRadius: BorderRadius.circular(8.px)),
+        height: height,
+        child: textwidget(
+            text: text,
+            fontszie: fontsize,
+            fonweight: fontWeight600,
+            color: textColor),
       ),
-      width: width,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: addButtonColor, borderRadius: BorderRadius.circular(8.px)),
-      height: height,
-      child: textwidget(
-          text: text,
-          fontszie: fontsize,
-          fonweight: fontWeight600,
-          color: textColor),
     );
   }
 }

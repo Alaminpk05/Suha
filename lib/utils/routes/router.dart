@@ -27,7 +27,7 @@ class AppRouter {
       ),
       GoRoute(
         path: '/cart',
-        builder: (context, state) => const CartView(title: 'My Cart',),
+        builder: (context, state) => const CartView(),
       ),
       GoRoute(
         path: '/settings',
