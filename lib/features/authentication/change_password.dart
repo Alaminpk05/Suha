@@ -6,6 +6,7 @@ import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/global_widgets/small_widgets.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   const ChangePasswordPage({super.key});
@@ -23,14 +24,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final width = 80.w;
   @override
   Widget build(BuildContext context) {
+    final bool mobile=ResponsiveHelper.isMobile(context);
     return Scaffold(
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: CustomSimpleAppBar(
-              title: "Change Password", widget: MenuWidget())),
+      appBar: PreCustomAppBar(mobile, context, "Change Password", const MenuWidget()),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 2.h),
+          padding: EdgeInsets.symmetric(vertical: mobile?2.h:homeTopPad,horizontal: mobile?fivePad:homeTabLP),
           child: Align(
             alignment: Alignment.center,
             child: Column(
@@ -65,12 +64,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                           children: [
                             textwidget(
                                 text: "@digitalcrop",
-                                fontszie: textsize14,
+                                fontszie: mobile?textsize14:textsize20,
                                 fonweight: fontWeight400,
                                 color: authButtonTextColor),
                             textwidget(
                                 text: "Suha Jannat",
-                                fontszie: textsize20,
+                                fontszie: mobile?textsize20:26.px,
                                 fonweight: fontWeight600,
                                 color: authButtonTextColor),
                           ],
@@ -91,8 +90,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                           bottomRight: Radius.circular(10.px))),
                   child: Column(
                     children: [
-                      const TextfieldHeader(
-                        text: 'Old Password',
+                       TextfieldHeader(
+                        text: 'Old Password', mobile: mobile,
                       ),
                       SizedBox(
                         height: 0.9.h,
@@ -105,8 +104,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       SizedBox(
                         height: 1.5.h,
                       ),
-                      const TextfieldHeader(
-                        text: "New Password",
+                      TextfieldHeader(
+                        text: "New Password", mobile: mobile,
                       ),
                       SizedBox(
                         height: 0.9.h,
@@ -119,7 +118,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       SizedBox(
                         height: 1.5.h,
                       ),
-                      const TextfieldHeader(text: "Repeat New Password"),
+                       TextfieldHeader(text: "Repeat New Password", mobile: mobile,),
                       SizedBox(
                         height: 0.9.h,
                       ),
@@ -153,8 +152,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                               alignment: Alignment.center,
                               child: textwidget(
                                   text: 'Update Password',
-                                  fontszie: 16.px,
-                                  fonweight: fontWeight700,
+                                  fontszie: mobile?textsize16:24.px,
+                                  fonweight: fontWeight600,
                                   color: authButtonTextColor),
                             ),
                           ))
@@ -182,6 +181,7 @@ class PassChangeTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final bool mobile = ResponsiveHelper.isMobile(context);
     return TextFormField(
       onTap: ontap,
       controller: controller,
@@ -194,8 +194,8 @@ class PassChangeTextForm extends StatelessWidget {
           hintText: ishintText == true ? 'Password' : null,
           hintStyle: TextStyle(
               color: authButtonTextColor.withOpacity(0.5),
-              fontWeight: FontWeight.w400,
-              fontSize: textsize14),
+              fontWeight: FontWeight.normal,
+              fontSize: mobile?textsize14:19.px),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: authButtonTextColor.withOpacity(0.4)),
           ),
@@ -212,27 +212,33 @@ class PassChangeTextForm extends StatelessWidget {
 class TextfieldHeader extends StatelessWidget {
   const TextfieldHeader({
     super.key,
-    required this.text,
+    required this.text, required this.mobile,
   });
   final String text;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
+     final bool mobile = ResponsiveHelper.isMobile(context);
     return Row(
       children: [
-        IconContainerWidget(height: 2.7.h, width: 6.w, widget:
-         Image.asset(
-        'assets/key.png',
-        fit: BoxFit.contain,
-        color: authButtonTextColor,
-      ),),
+        IconContainerWidget(
+          height: 2.7.h,
+          width: 6.w,
+          widget: Image.asset(
+            'assets/key.png',
+            fit: BoxFit.contain,
+            color: authButtonTextColor,
+          ),
+          mobile: mobile,
+        ),
         SizedBox(
           width: 1.5.w,
         ),
         textwidget(
             text: text,
-            fontszie: 14.px,
-            fonweight: fontWeight600,
+            fontszie: mobile?14.px:20.px,
+            fonweight: fontWeight500,
             color: authButtonTextColor),
       ],
     );

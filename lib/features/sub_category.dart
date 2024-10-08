@@ -34,10 +34,7 @@ class _SubProductCategoryState extends State<SubProductCategory> {
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
-        appBar: PreCustomAppBar(mobile, context, () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (c) => const Bottompage()));
-        }, 'Clothing', filterwidget(mobile: mobile)),
+        appBar: PreCustomAppBar(mobile, context, 'Clothing', filterwidget(mobile: mobile)),
         body: SingleChildScrollView(
           child: Padding(
             padding: ResponsiveHelper.isMobile(context)

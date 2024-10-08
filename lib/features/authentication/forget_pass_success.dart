@@ -4,12 +4,14 @@ import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/constant/static.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ForgetPassStatusPage extends StatelessWidget {
   const ForgetPassStatusPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: horizontalpad10),
@@ -20,19 +22,19 @@ class ForgetPassStatusPage extends StatelessWidget {
               Image.asset(
                 'assets/images/circle-dashed-check.png',
                 color: Colors.greenAccent,
-                scale: 5,
+                scale: mobile?5:4,
               ),
               SizedBox(
                 height: 3.h,
               ),
               textwidget(
-                  text: 'Password recovery email is sent',
-                  fontszie: textsize14,
+                  text: 'Password recovery email is sent successfully.',
+                  fontszie: mobile?textsize14:textsize20,
                   fonweight: fontWeight400,
                   color: authPageTextColor),
               textwidget(
-                  text: 'successfully. Please check your inbox!',
-                  fontszie: textsize14,
+                  text: 'Please check your inbox!',
+                  fontszie: mobile?textsize14:textsize20,
                   fonweight: fontWeight400,
                   color: authPageTextColor),
               SizedBox(
@@ -43,16 +45,20 @@ class ForgetPassStatusPage extends StatelessWidget {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (c) => const Bottompage()));
                   },
+                  style: TextButton.styleFrom(
+                    textStyle: TextStyle(fontFamily: "Poppins",
+                    fontSize: 20.px)
+                  ),
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+                        EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                     decoration: BoxDecoration(
                       color: authButtonColor,
                       borderRadius: BorderRadius.circular(10.px),
                     ),
                     child: textwidget(
                         text: "Go Home",
-                        fontszie: 16.px,
+                        fontszie: mobile?16.px:22.px,
                         fonweight: fontWeight500,
                         color: authButtonTextColor),
                   ))

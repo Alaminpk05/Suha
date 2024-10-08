@@ -12,7 +12,7 @@ import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class ChoosePaymentMethod extends StatefulWidget {
-  ChoosePaymentMethod({super.key});
+  const ChoosePaymentMethod({super.key});
 
   @override
   State<ChoosePaymentMethod> createState() => _ChoosePaymentMethodState();
@@ -44,19 +44,19 @@ class _ChoosePaymentMethodState extends State<ChoosePaymentMethod> {
 
   @override
   Widget build(BuildContext context) {
-    var mobile = ResponsiveHelper.isMobile(context);
+    final  mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(kToolbarHeight),
             child: CustomSimpleAppBar(
                 title: "Choose Payment Method", widget: MenuWidget())),
         body: GridView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+            padding: EdgeInsets.symmetric(horizontal: mobile?8.w:homeTabLP, vertical: 2.h),
             itemCount: 4,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 1.3,
-                crossAxisSpacing: 7.px,
-                mainAxisSpacing: 7.px,
+                crossAxisSpacing: mobile?7.px:13.px,
+                mainAxisSpacing: mobile?7.px:13.px,
                 crossAxisCount: 2),
             itemBuilder: (context, index) {
               final item = paymentMethods[index];
@@ -81,16 +81,16 @@ class _ChoosePaymentMethodState extends State<ChoosePaymentMethod> {
                       Image.asset(
                         item['icon'],
                         color: selectedMedthod == item['name']
-                            ? textColor
+                            ? addButtonColor
                             : grayColor,
-                        scale: 5.px,
+                        scale: mobile?5.px:3.px,
                       ),
                       textwidget(
                           text: item['name'],
-                          fontszie: textsize12,
+                          fontszie: mobile?textsize12:textsize20,
                           fonweight: fontWeight600,
                           color: selectedMedthod == item['name']
-                              ? textColor
+                              ? addButtonColor
                               : grayColor)
                     ],
                   ),

@@ -32,9 +32,9 @@ Widget _buildLine(double isWidth, double height) {
 }
 
 PreferredSize PreCustomAppBar(bool mobile, BuildContext context,
-    void Function()? navigator, final String title, Widget widget) {
+    final String title, Widget widget) {
   return PreferredSize(
-      preferredSize: Size.fromHeight(mobile ? kToolbarHeight : 5.5.h),
+      preferredSize: Size.fromHeight(mobile ? kToolbarHeight :60.0),
       child: CustomSimpleAppBar(
         title: title,
      
@@ -82,8 +82,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget widget;
 
-  const CustomAppBar({Key? key, required this.title, required this.widget})
-      : super(key: key);
+  const CustomAppBar({super.key, required this.title, required this.widget});
 
   @override
   Widget build(BuildContext context) {

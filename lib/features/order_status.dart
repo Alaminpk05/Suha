@@ -47,7 +47,7 @@ class OrderStatus extends StatelessWidget {
     var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'Order Status', const MenuWidget()),
+          mobile, context, 'Order Status', const MenuWidget()),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

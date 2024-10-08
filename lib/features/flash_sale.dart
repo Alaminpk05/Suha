@@ -33,7 +33,7 @@ class _FlashSaleState extends State<FlashSale> {
         appBar: PreCustomAppBar(
             mobile,
             context,
-            () {},
+          
             'Flash Sale',
             filterwidget(
               mobile: mobile,

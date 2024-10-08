@@ -4,8 +4,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shuhaui/features/authentication/change_password.dart';
 import 'package:shuhaui/features/authentication/forget_pass_success.dart';
 import 'package:shuhaui/features/authentication/login/forgot.dart';
+import 'package:shuhaui/features/authentication/login/login.dart';
 import 'package:shuhaui/features/authentication/otp_confirmation.dart';
 import 'package:shuhaui/features/authentication/otp_send.dart';
+import 'package:shuhaui/features/authentication/registration/registration.dart';
 import 'package:shuhaui/features/bottom_nav_bar/tabapges.dart';
 import 'package:shuhaui/features/cart&checkout.dart/cart/cart_view.dart';
 import 'package:shuhaui/features/cart&checkout.dart/checkout/bank_transfer_page.dart';
@@ -13,6 +15,7 @@ import 'package:shuhaui/features/cart&checkout.dart/checkout/billing_information
 import 'package:shuhaui/features/cart&checkout.dart/checkout/cash_page.dart';
 import 'package:shuhaui/features/cart&checkout.dart/checkout/choose_payment_method.dart';
 import 'package:shuhaui/features/cart&checkout.dart/checkout/credit_page.dart';
+import 'package:shuhaui/features/cart&checkout.dart/checkout/payment_success.dart';
 import 'package:shuhaui/features/cart&checkout.dart/checkout/payple_page.dart';
 import 'package:shuhaui/features/feature_products.dart';
 import 'package:shuhaui/features/flash_sale.dart';
@@ -240,7 +243,7 @@ class Pages extends StatelessWidget {
                   mobile: mobile,
                   ontap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>
-                     ChoosePaymentMethod()));
+                    const ChoosePaymentMethod()));
                   },
                   title: 'Checkout Payment',
                 ),
@@ -248,14 +251,17 @@ class Pages extends StatelessWidget {
                   mobile: mobile,
                   ontap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (c) => PaypalPage()));
+                        MaterialPageRoute(builder: (c) => const PaypalPage()));
                   },
                   title: 'Checkout Paypal',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
                   ontap: () {
-                  
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>  PaymentSuccessPage()));
                   },
                   title: 'Payment Success',
                 ),
@@ -266,12 +272,22 @@ class Pages extends StatelessWidget {
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Login()));
+                  },
                   title: 'Login',
                 ),
                 ElevatedIconTextButton(
                   mobile: mobile,
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Registration()));
+                  },
                   title: 'Register',
                 ),
                 ElevatedIconTextButton(

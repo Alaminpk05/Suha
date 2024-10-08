@@ -50,10 +50,7 @@ late Future<List<TopProductModel>> topproductList;
     var mobile = ResponsiveHelper.isMobile(context);
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
-        appBar: PreCustomAppBar(mobile, context, () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (c) => const Bottompage()));
-        }, 'Product Category', filterwidget(mobile: mobile)),
+        appBar: PreCustomAppBar(mobile, context,  'Product Category', filterwidget(mobile: mobile)),
         body: SingleChildScrollView(
           child: Padding(
             padding: ResponsiveHelper.isMobile(context)

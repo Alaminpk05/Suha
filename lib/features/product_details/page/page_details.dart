@@ -77,7 +77,7 @@ class _PageDetailsState extends State<PageDetails> {
     var tablet = ResponsiveHelper.isTablet(context);
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'Product Details', const MenuWidget()),
+          mobile, context, 'Product Details', const MenuWidget()),
       body: SingleChildScrollView(
         child: Column(
           children: [

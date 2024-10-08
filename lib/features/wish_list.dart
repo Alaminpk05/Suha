@@ -42,7 +42,7 @@ class _WishListState extends State<WishList> {
     Color activeIconColor = Colors.white;
     return Scaffold(
       appBar: PreCustomAppBar(
-          mobile, context, () {}, 'WishList', const MenuWidget()),
+          mobile, context, 'WishList', const MenuWidget()),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(

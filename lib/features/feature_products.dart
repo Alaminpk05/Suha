@@ -33,7 +33,7 @@ class _FeaturedProductPageState extends State<FeaturedProductPage> {
       appBar: PreCustomAppBar(
           mobile,
           context,
-          () {},
+          
           'Featured Products',
           filterwidget(
             mobile: mobile,

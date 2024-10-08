@@ -10,6 +10,7 @@ import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
 import 'package:shuhaui/utils/global_widgets/custom_simple_appbar.dart';
 import 'package:shuhaui/utils/global_widgets/small_widgets.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class BillingInformation extends StatefulWidget {
   const BillingInformation({super.key});
@@ -22,13 +23,14 @@ class _BillingInformationState extends State<BillingInformation> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    var mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kTextTabBarHeight),
-          child: CustomSimpleAppBar(
-              title: 'Billing Information', widget: MenuWidget())),
+      appBar: PreCustomAppBar(
+          mobile, context, 'Billing Information', const MenuWidget()),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 5.w),
+        padding: EdgeInsets.symmetric(
+            vertical: mobile ? 2.h : homeTopPad,
+            horizontal: mobile ? 5.w : homeTabLP),
         child: Align(
           alignment: Alignment.center,
           child: Column(
@@ -43,35 +45,40 @@ class _BillingInformationState extends State<BillingInformation> {
                   width: 80.w,
                   child: Column(
                     children: [
-                      const BillingHeader(
+                      BillingHeader(
                         title: 'Billing Information',
+                        mobile: mobile,
                       ),
-                      const BillingPersonalInfoWidget(
+                      
+                      BillingPersonalInfoWidget(
+                        
                         title: 'Full Name',
                         name: 'SUHA JANNAT',
-                        icon: CupertinoIcons.person,
+                        icon: CupertinoIcons.person, mobile: mobile,
                       ),
-                      const BillingPersonalInfoWidget(
+                       BillingPersonalInfoWidget(
                         title: 'Email Address',
                         name: 'digital@crop.com',
-                        icon: CupertinoIcons.mail,
+                        icon: CupertinoIcons.mail, mobile: mobile,
                       ),
-                      const BillingPersonalInfoWidget(
+                       BillingPersonalInfoWidget(
                         title: 'Phone',
                         name: '+880 000 111 222',
-                        icon: CupertinoIcons.phone,
+                        icon: CupertinoIcons.phone, mobile: mobile,
                       ),
-                      const BillingPersonalInfoWidget(
+                       BillingPersonalInfoWidget(
                         title: 'Shipping',
                         name: '28/C Green Road, BD',
-                        icon: CupertinoIcons.cube_box,
+                        icon: CupertinoIcons.cube_box, mobile: mobile,
                       ),
+                      SizedBox(height: mobile?0:1.5.h
+                      ,),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 3.w),
+                        padding: EdgeInsets.symmetric(horizontal: mobile?3.w:4.w),
                         child: ContainerTextButton(
                           text: "Edit Billing Informatioin",
                           height: 4.h,
-                          fontsize: 15.px,
+                          fontsize: mobile?15.px:textsize20,
                           titleColor: textColor,
                           width: 80.w,
                         ),
@@ -91,7 +98,10 @@ class _BillingInformationState extends State<BillingInformation> {
                 ),
                 child: Column(
                   children: [
-                    const BillingHeader(title: "Shipping Method"),
+                    BillingHeader(
+                      title: "Shipping Method",
+                      mobile: mobile,
+                    ),
                     GroupButton<String>(
                         options: GroupButtonOptions(
                           selectedColor: Colors.orange,
@@ -137,7 +147,7 @@ class _BillingInformationState extends State<BillingInformation> {
                                     ),
                                     textwidget(
                                         text: "Fast Shipping ",
-                                        fontszie: 14.px,
+                                        fontszie: mobile?14.px:textsize20,
                                         fonweight: fontWeight500,
                                         color: textColor),
                                     SizedBox(
@@ -145,7 +155,7 @@ class _BillingInformationState extends State<BillingInformation> {
                                     ),
                                     textwidget(
                                         text: "1 days delivary for  \$1.0",
-                                        fontszie: 12.px,
+                                        fontszie: mobile?12.px:17.px,
                                         fonweight: fontWeight500,
                                         color: textColor)
                                   ],
@@ -170,22 +180,23 @@ class _BillingInformationState extends State<BillingInformation> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     textwidget(
-                        text: '\$0',
-                        fontszie: textsize20,
-                        fonweight: fontWeight600,
+                        text: '\$20',
+                        fontszie: mobile?20.px:24.px,
+                        fonweight: mobile?fontWeight700:FontWeight.w700,
                         color: textColor),
                     ContainerTextButton(
                       ontap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (c) => ChoosePaymentMethod()));
+                                builder: (c) => const ChoosePaymentMethod()));
                       },
                       text: 'Confirm & Pay',
                       height: 5.h,
-                      fontsize: 14.px,
+                      fontsize: mobile?14.px:20.px,
                       titleColor: textColor,
-                      width: 30.w,
+                      width: mobile?30.w:25.w
+                      ,
                     )
                   ],
                 ),
@@ -200,14 +211,14 @@ class _BillingInformationState extends State<BillingInformation> {
 
 class ContainerTextButton extends StatelessWidget {
   const ContainerTextButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.height,
     required this.fontsize,
     required this.titleColor,
     required this.width,
     this.ontap,
-  }) : super(key: key);
+  });
   final String text;
   final double height;
   final double fontsize;
@@ -241,8 +252,10 @@ class BillingHeader extends StatelessWidget {
   const BillingHeader({
     super.key,
     required this.title,
+    required this.mobile,
   });
   final String title;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
@@ -251,7 +264,7 @@ class BillingHeader extends StatelessWidget {
         Center(
           child: textwidget(
               text: title,
-              fontszie: 16.px,
+              fontszie: mobile ? 16.px : 22.px,
               fonweight: fontWeight600,
               color: textColor),
         ),
@@ -270,15 +283,17 @@ class BillingPersonalInfoWidget extends StatelessWidget {
     required this.title,
     required this.name,
     required this.icon,
+    required this.mobile,
   });
   final String title;
   final String name;
   final IconData icon;
+  final bool mobile;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+      padding: EdgeInsets.symmetric(horizontal: mobile?3.w:4.w, vertical: 1.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -289,22 +304,22 @@ class BillingPersonalInfoWidget extends StatelessWidget {
                   width: 6.w,
                   widget: Icon(
                     icon,
-                    size: 15.px,
+                    size: mobile?15.px:20.px,
                     color: textColor,
-                  )),
+                  ), mobile: mobile,),
               SizedBox(
                 width: 1.w,
               ),
               textwidget(
                   text: title,
-                  fontszie: textsize15,
+                  fontszie: mobile?textsize15:textsize20,
                   fonweight: fontWeight500,
                   color: textColor)
             ],
           ),
           textwidget(
               text: name,
-              fontszie: 14.px,
+              fontszie: mobile?14.px:18.px,
               fonweight: fontWeight400,
               color: grayColor)
         ],

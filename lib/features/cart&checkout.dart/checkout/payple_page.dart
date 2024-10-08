@@ -6,9 +6,10 @@ import 'package:shuhaui/features/home/Widgets/singlewidgets/textwidget.dart';
 import 'package:shuhaui/utils/constant/colors.dart';
 import 'package:shuhaui/utils/constant/static.dart';
 import 'package:shuhaui/utils/global_widgets/circuler_menu.dart';
+import 'package:shuhaui/utils/respnsive_helper.dart';
 
 class PaypalPage extends StatefulWidget {
-  PaypalPage({super.key});
+  const PaypalPage({super.key});
 
   @override
   State<PaypalPage> createState() => _PaypalPageState();
@@ -22,12 +23,13 @@ class _PaypalPageState extends State<PaypalPage> {
 
   @override
   Widget build(BuildContext context) {
+    final bool mobile = ResponsiveHelper.isMobile(context);
     return Scaffold(
         appBar: const CustomAppBar(title: ' Paypal Info', widget: MenuWidget()),
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 0.5.h),
-            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            padding: EdgeInsets.symmetric(horizontal: mobile?5.w:homeTabLP),
             child: Column(
               children: [
                 const CheckOutImage(),
@@ -45,11 +47,12 @@ class _PaypalPageState extends State<PaypalPage> {
                   children: [
                     textwidget(
                         text: "Password",
-                        fontszie: 16.px,
+                        fontszie: mobile?16.px:20.px,
                         fonweight: fontWeight500,
                         color: productColor),
                     TextFormField(
                       onTap: () {},
+                    
                       controller: paypalPasswordController,
                       cursorColor: textColor,
                       cursorWidth: 1,
@@ -68,6 +71,12 @@ class _PaypalPageState extends State<PaypalPage> {
                               borderSide: BorderSide(
                                 color: addButtonColor,
                               ))),
+                              style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: mobile?16.px:20.px,
+                      fontWeight: FontWeight.normal
+
+                    ),
                     )
                   ],
                 ),
@@ -77,7 +86,7 @@ class _PaypalPageState extends State<PaypalPage> {
                 ContainerTextButton(
                     text: 'Pay Now',
                     height: 4.5.h,
-                    fontsize: 16.px,
+                    fontsize: mobile?16.px:24.px,
                     titleColor: textColor,
                     width: double.infinity)
               ],
